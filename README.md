@@ -1,53 +1,66 @@
-# Group08 — Software Testing | TV01 — Assignment 6
+# Group08 – Assignment 6: Test Design & Automation Test Planning
 
-**Website kiểm thử:** https://didongviet.vn/  
-**Nhánh làm việc:** tạo nhánh riêng của TV01 từ `dev` (chưa push tự động)  
-**Trạng thái:** Bộ tài liệu chuẩn bị để đưa lên GitHub; không phải bản đã push.
+**Website kiểm thử:** [Di Động Việt](https://didongviet.vn/)  
+**GitHub:** https://github.com/HoangDuyTan/Group08-Software-Test  
+**Hạn nộp:** 23/10/2026  
+**Nhóm trưởng / TV3:** Hoàng Duy Tân – 23130291
 
-## Cấu trúc repository
+## Phạm vi & phân công theo file gốc
 
-```text
-Group08-Software-Test/
-├── README.md
-├── Group08.txt
-├── automation/
-│   └── Group08_AutomationPlan.md
-├── docs/
-│   ├── individual/
-│   │   └── Group08_MaSV_HoTen.xlsx
-│   └── merged/
-│       └── .gitkeep
-├── evidence/
-│   └── .gitkeep
-└── planning/
-    └── Test_Plan_DiDongViet.xlsx
-```
+| TV | Mã chức năng | Tên chức năng (đúng bản phân công) |
+|---|---|---|
+| TV1 | F01 | Tìm kiếm sản phẩm và gợi ý tìm kiếm |
+| TV1 | F02 | Lọc sản phẩm theo nhiều tiêu chí kết hợp |
+| TV1 | F03 | So sánh nhiều sản phẩm |
+| TV2 | F04 | Lựa chọn phiên bản, dung lượng và màu sắc |
+| TV2 | F05 | Quản lý giỏ hàng |
+| TV2 | F06 | Sản phẩm mua kèm và ưu đãi mua kèm |
+| TV3 | F07 | Nhập và xác thực thông tin đặt hàng |
+| TV3 | F08 | Lựa chọn giao hàng / nhận tại cửa hàng |
+| TV3 | F09 | Tra cứu trạng thái đơn hàng |
+| TV4 | F10 | Thu cũ đổi mới: tham khảo giá, đăng ký định giá |
+| TV4 | F11 | Tìm kiếm cửa hàng theo khu vực |
+| TV4 | F12 | Đăng ký tư vấn / tham gia khuyến mãi |
+| TV5 | F13 | Lựa chọn phương án trả góp |
+| TV5 | F14 | Lựa chọn phương thức thanh toán |
+| TV5 | F15 | Flash Sale: giá và trạng thái ưu đãi |
 
-## Phần công việc TV01
+## Hồ sơ nhóm và đường dẫn nộp
 
-- **CN01 / F01:** Tìm kiếm sản phẩm và gợi ý tìm kiếm — **20 test case** (`DDV_F01_001` đến `DDV_F01_020`) trong `docs/individual/`.
-- **CN02:** Bộ lọc sản phẩm đa tiêu chí — phần kế tiếp.
-- **CN03:** Sắp xếp và hiển thị thêm sản phẩm — phần kế tiếp.
-- File Excel hiện trạng thái **Untested**; chỉ cập nhật Passed/Failed khi thực sự chạy.
+- `planning/Assignment6_DiDongViet_450_TestCases_5ThanhVien.xlsx` – bảng phân công và **kịch bản dự thảo**, không phải bản tổng hợp cuối theo mẫu giảng viên.
+- `docs/individual/Group08_MaSV_HoTen.xlsx` – từng thành viên một file; 3 chức năng/người, cập nhật theo tiến độ. Giai đoạn tuần 1 tối thiểu 20–30 test case thuộc một chức năng.
+- `docs/individual/Group08_23130291_HoangDuyTan.xlsx` – hiện là bản tuần 1 của TV3 với F07 (30 TC). Sẽ cập nhật thêm F08 và F09 sau.
+- `docs/merged/Group08_DiDongViet.xlsx` – nhóm trưởng gộp các file cá nhân *đã được duyệt*, theo mẫu giảng viên, thành đủ 15 chức năng. **Chưa tạo file này khi chưa gộp thật.**
+- `automation/Group08_AutomationPlan.md` – kế hoạch/checklist automation cấp nhóm.
+- `evidence/` – tùy chọn lưu bản sao minh chứng; mỗi người vẫn phải có `MaSV_HoTen.png` trong ZIP cá nhân.
+- `Group08.txt` – đường dẫn GitHub chung.
 
-## Trước khi push (bắt buộc)
+## Quy ước mã hóa và format
 
-1. Đổi `Group08_MaSV_HoTen.xlsx` thành `Group08_<MSSV>_<HoTenKhongDau>.xlsx`.
-2. Mở Excel, thay các chỗ giữ chỗ `MaSV`, `HoTen` và kiểm tra nội dung 20 test case theo trình duyệt thực tế.
-3. Clone repository chung (hoặc chuyển tới thư mục repository hiện có), checkout nhánh `dev`, cập nhật, rồi tạo nhánh **riêng** của bạn; KHÔNG `git init` một repo mới trên ZIP này.
-4. Copy phần **file TV01** vào repository, kiểm tra các file dùng chung đã có trong `automation/`, `planning/`, `README.md` để tránh ghi đè tài liệu nhóm.
-5. Commit và push nhánh riêng. Tạo Pull Request vào `dev`.
-6. **Tự chụp màn hình kết quả push/PR thật**, lưu `evidence/<MSSV>_<HoTenKhongDau>.png`. ZIP này không chứa ảnh minh chứng giả.
+- Mã chức năng: `F01`–`F15` như file `PHAN CONG`.
+- Mã thiết kế: `D01`–`D15` trong file kế hoạch nguồn.
+- Mã test case: `DDV_F07_001` (mẫu chung `DDV_F##_###`). Mã phải duy nhất, không tự đổi thành `[F07-1]`.
+- Trạng thái test chưa chạy: `Untested`. Không tự ghi `Passed`/`Failed` nếu chưa thực thi.
+- Định dạng workbook cá nhân bám mẫu cô: Cover, Test case List, TestDesign, sheet Test Case theo chức năng, Test Report.
+- Mẫu file cá nhân: `Group08_MaSV_HoTen.xlsx` (không thêm `_Tuan1` trong tên file nộp cuối).
 
-Ví dụ lệnh (sửa tên nhánh theo MSSV):
+## Git workflow
 
-```bash
-git switch dev
-git pull origin dev
-git switch -c <MSSV>-tv01
-git add docs/individual/Group08_<MSSV>_<HoTenKhongDau>.xlsx
-git commit -m "docs: add TV01 F01 search test cases"
-git push -u origin <MSSV>-tv01
-```
+1. Mỗi thành viên tạo nhánh từ `dev`, ví dụ `feature/tv3-23130291-testcases`.
+2. Chỉ sửa file Excel cá nhân của mình trong `docs/individual/`.
+3. Commit có ý nghĩa, ví dụ `docs(tv3): add 30 F07 test cases`.
+4. Push branch, tạo Pull Request với **base `dev`**. Nhóm trưởng review trước khi merge.
+5. Nhóm trưởng cập nhật `docs/merged/Group08_DiDongViet.xlsx` và `automation/Group08_AutomationPlan.md` trên nhánh riêng của mình, rồi PR vào `dev`.
+6. Giữ lịch sử push, PR, merge để chứng minh đóng góp. Repo để **Public** và kiểm tra trong cửa sổ ẩn danh.
 
-**Lưu ý:** ZIP này mô phỏng **cấu trúc thư mục repository** theo minh chứng nhánh của thành viên khác. Tệp ZIP không phải Git branch thật và không có lịch sử commit/merge.
+## Minh chứng nộp cá nhân
+
+Mỗi người nộp ZIP `MaSV_HoTen.zip` gồm **đúng 3 file**:
+
+1. `Group08.txt` – URL repo chung.
+2. `MaSV_HoTen.png` – ảnh THẬT minh chứng push nhánh riêng và merge vào `dev`, có thể ghép hai ảnh chụp thật vào một PNG.
+3. `Group08_MaSV_HoTen.xlsx` – workbook cá nhân.
+
+Ngoài ZIP, theo yêu cầu tiến độ tuần này, nộp Excel cá nhân lên Classroom. Nhóm trưởng gửi repo qua biểu mẫu của cô: https://forms.gle/qbtm1tGikURpgpzXA
+
+> Lưu ý: Bộ dữ liệu nguồn là bản nháp, cần xác minh UI/điều kiện và expected output trước khi chạy test. Assignment 6 chỉ yêu cầu kế hoạch tự động hóa, chưa bắt buộc chạy toàn bộ automation.
