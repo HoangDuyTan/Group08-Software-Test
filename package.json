@@ -1,0 +1,27 @@
+{
+  "name": "group08-software-test",
+  "version": "1.0.0",
+  "description": "**Website kiểm thử:** [Di Động Việt](https://didongviet.vn/)   **GitHub:** https://github.com/HoangDuyTan/Group08-Software-Test   **Hạn nộp:** 23/10/2026   **Nhóm trưởng / TV3:** Hoàng Duy Tân – 23130291",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/HoangDuyTan/Group08-Software-Test.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/HoangDuyTan/Group08-Software-Test/issues"
+  },
+  "homepage": "https://github.com/HoangDuyTan/Group08-Software-Test#readme",
+  "devDependencies": {
+    "@playwright/test": "^1.64.1"
+  }
+}
