@@ -1,7 +1,7 @@
 import { defineConfig, devices } from '@playwright/test';
 
 export default defineConfig({
-  testDir: './automation/asm7',
+  testDir: './tests',
   timeout: 180_000, // 2-minute manual checkout navigation for DIAG only
   expect: { timeout: 15_000 },
   fullyParallel: false,
