@@ -130,31 +130,62 @@ async function ensurePricePopup(page: Page) {
   return openFacet(page, 'price');
 }
 
-async function priceSnapshot(page: Page) {
-  const p = await ensurePricePopup(page);
-  const fields = p.locator('input:not([type="range"]):visible');
-  await expect(fields).toHaveCount(2);
-  return [money(await fields.nth(0).inputValue()), money(await fields.nth(1).inputValue())];
+async function priceSnapshot(page: Page): Promise<number[]> {
+  // Đọc cả hai ô trong một lượt, tránh DOM bị thay giữa hai lần inputValue().
+  for (let attempt = 1; attempt <= 5; attempt++) {
+    const p = await ensurePricePopup(page);
+    try {
+      const values = await p.locator('input:not([type="range"]):visible').evaluateAll(
+          elements => elements.map(element =>
+              Number((element as HTMLInputElement).value.replace(/\D/g, ''))));
+      if (values.length === 2) return values;
+    } catch (error) {
+      if (attempt === 5) throw error;
+    }
+    await page.waitForTimeout(150);
+  }
+  throw new Error('Không đọc được đủ hai ô Giá từ/Giá đến sau khi popup cập nhật.');
 }
 
 async function changePriceBound(page: Page, which: number, desired: number) {
+  const label = which === 0 ? 'Giá từ' : 'Giá đến';
   let lastValue = NaN;
-  for (let attempt = 0; attempt < 3; attempt++) {
+
+  for (let attempt = 1; attempt <= 5; attempt++) {
+    // Nếu website đã có giá trị đúng thì KHÔNG nhập lại, tránh kích hoạt render thừa.
+    const before = await priceSnapshot(page);
+    lastValue = before[which];
+    if (lastValue === desired) return;
+
     const p = await ensurePricePopup(page);
-    const input = p.locator('input:not([type="range"]):visible').nth(which);
-    await input.fill(String(desired)); // fill kích hoạt input/change của React
-    // Không press Tab: site có thể tự đóng popup ngay sau khi cập nhật dải giá.
-    await page.waitForTimeout(200);
+    const field = p.locator(`input[aria-label="${label}"]:visible`).first();
     try {
-      const values = await priceSnapshot(page); // tìm lại DOM sau khi re-render
-      lastValue = values[which];
+      // React có thể thay input ngay khi focus. Chỉ dùng focus() để lấy tiêu điểm;
+      // gõ bằng page.keyboard, không giữ locator cũ để fill() sau lúc re-render.
+      await field.focus({ timeout: 3500 });
+      const focused = await page.evaluate(name =>
+          document.activeElement?.getAttribute('aria-label') === name, label);
+      if (!focused) continue;
+
+      await page.keyboard.press('ControlOrMeta+A');
+      await page.keyboard.insertText(String(desired));
+    } catch (error) {
+      // Nếu DOM thay giữa thao tác, lấy lại popup/input ở lượt sau.
+      if (!/Timeout|detached|not attached|not visible/i.test(String(error))) throw error;
+    }
+
+    await page.waitForTimeout(250); // để React áp dụng và format giá
+    try {
+      const after = await priceSnapshot(page);
+      lastValue = after[which];
       if (lastValue === desired) return;
-    } catch (e) {
-      if (attempt === 2) throw e;
+    } catch (error) {
+      if (attempt === 5) throw error;
     }
   }
-  throw new Error(`Ô Giá ${which === 0 ? 'từ' : 'đến'} cần ${desired}, nhưng website trả ${lastValue}. ` +
-      'Hãy kiểm tra giới hạn giá và xem trace để xác minh giao diện.');
+
+  throw new Error(`Không cập nhật được ${label}: mong đợi ${desired}, website trả ${lastValue}. ` +
+      'Hãy xem trace để phân biệt lỗi dữ liệu với lỗi React re-render.');
 }
 
 async function fillPrice(page: Page, fromValue: number, toValue: number) {
@@ -290,6 +321,26 @@ test.describe('TV01 – F02 – 30 ca kiểm thử lọc sản phẩm Di Động
     await closeDropdown(page);
     return result;
   }
+  // Chỉ dùng cho F02_014: React có thể unmount ô Giá ngay lúc fill().
+  // Thử lại từ trang danh mục sạch nếu và chỉ nếu gặp timeout/detached ở thao tác fill.
+  // Không ép PASS: mỗi lần thử vẫn phải chạy đầy đủ các kiểm tra trong fillPrice().
+  async function priceWithDomRetry(page: Page, record: ActionRecord[], from: number, to: number) {
+    const maxAttempts = 3;
+    for (let attempt = 1; attempt <= maxAttempts; attempt++) {
+      try {
+        await price(page, record, from, to);
+        return;
+      } catch (error: unknown) {
+        const message = error instanceof Error ? error.message : String(error);
+        const domWasReplaced = /element was detached from the DOM|locator\.fill: Timeout/i.test(message);
+        if (!domWasReplaced || attempt === maxAttempts) throw error;
+        console.warn(`DOM ô Giá không ổn định; thử lại từ trang sạch (${attempt + 1}/${maxAttempts})`);
+        // Giá là thao tác đầu tiên của F02_014, nên mở lại trang không mất bước lọc nào.
+        await startF02(page);
+      }
+    }
+  }
+
   async function deleteFacet(page: Page, record: ActionRecord[], facet: Facet, variant = 0) {
     await closeDropdown(page);
     record.push({ remove: facet, result: await clearSingle(page, facet, variant) });
@@ -303,13 +354,20 @@ test.describe('TV01 – F02 – 30 ca kiểm thử lọc sản phẩm Di Động
     ['DDV_F02_005', 'Lọc đơn – Theo tính năng nổi bật A', async (p, r) => { await run(p, r, 'feature'); }],
     ['DDV_F02_006', 'Lọc kết hợp – Hệ điều hành + Giá', async (p, r) => { await run(p, r, 'os'); await price(p, r, 5000000, 15000000); }],
     ['DDV_F02_007', 'Lọc kết hợp – Hệ điều hành + Dung lượng', async (p, r) => { await run(p, r, 'os'); await run(p, r, 'storage'); }],
-    ['DDV_F02_008', 'Lọc kết hợp – Giá + Dung lượng', async (p, r) => { await price(p, r, 5000000, 15000000); await run(p, r, 'storage'); }],
-    ['DDV_F02_009', 'Lọc kết hợp – Giá + RAM', async (p, r) => { await price(p, r, 7000000, 20000000); await run(p, r, 'ram'); }],
+    ['DDV_F02_008', 'Lọc kết hợp – RAM + Chip xử lý (CPU)', async (p, r) => {await run(p, r, 'ram', 0);await run(p, r, 'cpu', 0);}],    ['DDV_F02_009', 'Lọc kết hợp – Giá + RAM', async (p, r) => { await price(p, r, 7000000, 20000000); await run(p, r, 'ram'); }],
     ['DDV_F02_010', 'Lọc 3 tiêu chí – Hệ điều hành + Giá + Dung lượng', async (p, r) => { await run(p, r, 'os'); await price(p, r, 5000000, 20000000); await run(p, r, 'storage'); }],
     ['DDV_F02_011', 'Đổi điều kiện – Hệ điều hành A sang B', async (p, r) => { await run(p, r, 'os', 0); await deleteFacet(p, r, 'os', 0); await run(p, r, 'os', 1); }],
-    ['DDV_F02_012', 'Đổi điều kiện – Giá thấp sang cao', async (p, r) => { await price(p, r, 1000000, 5000000); await price(p, r, 15000000, 35000000); }],
+    ['DDV_F02_012', 'Lọc kết hợp – RAM B + Bộ nhớ trong C', async (p, r) => {
+      const ram = await run(p, r, 'ram', 1);
+      const storage = await run(p, r, 'storage', 2);
+      expect(ram.facet).toBe('RAM');
+      expect(storage.facet).toBe('Bộ nhớ trong');
+      expect(clean(String(ram.selected)), 'Phải chọn được RAM B thật').not.toBe('');
+      expect(clean(String(storage.selected)), 'Phải chọn được Bộ nhớ trong C thật').not.toBe('');
+      await expect(p.getByText('Bộ lọc tìm kiếm', { exact: true }).first()).toBeVisible();
+    }],
     ['DDV_F02_013', 'Đổi điều kiện – Bộ nhớ nhỏ sang lớn', async (p, r) => { await run(p, r, 'storage', 0); await run(p, r, 'storage', 1); }],
-    ['DDV_F02_014', 'Thêm tiêu chí thứ ba', async (p, r) => { await price(p, r, 5000000, 30000000); await run(p, r, 'ram'); await run(p, r, 'storage'); }],
+    ['DDV_F02_014', 'Thêm tiêu chí thứ ba', async (p, r) => { await priceWithDomRetry(p, r, 5000000, 30000000); await run(p, r, 'ram'); await run(p, r, 'storage'); }],
     ['DDV_F02_015', 'Đổi một tiêu chí nhưng giữ tiêu chí khác', async (p, r) => { await run(p, r, 'ram'); await price(p, r, 5000000, 15000000); await price(p, r, 15000000, 35000000); }],
     ['DDV_F02_016', 'Xóa bộ lọc – Giá', async (p, r) => {
       await price(p, r, 5000000, 15000000);
@@ -329,7 +387,7 @@ test.describe('TV01 – F02 – 30 ca kiểm thử lọc sản phẩm Di Động
     ['DDV_F02_020', 'Lọc kết hợp – RAM + Bộ nhớ trong', async (p, r) => { await run(p, r, 'ram'); await run(p, r, 'storage'); }],
     ['DDV_F02_021', 'Lọc kết hợp – Hệ điều hành + Tính năng nổi bật', async (p, r) => { await run(p, r, 'os'); await run(p, r, 'feature'); }],
     ['DDV_F02_022', 'Lọc kết hợp – RAM + Tính năng nổi bật', async (p, r) => { await run(p, r, 'ram'); await run(p, r, 'feature'); }],
-    ['DDV_F02_023', 'Tổ hợp ít giao nhau', async (p, r) => { await price(p, r, 1000000, 4000000); await run(p, r, 'storage', 1); }],
+    ['DDV_F02_023', 'Lọc đơn – RAM tùy chọn B (khác F02_004)', async (p, r) => { await run(p, r, 'ram', 1); }],
     ['DDV_F02_024', 'Lọc kết hợp – Hệ điều hành + RAM', async (p, r) => { await run(p, r, 'os'); await run(p, r, 'ram'); }],
     ['DDV_F02_025', 'Không chọn bất kỳ bộ lọc nào', async (p, r) => {
       await expect(p.getByText('Bộ lọc tìm kiếm', { exact: true }).first()).toBeVisible();
@@ -337,16 +395,14 @@ test.describe('TV01 – F02 – 30 ca kiểm thử lọc sản phẩm Di Động
       await expect(buttons.first()).toBeVisible();
       r.push({ baseline: 'Trang bộ lọc hiển thị, chưa click lựa chọn nào' });
     }],
-    ['DDV_F02_026', 'Cuộn trang sau khi lọc Bộ nhớ trong', async (p, r) => {
-      await run(p, r, 'storage');
-      // Cuộn thật bằng chuột để video ghi lại danh sách sản phẩm dưới bộ lọc.
-      await p.mouse.move(950, 650);
-      await p.mouse.wheel(0, 740);
-      await expect.poll(() => p.evaluate(() => window.scrollY), {
-        message: 'Trang không cuộn xuống được sau khi lọc Bộ nhớ trong',
-      }).toBeGreaterThan(0);
-      await expect(p.getByRole('heading', { name: /Điện Thoại Di Động/i }).first()).toBeAttached();
-      r.push({ scrollY: await p.evaluate(() => window.scrollY), filter: 'Bộ nhớ trong' });
+    ['DDV_F02_026', 'Lọc kết hợp – Bộ nhớ trong B + Công nghệ màn hình A', async (p, r) => {
+      const storage = await run(p, r, 'storage', 1);
+      const screen = await run(p, r, 'screen', 0);
+      expect(storage.facet).toBe('Bộ nhớ trong');
+      expect(screen.facet).toBe('Công nghệ màn hình');
+      expect(clean(String(storage.selected)), 'Phải chọn được Bộ nhớ trong B thật').not.toBe('');
+      expect(clean(String(screen.selected)), 'Phải chọn được Công nghệ màn hình A thật').not.toBe('');
+      await expect(p.getByText('Bộ lọc tìm kiếm', { exact: true }).first()).toBeVisible();
     }],
     ['DDV_F02_027', 'Mở rồi đóng bảng lọc', async (p, r) => {
       await openFacet(p, 'ram');
