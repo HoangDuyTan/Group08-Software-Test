@@ -8,7 +8,8 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "test:f14": "playwright test tests/23130318_TranThiMinhThu/23130318_TranThiMinhThu_F14.spec.ts --project=chromium"
+    "test:f14": "playwright test tests/23130318_TranThiMinhThu/23130318_TranThiMinhThu_F14.spec.ts --project=chromium",
+    "test:f13": "playwright test tests/23130318_TranThiMinhThu/23130318_TranThiMinhThu_F13.spec.ts --project=chromium --workers=2"
   },
   "repository": {
     "type": "git",
