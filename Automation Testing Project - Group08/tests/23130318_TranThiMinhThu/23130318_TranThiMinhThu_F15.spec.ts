@@ -72,14 +72,22 @@ function card(page: Page, product: Product) {
   return page.locator(`main a[class*="group/product-card"][href="${PRODUCTS[product].path}"]`).first();
 }
 async function ready(page: Page) {
-  if (!(await page.context().cookies()).some(cookie => cookie.name === 'ddv_consent')) {
-    await page.getByRole('button', { name: 'Từ chối', exact: true }).click({ timeout: 10000 });
-  }
-  // SSR có CTA trước khi React gắn handler. Đợi hydration trước mọi mutation,
-  // không retry thêm giỏ (có thể làm tăng số lượng ngoài ý muốn).
+  // SSR có cả CTA và banner cookie trước khi React gắn handler.
+  // Đợi hydration trước khi đóng cookie hoặc thực hiện mutation.
   await expect.poll(() => page.locator('main button').first().evaluate(
     element => Object.keys(element).some(key => key.startsWith('__reactProps$'))
-  )).toBe(true);
+  ), { timeout: 15_000 }).toBe(true);
+  if (!(await page.context().cookies()).some(cookie => cookie.name === 'ddv_consent')) {
+    const reject = page.getByRole('button', { name: 'Từ chối', exact: true });
+    await expect(reject).toBeVisible({ timeout: 15_000 });
+    await expect.poll(() => reject.evaluate(
+      element => Object.keys(element).some(key => key.startsWith('__reactProps$'))
+    ), { timeout: 15_000 }).toBe(true);
+    await reject.click({ timeout: 20_000 });
+    await expect(reject).toBeHidden();
+    await expect.poll(async () => (await page.context().cookies())
+      .some(cookie => cookie.name === 'ddv_consent')).toBe(true);
+  }
 }
 async function home(page: Page) {
   const response = await page.goto(BASE, { waitUntil: 'domcontentloaded' });

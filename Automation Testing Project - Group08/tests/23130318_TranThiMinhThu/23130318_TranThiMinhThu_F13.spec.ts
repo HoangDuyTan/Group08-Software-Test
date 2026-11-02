@@ -1,7 +1,8 @@
 import { test as base, expect, type BrowserContext, type Page, type Locator } from '@playwright/test';
 
 /** F13 – 30 case UI thực tế. Dữ liệu nằm trong spec; đồng bộ Excel cá nhân.
- * Mỗi case có context mới. Seed giỏ lấy qua UI thật, cache trong từng worker.
+ * Mỗi case có context và seed giỏ riêng, lấy qua UI thật.
+ * Không tái sử dụng guest_id giữa các case vì giỏ còn được lưu phía server.
  * Không mock API nghiệp vụ; chặn tracker, ảnh sản phẩm/font/media không thuộc phạm vi.
  * Logo đối tác vẫn tải thật. Không nhập khách hàng/thẻ hoặc xác nhận hồ sơ.
  */
@@ -62,11 +63,19 @@ function amount(raw: string) {
   return Number(match![1].replace(/\D/g, ''));
 }
 async function initialConsent(page: Page) {
+  await expect.poll(() => page.locator('main button').first().evaluate(
+    element => Object.keys(element).some(key => key.startsWith('__reactProps$'))
+  ), { timeout: 15_000 }).toBe(true);
   if (!(await page.context().cookies(BASE)).some(cookie => cookie.name === 'ddv_consent')) {
     const reject = page.getByRole('button', { name: 'Từ chối', exact: true });
-    await reject.waitFor({ state: 'visible', timeout: 10_000 });
-    await reject.click({ timeout: 10_000 });
+    await expect(reject).toBeVisible({ timeout: 15_000 });
+    await expect.poll(() => reject.evaluate(
+      element => Object.keys(element).some(key => key.startsWith('__reactProps$'))
+    ), { timeout: 15_000 }).toBe(true);
+    await reject.click({ timeout: 20_000 });
     await expect(reject).toBeHidden();
+    await expect.poll(async () => (await page.context().cookies(BASE))
+      .some(cookie => cookie.name === 'ddv_consent')).toBe(true);
   }
 }
 async function functionalResources(context: BrowserContext) {
@@ -102,29 +111,24 @@ async function fromProduct(page: Page, product: Product, mode: 'company' | 'cred
   await openChooser(page); await chooseMode(page, mode);
 }
 
-const test = base.extend<{ product: Product; mode: Mode; seed: Seed }, { getSeed: (product: Product) => Promise<Seed> }>({
+const test = base.extend<{ product: Product; mode: Mode; seed: Seed }>({
   product: ['A', { option: true }],
   mode: ['company', { option: true }],
-  getSeed: [async ({ browser }, use) => {
-    const cache = new Map<Product, Promise<Seed>>();
-    await use(product => {
-      if (!cache.has(product)) cache.set(product, (async () => {
-        const context = await browser.newContext({ viewport: { width: 1440, height: 1000 } });
-        try {
-          await functionalResources(context);
-          const page = await context.newPage();
-          await fromProduct(page, product);
-          const state = await context.storageState();
-          // Chỉ copy giỏ/checkout và cookie khách vãng lai/consent của context thử nghiệm.
-          state.cookies = state.cookies.filter(cookie => ['guest_id', 'ddv_gr', 'ddv_consent'].includes(cookie.name));
-          for (const origin of state.origins) origin.localStorage = origin.localStorage.filter(item => ['ddv-cart', 'ddv-checkout'].includes(item.name));
-          return { state, price: amount(await row(page, 'Giá mua trả góp').innerText()), product };
-        } finally { await context.close(); }
-      })());
-      return cache.get(product)!;
-    });
-  }, { scope: 'worker' }],
-  seed: async ({ getSeed, product }, use) => { await use(await getSeed(product)); },
+  seed: async ({ browser, product }, use) => {
+    const context = await browser.newContext({ viewport: { width: 1440, height: 1000 } });
+    let seed: Seed;
+    try {
+      await functionalResources(context);
+      const page = await context.newPage();
+      await fromProduct(page, product);
+      const state = await context.storageState();
+      // Chỉ chuyển trạng thái sang context của CHÍNH ca này, không cache theo worker.
+      state.cookies = state.cookies.filter(cookie => ['guest_id', 'ddv_gr', 'ddv_consent'].includes(cookie.name));
+      for (const origin of state.origins) origin.localStorage = origin.localStorage.filter(item => ['ddv-cart', 'ddv-checkout'].includes(item.name));
+      seed = { state, price: amount(await row(page, 'Giá mua trả góp').innerText()), product };
+    } finally { await context.close(); }
+    await use(seed);
+  },
   storageState: async ({ seed }, use) => { await use(seed.state); },
   context: async ({ context }, use) => { await functionalResources(context); await use(context); },
   page: async ({ page, mode, product }, use) => {
