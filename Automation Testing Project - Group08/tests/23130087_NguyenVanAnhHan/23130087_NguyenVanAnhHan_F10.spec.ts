@@ -4,8 +4,8 @@ import { test, expect, type Locator, type Page } from '@playwright/test';
  * GROUP08 | Nguyễn Văn Anh Hàn | 23130087 | Assignment 7 | F10
  * Nguồn: Group08_23130087_NguyenVanAnhHan.xlsx, bản 1.2 (29/10/2026).
  * 40 ID tương ứng Excel: 31 ca online; 022–030 cần môi trường test.
- * Chạy riêng file này từ thư mục gốc repository:
- * npx playwright test 23130087_NguyenVanAnhHan_ASM7.spec.ts --project=chromium --headed --workers=1
+ * Chạy riêng file này từ thư mục Automation Testing Project - Group08:
+ * npx playwright test tests/23130087_NguyenVanAnhHan/23130087_NguyenVanAnhHan_F10.spec.ts --project=chromium --headed --workers=1
  *
  * Mỗi ca online dùng browser context mới của Playwright và thao tác click thật.
  * Giá được đọc tại lúc chạy; các giá ngày khảo sát không phải giá cố định.
