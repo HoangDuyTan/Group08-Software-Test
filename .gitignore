@@ -1,7 +1,12 @@
-node_modules/
-test-results/
-playwright-report/
-playwright/.cache/
-.env
-.env.*
-.idea/
+# Dependencies / local settings
+**/node_modules/
+**/.idea/
+**/.env
+**/.env.*
+!**/.env.example
+**/test-results/
+**/.cache/
+**/*.log.bak
+
+# Report HTML, JSON, XML and selected evidence are intentionally NOT ignored
+# because Assignment 8 requires them in the repository after the real run.

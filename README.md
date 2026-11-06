@@ -1,66 +1,108 @@
-# Group08 – Assignment 6: Test Design & Automation Test Planning
+# Group08 – Assignment 8 | Automation Testing Integration & Execution
 
-**Website kiểm thử:** [Di Động Việt](https://didongviet.vn/)  
-**GitHub:** https://github.com/HoangDuyTan/Group08-Software-Test  
-**Hạn nộp:** 23/10/2026  
-**Nhóm trưởng / TV3:** Hoàng Duy Tân – 23130291
+**Website:** https://didongviet.vn/  
+**Stack:** TypeScript + Playwright Test + Chromium  
+**Repository:** https://github.com/HoangDuyTan/Group08-Software-Test  
+**Project:** `Automation Testing Project - Group08/`
 
-## Phạm vi & phân công theo file gốc
+## 1. Tình trạng thực tế của bản giao
 
-| TV | Mã chức năng | Tên chức năng (đúng bản phân công) |
-|---|---|---|
-| TV1 | F01 | Tìm kiếm sản phẩm và gợi ý tìm kiếm |
-| TV1 | F02 | Lọc sản phẩm theo nhiều tiêu chí kết hợp |
-| TV1 | F03 | So sánh nhiều sản phẩm |
-| TV2 | F04 | Lựa chọn phiên bản, dung lượng và màu sắc |
-| TV2 | F05 | Quản lý giỏ hàng |
-| TV2 | F06 | Sản phẩm mua kèm và ưu đãi mua kèm |
-| TV3 | F07 | Nhập và xác thực thông tin đặt hàng |
-| TV3 | F08 | Lựa chọn giao hàng / nhận tại cửa hàng |
-| TV3 | F09 | Tra cứu trạng thái đơn hàng |
-| TV4 | F10 | Thu cũ đổi mới: tham khảo giá, đăng ký định giá |
-| TV4 | F11 | Tìm kiếm cửa hàng theo khu vực |
-| TV4 | F12 | Đăng ký tư vấn / tham gia khuyến mãi |
-| TV5 | F13 | Lựa chọn phương án trả góp |
-| TV5 | F14 | Lựa chọn phương thức thanh toán |
-| TV5 | F15 | Flash Sale: giá và trạng thái ưu đãi |
+- **Đã tích hợp source** của 5 thành viên: F01–F15, mỗi thành viên 3 chức năng, 15 file `*.spec.ts`, 2 helper.
+- **Dự kiến theo source:** 460 test được định nghĩa (14 chức năng × 30 và F10 × 40). Cần chạy lệnh Playwright `--list` trên máy đã cài dependency để xác nhận con số này.
+- **Chưa có kết quả chạy một lần full-suite nhóm** trong ZIP `dev` đầu vào. Không sử dụng các kết quả chạy riêng để báo cáo như một lần tích hợp nhóm.
+- **Có bằng chứng lịch sử cá nhân TV3** ở `Test Report - Group08/Individual_Baselines/`, không thay thế group run.
+- **Còn thiếu truy vết Excel:** merged Excel mới có 11 sheet chức năng (320 TC); thiếu F02/F03/F11/F12, F01 Excel 20 vs script 30, F10 Excel 30 vs script 40. File cá nhân TV1 trong ZIP là **0 byte, không mở được**. Xem `docs/ASM08_TRACEABILITY_GAPS.md`.
 
-## Hồ sơ nhóm và đường dẫn nộp
+## 2. Cấu trúc
 
-- `planning/Assignment6_DiDongViet_450_TestCases_5ThanhVien.xlsx` – bảng phân công và **kịch bản dự thảo**, không phải bản tổng hợp cuối theo mẫu giảng viên.
-- `docs/individual/Group08_MaSV_HoTen.xlsx` – từng thành viên một file; 3 chức năng/người, cập nhật theo tiến độ. Giai đoạn tuần 1 tối thiểu 20–30 test case thuộc một chức năng.
-- `docs/individual/Group08_23130291_HoangDuyTan.xlsx` – hiện là bản tuần 1 của TV3 với F07 (30 TC). Sẽ cập nhật thêm F08 và F09 sau.
-- `docs/merged/Group08_DiDongViet.xlsx` – nhóm trưởng gộp các file cá nhân *đã được duyệt*, theo mẫu giảng viên, thành đủ 15 chức năng. **Chưa tạo file này khi chưa gộp thật.**
-- `automation/Group08_AutomationPlan.md` – kế hoạch/checklist automation cấp nhóm.
-- `evidence/` – tùy chọn lưu bản sao minh chứng; mỗi người vẫn phải có `MaSV_HoTen.png` trong ZIP cá nhân.
-- `Group08.txt` – đường dẫn GitHub chung.
+```text
+Group08-Software-Test/
+├── Automation Testing Project - Group08/
+│   ├── package.json / package-lock.json / playwright.config.ts
+│   ├── tests/<MSSV_HoTen>/*.spec.ts
+│   └── scripts/run-group-suite.ps1, summarize-report.mjs
+├── Test Report - Group08/
+│   ├── README.md, TEST_REPORT_PENDING.md
+│   ├── Individual_Baselines/TV3_*
+│   └── [html-report, JSON, JUnit, summary, defects after FULL run]
+├── Envidence - Group08/
+│   ├── screenshots/ (ảnh GitHub / PR gốc, KHÔNG phải screenshots run)
+│   ├── test-screenshots/ (mẫu ảnh thử nghiệm TV3 lịch sử)
+│   └── logs/ (tạo log khi chạy full-suite)
+├── docs/individual/; docs/merged/; docs/ASM08_TRACEABILITY_GAPS.md
+└── README.md
+```
 
-## Quy ước mã hóa và format
+`Envidence - Group08` giữ **đúng cách viết trong đề Assignment 8** (dù có lỗi chính tả tiếng Anh).
 
-- Mã chức năng: `F01`–`F15` như file `PHAN CONG`.
-- Mã thiết kế: `D01`–`D15` trong file kế hoạch nguồn.
-- Mã test case: `DDV_F07_001` (mẫu chung `DDV_F##_###`). Mã phải duy nhất, không tự đổi thành `[F07-1]`.
-- Trạng thái test chưa chạy: `Untested`. Không tự ghi `Passed`/`Failed` nếu chưa thực thi.
-- Định dạng workbook cá nhân bám mẫu cô: Cover, Test case List, TestDesign, sheet Test Case theo chức năng, Test Report.
-- Mẫu file cá nhân: `Group08_MaSV_HoTen.xlsx` (không thêm `_Tuan1` trong tên file nộp cuối).
+## 3. Cài đặt trên Windows (PowerShell)
 
-## Git workflow
+```powershell
+cd 'Automation Testing Project - Group08'
+npm ci
+npx playwright install chromium
+npm run test:list
+```
 
-1. Mỗi thành viên tạo nhánh từ `dev`, ví dụ `feature/tv3-23130291-testcases`.
-2. Chỉ sửa file Excel cá nhân của mình trong `docs/individual/`.
-3. Commit có ý nghĩa, ví dụ `docs(tv3): add 30 F07 test cases`.
-4. Push branch, tạo Pull Request với **base `dev`**. Nhóm trưởng review trước khi merge.
-5. Nhóm trưởng cập nhật `docs/merged/Group08_DiDongViet.xlsx` và `automation/Group08_AutomationPlan.md` trên nhánh riêng của mình, rồi PR vào `dev`.
-6. Giữ lịch sử push, PR, merge để chứng minh đóng góp. Repo để **Public** và kiểm tra trong cửa sổ ẩn danh.
+- Node.js LTS và Chrome/Chromium tương thích với Playwright.
+- Không cần giải nén `node_modules` từ người khác; không commit `.env`, cookie thật hoặc dữ liệu đơn của khách.
+- Dữ liệu test môi trường cho các ca đơn hàng thật chỉ cung cấp nếu nhóm có quyền sử dụng.
 
-## Minh chứng nộp cá nhân
+## 4. Chạy độc lập và chạy toàn nhóm
 
-Mỗi người nộp ZIP `MaSV_HoTen.zip` gồm **đúng 3 file**:
+```powershell
+# Một file cụ thể
+npx playwright test tests/23130291_HoangDuyTan/23130291_HoangDuyTan_F09.spec.ts --workers=1
 
-1. `Group08.txt` – URL repo chung.
-2. `MaSV_HoTen.png` – ảnh THẬT minh chứng push nhánh riêng và merge vào `dev`, có thể ghép hai ảnh chụp thật vào một PNG.
-3. `Group08_MaSV_HoTen.xlsx` – workbook cá nhân.
+# Toàn bộ project, 15 file chức năng
+npm test
 
-Ngoài ZIP, theo yêu cầu tiến độ tuần này, nộp Excel cá nhân lên Classroom. Nhóm trưởng gửi repo qua biểu mẫu của cô: https://forms.gle/qbtm1tGikURpgpzXA
+# Cách khuyến nghị: tự lưu log, thời gian bắt đầu/kết thúc, exit code
+.\scripts\run-group-suite.ps1
+```
 
-> Lưu ý: Bộ dữ liệu nguồn là bản nháp, cần xác minh UI/điều kiện và expected output trước khi chạy test. Assignment 6 chỉ yêu cầu kế hoạch tự động hóa, chưa bắt buộc chạy toàn bộ automation.
+**Chú ý:** Full suite chạy trên website online nên kết quả có thể đổi theo dữ liệu/cấu trúc UI hiện tại. Không đặt hàng/thanh toán/tạo lead thật. Mặc định `workers=1`, `retries=0` để tránh va chạm session và không che lỗi flaky.
+
+## 5. Test Report (HTML / XML / JSON)
+
+Cấu hình `playwright.config.ts` xuất tự động:
+
+| Định dạng | Đường dẫn |
+|---|---|
+| HTML | `Test Report - Group08/html-report/index.html` |
+| JSON | `Test Report - Group08/group08-results.json` |
+| JUnit XML | `Test Report - Group08/group08-junit.xml` |
+| Tổng hợp Markdown | `Test Report - Group08/GroupSuite_Summary.md` |
+| Các case thất bại | `Test Report - Group08/Defect_Log.md` |
+| Log và metadata | `Envidence - Group08/logs/` |
+
+Sau khi chạy xong, nếu không dùng script PowerShell, chạy thêm:
+
+```powershell
+npm run report:summary
+npm run test:report
+```
+
+Khi có fail, HTML report lưu ảnh/trace/video theo cấu hình `retain-on-failure` / `only-on-failure`. Mở report tại **đường dẫn local** để xem tài liệu đã được ghi thật. Khi commit lên GitHub, tránh đẩy thông tin người mua, số điện thoại hoặc chi tiết đơn thật lên kho public.
+
+## 6. Flaky test / Failed test
+
+- **Rerun test Fail** trên đúng trình duyệt/viewport bằng `--grep 'DDV_F##_###' --workers=1` và lưu log lần 2.
+- Nếu lần 1 Fail, lần 2 Passed mà code và dữ liệu không đổi → đánh dấu *suspected flaky*, điều tra wait/locator/mạng/trạng thái UI.
+- Không biến Failed thành Passed bằng cách `test.skip`, `force-click`, nới assertions hay thêm retries vô căn cứ.
+- Tổng hợp nguyên nhân **website bug / automation script issue / thiếu fixture / lỗi môi trường** trong `Test Report - Group08/Defect_Log.md`.
+- Đối chiếu từng Expected trong Excel với Actual sau chạy trước khi đổi Status; nếu Excel thiếu ID, dùng `docs/ASM08_TRACEABILITY_GAPS.md` để lập kế hoạch đồng bộ.
+
+### Rerun tự động cùng một danh sách Failed
+
+```powershell
+.\scripts\rerun-failed.ps1
+```
+
+Sau đó đối chiếu hai log `Envidence - Group08/logs/rerun-failed-*.log` với JSON gốc; cập nhật `FLAKY_RERUN_LOG.md`.
+
+## 7. Bàn giao nhóm & buổi báo cáo
+
+Nộp Git: project tích hợp, report HTML/XML/JSON sau chạy, folder `Envidence - Group08` chứa log, screenshots, và README này. Ngoài ra, **mỗi TV nộp riêng PPTX và ZIP script minh chứng cá nhân** lên Classroom; hai bộ sản phẩm có mục đích khác nhau.
+
+**Cần thực hiện trước khi tuyên bố Assignment 8 hoàn tất:** máy nhóm chạy `npm ci`, `npm run test:list`, `npm test`, rerun Failed, lưu file kết quả và cập nhật Excel cho 15 chức năng. Chưa có các bước này thì không thể công bố Pass/Fail toàn nhóm.
