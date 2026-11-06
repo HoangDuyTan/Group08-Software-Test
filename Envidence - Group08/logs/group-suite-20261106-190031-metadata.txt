@@ -1,0 +1,13 @@
+﻿Run ID: 20261106-190031
+Started: 2026-11-06T19:00:31.7194897+07:00
+Project: D:\Learning\DHNam4\Software Test\CK\Group08-Software-Test\Automation Testing Project - Group08
+Git commit: dbaf8a72562b0bfc37bcb7d2c89ad687f4ac2d0b
+Node: v24.11.0
+NPM: 11.6.1
+Browser: Chromium
+Workers: 1; Retries: 0
+Target: https://didongviet.vn/
+Ended: 2026-11-06T19:46:41.1246006+07:00
+ElapsedSeconds: 2769.41
+ExitCode: 1
+ConsoleLog: D:\Learning\DHNam4\Software Test\CK\Group08-Software-Test\Envidence - Group08\logs\group-suite-20261106-190031.log

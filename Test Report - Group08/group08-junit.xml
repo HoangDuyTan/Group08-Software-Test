@@ -1,0 +1,2043 @@
+<testsuites id="" name="" tests="460" failures="3" skipped="457" errors="0" time="70.66023799999999">
+<testsuite name="23130067_PhamMinhDuc\23130067_PhamMinhDuc_F01.spec.ts" timestamp="2026-11-06T13:08:42.704Z" hostname="chromium" tests="30" failures="3" skipped="27" time="62.582" errors="0">
+<testcase name="TV01 – F01 – 30 test tìm kiếm sản phẩm › DDV_F01_001 - Từ khóa đúng – Tên đầy đủ sản phẩm A" classname="23130067_PhamMinhDuc\23130067_PhamMinhDuc_F01.spec.ts" time="29.141">
+<system-out>
+<![CDATA[
+[[ATTACHMENT|..\Automation Testing Project - Group08\test-results\23130067_PhamMinhDuc-23130-ba6aa-úng-–-Tên-đầy-đủ-sản-phẩm-A-chromium\test-failed-1.png]]
+
+[[ATTACHMENT|..\Automation Testing Project - Group08\test-results\23130067_PhamMinhDuc-23130-ba6aa-úng-–-Tên-đầy-đủ-sản-phẩm-A-chromium\video.webm]]
+
+[[ATTACHMENT|..\Automation Testing Project - Group08\test-results\23130067_PhamMinhDuc-23130-ba6aa-úng-–-Tên-đầy-đủ-sản-phẩm-A-chromium\error-context.md]]
+
+[[ATTACHMENT|..\Automation Testing Project - Group08\test-results\23130067_PhamMinhDuc-23130-ba6aa-úng-–-Tên-đầy-đủ-sản-phẩm-A-chromium\trace.zip]]
+]]>
+</system-out>
+<failure message="Phải có ô tìm kiếm đang HIỂN THỊ" type="expect.toBeVisible">
+<![CDATA[  [chromium] › 23130067_PhamMinhDuc\23130067_PhamMinhDuc_F01.spec.ts:194:9 › TV01 – F01 – 30 test tìm kiếm sản phẩm › DDV_F01_001 - Từ khóa đúng – Tên đầy đủ sản phẩm A › Từ khóa đúng – Tên đầy đủ sản phẩm A 
+
+    Error: Phải có ô tìm kiếm đang HIỂN THỊ
+
+    expect(locator).toBeVisible() failed
+
+    Locator: locator('input[placeholder*="Nhập tên sản phẩm"]:visible').last()
+    Expected: visible
+    Timeout: 15000ms
+    Error: element(s) not found
+
+    Call log:
+      - Phải có ô tìm kiếm đang HIỂN THỊ locator('input[placeholder*="Nhập tên sản phẩm"]:visible').last() with timeout 15000ms
+      - waiting for locator('input[placeholder*="Nhập tên sản phẩm"]:visible').last()
+
+
+      27 |     let locator = page.locator(SEARCH).last();
+      28 |     if (await locator.count() === 0) locator = page.locator(CATALOG_SEARCH).last();
+    > 29 |     await expect(locator, 'Phải có ô tìm kiếm đang HIỂN THỊ').toBeVisible();
+         |                                                               ^
+      30 |     return locator;
+      31 |   }
+      32 |
+        at input (D:\Learning\DHNam4\Software Test\CK\Group08-Software-Test\Automation Testing Project - Group08\tests\23130067_PhamMinhDuc\23130067_PhamMinhDuc_F01.spec.ts:29:63)
+        at typeVisible (D:\Learning\DHNam4\Software Test\CK\Group08-Software-Test\Automation Testing Project - Group08\tests\23130067_PhamMinhDuc\23130067_PhamMinhDuc_F01.spec.ts:35:21)
+        at submitSearch (D:\Learning\DHNam4\Software Test\CK\Group08-Software-Test\Automation Testing Project - Group08\tests\23130067_PhamMinhDuc\23130067_PhamMinhDuc_F01.spec.ts:57:19)
+        at D:\Learning\DHNam4\Software Test\CK\Group08-Software-Test\Automation Testing Project - Group08\tests\23130067_PhamMinhDuc\23130067_PhamMinhDuc_F01.spec.ts:195:24
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    ..\test-results\23130067_PhamMinhDuc-23130-ba6aa-úng-–-Tên-đầy-đủ-sản-phẩm-A-chromium\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    ..\test-results\23130067_PhamMinhDuc-23130-ba6aa-úng-–-Tên-đầy-đủ-sản-phẩm-A-chromium\video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: ..\test-results\23130067_PhamMinhDuc-23130-ba6aa-úng-–-Tên-đầy-đủ-sản-phẩm-A-chromium\error-context.md
+
+    attachment #4: trace (application/zip) ─────────────────────────────────────────────────────────
+    ..\test-results\23130067_PhamMinhDuc-23130-ba6aa-úng-–-Tên-đầy-đủ-sản-phẩm-A-chromium\trace.zip
+    Usage:
+
+        npx playwright show-trace ..\test-results\23130067_PhamMinhDuc-23130-ba6aa-úng-–-Tên-đầy-đủ-sản-phẩm-A-chromium\trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+]]>
+</failure>
+</testcase>
+<testcase name="TV01 – F01 – 30 test tìm kiếm sản phẩm › DDV_F01_002 - Từ khóa đúng – Tên đầy đủ sản phẩm B" classname="23130067_PhamMinhDuc\23130067_PhamMinhDuc_F01.spec.ts" time="16.207">
+<system-out>
+<![CDATA[
+[[ATTACHMENT|..\Automation Testing Project - Group08\test-results\23130067_PhamMinhDuc-23130-a7b31-úng-–-Tên-đầy-đủ-sản-phẩm-B-chromium\test-failed-1.png]]
+
+[[ATTACHMENT|..\Automation Testing Project - Group08\test-results\23130067_PhamMinhDuc-23130-a7b31-úng-–-Tên-đầy-đủ-sản-phẩm-B-chromium\video.webm]]
+
+[[ATTACHMENT|..\Automation Testing Project - Group08\test-results\23130067_PhamMinhDuc-23130-a7b31-úng-–-Tên-đầy-đủ-sản-phẩm-B-chromium\error-context.md]]
+
+[[ATTACHMENT|..\Automation Testing Project - Group08\test-results\23130067_PhamMinhDuc-23130-a7b31-úng-–-Tên-đầy-đủ-sản-phẩm-B-chromium\trace.zip]]
+]]>
+</system-out>
+<failure message="Phải có ô tìm kiếm đang HIỂN THỊ" type="expect.toBeVisible">
+<![CDATA[  [chromium] › 23130067_PhamMinhDuc\23130067_PhamMinhDuc_F01.spec.ts:194:9 › TV01 – F01 – 30 test tìm kiếm sản phẩm › DDV_F01_002 - Từ khóa đúng – Tên đầy đủ sản phẩm B › Từ khóa đúng – Tên đầy đủ sản phẩm B 
+
+    Error: Phải có ô tìm kiếm đang HIỂN THỊ
+
+    expect(locator).toBeVisible() failed
+
+    Locator: locator('input[placeholder*="Nhập tên sản phẩm"]:visible').last()
+    Expected: visible
+    Timeout: 15000ms
+    Error: element(s) not found
+
+    Call log:
+      - Phải có ô tìm kiếm đang HIỂN THỊ locator('input[placeholder*="Nhập tên sản phẩm"]:visible').last() with timeout 15000ms
+      - waiting for locator('input[placeholder*="Nhập tên sản phẩm"]:visible').last()
+
+
+      27 |     let locator = page.locator(SEARCH).last();
+      28 |     if (await locator.count() === 0) locator = page.locator(CATALOG_SEARCH).last();
+    > 29 |     await expect(locator, 'Phải có ô tìm kiếm đang HIỂN THỊ').toBeVisible();
+         |                                                               ^
+      30 |     return locator;
+      31 |   }
+      32 |
+        at input (D:\Learning\DHNam4\Software Test\CK\Group08-Software-Test\Automation Testing Project - Group08\tests\23130067_PhamMinhDuc\23130067_PhamMinhDuc_F01.spec.ts:29:63)
+        at typeVisible (D:\Learning\DHNam4\Software Test\CK\Group08-Software-Test\Automation Testing Project - Group08\tests\23130067_PhamMinhDuc\23130067_PhamMinhDuc_F01.spec.ts:35:21)
+        at submitSearch (D:\Learning\DHNam4\Software Test\CK\Group08-Software-Test\Automation Testing Project - Group08\tests\23130067_PhamMinhDuc\23130067_PhamMinhDuc_F01.spec.ts:57:19)
+        at D:\Learning\DHNam4\Software Test\CK\Group08-Software-Test\Automation Testing Project - Group08\tests\23130067_PhamMinhDuc\23130067_PhamMinhDuc_F01.spec.ts:195:24
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    ..\test-results\23130067_PhamMinhDuc-23130-a7b31-úng-–-Tên-đầy-đủ-sản-phẩm-B-chromium\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    ..\test-results\23130067_PhamMinhDuc-23130-a7b31-úng-–-Tên-đầy-đủ-sản-phẩm-B-chromium\video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: ..\test-results\23130067_PhamMinhDuc-23130-a7b31-úng-–-Tên-đầy-đủ-sản-phẩm-B-chromium\error-context.md
+
+    attachment #4: trace (application/zip) ─────────────────────────────────────────────────────────
+    ..\test-results\23130067_PhamMinhDuc-23130-a7b31-úng-–-Tên-đầy-đủ-sản-phẩm-B-chromium\trace.zip
+    Usage:
+
+        npx playwright show-trace ..\test-results\23130067_PhamMinhDuc-23130-a7b31-úng-–-Tên-đầy-đủ-sản-phẩm-B-chromium\trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+]]>
+</failure>
+</testcase>
+<testcase name="TV01 – F01 – 30 test tìm kiếm sản phẩm › DDV_F01_003 - Nhập từ khóa hãng – Hiển thị đúng Samsung" classname="23130067_PhamMinhDuc\23130067_PhamMinhDuc_F01.spec.ts" time="16.044">
+<system-out>
+<![CDATA[
+[[ATTACHMENT|..\Automation Testing Project - Group08\test-results\23130067_PhamMinhDuc-23130-daf58-ãng-–-Hiển-thị-đúng-Samsung-chromium\test-failed-1.png]]
+
+[[ATTACHMENT|..\Automation Testing Project - Group08\test-results\23130067_PhamMinhDuc-23130-daf58-ãng-–-Hiển-thị-đúng-Samsung-chromium\video.webm]]
+
+[[ATTACHMENT|..\Automation Testing Project - Group08\test-results\23130067_PhamMinhDuc-23130-daf58-ãng-–-Hiển-thị-đúng-Samsung-chromium\error-context.md]]
+
+[[ATTACHMENT|..\Automation Testing Project - Group08\test-results\23130067_PhamMinhDuc-23130-daf58-ãng-–-Hiển-thị-đúng-Samsung-chromium\trace.zip]]
+]]>
+</system-out>
+<failure message="Phải có ô tìm kiếm đang HIỂN THỊ" type="expect.toBeVisible">
+<![CDATA[  [chromium] › 23130067_PhamMinhDuc\23130067_PhamMinhDuc_F01.spec.ts:194:9 › TV01 – F01 – 30 test tìm kiếm sản phẩm › DDV_F01_003 - Nhập từ khóa hãng – Hiển thị đúng Samsung › Nhập từ khóa hãng – Hiển thị đúng Samsung 
+
+    Error: Phải có ô tìm kiếm đang HIỂN THỊ
+
+    expect(locator).toBeVisible() failed
+
+    Locator: locator('input[placeholder*="Nhập tên sản phẩm"]:visible').last()
+    Expected: visible
+    Timeout: 15000ms
+    Error: element(s) not found
+
+    Call log:
+      - Phải có ô tìm kiếm đang HIỂN THỊ locator('input[placeholder*="Nhập tên sản phẩm"]:visible').last() with timeout 15000ms
+      - waiting for locator('input[placeholder*="Nhập tên sản phẩm"]:visible').last()
+
+
+      27 |     let locator = page.locator(SEARCH).last();
+      28 |     if (await locator.count() === 0) locator = page.locator(CATALOG_SEARCH).last();
+    > 29 |     await expect(locator, 'Phải có ô tìm kiếm đang HIỂN THỊ').toBeVisible();
+         |                                                               ^
+      30 |     return locator;
+      31 |   }
+      32 |
+        at input (D:\Learning\DHNam4\Software Test\CK\Group08-Software-Test\Automation Testing Project - Group08\tests\23130067_PhamMinhDuc\23130067_PhamMinhDuc_F01.spec.ts:29:63)
+        at typeVisible (D:\Learning\DHNam4\Software Test\CK\Group08-Software-Test\Automation Testing Project - Group08\tests\23130067_PhamMinhDuc\23130067_PhamMinhDuc_F01.spec.ts:35:21)
+        at safeInput (D:\Learning\DHNam4\Software Test\CK\Group08-Software-Test\Automation Testing Project - Group08\tests\23130067_PhamMinhDuc\23130067_PhamMinhDuc_F01.spec.ts:79:19)
+        at D:\Learning\DHNam4\Software Test\CK\Group08-Software-Test\Automation Testing Project - Group08\tests\23130067_PhamMinhDuc\23130067_PhamMinhDuc_F01.spec.ts:195:24
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    ..\test-results\23130067_PhamMinhDuc-23130-daf58-ãng-–-Hiển-thị-đúng-Samsung-chromium\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    ..\test-results\23130067_PhamMinhDuc-23130-daf58-ãng-–-Hiển-thị-đúng-Samsung-chromium\video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: ..\test-results\23130067_PhamMinhDuc-23130-daf58-ãng-–-Hiển-thị-đúng-Samsung-chromium\error-context.md
+
+    attachment #4: trace (application/zip) ─────────────────────────────────────────────────────────
+    ..\test-results\23130067_PhamMinhDuc-23130-daf58-ãng-–-Hiển-thị-đúng-Samsung-chromium\trace.zip
+    Usage:
+
+        npx playwright show-trace ..\test-results\23130067_PhamMinhDuc-23130-daf58-ãng-–-Hiển-thị-đúng-Samsung-chromium\trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+]]>
+</failure>
+</testcase>
+<testcase name="TV01 – F01 – 30 test tìm kiếm sản phẩm › DDV_F01_004 - Từ khóa đúng – Mã model đang bán" classname="23130067_PhamMinhDuc\23130067_PhamMinhDuc_F01.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="TV01 – F01 – 30 test tìm kiếm sản phẩm › DDV_F01_005 - Từ khóa đúng – Tên kèm dung lượng" classname="23130067_PhamMinhDuc\23130067_PhamMinhDuc_F01.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="TV01 – F01 – 30 test tìm kiếm sản phẩm › DDV_F01_006 - Từ khóa một phần – Đầu tên model" classname="23130067_PhamMinhDuc\23130067_PhamMinhDuc_F01.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="TV01 – F01 – 30 test tìm kiếm sản phẩm › DDV_F01_007 - Từ khóa một phần – Giữa tên model" classname="23130067_PhamMinhDuc\23130067_PhamMinhDuc_F01.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="TV01 – F01 – 30 test tìm kiếm sản phẩm › DDV_F01_008 - Từ khóa một phần – Hậu tố tên model" classname="23130067_PhamMinhDuc\23130067_PhamMinhDuc_F01.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="TV01 – F01 – 30 test tìm kiếm sản phẩm › DDV_F01_009 - Sửa từ khóa – Backspace ký tự cuối của Galaxy" classname="23130067_PhamMinhDuc\23130067_PhamMinhDuc_F01.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="TV01 – F01 – 30 test tìm kiếm sản phẩm › DDV_F01_010 - Mở rộng từ khóa – Samsung sang Samsung Galaxy" classname="23130067_PhamMinhDuc\23130067_PhamMinhDuc_F01.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="TV01 – F01 – 30 test tìm kiếm sản phẩm › DDV_F01_011 - Chuẩn hóa ký tự – Chữ thường" classname="23130067_PhamMinhDuc\23130067_PhamMinhDuc_F01.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="TV01 – F01 – 30 test tìm kiếm sản phẩm › DDV_F01_012 - Chuẩn hóa ký tự – CHỮ IN HOA" classname="23130067_PhamMinhDuc\23130067_PhamMinhDuc_F01.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="TV01 – F01 – 30 test tìm kiếm sản phẩm › DDV_F01_013 - Chuẩn hóa ký tự – Chữ hoa xen kẽ" classname="23130067_PhamMinhDuc\23130067_PhamMinhDuc_F01.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="TV01 – F01 – 30 test tìm kiếm sản phẩm › DDV_F01_014 - Chuẩn hóa ký tự – Tiếng Việt có dấu" classname="23130067_PhamMinhDuc\23130067_PhamMinhDuc_F01.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="TV01 – F01 – 30 test tìm kiếm sản phẩm › DDV_F01_015 - Chuẩn hóa ký tự – Tiếng Việt không dấu" classname="23130067_PhamMinhDuc\23130067_PhamMinhDuc_F01.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="TV01 – F01 – 30 test tìm kiếm sản phẩm › DDV_F01_016 - Input không hợp lệ – Chuỗi không tồn tại" classname="23130067_PhamMinhDuc\23130067_PhamMinhDuc_F01.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="TV01 – F01 – 30 test tìm kiếm sản phẩm › DDV_F01_017 - Input không hợp lệ – Chỉ ký tự đặc biệt" classname="23130067_PhamMinhDuc\23130067_PhamMinhDuc_F01.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="TV01 – F01 – 30 test tìm kiếm sản phẩm › DDV_F01_018 - Input không hợp lệ – Thẻ script dưới dạng văn bản" classname="23130067_PhamMinhDuc\23130067_PhamMinhDuc_F01.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="TV01 – F01 – 30 test tìm kiếm sản phẩm › DDV_F01_019 - Input không hợp lệ – Chuỗi có dấu nháy đơn" classname="23130067_PhamMinhDuc\23130067_PhamMinhDuc_F01.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="TV01 – F01 – 30 test tìm kiếm sản phẩm › DDV_F01_020 - Input không hợp lệ – Chuỗi emoji" classname="23130067_PhamMinhDuc\23130067_PhamMinhDuc_F01.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="TV01 – F01 – 30 test tìm kiếm sản phẩm › DDV_F01_021 - Trường biên – Chuỗi rỗng" classname="23130067_PhamMinhDuc\23130067_PhamMinhDuc_F01.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="TV01 – F01 – 30 test tìm kiếm sản phẩm › DDV_F01_022 - Trường biên – Chỉ dấu cách" classname="23130067_PhamMinhDuc\23130067_PhamMinhDuc_F01.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="TV01 – F01 – 30 test tìm kiếm sản phẩm › DDV_F01_023 - Trường biên – Một ký tự" classname="23130067_PhamMinhDuc\23130067_PhamMinhDuc_F01.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="TV01 – F01 – 30 test tìm kiếm sản phẩm › DDV_F01_024 - Trường biên – Từ khóa dài 200 ký tự" classname="23130067_PhamMinhDuc\23130067_PhamMinhDuc_F01.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="TV01 – F01 – 30 test tìm kiếm sản phẩm › DDV_F01_025 - Trường biên – Dấu cách thừa" classname="23130067_PhamMinhDuc\23130067_PhamMinhDuc_F01.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="TV01 – F01 – 30 test tìm kiếm sản phẩm › DDV_F01_026 - Ô tìm kiếm – Giữ tiêu điểm khi nhập iPhone" classname="23130067_PhamMinhDuc\23130067_PhamMinhDuc_F01.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="TV01 – F01 – 30 test tìm kiếm sản phẩm › DDV_F01_027 - Bàn phím – Ctrl+A, Backspace rồi nhập từ khóa mới" classname="23130067_PhamMinhDuc\23130067_PhamMinhDuc_F01.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="TV01 – F01 – 30 test tìm kiếm sản phẩm › DDV_F01_028 - Gợi ý – Nhập rồi xóa hết" classname="23130067_PhamMinhDuc\23130067_PhamMinhDuc_F01.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="TV01 – F01 – 30 test tìm kiếm sản phẩm › DDV_F01_029 - Gợi ý – Đổi từ khóa khi đang nhập" classname="23130067_PhamMinhDuc\23130067_PhamMinhDuc_F01.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="TV01 – F01 – 30 test tìm kiếm sản phẩm › DDV_F01_030 - Nhập từ khóa – Nhiều dấu cách giữa các từ" classname="23130067_PhamMinhDuc\23130067_PhamMinhDuc_F01.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+</testsuite>
+<testsuite name="23130067_PhamMinhDuc\23130067_PhamMinhDuc_F02.spec.ts" timestamp="2026-11-06T13:08:42.704Z" hostname="chromium" tests="30" failures="0" skipped="30" time="0" errors="0">
+<testcase name="TV01 – F02 – 30 ca kiểm thử lọc sản phẩm Di Động Việt › DDV_F02_001 - Lọc đơn – Theo hệ điều hành A" classname="23130067_PhamMinhDuc\23130067_PhamMinhDuc_F02.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="TV01 – F02 – 30 ca kiểm thử lọc sản phẩm Di Động Việt › DDV_F02_002 - Lọc đơn – Bộ nhớ trong C (tùy chọn thứ ba)" classname="23130067_PhamMinhDuc\23130067_PhamMinhDuc_F02.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="TV01 – F02 – 30 ca kiểm thử lọc sản phẩm Di Động Việt › DDV_F02_003 - Lọc đơn – Theo dung lượng A" classname="23130067_PhamMinhDuc\23130067_PhamMinhDuc_F02.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="TV01 – F02 – 30 ca kiểm thử lọc sản phẩm Di Động Việt › DDV_F02_004 - Lọc đơn – Theo RAM A" classname="23130067_PhamMinhDuc\23130067_PhamMinhDuc_F02.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="TV01 – F02 – 30 ca kiểm thử lọc sản phẩm Di Động Việt › DDV_F02_005 - Lọc đơn – Theo tính năng nổi bật A" classname="23130067_PhamMinhDuc\23130067_PhamMinhDuc_F02.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="TV01 – F02 – 30 ca kiểm thử lọc sản phẩm Di Động Việt › DDV_F02_006 - Lọc kết hợp – Hệ điều hành + Giá" classname="23130067_PhamMinhDuc\23130067_PhamMinhDuc_F02.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="TV01 – F02 – 30 ca kiểm thử lọc sản phẩm Di Động Việt › DDV_F02_007 - Lọc kết hợp – Hệ điều hành + Dung lượng" classname="23130067_PhamMinhDuc\23130067_PhamMinhDuc_F02.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="TV01 – F02 – 30 ca kiểm thử lọc sản phẩm Di Động Việt › DDV_F02_008 - Lọc kết hợp – RAM + Chip xử lý (CPU)" classname="23130067_PhamMinhDuc\23130067_PhamMinhDuc_F02.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="TV01 – F02 – 30 ca kiểm thử lọc sản phẩm Di Động Việt › DDV_F02_009 - Lọc kết hợp – Giá + RAM" classname="23130067_PhamMinhDuc\23130067_PhamMinhDuc_F02.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="TV01 – F02 – 30 ca kiểm thử lọc sản phẩm Di Động Việt › DDV_F02_010 - Lọc 3 tiêu chí – Hệ điều hành + Giá + Dung lượng" classname="23130067_PhamMinhDuc\23130067_PhamMinhDuc_F02.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="TV01 – F02 – 30 ca kiểm thử lọc sản phẩm Di Động Việt › DDV_F02_011 - Đổi điều kiện – Hệ điều hành A sang B" classname="23130067_PhamMinhDuc\23130067_PhamMinhDuc_F02.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="TV01 – F02 – 30 ca kiểm thử lọc sản phẩm Di Động Việt › DDV_F02_012 - Lọc kết hợp – RAM B + Bộ nhớ trong C" classname="23130067_PhamMinhDuc\23130067_PhamMinhDuc_F02.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="TV01 – F02 – 30 ca kiểm thử lọc sản phẩm Di Động Việt › DDV_F02_013 - Đổi điều kiện – Bộ nhớ nhỏ sang lớn" classname="23130067_PhamMinhDuc\23130067_PhamMinhDuc_F02.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="TV01 – F02 – 30 ca kiểm thử lọc sản phẩm Di Động Việt › DDV_F02_014 - Thêm tiêu chí thứ ba" classname="23130067_PhamMinhDuc\23130067_PhamMinhDuc_F02.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="TV01 – F02 – 30 ca kiểm thử lọc sản phẩm Di Động Việt › DDV_F02_015 - Đổi một tiêu chí nhưng giữ tiêu chí khác" classname="23130067_PhamMinhDuc\23130067_PhamMinhDuc_F02.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="TV01 – F02 – 30 ca kiểm thử lọc sản phẩm Di Động Việt › DDV_F02_016 - Xóa bộ lọc – Giá" classname="23130067_PhamMinhDuc\23130067_PhamMinhDuc_F02.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="TV01 – F02 – 30 ca kiểm thử lọc sản phẩm Di Động Việt › DDV_F02_017 - Xóa bộ lọc – Hệ điều hành" classname="23130067_PhamMinhDuc\23130067_PhamMinhDuc_F02.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="TV01 – F02 – 30 ca kiểm thử lọc sản phẩm Di Động Việt › DDV_F02_018 - Xóa bộ lọc – RAM" classname="23130067_PhamMinhDuc\23130067_PhamMinhDuc_F02.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="TV01 – F02 – 30 ca kiểm thử lọc sản phẩm Di Động Việt › DDV_F02_019 - Xóa một trong ba điều kiện" classname="23130067_PhamMinhDuc\23130067_PhamMinhDuc_F02.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="TV01 – F02 – 30 ca kiểm thử lọc sản phẩm Di Động Việt › DDV_F02_020 - Lọc kết hợp – RAM + Bộ nhớ trong" classname="23130067_PhamMinhDuc\23130067_PhamMinhDuc_F02.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="TV01 – F02 – 30 ca kiểm thử lọc sản phẩm Di Động Việt › DDV_F02_021 - Lọc kết hợp – Hệ điều hành + Tính năng nổi bật" classname="23130067_PhamMinhDuc\23130067_PhamMinhDuc_F02.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="TV01 – F02 – 30 ca kiểm thử lọc sản phẩm Di Động Việt › DDV_F02_022 - Lọc kết hợp – RAM + Tính năng nổi bật" classname="23130067_PhamMinhDuc\23130067_PhamMinhDuc_F02.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="TV01 – F02 – 30 ca kiểm thử lọc sản phẩm Di Động Việt › DDV_F02_023 - Lọc đơn – RAM tùy chọn B (khác F02_004)" classname="23130067_PhamMinhDuc\23130067_PhamMinhDuc_F02.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="TV01 – F02 – 30 ca kiểm thử lọc sản phẩm Di Động Việt › DDV_F02_024 - Lọc kết hợp – Hệ điều hành + RAM" classname="23130067_PhamMinhDuc\23130067_PhamMinhDuc_F02.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="TV01 – F02 – 30 ca kiểm thử lọc sản phẩm Di Động Việt › DDV_F02_025 - Không chọn bất kỳ bộ lọc nào" classname="23130067_PhamMinhDuc\23130067_PhamMinhDuc_F02.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="TV01 – F02 – 30 ca kiểm thử lọc sản phẩm Di Động Việt › DDV_F02_026 - Lọc kết hợp – Bộ nhớ trong B + Công nghệ màn hình A" classname="23130067_PhamMinhDuc\23130067_PhamMinhDuc_F02.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="TV01 – F02 – 30 ca kiểm thử lọc sản phẩm Di Động Việt › DDV_F02_027 - Mở rồi đóng bảng lọc" classname="23130067_PhamMinhDuc\23130067_PhamMinhDuc_F02.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="TV01 – F02 – 30 ca kiểm thử lọc sản phẩm Di Động Việt › DDV_F02_028 - Lọc đơn – Theo chip xử lý (CPU)" classname="23130067_PhamMinhDuc\23130067_PhamMinhDuc_F02.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="TV01 – F02 – 30 ca kiểm thử lọc sản phẩm Di Động Việt › DDV_F02_029 - Lọc đơn – Theo công nghệ màn hình" classname="23130067_PhamMinhDuc\23130067_PhamMinhDuc_F02.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="TV01 – F02 – 30 ca kiểm thử lọc sản phẩm Di Động Việt › DDV_F02_030 - Đổi thứ tự sắp xếp khi đang lọc" classname="23130067_PhamMinhDuc\23130067_PhamMinhDuc_F02.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+</testsuite>
+<testsuite name="23130067_PhamMinhDuc\23130067_PhamMinhDuc_F03.spec.ts" timestamp="2026-11-06T13:08:42.704Z" hostname="chromium" tests="30" failures="0" skipped="30" time="0" errors="0">
+<testcase name="TV01 – F03 – 30 test so sánh nhiều sản phẩm › DDV_F03_001 - Thêm so sánh – Một sản phẩm A" classname="23130067_PhamMinhDuc\23130067_PhamMinhDuc_F03.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="TV01 – F03 – 30 test so sánh nhiều sản phẩm › DDV_F03_002 - Thêm so sánh – Thêm sản phẩm B" classname="23130067_PhamMinhDuc\23130067_PhamMinhDuc_F03.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="TV01 – F03 – 30 test so sánh nhiều sản phẩm › DDV_F03_003 - Thêm so sánh – Sản phẩm C nếu website cho phép" classname="23130067_PhamMinhDuc\23130067_PhamMinhDuc_F03.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="TV01 – F03 – 30 test so sánh nhiều sản phẩm › DDV_F03_004 - Thêm so sánh – Hai máy cùng hãng" classname="23130067_PhamMinhDuc\23130067_PhamMinhDuc_F03.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="TV01 – F03 – 30 test so sánh nhiều sản phẩm › DDV_F03_005 - Thêm so sánh – Hai máy khác hãng" classname="23130067_PhamMinhDuc\23130067_PhamMinhDuc_F03.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="TV01 – F03 – 30 test so sánh nhiều sản phẩm › DDV_F03_006 - Trùng và giới hạn – Thêm lại A" classname="23130067_PhamMinhDuc\23130067_PhamMinhDuc_F03.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="TV01 – F03 – 30 test so sánh nhiều sản phẩm › DDV_F03_007 - Chọn so sánh sản phẩm B sau khi đối chiếu hai thẻ A/B" classname="23130067_PhamMinhDuc\23130067_PhamMinhDuc_F03.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="TV01 – F03 – 30 test so sánh nhiều sản phẩm › DDV_F03_008 - Giới hạn – Chọn đến mức tối đa cho phép" classname="23130067_PhamMinhDuc\23130067_PhamMinhDuc_F03.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="TV01 – F03 – 30 test so sánh nhiều sản phẩm › DDV_F03_009 - Giới hạn – Thử thêm quá mức cho phép" classname="23130067_PhamMinhDuc\23130067_PhamMinhDuc_F03.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="TV01 – F03 – 30 test so sánh nhiều sản phẩm › DDV_F03_010 - Chọn một sản phẩm và giữ khả năng so sánh các máy khác" classname="23130067_PhamMinhDuc\23130067_PhamMinhDuc_F03.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="TV01 – F03 – 30 test so sánh nhiều sản phẩm › DDV_F03_011 - Thêm hai sản phẩm ở vị trí cách xa nhau" classname="23130067_PhamMinhDuc\23130067_PhamMinhDuc_F03.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="TV01 – F03 – 30 test so sánh nhiều sản phẩm › DDV_F03_012 - Chọn hai sản phẩm từ vùng giữa danh sách" classname="23130067_PhamMinhDuc\23130067_PhamMinhDuc_F03.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="TV01 – F03 – 30 test so sánh nhiều sản phẩm › DDV_F03_013 - Chọn ba sản phẩm khác nhau từ vùng giữa danh sách" classname="23130067_PhamMinhDuc\23130067_PhamMinhDuc_F03.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="TV01 – F03 – 30 test so sánh nhiều sản phẩm › DDV_F03_014 - Chọn so sánh từ thẻ sản phẩm thứ tư" classname="23130067_PhamMinhDuc\23130067_PhamMinhDuc_F03.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="TV01 – F03 – 30 test so sánh nhiều sản phẩm › DDV_F03_015 - Chọn so sánh từ thẻ sản phẩm thứ năm" classname="23130067_PhamMinhDuc\23130067_PhamMinhDuc_F03.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="TV01 – F03 – 30 test so sánh nhiều sản phẩm › DDV_F03_016 - Chọn so sánh từ thẻ sản phẩm thứ sáu" classname="23130067_PhamMinhDuc\23130067_PhamMinhDuc_F03.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="TV01 – F03 – 30 test so sánh nhiều sản phẩm › DDV_F03_017 - Chọn so sánh từ thẻ sản phẩm thứ bảy" classname="23130067_PhamMinhDuc\23130067_PhamMinhDuc_F03.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="TV01 – F03 – 30 test so sánh nhiều sản phẩm › DDV_F03_018 - Chọn so sánh từ thẻ sản phẩm thứ tám" classname="23130067_PhamMinhDuc\23130067_PhamMinhDuc_F03.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="TV01 – F03 – 30 test so sánh nhiều sản phẩm › DDV_F03_019 - Chọn so sánh từ thẻ sản phẩm thứ chín" classname="23130067_PhamMinhDuc\23130067_PhamMinhDuc_F03.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="TV01 – F03 – 30 test so sánh nhiều sản phẩm › DDV_F03_020 - Chọn so sánh và đối chiếu tên trên thẻ sản phẩm" classname="23130067_PhamMinhDuc\23130067_PhamMinhDuc_F03.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="TV01 – F03 – 30 test so sánh nhiều sản phẩm › DDV_F03_021 - Chọn so sánh và đối chiếu liên kết sản phẩm" classname="23130067_PhamMinhDuc\23130067_PhamMinhDuc_F03.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="TV01 – F03 – 30 test so sánh nhiều sản phẩm › DDV_F03_022 - Thêm hai sản phẩm từ nhóm thẻ thứ ba trở đi" classname="23130067_PhamMinhDuc\23130067_PhamMinhDuc_F03.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="TV01 – F03 – 30 test so sánh nhiều sản phẩm › DDV_F03_023 - Thêm hai sản phẩm từ nhóm thẻ thứ năm trở đi" classname="23130067_PhamMinhDuc\23130067_PhamMinhDuc_F03.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="TV01 – F03 – 30 test so sánh nhiều sản phẩm › DDV_F03_024 - Chọn so sánh không tự chuyển sang trang sản phẩm" classname="23130067_PhamMinhDuc\23130067_PhamMinhDuc_F03.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="TV01 – F03 – 30 test so sánh nhiều sản phẩm › DDV_F03_025 - Danh mục vẫn hiển thị sau khi chọn so sánh" classname="23130067_PhamMinhDuc\23130067_PhamMinhDuc_F03.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="TV01 – F03 – 30 test so sánh nhiều sản phẩm › DDV_F03_026 - Cuộn xuống rồi chọn so sánh sản phẩm" classname="23130067_PhamMinhDuc\23130067_PhamMinhDuc_F03.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="TV01 – F03 – 30 test so sánh nhiều sản phẩm › DDV_F03_027 - Cuộn sâu và chọn so sánh từ thẻ phía dưới" classname="23130067_PhamMinhDuc\23130067_PhamMinhDuc_F03.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="TV01 – F03 – 30 test so sánh nhiều sản phẩm › DDV_F03_028 - Cuộn xuống rồi trở lên để chọn so sánh" classname="23130067_PhamMinhDuc\23130067_PhamMinhDuc_F03.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="TV01 – F03 – 30 test so sánh nhiều sản phẩm › DDV_F03_029 - Chọn so sánh trên màn hình desktop 1366px" classname="23130067_PhamMinhDuc\23130067_PhamMinhDuc_F03.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="TV01 – F03 – 30 test so sánh nhiều sản phẩm › DDV_F03_030 - Chọn so sánh trên màn hình desktop 1280px" classname="23130067_PhamMinhDuc\23130067_PhamMinhDuc_F03.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+</testsuite>
+<testsuite name="23130082_NguyenTruongGiang\23130082_NguyenTruongGiang_F04.spec.ts" timestamp="2026-11-06T13:08:42.704Z" hostname="chromium" tests="30" failures="0" skipped="30" time="0" errors="0">
+<testcase name="ASM07 | F04 | D04 | 30 test cases from Assignment 6 › DDV_F04_001 - Chọn mức dung lượng nhỏ nhất" classname="23130082_NguyenTruongGiang\23130082_NguyenTruongGiang_F04.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="ASM07 | F04 | D04 | 30 test cases from Assignment 6 › DDV_F04_002 - Chọn mức dung lượng lớn nhất" classname="23130082_NguyenTruongGiang\23130082_NguyenTruongGiang_F04.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="ASM07 | F04 | D04 | 30 test cases from Assignment 6 › DDV_F04_003 - Chọn dung lượng ở giữa" classname="23130082_NguyenTruongGiang\23130082_NguyenTruongGiang_F04.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="ASM07 | F04 | D04 | 30 test cases from Assignment 6 › DDV_F04_004 - Đổi 128GB rồi quay về 256GB" classname="23130082_NguyenTruongGiang\23130082_NguyenTruongGiang_F04.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="ASM07 | F04 | D04 | 30 test cases from Assignment 6 › DDV_F04_005 - Bấm lại phiên bản 256GB hiện tại" classname="23130082_NguyenTruongGiang\23130082_NguyenTruongGiang_F04.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="ASM07 | F04 | D04 | 30 test cases from Assignment 6 › DDV_F04_006 - Chọn màu đầu danh sách – Hồng" classname="23130082_NguyenTruongGiang\23130082_NguyenTruongGiang_F04.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="ASM07 | F04 | D04 | 30 test cases from Assignment 6 › DDV_F04_007 - Chọn màu cuối danh sách – Trắng" classname="23130082_NguyenTruongGiang\23130082_NguyenTruongGiang_F04.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="ASM07 | F04 | D04 | 30 test cases from Assignment 6 › DDV_F04_008 - Chọn màu thứ hai – Xanh Lá" classname="23130082_NguyenTruongGiang\23130082_NguyenTruongGiang_F04.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="ASM07 | F04 | D04 | 30 test cases from Assignment 6 › DDV_F04_009 - Đổi màu Xanh Dương sang Đen" classname="23130082_NguyenTruongGiang\23130082_NguyenTruongGiang_F04.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="ASM07 | F04 | D04 | 30 test cases from Assignment 6 › DDV_F04_010 - Bấm lại màu Hồng đang được chọn" classname="23130082_NguyenTruongGiang\23130082_NguyenTruongGiang_F04.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="ASM07 | F04 | D04 | 30 test cases from Assignment 6 › DDV_F04_011 - Tổ hợp Hồng + 128GB" classname="23130082_NguyenTruongGiang\23130082_NguyenTruongGiang_F04.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="ASM07 | F04 | D04 | 30 test cases from Assignment 6 › DDV_F04_012 - Tổ hợp Hồng + 512GB" classname="23130082_NguyenTruongGiang\23130082_NguyenTruongGiang_F04.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="ASM07 | F04 | D04 | 30 test cases from Assignment 6 › DDV_F04_013 - Tổ hợp Đen + 128GB" classname="23130082_NguyenTruongGiang\23130082_NguyenTruongGiang_F04.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="ASM07 | F04 | D04 | 30 test cases from Assignment 6 › DDV_F04_014 - Tổ hợp Đen + 512GB" classname="23130082_NguyenTruongGiang\23130082_NguyenTruongGiang_F04.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="ASM07 | F04 | D04 | 30 test cases from Assignment 6 › DDV_F04_015 - Đổi màu rồi đổi dung lượng" classname="23130082_NguyenTruongGiang\23130082_NguyenTruongGiang_F04.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="ASM07 | F04 | D04 | 30 test cases from Assignment 6 › DDV_F04_016 - So sánh giá khi đổi bộ nhớ" classname="23130082_NguyenTruongGiang\23130082_NguyenTruongGiang_F04.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="ASM07 | F04 | D04 | 30 test cases from Assignment 6 › DDV_F04_017 - So sánh hai màu có cùng giá" classname="23130082_NguyenTruongGiang\23130082_NguyenTruongGiang_F04.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="ASM07 | F04 | D04 | 30 test cases from Assignment 6 › DDV_F04_018 - Kiểm tra giá bán và giá gạch" classname="23130082_NguyenTruongGiang\23130082_NguyenTruongGiang_F04.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="ASM07 | F04 | D04 | 30 test cases from Assignment 6 › DDV_F04_019 - Kiểm tra phần trăm giảm giá" classname="23130082_NguyenTruongGiang\23130082_NguyenTruongGiang_F04.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="ASM07 | F04 | D04 | 30 test cases from Assignment 6 › DDV_F04_020 - Quay về biến thể và giá ban đầu" classname="23130082_NguyenTruongGiang\23130082_NguyenTruongGiang_F04.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="ASM07 | F04 | D04 | 30 test cases from Assignment 6 › DDV_F04_021 - Kiểm tra CTA khi phiên bản 256GB đang hết hàng" classname="23130082_NguyenTruongGiang\23130082_NguyenTruongGiang_F04.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="ASM07 | F04 | D04 | 30 test cases from Assignment 6 › DDV_F04_022 - Thông tin chờ hàng theo màu Đen" classname="23130082_NguyenTruongGiang\23130082_NguyenTruongGiang_F04.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="ASM07 | F04 | D04 | 30 test cases from Assignment 6 › DDV_F04_023 - Thông tin chờ hàng theo màu Trắng" classname="23130082_NguyenTruongGiang\23130082_NguyenTruongGiang_F04.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="ASM07 | F04 | D04 | 30 test cases from Assignment 6 › DDV_F04_024 - Đăng ký nhận thông tin cho 128GB" classname="23130082_NguyenTruongGiang\23130082_NguyenTruongGiang_F04.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="ASM07 | F04 | D04 | 30 test cases from Assignment 6 › DDV_F04_025 - Đăng ký nhận thông tin cho 512GB" classname="23130082_NguyenTruongGiang\23130082_NguyenTruongGiang_F04.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="ASM07 | F04 | D04 | 30 test cases from Assignment 6 › DDV_F04_026 - Đổi màu sau khi thay đổi dung lượng" classname="23130082_NguyenTruongGiang\23130082_NguyenTruongGiang_F04.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="ASM07 | F04 | D04 | 30 test cases from Assignment 6 › DDV_F04_027 - Thay màu không đăng ký hoặc mua hàng tự động" classname="23130082_NguyenTruongGiang\23130082_NguyenTruongGiang_F04.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="ASM07 | F04 | D04 | 30 test cases from Assignment 6 › DDV_F04_028 - Thay dung lượng không gửi biểu mẫu tự động" classname="23130082_NguyenTruongGiang\23130082_NguyenTruongGiang_F04.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="ASM07 | F04 | D04 | 30 test cases from Assignment 6 › DDV_F04_029 - Tải lại sau khi chọn 512GB" classname="23130082_NguyenTruongGiang\23130082_NguyenTruongGiang_F04.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="ASM07 | F04 | D04 | 30 test cases from Assignment 6 › DDV_F04_030 - Mở trực tiếp lại bản 256GB" classname="23130082_NguyenTruongGiang\23130082_NguyenTruongGiang_F04.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+</testsuite>
+<testsuite name="23130082_NguyenTruongGiang\23130082_NguyenTruongGiang_F05.spec.ts" timestamp="2026-11-06T13:08:42.704Z" hostname="chromium" tests="30" failures="0" skipped="30" time="0" errors="0">
+<testcase name="ASM07 | F05 | D05 | 30 test cases from Assignment 6 › DDV_F05_001 - Thêm Samsung Galaxy S25 Ultra 256GB Titan Xanh vào giỏ bằng biểu tượng xe đẩy" classname="23130082_NguyenTruongGiang\23130082_NguyenTruongGiang_F05.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="ASM07 | F05 | D05 | 30 test cases from Assignment 6 › DDV_F05_002 - Thêm phiên bản Titan Đen vào giỏ và kiểm tra đúng giá" classname="23130082_NguyenTruongGiang\23130082_NguyenTruongGiang_F05.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="ASM07 | F05 | D05 | 30 test cases from Assignment 6 › DDV_F05_003 - Thêm hai màu Titan Xanh và Titan Đen vào cùng một giỏ" classname="23130082_NguyenTruongGiang\23130082_NguyenTruongGiang_F05.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="ASM07 | F05 | D05 | 30 test cases from Assignment 6 › DDV_F05_004 - Nhấn biểu tượng xe đẩy hai lần với cùng SKU Titan Xanh" classname="23130082_NguyenTruongGiang\23130082_NguyenTruongGiang_F05.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="ASM07 | F05 | D05 | 30 test cases from Assignment 6 › DDV_F05_005 - Thêm Titan Xanh và Bạc; kiểm tra giỏ không nhầm biến thể" classname="23130082_NguyenTruongGiang\23130082_NguyenTruongGiang_F05.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="ASM07 | F05 | D05 | 30 test cases from Assignment 6 › DDV_F05_006 - Tăng số lượng S25 Ultra từ 1 lên 2 trong giỏ" classname="23130082_NguyenTruongGiang\23130082_NguyenTruongGiang_F05.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="ASM07 | F05 | D05 | 30 test cases from Assignment 6 › DDV_F05_007 - Giảm số lượng S25 Ultra từ 2 xuống 1" classname="23130082_NguyenTruongGiang\23130082_NguyenTruongGiang_F05.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="ASM07 | F05 | D05 | 30 test cases from Assignment 6 › DDV_F05_008 - Kiểm tra giới hạn số lượng tối đa trong giỏ" classname="23130082_NguyenTruongGiang\23130082_NguyenTruongGiang_F05.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="ASM07 | F05 | D05 | 30 test cases from Assignment 6 › DDV_F05_009 - Giảm số lượng tại mốc tối thiểu là 1" classname="23130082_NguyenTruongGiang\23130082_NguyenTruongGiang_F05.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="ASM07 | F05 | D05 | 30 test cases from Assignment 6 › DDV_F05_010 - Nhập trực tiếp số lượng 3 cho S25 Ultra" classname="23130082_NguyenTruongGiang\23130082_NguyenTruongGiang_F05.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="ASM07 | F05 | D05 | 30 test cases from Assignment 6 › DDV_F05_011 - Xóa Titan Đen nhưng giữ nguyên Titan Xanh" classname="23130082_NguyenTruongGiang\23130082_NguyenTruongGiang_F05.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="ASM07 | F05 | D05 | 30 test cases from Assignment 6 › DDV_F05_012 - Xóa dòng đầu tiên trong giỏ hai sản phẩm" classname="23130082_NguyenTruongGiang\23130082_NguyenTruongGiang_F05.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="ASM07 | F05 | D05 | 30 test cases from Assignment 6 › DDV_F05_013 - Xóa dòng cuối cùng trong giỏ hai sản phẩm" classname="23130082_NguyenTruongGiang\23130082_NguyenTruongGiang_F05.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="ASM07 | F05 | D05 | 30 test cases from Assignment 6 › DDV_F05_014 - Xóa S25 Ultra duy nhất để hiển thị giỏ trống" classname="23130082_NguyenTruongGiang\23130082_NguyenTruongGiang_F05.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="ASM07 | F05 | D05 | 30 test cases from Assignment 6 › DDV_F05_015 - Hủy xác nhận xóa S25 Ultra" classname="23130082_NguyenTruongGiang\23130082_NguyenTruongGiang_F05.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="ASM07 | F05 | D05 | 30 test cases from Assignment 6 › DDV_F05_016 - Đối chiếu giá của một S25 Ultra 256GB Titan Xanh" classname="23130082_NguyenTruongGiang\23130082_NguyenTruongGiang_F05.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="ASM07 | F05 | D05 | 30 test cases from Assignment 6 › DDV_F05_017 - Đối chiếu thành tiền S25 Ultra Titan Xanh x2" classname="23130082_NguyenTruongGiang\23130082_NguyenTruongGiang_F05.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="ASM07 | F05 | D05 | 30 test cases from Assignment 6 › DDV_F05_018 - Cộng tổng hai màu S25 Ultra có giá khác nhau" classname="23130082_NguyenTruongGiang\23130082_NguyenTruongGiang_F05.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="ASM07 | F05 | D05 | 30 test cases from Assignment 6 › DDV_F05_019 - Kiểm tra giá đang khuyến mãi của S25 Ultra trong giỏ" classname="23130082_NguyenTruongGiang\23130082_NguyenTruongGiang_F05.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="ASM07 | F05 | D05 | 30 test cases from Assignment 6 › DDV_F05_020 - Kiểm tra khoản giảm giá không bị trừ lặp trong tổng giỏ" classname="23130082_NguyenTruongGiang\23130082_NguyenTruongGiang_F05.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="ASM07 | F05 | D05 | 30 test cases from Assignment 6 › DDV_F05_021 - Duy trì giỏ S25 Ultra sau khi tải lại" classname="23130082_NguyenTruongGiang\23130082_NguyenTruongGiang_F05.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="ASM07 | F05 | D05 | 30 test cases from Assignment 6 › DDV_F05_022 - Giữ dữ liệu giỏ khi quay về trang Samsung" classname="23130082_NguyenTruongGiang\23130082_NguyenTruongGiang_F05.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="ASM07 | F05 | D05 | 30 test cases from Assignment 6 › DDV_F05_023 - Nút hình xe đẩy thêm vào giỏ mà không kích hoạt MUA NGAY" classname="23130082_NguyenTruongGiang\23130082_NguyenTruongGiang_F05.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="ASM07 | F05 | D05 | 30 test cases from Assignment 6 › DDV_F05_024 - Giỏ không bị thay đổi sau Back và Forward" classname="23130082_NguyenTruongGiang\23130082_NguyenTruongGiang_F05.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="ASM07 | F05 | D05 | 30 test cases from Assignment 6 › DDV_F05_025 - Xóa tất cả mặt hàng S25 Ultra để giỏ trống" classname="23130082_NguyenTruongGiang\23130082_NguyenTruongGiang_F05.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="ASM07 | F05 | D05 | 30 test cases from Assignment 6 › DDV_F05_026 - Nhấn tăng số lượng ba lần từ 1" classname="23130082_NguyenTruongGiang\23130082_NguyenTruongGiang_F05.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="ASM07 | F05 | D05 | 30 test cases from Assignment 6 › DDV_F05_027 - Giảm liên tiếp số lượng từ 4 về 1" classname="23130082_NguyenTruongGiang\23130082_NguyenTruongGiang_F05.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="ASM07 | F05 | D05 | 30 test cases from Assignment 6 › DDV_F05_028 - Nhập số lượng 0 cho S25 Ultra" classname="23130082_NguyenTruongGiang\23130082_NguyenTruongGiang_F05.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="ASM07 | F05 | D05 | 30 test cases from Assignment 6 › DDV_F05_029 - Từ chối nhập số lượng chữ abc" classname="23130082_NguyenTruongGiang\23130082_NguyenTruongGiang_F05.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="ASM07 | F05 | D05 | 30 test cases from Assignment 6 › DDV_F05_030 - Từ chối nhập số lượng âm -2" classname="23130082_NguyenTruongGiang\23130082_NguyenTruongGiang_F05.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+</testsuite>
+<testsuite name="23130082_NguyenTruongGiang\23130082_NguyenTruongGiang_F06.spec.ts" timestamp="2026-11-06T13:08:42.704Z" hostname="chromium" tests="30" failures="0" skipped="30" time="0" errors="0">
+<testcase name="ASM07 | F06 | D06 | 30 test cases from Assignment 6 › DDV_F06_001 - Mở luồng MUA NGAY cho Titan Xanh 256GB" classname="23130082_NguyenTruongGiang\23130082_NguyenTruongGiang_F06.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="ASM07 | F06 | D06 | 30 test cases from Assignment 6 › DDV_F06_002 - Mở luồng MUA NGAY cho Titan Đen 256GB" classname="23130082_NguyenTruongGiang\23130082_NguyenTruongGiang_F06.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="ASM07 | F06 | D06 | 30 test cases from Assignment 6 › DDV_F06_003 - Mở luồng MUA NGAY cho màu Bạc 256GB" classname="23130082_NguyenTruongGiang\23130082_NguyenTruongGiang_F06.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="ASM07 | F06 | D06 | 30 test cases from Assignment 6 › DDV_F06_004 - Mở luồng MUA NGAY cho Xám Titan 256GB" classname="23130082_NguyenTruongGiang\23130082_NguyenTruongGiang_F06.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="ASM07 | F06 | D06 | 30 test cases from Assignment 6 › DDV_F06_005 - Nút MUA NGAY và biểu tượng giỏ là hai hành động khác nhau" classname="23130082_NguyenTruongGiang\23130082_NguyenTruongGiang_F06.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="ASM07 | F06 | D06 | 30 test cases from Assignment 6 › DDV_F06_006 - Đổi Titan Xanh sang Titan Đen trước MUA NGAY" classname="23130082_NguyenTruongGiang\23130082_NguyenTruongGiang_F06.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="ASM07 | F06 | D06 | 30 test cases from Assignment 6 › DDV_F06_007 - Đổi Titan Đen sang màu Bạc trước MUA NGAY" classname="23130082_NguyenTruongGiang\23130082_NguyenTruongGiang_F06.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="ASM07 | F06 | D06 | 30 test cases from Assignment 6 › DDV_F06_008 - Đổi Bạc sang Xám Titan trước MUA NGAY" classname="23130082_NguyenTruongGiang\23130082_NguyenTruongGiang_F06.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="ASM07 | F06 | D06 | 30 test cases from Assignment 6 › DDV_F06_009 - Chuyển từ 256GB sang 512GB rồi MUA NGAY" classname="23130082_NguyenTruongGiang\23130082_NguyenTruongGiang_F06.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="ASM07 | F06 | D06 | 30 test cases from Assignment 6 › DDV_F06_010 - Từ 512GB quay về 256GB trước MUA NGAY" classname="23130082_NguyenTruongGiang\23130082_NguyenTruongGiang_F06.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="ASM07 | F06 | D06 | 30 test cases from Assignment 6 › DDV_F06_011 - Kiểm tra trạng thái 1TB và luồng MUA NGAY theo khả dụng" classname="23130082_NguyenTruongGiang\23130082_NguyenTruongGiang_F06.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="ASM07 | F06 | D06 | 30 test cases from Assignment 6 › DDV_F06_012 - Chọn lại cùng màu trước khi MUA NGAY" classname="23130082_NguyenTruongGiang\23130082_NguyenTruongGiang_F06.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="ASM07 | F06 | D06 | 30 test cases from Assignment 6 › DDV_F06_013 - Đối chiếu giá Titan Xanh trước và sau MUA NGAY" classname="23130082_NguyenTruongGiang\23130082_NguyenTruongGiang_F06.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="ASM07 | F06 | D06 | 30 test cases from Assignment 6 › DDV_F06_014 - Đối chiếu giá Titan Đen trước và sau MUA NGAY" classname="23130082_NguyenTruongGiang\23130082_NguyenTruongGiang_F06.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="ASM07 | F06 | D06 | 30 test cases from Assignment 6 › DDV_F06_015 - Phân biệt giá bán hiện tại với giá gạch" classname="23130082_NguyenTruongGiang\23130082_NguyenTruongGiang_F06.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="ASM07 | F06 | D06 | 30 test cases from Assignment 6 › DDV_F06_016 - Kiểm tra số lượng mặc định trong luồng MUA NGAY" classname="23130082_NguyenTruongGiang\23130082_NguyenTruongGiang_F06.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="ASM07 | F06 | D06 | 30 test cases from Assignment 6 › DDV_F06_017 - Kiểm tra thông tin tên sản phẩm trước đặt hàng" classname="23130082_NguyenTruongGiang\23130082_NguyenTruongGiang_F06.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="ASM07 | F06 | D06 | 30 test cases from Assignment 6 › DDV_F06_018 - Ưu đãi thay đổi theo ngày không làm sai thông tin SKU" classname="23130082_NguyenTruongGiang\23130082_NguyenTruongGiang_F06.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="ASM07 | F06 | D06 | 30 test cases from Assignment 6 › DDV_F06_019 - MUA NGAY khi giỏ hiện đang trống" classname="23130082_NguyenTruongGiang\23130082_NguyenTruongGiang_F06.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="ASM07 | F06 | D06 | 30 test cases from Assignment 6 › DDV_F06_020 - MUA NGAY khi giỏ đã chứa S25 Ultra màu khác" classname="23130082_NguyenTruongGiang\23130082_NguyenTruongGiang_F06.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="ASM07 | F06 | D06 | 30 test cases from Assignment 6 › DDV_F06_021 - MUA NGAY khi giỏ có cùng SKU" classname="23130082_NguyenTruongGiang\23130082_NguyenTruongGiang_F06.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="ASM07 | F06 | D06 | 30 test cases from Assignment 6 › DDV_F06_022 - MUA NGAY sau khi đã thêm vào giỏ rồi quay lại sản phẩm" classname="23130082_NguyenTruongGiang\23130082_NguyenTruongGiang_F06.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="ASM07 | F06 | D06 | 30 test cases from Assignment 6 › DDV_F06_023 - MUA NGAY không tự kích hoạt trả góp 0%" classname="23130082_NguyenTruongGiang\23130082_NguyenTruongGiang_F06.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="ASM07 | F06 | D06 | 30 test cases from Assignment 6 › DDV_F06_024 - Quay lại trang sản phẩm từ luồng MUA NGAY" classname="23130082_NguyenTruongGiang\23130082_NguyenTruongGiang_F06.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="ASM07 | F06 | D06 | 30 test cases from Assignment 6 › DDV_F06_025 - Tiếp tục bằng Forward sau khi Back" classname="23130082_NguyenTruongGiang\23130082_NguyenTruongGiang_F06.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="ASM07 | F06 | D06 | 30 test cases from Assignment 6 › DDV_F06_026 - Tải lại trang sản phẩm trước khi nhấn MUA NGAY" classname="23130082_NguyenTruongGiang\23130082_NguyenTruongGiang_F06.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="ASM07 | F06 | D06 | 30 test cases from Assignment 6 › DDV_F06_027 - Chỉ một lần chuyển luồng khi nhấn nhanh hai lần" classname="23130082_NguyenTruongGiang\23130082_NguyenTruongGiang_F06.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="ASM07 | F06 | D06 | 30 test cases from Assignment 6 › DDV_F06_028 - Kiểm tra nút MUA NGAY ở kích thước desktop" classname="23130082_NguyenTruongGiang\23130082_NguyenTruongGiang_F06.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="ASM07 | F06 | D06 | 30 test cases from Assignment 6 › DDV_F06_029 - Kiểm tra nút MUA NGAY ở kích thước điện thoại" classname="23130082_NguyenTruongGiang\23130082_NguyenTruongGiang_F06.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="ASM07 | F06 | D06 | 30 test cases from Assignment 6 › DDV_F06_030 - Dừng ở bước trước xác nhận đơn hàng" classname="23130082_NguyenTruongGiang\23130082_NguyenTruongGiang_F06.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+</testsuite>
+<testsuite name="23130087_NguyenVanAnhHan\23130087_NguyenVanAnhHan_F10.spec.ts" timestamp="2026-11-06T13:08:42.704Z" hostname="chromium" tests="40" failures="0" skipped="40" time="0" errors="0">
+<testcase name="ASM7 | F10 | Nguyễn Văn Anh Hàn | 31 ca online theo Excel › DDV_F10_001 - Chọn danh mục IPHONE" classname="23130087_NguyenVanAnhHan\23130087_NguyenVanAnhHan_F10.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="ASM7 | F10 | Nguyễn Văn Anh Hàn | 31 ca online theo Excel › DDV_F10_002 - Chọn danh mục SAMSUNG" classname="23130087_NguyenVanAnhHan\23130087_NguyenVanAnhHan_F10.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="ASM7 | F10 | Nguyễn Văn Anh Hàn | 31 ca online theo Excel › DDV_F10_003 - Chọn danh mục XIAOMI | OPPO | TECNO" classname="23130087_NguyenVanAnhHan\23130087_NguyenVanAnhHan_F10.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="ASM7 | F10 | Nguyễn Văn Anh Hàn | 31 ca online theo Excel › DDV_F10_004 - Chọn danh mục ĐỒNG HỒ | TAI NGHE" classname="23130087_NguyenVanAnhHan\23130087_NguyenVanAnhHan_F10.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="ASM7 | F10 | Nguyễn Văn Anh Hàn | 31 ca online theo Excel › DDV_F10_005 - Chọn danh mục MACBOOK | IPAD" classname="23130087_NguyenVanAnhHan\23130087_NguyenVanAnhHan_F10.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="ASM7 | F10 | Nguyễn Văn Anh Hàn | 31 ca online theo Excel › DDV_F10_006 - Chuyển danh mục IPHONE → SAMSUNG → IPHONE" classname="23130087_NguyenVanAnhHan\23130087_NguyenVanAnhHan_F10.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="ASM7 | F10 | Nguyễn Văn Anh Hàn | 31 ca online theo Excel › DDV_F10_007 - Kiểm tra đủ thông tin trên một thẻ thu cũ" classname="23130087_NguyenVanAnhHan\23130087_NguyenVanAnhHan_F10.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="ASM7 | F10 | Nguyễn Văn Anh Hàn | 31 ca online theo Excel › DDV_F10_008 - Chọn iPhone và mở đúng popup đánh giá máy" classname="23130087_NguyenVanAnhHan\23130087_NguyenVanAnhHan_F10.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="ASM7 | F10 | Nguyễn Văn Anh Hàn | 31 ca online theo Excel › DDV_F10_009 - Chọn Samsung và mở đúng popup đánh giá máy" classname="23130087_NguyenVanAnhHan\23130087_NguyenVanAnhHan_F10.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="ASM7 | F10 | Nguyễn Văn Anh Hàn | 31 ca online theo Excel › DDV_F10_010 - Phân biệt hai phiên bản iPhone 17 Pro Max 1TB và 2TB" classname="23130087_NguyenVanAnhHan\23130087_NguyenVanAnhHan_F10.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="ASM7 | F10 | Nguyễn Văn Anh Hàn | 31 ca online theo Excel › DDV_F10_011 - Đối chiếu phép cộng giá – iPhone 17 Pro Max 2TB Cũ (Fullbox)" classname="23130087_NguyenVanAnhHan\23130087_NguyenVanAnhHan_F10.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="ASM7 | F10 | Nguyễn Văn Anh Hàn | 31 ca online theo Excel › DDV_F10_012 - Đối chiếu phép cộng giá – iPhone 17 Pro Max 1TB Cũ" classname="23130087_NguyenVanAnhHan\23130087_NguyenVanAnhHan_F10.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="ASM7 | F10 | Nguyễn Văn Anh Hàn | 31 ca online theo Excel › DDV_F10_013 - Đối chiếu phép cộng giá – iPhone 17 Pro 1TB Cũ" classname="23130087_NguyenVanAnhHan\23130087_NguyenVanAnhHan_F10.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="ASM7 | F10 | Nguyễn Văn Anh Hàn | 31 ca online theo Excel › DDV_F10_014 - Kiểm tra định dạng tiền trên 3 thẻ iPhone" classname="23130087_NguyenVanAnhHan\23130087_NguyenVanAnhHan_F10.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="ASM7 | F10 | Nguyễn Văn Anh Hàn | 31 ca online theo Excel › DDV_F10_015 - Tìm thiết bị bằng tên đầy đủ và nhấn Enter" classname="23130087_NguyenVanAnhHan\23130087_NguyenVanAnhHan_F10.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="ASM7 | F10 | Nguyễn Văn Anh Hàn | 31 ca online theo Excel › DDV_F10_016 - Tìm thiết bị bằng một phần tên" classname="23130087_NguyenVanAnhHan\23130087_NguyenVanAnhHan_F10.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="ASM7 | F10 | Nguyễn Văn Anh Hàn | 31 ca online theo Excel › DDV_F10_017 - Tìm thiết bị không tồn tại" classname="23130087_NguyenVanAnhHan\23130087_NguyenVanAnhHan_F10.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="ASM7 | F10 | Nguyễn Văn Anh Hàn | 31 ca online theo Excel › DDV_F10_018 - Xóa từ khóa rồi khôi phục danh sách" classname="23130087_NguyenVanAnhHan\23130087_NguyenVanAnhHan_F10.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="ASM7 | F10 | Nguyễn Văn Anh Hàn | 31 ca online theo Excel › DDV_F10_019 - Đổi truy vấn từ iPhone sang Samsung" classname="23130087_NguyenVanAnhHan\23130087_NguyenVanAnhHan_F10.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="ASM7 | F10 | Nguyễn Văn Anh Hàn | 31 ca online theo Excel › DDV_F10_020 - Đổi lựa chọn giới tính Anh → Chị → Anh" classname="23130087_NguyenVanAnhHan\23130087_NguyenVanAnhHan_F10.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="ASM7 | F10 | Nguyễn Văn Anh Hàn | 31 ca online theo Excel › DDV_F10_021 - Giới hạn 200 ký tự ô mô tả tình trạng thiết bị" classname="23130087_NguyenVanAnhHan\23130087_NguyenVanAnhHan_F10.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="ASM7 | F10 | Nguyễn Văn Anh Hàn | 31 ca online theo Excel › DDV_F10_031 - Đánh giá tình trạng máy – Loại 1" classname="23130087_NguyenVanAnhHan\23130087_NguyenVanAnhHan_F10.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="ASM7 | F10 | Nguyễn Văn Anh Hàn | 31 ca online theo Excel › DDV_F10_032 - Đánh giá tình trạng máy – Loại 2" classname="23130087_NguyenVanAnhHan\23130087_NguyenVanAnhHan_F10.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="ASM7 | F10 | Nguyễn Văn Anh Hàn | 31 ca online theo Excel › DDV_F10_033 - Đánh giá tình trạng máy – Loại 3" classname="23130087_NguyenVanAnhHan\23130087_NguyenVanAnhHan_F10.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="ASM7 | F10 | Nguyễn Văn Anh Hàn | 31 ca online theo Excel › DDV_F10_034 - Đánh giá tình trạng máy – Loại 4" classname="23130087_NguyenVanAnhHan\23130087_NguyenVanAnhHan_F10.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="ASM7 | F10 | Nguyễn Văn Anh Hàn | 31 ca online theo Excel › DDV_F10_035 - Đánh giá tình trạng máy – Loại 5" classname="23130087_NguyenVanAnhHan\23130087_NguyenVanAnhHan_F10.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="ASM7 | F10 | Nguyễn Văn Anh Hàn | 31 ca online theo Excel › DDV_F10_036 - Đánh giá tình trạng máy – Loại 6" classname="23130087_NguyenVanAnhHan\23130087_NguyenVanAnhHan_F10.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="ASM7 | F10 | Nguyễn Văn Anh Hàn | 31 ca online theo Excel › DDV_F10_037 - Đổi màu máy trong popup định giá" classname="23130087_NguyenVanAnhHan\23130087_NguyenVanAnhHan_F10.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="ASM7 | F10 | Nguyễn Văn Anh Hàn | 31 ca online theo Excel › DDV_F10_038 - Chọn luồng Chỉ thu cũ" classname="23130087_NguyenVanAnhHan\23130087_NguyenVanAnhHan_F10.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="ASM7 | F10 | Nguyễn Văn Anh Hàn | 31 ca online theo Excel › DDV_F10_039 - Chọn luồng Thu cũ và lên đời" classname="23130087_NguyenVanAnhHan\23130087_NguyenVanAnhHan_F10.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="ASM7 | F10 | Nguyễn Văn Anh Hàn | 31 ca online theo Excel › DDV_F10_040 - Chọn rồi đổi cửa hàng trong form tư vấn" classname="23130087_NguyenVanAnhHan\23130087_NguyenVanAnhHan_F10.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="ASM7 | F10 | 9 ca cần môi trường test theo tiền điều kiện Excel › DDV_F10_022 - Bỏ trống mô tả tình trạng thiết bị" classname="23130087_NguyenVanAnhHan\23130087_NguyenVanAnhHan_F10.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="ASM7 | F10 | 9 ca cần môi trường test theo tiền điều kiện Excel › DDV_F10_023 - Bỏ trống họ tên" classname="23130087_NguyenVanAnhHan\23130087_NguyenVanAnhHan_F10.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="ASM7 | F10 | 9 ca cần môi trường test theo tiền điều kiện Excel › DDV_F10_024 - Bỏ trống số điện thoại" classname="23130087_NguyenVanAnhHan\23130087_NguyenVanAnhHan_F10.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="ASM7 | F10 | 9 ca cần môi trường test theo tiền điều kiện Excel › DDV_F10_025 - Số điện thoại chứa chữ" classname="23130087_NguyenVanAnhHan\23130087_NguyenVanAnhHan_F10.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="ASM7 | F10 | 9 ca cần môi trường test theo tiền điều kiện Excel › DDV_F10_026 - Số điện thoại chỉ có 9 chữ số" classname="23130087_NguyenVanAnhHan\23130087_NguyenVanAnhHan_F10.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="ASM7 | F10 | 9 ca cần môi trường test theo tiền điều kiện Excel › DDV_F10_027 - Số điện thoại có 11 chữ số" classname="23130087_NguyenVanAnhHan\23130087_NguyenVanAnhHan_F10.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="ASM7 | F10 | 9 ca cần môi trường test theo tiền điều kiện Excel › DDV_F10_028 - Bỏ trống mẫu máy cần thu" classname="23130087_NguyenVanAnhHan\23130087_NguyenVanAnhHan_F10.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="ASM7 | F10 | 9 ca cần môi trường test theo tiền điều kiện Excel › DDV_F10_029 - Không đồng ý thu thập thông tin" classname="23130087_NguyenVanAnhHan\23130087_NguyenVanAnhHan_F10.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="ASM7 | F10 | 9 ca cần môi trường test theo tiền điều kiện Excel › DDV_F10_030 - Đăng ký tư vấn thành công bằng dữ liệu test hợp lệ" classname="23130087_NguyenVanAnhHan\23130087_NguyenVanAnhHan_F10.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+</testsuite>
+<testsuite name="23130087_NguyenVanAnhHan\23130087_NguyenVanAnhHan_F11.spec.ts" timestamp="2026-11-06T13:08:42.704Z" hostname="chromium" tests="30" failures="0" skipped="30" time="0" errors="0">
+<testcase name="F11 | Tìm kiếm cửa hàng | Nguyễn Văn Anh Hàn | 30 case theo Excel › DDV_F11_001 - Lọc nhanh cửa hàng tại Thành phố Hồ Chí Minh" classname="23130087_NguyenVanAnhHan\23130087_NguyenVanAnhHan_F11.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="F11 | Tìm kiếm cửa hàng | Nguyễn Văn Anh Hàn | 30 case theo Excel › DDV_F11_002 - Lọc nhanh cửa hàng tại Thành phố Hà Nội" classname="23130087_NguyenVanAnhHan\23130087_NguyenVanAnhHan_F11.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="F11 | Tìm kiếm cửa hàng | Nguyễn Văn Anh Hàn | 30 case theo Excel › DDV_F11_003 - Lọc nhanh cửa hàng tại Thành phố Đà Nẵng" classname="23130087_NguyenVanAnhHan\23130087_NguyenVanAnhHan_F11.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="F11 | Tìm kiếm cửa hàng | Nguyễn Văn Anh Hàn | 30 case theo Excel › DDV_F11_004 - Chọn Tỉnh Tây Ninh bằng bộ chọn tỉnh" classname="23130087_NguyenVanAnhHan\23130087_NguyenVanAnhHan_F11.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="F11 | Tìm kiếm cửa hàng | Nguyễn Văn Anh Hàn | 30 case theo Excel › DDV_F11_005 - Đổi tỉnh Hà Nội → Hồ Chí Minh → Hà Nội" classname="23130087_NguyenVanAnhHan\23130087_NguyenVanAnhHan_F11.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="F11 | Tìm kiếm cửa hàng | Nguyễn Văn Anh Hàn | 30 case theo Excel › DDV_F11_006 - Lọc Phường An Khánh thuộc Thành phố Hồ Chí Minh" classname="23130087_NguyenVanAnhHan\23130087_NguyenVanAnhHan_F11.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="F11 | Tìm kiếm cửa hàng | Nguyễn Văn Anh Hàn | 30 case theo Excel › DDV_F11_007 - Lọc Phường Vườn Lài thuộc Thành phố Hồ Chí Minh" classname="23130087_NguyenVanAnhHan\23130087_NguyenVanAnhHan_F11.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="F11 | Tìm kiếm cửa hàng | Nguyễn Văn Anh Hàn | 30 case theo Excel › DDV_F11_008 - Lọc Phường Hoàn Kiếm thuộc Thành phố Hà Nội" classname="23130087_NguyenVanAnhHan\23130087_NguyenVanAnhHan_F11.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="F11 | Tìm kiếm cửa hàng | Nguyễn Văn Anh Hàn | 30 case theo Excel › DDV_F11_009 - Đổi tỉnh phải xóa phường của tỉnh trước" classname="23130087_NguyenVanAnhHan\23130087_NguyenVanAnhHan_F11.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="F11 | Tìm kiếm cửa hàng | Nguyễn Văn Anh Hàn | 30 case theo Excel › DDV_F11_010 - Tìm rồi chọn một phường trong menu Phường/Xã" classname="23130087_NguyenVanAnhHan\23130087_NguyenVanAnhHan_F11.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="F11 | Tìm kiếm cửa hàng | Nguyễn Văn Anh Hàn | 30 case theo Excel › DDV_F11_011 - Tìm cửa hàng bằng Trần Não" classname="23130087_NguyenVanAnhHan\23130087_NguyenVanAnhHan_F11.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="F11 | Tìm kiếm cửa hàng | Nguyễn Văn Anh Hàn | 30 case theo Excel › DDV_F11_012 - Tìm cửa hàng bằng Lê Hồng" classname="23130087_NguyenVanAnhHan\23130087_NguyenVanAnhHan_F11.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="F11 | Tìm kiếm cửa hàng | Nguyễn Văn Anh Hàn | 30 case theo Excel › DDV_F11_013 - Tìm cửa hàng bằng 11 Trần Não" classname="23130087_NguyenVanAnhHan\23130087_NguyenVanAnhHan_F11.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="F11 | Tìm kiếm cửa hàng | Nguyễn Văn Anh Hàn | 30 case theo Excel › DDV_F11_014 - Tìm tên đường không phân biệt chữ hoa và chữ thường" classname="23130087_NguyenVanAnhHan\23130087_NguyenVanAnhHan_F11.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="F11 | Tìm kiếm cửa hàng | Nguyễn Văn Anh Hàn | 30 case theo Excel › DDV_F11_015 - Tìm từ khóa cửa hàng không tồn tại" classname="23130087_NguyenVanAnhHan\23130087_NguyenVanAnhHan_F11.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="F11 | Tìm kiếm cửa hàng | Nguyễn Văn Anh Hàn | 30 case theo Excel › DDV_F11_016 - Kết hợp tỉnh Hồ Chí Minh với tên đường Trần Não" classname="23130087_NguyenVanAnhHan\23130087_NguyenVanAnhHan_F11.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="F11 | Tìm kiếm cửa hàng | Nguyễn Văn Anh Hàn | 30 case theo Excel › DDV_F11_017 - Kết hợp tỉnh Hà Nội với tên đường không thuộc tỉnh" classname="23130087_NguyenVanAnhHan\23130087_NguyenVanAnhHan_F11.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="F11 | Tìm kiếm cửa hàng | Nguyễn Văn Anh Hàn | 30 case theo Excel › DDV_F11_018 - Xóa từ khóa để khôi phục cửa hàng của tỉnh đang chọn" classname="23130087_NguyenVanAnhHan\23130087_NguyenVanAnhHan_F11.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="F11 | Tìm kiếm cửa hàng | Nguyễn Văn Anh Hàn | 30 case theo Excel › DDV_F11_019 - Đổi tỉnh khi đang giữ từ khóa tìm cửa hàng" classname="23130087_NguyenVanAnhHan\23130087_NguyenVanAnhHan_F11.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="F11 | Tìm kiếm cửa hàng | Nguyễn Văn Anh Hàn | 30 case theo Excel › DDV_F11_020 - Xóa lọc địa phương bằng Toàn quốc rồi xóa từ khóa" classname="23130087_NguyenVanAnhHan\23130087_NguyenVanAnhHan_F11.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="F11 | Tìm kiếm cửa hàng | Nguyễn Văn Anh Hàn | 30 case theo Excel › DDV_F11_021 - Chọn thẻ đầu danh sách và đối chiếu phần chi tiết" classname="23130087_NguyenVanAnhHan\23130087_NguyenVanAnhHan_F11.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="F11 | Tìm kiếm cửa hàng | Nguyễn Văn Anh Hàn | 30 case theo Excel › DDV_F11_022 - Chọn thẻ cuối danh sách và thay thế chi tiết thẻ đầu" classname="23130087_NguyenVanAnhHan\23130087_NguyenVanAnhHan_F11.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="F11 | Tìm kiếm cửa hàng | Nguyễn Văn Anh Hàn | 30 case theo Excel › DDV_F11_023 - Phân biệt hai cửa hàng trên đường Lê Hồng Phong" classname="23130087_NguyenVanAnhHan\23130087_NguyenVanAnhHan_F11.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="F11 | Tìm kiếm cửa hàng | Nguyễn Văn Anh Hàn | 30 case theo Excel › DDV_F11_024 - Đối chiếu liên kết gọi điện của đúng cửa hàng" classname="23130087_NguyenVanAnhHan\23130087_NguyenVanAnhHan_F11.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="F11 | Tìm kiếm cửa hàng | Nguyễn Văn Anh Hàn | 30 case theo Excel › DDV_F11_025 - Mở bản đồ của đúng chi nhánh và trở lại trang cửa hàng" classname="23130087_NguyenVanAnhHan\23130087_NguyenVanAnhHan_F11.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="F11 | Tìm kiếm cửa hàng | Nguyễn Văn Anh Hàn | 30 case theo Excel › DDV_F11_026 - Tìm tỉnh không tồn tại trong menu chọn tỉnh" classname="23130087_NguyenVanAnhHan\23130087_NguyenVanAnhHan_F11.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="F11 | Tìm kiếm cửa hàng | Nguyễn Văn Anh Hàn | 30 case theo Excel › DDV_F11_027 - Nhập rồi xóa năm dấu cách trong ô tìm cửa hàng" classname="23130087_NguyenVanAnhHan\23130087_NguyenVanAnhHan_F11.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="F11 | Tìm kiếm cửa hàng | Nguyễn Văn Anh Hàn | 30 case theo Excel › DDV_F11_028 - Tìm cửa hàng bằng ký tự đặc biệt không có kết quả" classname="23130087_NguyenVanAnhHan\23130087_NguyenVanAnhHan_F11.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="F11 | Tìm kiếm cửa hàng | Nguyễn Văn Anh Hàn | 30 case theo Excel › DDV_F11_029 - Tải lại trang sau khi lọc tỉnh, phường và từ khóa" classname="23130087_NguyenVanAnhHan\23130087_NguyenVanAnhHan_F11.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="F11 | Tìm kiếm cửa hàng | Nguyễn Văn Anh Hàn | 30 case theo Excel › DDV_F11_030 - Từ chối quyền vị trí vẫn lọc cửa hàng thủ công được" classname="23130087_NguyenVanAnhHan\23130087_NguyenVanAnhHan_F11.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+</testsuite>
+<testsuite name="23130087_NguyenVanAnhHan\23130087_NguyenVanAnhHan_F12.spec.ts" timestamp="2026-11-06T13:08:42.704Z" hostname="chromium" tests="30" failures="0" skipped="30" time="0" errors="0">
+<testcase name="F12 | Đăng ký tư vấn B2B | Nguyễn Văn Anh Hàn | 30 case theo Excel › DDV_F12_001 - Mở form tư vấn B2B từ liên kết footer và kiểm tra trạng thái ban đầu" classname="23130087_NguyenVanAnhHan\23130087_NguyenVanAnhHan_F12.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="F12 | Đăng ký tư vấn B2B | Nguyễn Văn Anh Hàn | 30 case theo Excel › DDV_F12_002 - Bỏ trống toàn bộ: đủ sáu lỗi bắt buộc và không lỗi ô tùy chọn" classname="23130087_NguyenVanAnhHan\23130087_NguyenVanAnhHan_F12.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="F12 | Đăng ký tư vấn B2B | Nguyễn Văn Anh Hàn | 30 case theo Excel › DDV_F12_003 - Tên quý khách trống hoặc chỉ gồm năm dấu cách" classname="23130087_NguyenVanAnhHan\23130087_NguyenVanAnhHan_F12.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="F12 | Đăng ký tư vấn B2B | Nguyễn Văn Anh Hàn | 30 case theo Excel › DDV_F12_004 - Tên quý khách chỉ một ký tự" classname="23130087_NguyenVanAnhHan\23130087_NguyenVanAnhHan_F12.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="F12 | Đăng ký tư vấn B2B | Nguyễn Văn Anh Hàn | 30 case theo Excel › DDV_F12_005 - Tên quý khách đúng ngưỡng tối thiểu hai ký tự" classname="23130087_NguyenVanAnhHan\23130087_NguyenVanAnhHan_F12.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="F12 | Đăng ký tư vấn B2B | Nguyễn Văn Anh Hàn | 30 case theo Excel › DDV_F12_006 - Giới hạn họ tên 255 và 256 ký tự" classname="23130087_NguyenVanAnhHan\23130087_NguyenVanAnhHan_F12.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="F12 | Đăng ký tư vấn B2B | Nguyễn Văn Anh Hàn | 30 case theo Excel › DDV_F12_007 - Họ tên tiếng Việt và khoảng trắng hai đầu" classname="23130087_NguyenVanAnhHan\23130087_NguyenVanAnhHan_F12.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="F12 | Đăng ký tư vấn B2B | Nguyễn Văn Anh Hàn | 30 case theo Excel › DDV_F12_008 - Số điện thoại để trống" classname="23130087_NguyenVanAnhHan\23130087_NguyenVanAnhHan_F12.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="F12 | Đăng ký tư vấn B2B | Nguyễn Văn Anh Hàn | 30 case theo Excel › DDV_F12_009 - Số điện thoại chứa chữ cái" classname="23130087_NguyenVanAnhHan\23130087_NguyenVanAnhHan_F12.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="F12 | Đăng ký tư vấn B2B | Nguyễn Văn Anh Hàn | 30 case theo Excel › DDV_F12_010 - Số điện thoại nội địa chỉ có chín chữ số" classname="23130087_NguyenVanAnhHan\23130087_NguyenVanAnhHan_F12.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="F12 | Đăng ký tư vấn B2B | Nguyễn Văn Anh Hàn | 30 case theo Excel › DDV_F12_011 - Số điện thoại nội địa có mười chữ số" classname="23130087_NguyenVanAnhHan\23130087_NguyenVanAnhHan_F12.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="F12 | Đăng ký tư vấn B2B | Nguyễn Văn Anh Hàn | 30 case theo Excel › DDV_F12_012 - Số điện thoại nội địa mười một chữ số theo validation hiện tại" classname="23130087_NguyenVanAnhHan\23130087_NguyenVanAnhHan_F12.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="F12 | Đăng ký tư vấn B2B | Nguyễn Văn Anh Hàn | 30 case theo Excel › DDV_F12_013 - Số điện thoại có tiền tố quốc tế +84" classname="23130087_NguyenVanAnhHan\23130087_NguyenVanAnhHan_F12.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="F12 | Đăng ký tư vấn B2B | Nguyễn Văn Anh Hàn | 30 case theo Excel › DDV_F12_014 - Phân biệt khoảng trắng giữa số và khoảng trắng hai đầu" classname="23130087_NguyenVanAnhHan\23130087_NguyenVanAnhHan_F12.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="F12 | Đăng ký tư vấn B2B | Nguyễn Văn Anh Hàn | 30 case theo Excel › DDV_F12_015 - Email để trống" classname="23130087_NguyenVanAnhHan\23130087_NguyenVanAnhHan_F12.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="F12 | Đăng ký tư vấn B2B | Nguyễn Văn Anh Hàn | 30 case theo Excel › DDV_F12_016 - Email thiếu @ hoặc thiếu tên miền" classname="23130087_NguyenVanAnhHan\23130087_NguyenVanAnhHan_F12.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="F12 | Đăng ký tư vấn B2B | Nguyễn Văn Anh Hàn | 30 case theo Excel › DDV_F12_017 - Email đúng cú pháp có dấu cách ASCII hai đầu" classname="23130087_NguyenVanAnhHan\23130087_NguyenVanAnhHan_F12.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="F12 | Đăng ký tư vấn B2B | Nguyễn Văn Anh Hàn | 30 case theo Excel › DDV_F12_018 - Tên công ty trống hoặc chỉ có dấu cách" classname="23130087_NguyenVanAnhHan\23130087_NguyenVanAnhHan_F12.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="F12 | Đăng ký tư vấn B2B | Nguyễn Văn Anh Hàn | 30 case theo Excel › DDV_F12_019 - Giới hạn tên công ty 255 và 256 ký tự" classname="23130087_NguyenVanAnhHan\23130087_NguyenVanAnhHan_F12.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="F12 | Đăng ký tư vấn B2B | Nguyễn Văn Anh Hàn | 30 case theo Excel › DDV_F12_020 - Sản phẩm quan tâm trống hoặc chỉ có dấu cách" classname="23130087_NguyenVanAnhHan\23130087_NguyenVanAnhHan_F12.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="F12 | Đăng ký tư vấn B2B | Nguyễn Văn Anh Hàn | 30 case theo Excel › DDV_F12_021 - Giới hạn sản phẩm quan tâm 500 và 501 ký tự" classname="23130087_NguyenVanAnhHan\23130087_NguyenVanAnhHan_F12.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="F12 | Đăng ký tư vấn B2B | Nguyễn Văn Anh Hàn | 30 case theo Excel › DDV_F12_022 - Số lượng để trống" classname="23130087_NguyenVanAnhHan\23130087_NguyenVanAnhHan_F12.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="F12 | Đăng ký tư vấn B2B | Nguyễn Văn Anh Hàn | 30 case theo Excel › DDV_F12_023 - Số lượng bằng không hoặc âm" classname="23130087_NguyenVanAnhHan\23130087_NguyenVanAnhHan_F12.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="F12 | Đăng ký tư vấn B2B | Nguyễn Văn Anh Hàn | 30 case theo Excel › DDV_F12_024 - Số lượng là số thập phân" classname="23130087_NguyenVanAnhHan\23130087_NguyenVanAnhHan_F12.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="F12 | Đăng ký tư vấn B2B | Nguyễn Văn Anh Hàn | 30 case theo Excel › DDV_F12_025 - Số lượng tối thiểu một và bỏ trống yêu cầu tùy chọn" classname="23130087_NguyenVanAnhHan\23130087_NguyenVanAnhHan_F12.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="F12 | Đăng ký tư vấn B2B | Nguyễn Văn Anh Hàn | 30 case theo Excel › DDV_F12_026 - Giới hạn yêu cầu khác 1000 và 1001 ký tự" classname="23130087_NguyenVanAnhHan\23130087_NguyenVanAnhHan_F12.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="F12 | Đăng ký tư vấn B2B | Nguyễn Văn Anh Hàn | 30 case theo Excel › DDV_F12_027 - Sửa lỗi điện thoại mà vẫn giữ lỗi của họ tên" classname="23130087_NguyenVanAnhHan\23130087_NguyenVanAnhHan_F12.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="F12 | Đăng ký tư vấn B2B | Nguyễn Văn Anh Hàn | 30 case theo Excel › DDV_F12_028 - Reload khi đã nhập nhưng chưa gửi đăng ký" classname="23130087_NguyenVanAnhHan\23130087_NguyenVanAnhHan_F12.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="F12 | Đăng ký tư vấn B2B | Nguyễn Văn Anh Hàn | 30 case theo Excel › DDV_F12_029 - Payload hợp lệ, lỗi mạng có kiểm soát và gửi lại" classname="23130087_NguyenVanAnhHan\23130087_NguyenVanAnhHan_F12.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="F12 | Đăng ký tư vấn B2B | Nguyễn Văn Anh Hàn | 30 case theo Excel › DDV_F12_030 - Đăng ký tư vấn thành công trên môi trường test được cấp" classname="23130087_NguyenVanAnhHan\23130087_NguyenVanAnhHan_F12.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+</testsuite>
+<testsuite name="23130291_HoangDuyTan\23130291_HoangDuyTan_F07.spec.ts" timestamp="2026-11-06T13:08:42.704Z" hostname="chromium" tests="30" failures="0" skipped="30" time="0" errors="0">
+<testcase name="ASM07 | F07 | D07 | 30 test cases from Assignment 6 › DDV_F07_001 - Bắt buộc nhập: Trống họ tên" classname="23130291_HoangDuyTan\23130291_HoangDuyTan_F07.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="ASM07 | F07 | D07 | 30 test cases from Assignment 6 › DDV_F07_002 - Bắt buộc nhập: Trống số điện thoại" classname="23130291_HoangDuyTan\23130291_HoangDuyTan_F07.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="ASM07 | F07 | D07 | 30 test cases from Assignment 6 › DDV_F07_003 - Bắt buộc nhập: Trống tỉnh/thành nếu yêu cầu" classname="23130291_HoangDuyTan\23130291_HoangDuyTan_F07.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="ASM07 | F07 | D07 | 30 test cases from Assignment 6 › DDV_F07_004 - Bắt buộc nhập: Trống địa chỉ cụ thể nếu giao hàng" classname="23130291_HoangDuyTan\23130291_HoangDuyTan_F07.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="ASM07 | F07 | D07 | 30 test cases from Assignment 6 › DDV_F07_005 - Bắt buộc nhập: Bỏ trống nhiều trường bắt buộc" classname="23130291_HoangDuyTan\23130291_HoangDuyTan_F07.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="ASM07 | F07 | D07 | 30 test cases from Assignment 6 › DDV_F07_006 - Định dạng số điện thoại: SĐT chỉ chữ" classname="23130291_HoangDuyTan\23130291_HoangDuyTan_F07.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="ASM07 | F07 | D07 | 30 test cases from Assignment 6 › DDV_F07_007 - Định dạng số điện thoại: SĐT có ký tự @" classname="23130291_HoangDuyTan\23130291_HoangDuyTan_F07.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="ASM07 | F07 | D07 | 30 test cases from Assignment 6 › DDV_F07_008 - Định dạng số điện thoại: SĐT thiếu chữ số" classname="23130291_HoangDuyTan\23130291_HoangDuyTan_F07.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="ASM07 | F07 | D07 | 30 test cases from Assignment 6 › DDV_F07_009 - Định dạng số điện thoại: SĐT quá nhiều chữ số" classname="23130291_HoangDuyTan\23130291_HoangDuyTan_F07.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="ASM07 | F07 | D07 | 30 test cases from Assignment 6 › DDV_F07_010 - Định dạng số điện thoại: SĐT có khoảng trắng xen giữa" classname="23130291_HoangDuyTan\23130291_HoangDuyTan_F07.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="ASM07 | F07 | D07 | 30 test cases from Assignment 6 › DDV_F07_011 - Dữ liệu hợp lệ: Tên tiếng Việt có dấu" classname="23130291_HoangDuyTan\23130291_HoangDuyTan_F07.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="ASM07 | F07 | D07 | 30 test cases from Assignment 6 › DDV_F07_012 - Dữ liệu hợp lệ: Tên không dấu" classname="23130291_HoangDuyTan\23130291_HoangDuyTan_F07.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="ASM07 | F07 | D07 | 30 test cases from Assignment 6 › DDV_F07_013 - Dữ liệu hợp lệ: SĐT đúng định dạng của website" classname="23130291_HoangDuyTan\23130291_HoangDuyTan_F07.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="ASM07 | F07 | D07 | 30 test cases from Assignment 6 › DDV_F07_014 - Dữ liệu hợp lệ: Tên kèm dấu cách" classname="23130291_HoangDuyTan\23130291_HoangDuyTan_F07.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="ASM07 | F07 | D07 | 30 test cases from Assignment 6 › DDV_F07_015 - Dữ liệu hợp lệ: Chọn tỉnh quận phường hợp lệ" classname="23130291_HoangDuyTan\23130291_HoangDuyTan_F07.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="ASM07 | F07 | D07 | 30 test cases from Assignment 6 › DDV_F07_016 - Giá trị biên: Tên 1 ký tự" classname="23130291_HoangDuyTan\23130291_HoangDuyTan_F07.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="ASM07 | F07 | D07 | 30 test cases from Assignment 6 › DDV_F07_017 - Giá trị biên: Tên rất dài 200 ký tự" classname="23130291_HoangDuyTan\23130291_HoangDuyTan_F07.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="ASM07 | F07 | D07 | 30 test cases from Assignment 6 › DDV_F07_018 - Giá trị biên: Địa chỉ rất dài 300 ký tự" classname="23130291_HoangDuyTan\23130291_HoangDuyTan_F07.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="ASM07 | F07 | D07 | 30 test cases from Assignment 6 › DDV_F07_019 - Giá trị biên: Chỉ dấu cách ở trường tên" classname="23130291_HoangDuyTan\23130291_HoangDuyTan_F07.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="ASM07 | F07 | D07 | 30 test cases from Assignment 6 › DDV_F07_020 - Giá trị biên: Chuỗi có emoji ở tên" classname="23130291_HoangDuyTan\23130291_HoangDuyTan_F07.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="ASM07 | F07 | D07 | 30 test cases from Assignment 6 › DDV_F07_021 - Dữ liệu đặc biệt: Tên có dấu nháy đơn" classname="23130291_HoangDuyTan\23130291_HoangDuyTan_F07.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="ASM07 | F07 | D07 | 30 test cases from Assignment 6 › DDV_F07_022 - Dữ liệu đặc biệt: Tên có dấu gạch nối" classname="23130291_HoangDuyTan\23130291_HoangDuyTan_F07.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="ASM07 | F07 | D07 | 30 test cases from Assignment 6 › DDV_F07_023 - Dữ liệu đặc biệt: Chuỗi &lt;script&gt; dạng text" classname="23130291_HoangDuyTan\23130291_HoangDuyTan_F07.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="ASM07 | F07 | D07 | 30 test cases from Assignment 6 › DDV_F07_024 - Dữ liệu đặc biệt: Ký tự HTML &amp;&lt;&gt;" classname="23130291_HoangDuyTan\23130291_HoangDuyTan_F07.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="ASM07 | F07 | D07 | 30 test cases from Assignment 6 › DDV_F07_025 - Dữ liệu đặc biệt: Tên có số" classname="23130291_HoangDuyTan\23130291_HoangDuyTan_F07.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="ASM07 | F07 | D07 | 30 test cases from Assignment 6 › DDV_F07_026 - Trạng thái form: SĐT sai rồi sửa đúng" classname="23130291_HoangDuyTan\23130291_HoangDuyTan_F07.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="ASM07 | F07 | D07 | 30 test cases from Assignment 6 › DDV_F07_027 - Trạng thái form: Tên trống rồi điền" classname="23130291_HoangDuyTan\23130291_HoangDuyTan_F07.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="ASM07 | F07 | D07 | 30 test cases from Assignment 6 › DDV_F07_028 - Trạng thái form: Đổi tỉnh kéo theo huyện" classname="23130291_HoangDuyTan\23130291_HoangDuyTan_F07.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="ASM07 | F07 | D07 | 30 test cases from Assignment 6 › DDV_F07_029 - Trạng thái form: Back từ bước kế tiếp" classname="23130291_HoangDuyTan\23130291_HoangDuyTan_F07.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="ASM07 | F07 | D07 | 30 test cases from Assignment 6 › DDV_F07_030 - Trạng thái form: Refresh trước khi xác nhận" classname="23130291_HoangDuyTan\23130291_HoangDuyTan_F07.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+</testsuite>
+<testsuite name="23130291_HoangDuyTan\23130291_HoangDuyTan_F08.spec.ts" timestamp="2026-11-06T13:08:42.704Z" hostname="chromium" tests="30" failures="0" skipped="30" time="0" errors="0">
+<testcase name="ASM08 | F08 | D08 | 30 scenarios (12 refined after ASM06) › DDV_F08_001 - Chọn hình thức nhận: Chọn giao tận nơi" classname="23130291_HoangDuyTan\23130291_HoangDuyTan_F08.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="ASM08 | F08 | D08 | 30 scenarios (12 refined after ASM06) › DDV_F08_002 - Chọn hình thức nhận: Chọn nhận tại cửa hàng" classname="23130291_HoangDuyTan\23130291_HoangDuyTan_F08.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="ASM08 | F08 | D08 | 30 scenarios (12 refined after ASM06) › DDV_F08_003 - Chọn hình thức nhận: Chuyển giao sang cửa hàng" classname="23130291_HoangDuyTan\23130291_HoangDuyTan_F08.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="ASM08 | F08 | D08 | 30 scenarios (12 refined after ASM06) › DDV_F08_004 - Chọn hình thức nhận: Chuyển cửa hàng sang giao" classname="23130291_HoangDuyTan\23130291_HoangDuyTan_F08.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="ASM08 | F08 | D08 | 30 scenarios (12 refined after ASM06) › DDV_F08_005 - Chọn hình thức nhận: Chọn lại phương thức hiện tại" classname="23130291_HoangDuyTan\23130291_HoangDuyTan_F08.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="ASM08 | F08 | D08 | 30 scenarios (12 refined after ASM06) › DDV_F08_006 - Địa chỉ giao tận nơi: Chọn tỉnh/thành A" classname="23130291_HoangDuyTan\23130291_HoangDuyTan_F08.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="ASM08 | F08 | D08 | 30 scenarios (12 refined after ASM06) › DDV_F08_007 - Địa chỉ giao tận nơi: Chọn Phường/Xã theo Thành phố" classname="23130291_HoangDuyTan\23130291_HoangDuyTan_F08.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="ASM08 | F08 | D08 | 30 scenarios (12 refined after ASM06) › DDV_F08_008 - Địa chỉ giao tận nơi: Hoàn tất Phường/Xã và địa chỉ đường" classname="23130291_HoangDuyTan\23130291_HoangDuyTan_F08.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="ASM08 | F08 | D08 | 30 scenarios (12 refined after ASM06) › DDV_F08_009 - Địa chỉ giao tận nơi: Đổi Thành phố làm mới Phường/Xã" classname="23130291_HoangDuyTan\23130291_HoangDuyTan_F08.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="ASM08 | F08 | D08 | 30 scenarios (12 refined after ASM06) › DDV_F08_010 - Địa chỉ giao tận nơi: Xóa địa chỉ chi tiết" classname="23130291_HoangDuyTan\23130291_HoangDuyTan_F08.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="ASM08 | F08 | D08 | 30 scenarios (12 refined after ASM06) › DDV_F08_011 - Chọn cửa hàng nhận: Chọn chi nhánh đầu tiên" classname="23130291_HoangDuyTan\23130291_HoangDuyTan_F08.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="ASM08 | F08 | D08 | 30 scenarios (12 refined after ASM06) › DDV_F08_012 - Chọn cửa hàng nhận: Chọn chi nhánh khác cùng tỉnh" classname="23130291_HoangDuyTan\23130291_HoangDuyTan_F08.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="ASM08 | F08 | D08 | 30 scenarios (12 refined after ASM06) › DDV_F08_013 - Chọn cửa hàng nhận: Đổi tỉnh trước khi chọn" classname="23130291_HoangDuyTan\23130291_HoangDuyTan_F08.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="ASM08 | F08 | D08 | 30 scenarios (12 refined after ASM06) › DDV_F08_014 - Điểm nhận bắt buộc: Chưa chọn chi nhánh không thể xác nhận" classname="23130291_HoangDuyTan\23130291_HoangDuyTan_F08.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="ASM08 | F08 | D08 | 30 scenarios (12 refined after ASM06) › DDV_F08_015 - Hủy mở danh sách: Không tự chọn điểm nhận" classname="23130291_HoangDuyTan\23130291_HoangDuyTan_F08.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="ASM08 | F08 | D08 | 30 scenarios (12 refined after ASM06) › DDV_F08_016 - Địa chỉ giao: Tìm tỉnh thành không tồn tại rồi nhập lại" classname="23130291_HoangDuyTan\23130291_HoangDuyTan_F08.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="ASM08 | F08 | D08 | 30 scenarios (12 refined after ASM06) › DDV_F08_017 - Địa chỉ giao: Tìm phường không tồn tại rồi chọn phường hợp lệ" classname="23130291_HoangDuyTan\23130291_HoangDuyTan_F08.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="ASM08 | F08 | D08 | 30 scenarios (12 refined after ASM06) › DDV_F08_018 - Địa chỉ giao: Lưu số nhà và tên đường có dấu tiếng Việt" classname="23130291_HoangDuyTan\23130291_HoangDuyTan_F08.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="ASM08 | F08 | D08 | 30 scenarios (12 refined after ASM06) › DDV_F08_019 - Lọc điểm nhận: Tìm thành phố không tồn tại" classname="23130291_HoangDuyTan\23130291_HoangDuyTan_F08.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="ASM08 | F08 | D08 | 30 scenarios (12 refined after ASM06) › DDV_F08_020 - Lọc điểm nhận: Tìm thành phố bằng từ khóa một phần" classname="23130291_HoangDuyTan\23130291_HoangDuyTan_F08.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="ASM08 | F08 | D08 | 30 scenarios (12 refined after ASM06) › DDV_F08_021 - Tìm tên đường không tồn tại: Hiển thị danh sách rỗng" classname="23130291_HoangDuyTan\23130291_HoangDuyTan_F08.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="ASM08 | F08 | D08 | 30 scenarios (12 refined after ASM06) › DDV_F08_022 - Xóa từ khóa tên đường: Danh sách cửa hàng được khôi phục" classname="23130291_HoangDuyTan\23130291_HoangDuyTan_F08.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="ASM08 | F08 | D08 | 30 scenarios (12 refined after ASM06) › DDV_F08_023 - Tìm tên đường có thật: Lọc đúng chi nhánh tương ứng" classname="23130291_HoangDuyTan\23130291_HoangDuyTan_F08.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="ASM08 | F08 | D08 | 30 scenarios (12 refined after ASM06) › DDV_F08_024 - Điểm nhận đã lưu: Mở lại rồi đóng không thay đổi chi nhánh" classname="23130291_HoangDuyTan\23130291_HoangDuyTan_F08.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="ASM08 | F08 | D08 | 30 scenarios (12 refined after ASM06) › DDV_F08_025 - Điểm nhận đã lưu: Hủy tìm kiếm khác không đổi lựa chọn cũ" classname="23130291_HoangDuyTan\23130291_HoangDuyTan_F08.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="ASM08 | F08 | D08 | 30 scenarios (12 refined after ASM06) › DDV_F08_026 - Trạng thái điều hướng: Điền địa chỉ rồi đổi sang cửa hàng" classname="23130291_HoangDuyTan\23130291_HoangDuyTan_F08.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="ASM08 | F08 | D08 | 30 scenarios (12 refined after ASM06) › DDV_F08_027 - Trạng thái điều hướng: Chọn cửa hàng rồi đổi giao" classname="23130291_HoangDuyTan\23130291_HoangDuyTan_F08.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="ASM08 | F08 | D08 | 30 scenarios (12 refined after ASM06) › DDV_F08_028 - Trạng thái điều hướng: Đổi qua lại 2 lần" classname="23130291_HoangDuyTan\23130291_HoangDuyTan_F08.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="ASM08 | F08 | D08 | 30 scenarios (12 refined after ASM06) › DDV_F08_029 - Trạng thái điều hướng: Quay lại giỏ rồi trở lại" classname="23130291_HoangDuyTan\23130291_HoangDuyTan_F08.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="ASM08 | F08 | D08 | 30 scenarios (12 refined after ASM06) › DDV_F08_030 - Trạng thái điều hướng: Refresh trước khi xác nhận" classname="23130291_HoangDuyTan\23130291_HoangDuyTan_F08.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+</testsuite>
+<testsuite name="23130291_HoangDuyTan\23130291_HoangDuyTan_F09.spec.ts" timestamp="2026-11-06T13:08:42.704Z" hostname="chromium" tests="30" failures="0" skipped="30" time="0" errors="0">
+<testcase name="ASM08 | F09 | D09 | 30 scenarios (V7: selective refinement, fixture-dependent cases documented) › DDV_F09_001 - Bỏ trống dữ liệu: Trống mã đơn" classname="23130291_HoangDuyTan\23130291_HoangDuyTan_F09.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="ASM08 | F09 | D09 | 30 scenarios (V7: selective refinement, fixture-dependent cases documented) › DDV_F09_002 - Bỏ trống dữ liệu: Trống số điện thoại" classname="23130291_HoangDuyTan\23130291_HoangDuyTan_F09.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="ASM08 | F09 | D09 | 30 scenarios (V7: selective refinement, fixture-dependent cases documented) › DDV_F09_003 - Bỏ trống dữ liệu: Trống cả hai" classname="23130291_HoangDuyTan\23130291_HoangDuyTan_F09.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="ASM08 | F09 | D09 | 30 scenarios (V7: selective refinement, fixture-dependent cases documented) › DDV_F09_004 - Bỏ trống dữ liệu: Chỉ khoảng trắng ở mã đơn" classname="23130291_HoangDuyTan\23130291_HoangDuyTan_F09.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="ASM08 | F09 | D09 | 30 scenarios (V7: selective refinement, fixture-dependent cases documented) › DDV_F09_005 - Bỏ trống dữ liệu: Chỉ khoảng trắng ở SĐT" classname="23130291_HoangDuyTan\23130291_HoangDuyTan_F09.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="ASM08 | F09 | D09 | 30 scenarios (V7: selective refinement, fixture-dependent cases documented) › DDV_F09_006 - Mã đơn không hợp lệ: Mã ký tự ngẫu nhiên" classname="23130291_HoangDuyTan\23130291_HoangDuyTan_F09.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="ASM08 | F09 | D09 | 30 scenarios (V7: selective refinement, fixture-dependent cases documented) › DDV_F09_007 - Mã đơn không hợp lệ: Mã quá ngắn" classname="23130291_HoangDuyTan\23130291_HoangDuyTan_F09.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="ASM08 | F09 | D09 | 30 scenarios (V7: selective refinement, fixture-dependent cases documented) › DDV_F09_008 - Mã đơn không hợp lệ: Mã rất dài" classname="23130291_HoangDuyTan\23130291_HoangDuyTan_F09.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="ASM08 | F09 | D09 | 30 scenarios (V7: selective refinement, fixture-dependent cases documented) › DDV_F09_009 - Mã đơn không hợp lệ: Mã có ký tự đặc biệt" classname="23130291_HoangDuyTan\23130291_HoangDuyTan_F09.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="ASM08 | F09 | D09 | 30 scenarios (V7: selective refinement, fixture-dependent cases documented) › DDV_F09_010 - Nhập mã 8 chữ số: Chưa bấm Tra cứu không tự gửi" classname="23130291_HoangDuyTan\23130291_HoangDuyTan_F09.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="ASM08 | F09 | D09 | 30 scenarios (V7: selective refinement, fixture-dependent cases documented) › DDV_F09_011 - SĐT không hợp lệ: SĐT thiếu số" classname="23130291_HoangDuyTan\23130291_HoangDuyTan_F09.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="ASM08 | F09 | D09 | 30 scenarios (V7: selective refinement, fixture-dependent cases documented) › DDV_F09_012 - SĐT không hợp lệ: SĐT thừa số" classname="23130291_HoangDuyTan\23130291_HoangDuyTan_F09.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="ASM08 | F09 | D09 | 30 scenarios (V7: selective refinement, fixture-dependent cases documented) › DDV_F09_013 - SĐT không hợp lệ: SĐT có chữ" classname="23130291_HoangDuyTan\23130291_HoangDuyTan_F09.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="ASM08 | F09 | D09 | 30 scenarios (V7: selective refinement, fixture-dependent cases documented) › DDV_F09_014 - SĐT không hợp lệ: SĐT chứa !@#" classname="23130291_HoangDuyTan\23130291_HoangDuyTan_F09.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="ASM08 | F09 | D09 | 30 scenarios (V7: selective refinement, fixture-dependent cases documented) › DDV_F09_015 - SĐT không hợp lệ: SĐT trống sau khi xóa" classname="23130291_HoangDuyTan\23130291_HoangDuyTan_F09.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="ASM08 | F09 | D09 | 30 scenarios (V7: selective refinement, fixture-dependent cases documented) › DDV_F09_016 - Sai kết hợp: Mã đơn thật + SĐT khác được phép" classname="23130291_HoangDuyTan\23130291_HoangDuyTan_F09.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="ASM08 | F09 | D09 | 30 scenarios (V7: selective refinement, fixture-dependent cases documented) › DDV_F09_017 - Sai kết hợp: Mã giả không tồn tại + SĐT đúng định dạng" classname="23130291_HoangDuyTan\23130291_HoangDuyTan_F09.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="ASM08 | F09 | D09 | 30 scenarios (V7: selective refinement, fixture-dependent cases documented) › DDV_F09_018 - Sai kết hợp: Mã giả + SĐT sai định dạng" classname="23130291_HoangDuyTan\23130291_HoangDuyTan_F09.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="ASM08 | F09 | D09 | 30 scenarios (V7: selective refinement, fixture-dependent cases documented) › DDV_F09_019 - Xóa mã đang nhập: Bắt buộc điền mã trước tra cứu" classname="23130291_HoangDuyTan\23130291_HoangDuyTan_F09.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="ASM08 | F09 | D09 | 30 scenarios (V7: selective refinement, fixture-dependent cases documented) › DDV_F09_020 - Chuẩn hóa đầu vào: Thêm dấu cách quanh mã giả" classname="23130291_HoangDuyTan\23130291_HoangDuyTan_F09.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="ASM08 | F09 | D09 | 30 scenarios (V7: selective refinement, fixture-dependent cases documented) › DDV_F09_021 - Trạng thái kết quả: Đơn chờ xác nhận nếu có" classname="23130291_HoangDuyTan\23130291_HoangDuyTan_F09.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="ASM08 | F09 | D09 | 30 scenarios (V7: selective refinement, fixture-dependent cases documented) › DDV_F09_022 - Trạng thái kết quả: Đơn đang giao nếu có" classname="23130291_HoangDuyTan\23130291_HoangDuyTan_F09.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="ASM08 | F09 | D09 | 30 scenarios (V7: selective refinement, fixture-dependent cases documented) › DDV_F09_023 - Trạng thái kết quả: Đơn hoàn tất nếu có" classname="23130291_HoangDuyTan\23130291_HoangDuyTan_F09.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="ASM08 | F09 | D09 | 30 scenarios (V7: selective refinement, fixture-dependent cases documented) › DDV_F09_024 - Trạng thái kết quả: Đơn hủy nếu có" classname="23130291_HoangDuyTan\23130291_HoangDuyTan_F09.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="ASM08 | F09 | D09 | 30 scenarios (V7: selective refinement, fixture-dependent cases documented) › DDV_F09_025 - Chuyển tab Đơn hàng ↔ Đơn đặt cọc: Trạng thái chọn cập nhật" classname="23130291_HoangDuyTan\23130291_HoangDuyTan_F09.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="ASM08 | F09 | D09 | 30 scenarios (V7: selective refinement, fixture-dependent cases documented) › DDV_F09_026 - Tra cứu lại: Thay mã giả A sang B và gửi lần hai" classname="23130291_HoangDuyTan\23130291_HoangDuyTan_F09.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="ASM08 | F09 | D09 | 30 scenarios (V7: selective refinement, fixture-dependent cases documented) › DDV_F09_027 - Chỉnh sửa mã sau phản hồi lỗi: Form vẫn dùng được" classname="23130291_HoangDuyTan\23130291_HoangDuyTan_F09.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="ASM08 | F09 | D09 | 30 scenarios (V7: selective refinement, fixture-dependent cases documented) › DDV_F09_028 - Điều hướng Back sau phản hồi lỗi: Không lộ dữ liệu" classname="23130291_HoangDuyTan\23130291_HoangDuyTan_F09.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="ASM08 | F09 | D09 | 30 scenarios (V7: selective refinement, fixture-dependent cases documented) › DDV_F09_029 - Refresh sau phản hồi lỗi: Form vẫn dùng được" classname="23130291_HoangDuyTan\23130291_HoangDuyTan_F09.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="ASM08 | F09 | D09 | 30 scenarios (V7: selective refinement, fixture-dependent cases documented) › DDV_F09_030 - Chống lộ thông tin/UI: Nhập chuỗi HTML ở mã đơn" classname="23130291_HoangDuyTan\23130291_HoangDuyTan_F09.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+</testsuite>
+<testsuite name="23130318_TranThiMinhThu\23130318_TranThiMinhThu_F13.spec.ts" timestamp="2026-11-06T13:08:42.704Z" hostname="chromium" tests="30" failures="0" skipped="30" time="0" errors="0">
+<testcase name="DDV_F13_001 › DDV_F13_001 - Mở trả góp công ty tài chính từ trang sản phẩm" classname="23130318_TranThiMinhThu\23130318_TranThiMinhThu_F13.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="DDV_F13_002 › DDV_F13_002 - Mở trả góp thẻ tín dụng từ trang sản phẩm" classname="23130318_TranThiMinhThu\23130318_TranThiMinhThu_F13.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="DDV_F13_003 › DDV_F13_003 - Đổi trả trước cập nhật khoản góp hàng tháng" classname="23130318_TranThiMinhThu\23130318_TranThiMinhThu_F13.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="DDV_F13_004 › DDV_F13_004 - Đọc gói ưu đãi không lãi suất và các khoản công bố" classname="23130318_TranThiMinhThu\23130318_TranThiMinhThu_F13.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="DDV_F13_005 › DDV_F13_005 - Chuyển công ty tài chính – thẻ tín dụng – công ty tài chính" classname="23130318_TranThiMinhThu\23130318_TranThiMinhThu_F13.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="DDV_F13_006 › DDV_F13_006 - Chọn kỳ hạn ngắn nhất đang hỗ trợ" classname="23130318_TranThiMinhThu\23130318_TranThiMinhThu_F13.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="DDV_F13_007 › DDV_F13_007 - Chọn kỳ hạn ở giữa danh sách" classname="23130318_TranThiMinhThu\23130318_TranThiMinhThu_F13.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="DDV_F13_008 › DDV_F13_008 - Chọn kỳ hạn dài nhất đang hỗ trợ" classname="23130318_TranThiMinhThu\23130318_TranThiMinhThu_F13.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="DDV_F13_009 › DDV_F13_009 - Đổi kỳ hạn ngắn sang dài giữ mức trả trước" classname="23130318_TranThiMinhThu\23130318_TranThiMinhThu_F13.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="DDV_F13_010 › DDV_F13_010 - Đổi kỳ hạn rồi quay về khôi phục khoản góp" classname="23130318_TranThiMinhThu\23130318_TranThiMinhThu_F13.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="DDV_F13_011 › DDV_F13_011 - Chọn mức trả trước nhỏ nhất" classname="23130318_TranThiMinhThu\23130318_TranThiMinhThu_F13.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="DDV_F13_012 › DDV_F13_012 - Chọn mức trả trước ở giữa" classname="23130318_TranThiMinhThu\23130318_TranThiMinhThu_F13.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="DDV_F13_013 › DDV_F13_013 - Chọn mức trả trước lớn nhất" classname="23130318_TranThiMinhThu\23130318_TranThiMinhThu_F13.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="DDV_F13_014 › DDV_F13_014 - Đổi trả trước rồi quay về khôi phục khoản góp" classname="23130318_TranThiMinhThu\23130318_TranThiMinhThu_F13.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="DDV_F13_015 › DDV_F13_015 - Trả trước chỉ chọn từ các mức cố định hợp lệ" classname="23130318_TranThiMinhThu\23130318_TranThiMinhThu_F13.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="DDV_F13_016 › DDV_F13_016 - Chọn MCredit và đối chiếu logo bảng tính" classname="23130318_TranThiMinhThu\23130318_TranThiMinhThu_F13.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="DDV_F13_017 › DDV_F13_017 - Đổi Home Credit – HD Saison – Home Credit" classname="23130318_TranThiMinhThu\23130318_TranThiMinhThu_F13.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="DDV_F13_018 › DDV_F13_018 - Chọn OnePay trong trả góp thẻ" classname="23130318_TranThiMinhThu\23130318_TranThiMinhThu_F13.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="DDV_F13_019 › DDV_F13_019 - Đổi cổng Kim Ngân sang Payoo trong trả góp thẻ" classname="23130318_TranThiMinhThu\23130318_TranThiMinhThu_F13.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="DDV_F13_020 › DDV_F13_020 - Đổi công ty giữ cấu hình kỳ hạn trả trước được hỗ trợ" classname="23130318_TranThiMinhThu\23130318_TranThiMinhThu_F13.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="DDV_F13_021 › DDV_F13_021 - Đối chiếu tiền trả trước và khoản còn tài trợ" classname="23130318_TranThiMinhThu\23130318_TranThiMinhThu_F13.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="DDV_F13_022 › DDV_F13_022 - Đối chiếu tổng tiền và chênh lệch với khoản góp" classname="23130318_TranThiMinhThu\23130318_TranThiMinhThu_F13.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="DDV_F13_023 › DDV_F13_023 - Bảng trả góp đúng sản phẩm Galaxy A07" classname="23130318_TranThiMinhThu\23130318_TranThiMinhThu_F13.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="DDV_F13_024 › DDV_F13_024 - Đổi sản phẩm sang mức giá cao hơn" classname="23130318_TranThiMinhThu\23130318_TranThiMinhThu_F13.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="DDV_F13_025 › DDV_F13_025 - Đổi sản phẩm sang mức giá thấp hơn" classname="23130318_TranThiMinhThu\23130318_TranThiMinhThu_F13.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="DDV_F13_026 › DDV_F13_026 - Đóng rồi mở lại bộ chọn trả góp không tải lại sản phẩm" classname="23130318_TranThiMinhThu\23130318_TranThiMinhThu_F13.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="DDV_F13_027 › DDV_F13_027 - Chọn kỳ hạn sau khi đổi HD Saison" classname="23130318_TranThiMinhThu\23130318_TranThiMinhThu_F13.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="DDV_F13_028 › DDV_F13_028 - Back về đúng sản phẩm sau khi mở trả góp" classname="23130318_TranThiMinhThu\23130318_TranThiMinhThu_F13.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="DDV_F13_029 › DDV_F13_029 - Refresh trả góp giữ đúng sản phẩm và bảng tính hợp lệ" classname="23130318_TranThiMinhThu\23130318_TranThiMinhThu_F13.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="DDV_F13_030 › DDV_F13_030 - Đổi model không giữ giá và cấu hình cũ không hợp lệ" classname="23130318_TranThiMinhThu\23130318_TranThiMinhThu_F13.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+</testsuite>
+<testsuite name="23130318_TranThiMinhThu\23130318_TranThiMinhThu_F14.spec.ts" timestamp="2026-11-06T13:08:42.704Z" hostname="chromium" tests="30" failures="0" skipped="30" time="0" errors="0">
+<testcase name="F14 | Tran Thi Minh Thu | Checkout Chromium | 30 cases › DDV_F14_001 - Chọn thanh toán khi nhận hàng (COD)" classname="23130318_TranThiMinhThu\23130318_TranThiMinhThu_F14.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="F14 | Tran Thi Minh Thu | Checkout Chromium | 30 cases › DDV_F14_002 - Chọn OnePay tại checkout" classname="23130318_TranThiMinhThu\23130318_TranThiMinhThu_F14.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="F14 | Tran Thi Minh Thu | Checkout Chromium | 30 cases › DDV_F14_003 - Chọn Payoo tại checkout" classname="23130318_TranThiMinhThu\23130318_TranThiMinhThu_F14.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="F14 | Tran Thi Minh Thu | Checkout Chromium | 30 cases › DDV_F14_004 - Chọn VNPay cho giỏ dưới hạn mức" classname="23130318_TranThiMinhThu\23130318_TranThiMinhThu_F14.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="F14 | Tran Thi Minh Thu | Checkout Chromium | 30 cases › DDV_F14_005 - Chọn chuyển khoản ngân hàng SePay" classname="23130318_TranThiMinhThu\23130318_TranThiMinhThu_F14.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="F14 | Tran Thi Minh Thu | Checkout Chromium | 30 cases › DDV_F14_006 - Chuyển từ COD sang VNPay" classname="23130318_TranThiMinhThu\23130318_TranThiMinhThu_F14.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="F14 | Tran Thi Minh Thu | Checkout Chromium | 30 cases › DDV_F14_007 - Chuyển từ VNPay về COD" classname="23130318_TranThiMinhThu\23130318_TranThiMinhThu_F14.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="F14 | Tran Thi Minh Thu | Checkout Chromium | 30 cases › DDV_F14_008 - Chuyển từ OnePay sang Payoo" classname="23130318_TranThiMinhThu\23130318_TranThiMinhThu_F14.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="F14 | Tran Thi Minh Thu | Checkout Chromium | 30 cases › DDV_F14_009 - Đổi COD – VNPay – COD giữ nguyên đơn hàng" classname="23130318_TranThiMinhThu\23130318_TranThiMinhThu_F14.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="F14 | Tran Thi Minh Thu | Checkout Chromium | 30 cases › DDV_F14_010 - Chọn lại phương thức COD đang dùng" classname="23130318_TranThiMinhThu\23130318_TranThiMinhThu_F14.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="F14 | Tran Thi Minh Thu | Checkout Chromium | 30 cases › DDV_F14_011 - Hiển thị nhãn COD và không yêu cầu trả trước" classname="23130318_TranThiMinhThu\23130318_TranThiMinhThu_F14.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="F14 | Tran Thi Minh Thu | Checkout Chromium | 30 cases › DDV_F14_012 - Chọn Kim Ngân Pay tại checkout" classname="23130318_TranThiMinhThu\23130318_TranThiMinhThu_F14.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="F14 | Tran Thi Minh Thu | Checkout Chromium | 30 cases › DDV_F14_013 - Chọn EVO TPBank tại checkout" classname="23130318_TranThiMinhThu\23130318_TranThiMinhThu_F14.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="F14 | Tran Thi Minh Thu | Checkout Chromium | 30 cases › DDV_F14_014 - Hiển thị tên và logo các phương thức thanh toán" classname="23130318_TranThiMinhThu\23130318_TranThiMinhThu_F14.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="F14 | Tran Thi Minh Thu | Checkout Chromium | 30 cases › DDV_F14_015 - Chọn Zalopay cho giỏ dưới hạn mức" classname="23130318_TranThiMinhThu\23130318_TranThiMinhThu_F14.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="F14 | Tran Thi Minh Thu | Checkout Chromium | 30 cases › DDV_F14_016 - Chọn Apple Pay trên giao diện checkout Chromium" classname="23130318_TranThiMinhThu\23130318_TranThiMinhThu_F14.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="F14 | Tran Thi Minh Thu | Checkout Chromium | 30 cases › DDV_F14_017 - Mở giao hàng tận nơi không làm đổi COD" classname="23130318_TranThiMinhThu\23130318_TranThiMinhThu_F14.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="F14 | Tran Thi Minh Thu | Checkout Chromium | 30 cases › DDV_F14_018 - Đổi tỉnh trong địa chỉ nháp không làm đổi thanh toán" classname="23130318_TranThiMinhThu\23130318_TranThiMinhThu_F14.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="F14 | Tran Thi Minh Thu | Checkout Chromium | 30 cases › DDV_F14_019 - Giỏ dưới 40 triệu cho phép chọn COD" classname="23130318_TranThiMinhThu\23130318_TranThiMinhThu_F14.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="F14 | Tran Thi Minh Thu | Checkout Chromium | 30 cases › DDV_F14_020 - Giỏ giá trị cao khóa VNPay theo hạn mức hiển thị" classname="23130318_TranThiMinhThu\23130318_TranThiMinhThu_F14.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="F14 | Tran Thi Minh Thu | Checkout Chromium | 30 cases › DDV_F14_021 - Chọn COD không đổi tổng tiền" classname="23130318_TranThiMinhThu\23130318_TranThiMinhThu_F14.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="F14 | Tran Thi Minh Thu | Checkout Chromium | 30 cases › DDV_F14_022 - Chọn OnePay không đổi tổng tiền checkout" classname="23130318_TranThiMinhThu\23130318_TranThiMinhThu_F14.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="F14 | Tran Thi Minh Thu | Checkout Chromium | 30 cases › DDV_F14_023 - Chọn VNPay không đổi tổng tiền checkout" classname="23130318_TranThiMinhThu\23130318_TranThiMinhThu_F14.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="F14 | Tran Thi Minh Thu | Checkout Chromium | 30 cases › DDV_F14_024 - Tăng số lượng từ 1 lên 2 cập nhật tiền checkout" classname="23130318_TranThiMinhThu\23130318_TranThiMinhThu_F14.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="F14 | Tran Thi Minh Thu | Checkout Chromium | 30 cases › DDV_F14_025 - Tổng tiền khớp tạm tính và phí vận chuyển" classname="23130318_TranThiMinhThu\23130318_TranThiMinhThu_F14.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="F14 | Tran Thi Minh Thu | Checkout Chromium | 30 cases › DDV_F14_026 - Mở lại bộ chọn giữ phương thức đã xác nhận" classname="23130318_TranThiMinhThu\23130318_TranThiMinhThu_F14.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="F14 | Tran Thi Minh Thu | Checkout Chromium | 30 cases › DDV_F14_027 - Refresh checkout trước khi đặt hàng" classname="23130318_TranThiMinhThu\23130318_TranThiMinhThu_F14.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="F14 | Tran Thi Minh Thu | Checkout Chromium | 30 cases › DDV_F14_028 - Đóng bằng nút X hủy phương thức chưa xác nhận" classname="23130318_TranThiMinhThu\23130318_TranThiMinhThu_F14.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="F14 | Tran Thi Minh Thu | Checkout Chromium | 30 cases › DDV_F14_029 - Phím Escape hủy phương thức chưa xác nhận" classname="23130318_TranThiMinhThu\23130318_TranThiMinhThu_F14.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="F14 | Tran Thi Minh Thu | Checkout Chromium | 30 cases › DDV_F14_030 - Dừng tại nút ĐẶT HÀNG trước giao dịch thật" classname="23130318_TranThiMinhThu\23130318_TranThiMinhThu_F14.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+</testsuite>
+<testsuite name="23130318_TranThiMinhThu\23130318_TranThiMinhThu_F15.spec.ts" timestamp="2026-11-06T13:08:42.704Z" hostname="chromium" tests="30" failures="0" skipped="30" time="0" errors="0">
+<testcase name="F15 – Giá khuyến mãi trên UI thực tế › DDV_F15_001 | Giá Galaxy A07 5G từ trang chủ sang chi tiết" classname="23130318_TranThiMinhThu\23130318_TranThiMinhThu_F15.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="F15 – Giá khuyến mãi trên UI thực tế › DDV_F15_002 | Giá iPhone 15 từ trang chủ sang chi tiết" classname="23130318_TranThiMinhThu\23130318_TranThiMinhThu_F15.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="F15 – Giá khuyến mãi trên UI thực tế › DDV_F15_003 | Sản phẩm C không có giá gạch không nhận mức giảm của A" classname="23130318_TranThiMinhThu\23130318_TranThiMinhThu_F15.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="F15 – Giá khuyến mãi trên UI thực tế › DDV_F15_004 | Giá bán và giá gạch của A hợp lệ" classname="23130318_TranThiMinhThu\23130318_TranThiMinhThu_F15.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="F15 – Giá khuyến mãi trên UI thực tế › DDV_F15_005 | Phần trăm giảm của A khớp hai mức giá" classname="23130318_TranThiMinhThu\23130318_TranThiMinhThu_F15.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="F15 – Giá khuyến mãi trên UI thực tế › DDV_F15_006 | Phần trăm giảm của B được tính theo giá B" classname="23130318_TranThiMinhThu\23130318_TranThiMinhThu_F15.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="F15 – Giá khuyến mãi trên UI thực tế › DDV_F15_007 | Card thường không tự hiển thị Flash Sale hoặc quota" classname="23130318_TranThiMinhThu\23130318_TranThiMinhThu_F15.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="F15 – Giá khuyến mãi trên UI thực tế › DDV_F15_008 | Công bố khả năng thay đổi giá và khuyến mãi" classname="23130318_TranThiMinhThu\23130318_TranThiMinhThu_F15.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="F15 – Giá khuyến mãi trên UI thực tế › DDV_F15_009 | Ưu đãi HSSV/TXCN giữ điều kiện và mức tối đa" classname="23130318_TranThiMinhThu\23130318_TranThiMinhThu_F15.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="F15 – Giá khuyến mãi trên UI thực tế › DDV_F15_010 | Ưu đãi Kredivo có điều kiện kỳ hạn và liên kết chi tiết" classname="23130318_TranThiMinhThu\23130318_TranThiMinhThu_F15.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="F15 – Giá khuyến mãi trên UI thực tế › DDV_F15_011 | Mở và thu gọn ưu đãi thanh toán không đổi giá bán" classname="23130318_TranThiMinhThu\23130318_TranThiMinhThu_F15.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="F15 – Giá khuyến mãi trên UI thực tế › DDV_F15_012 | Mở và thu gọn danh sách khuyến mãi sản phẩm" classname="23130318_TranThiMinhThu\23130318_TranThiMinhThu_F15.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="F15 – Giá khuyến mãi trên UI thực tế › DDV_F15_013 | Chọn màu Tím của A dùng đúng giá trên ô màu" classname="23130318_TranThiMinhThu\23130318_TranThiMinhThu_F15.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="F15 – Giá khuyến mãi trên UI thực tế › DDV_F15_014 | Đổi B sang Hồng cập nhật giá theo màu" classname="23130318_TranThiMinhThu\23130318_TranThiMinhThu_F15.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="F15 – Giá khuyến mãi trên UI thực tế › DDV_F15_015 | Đổi màu B rồi quay lại khôi phục giá ban đầu" classname="23130318_TranThiMinhThu\23130318_TranThiMinhThu_F15.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="F15 – Giá khuyến mãi trên UI thực tế › DDV_F15_016 | Đổi A07 5G sang bản 4G không giữ nhầm giá" classname="23130318_TranThiMinhThu\23130318_TranThiMinhThu_F15.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="F15 – Giá khuyến mãi trên UI thực tế › DDV_F15_017 | Phiên bản 256GB không khả dụng không có liên kết mua" classname="23130318_TranThiMinhThu\23130318_TranThiMinhThu_F15.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="F15 – Giá khuyến mãi trên UI thực tế › DDV_F15_018 | Đổi phiên bản 5G sang 4G rồi quay lại" classname="23130318_TranThiMinhThu\23130318_TranThiMinhThu_F15.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="F15 – Giá khuyến mãi trên UI thực tế › DDV_F15_019 | Reload chi tiết giữ giá mặc định và mức giảm" classname="23130318_TranThiMinhThu\23130318_TranThiMinhThu_F15.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="F15 – Giá khuyến mãi trên UI thực tế › DDV_F15_020 | Back từ chi tiết B về trang chủ giữ giá card" classname="23130318_TranThiMinhThu\23130318_TranThiMinhThu_F15.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="F15 – Giá khuyến mãi trên UI thực tế › DDV_F15_021 | Giỏ một A dùng giá bán và tiền tiết kiệm đúng" classname="23130318_TranThiMinhThu\23130318_TranThiMinhThu_F15.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="F15 – Giá khuyến mãi trên UI thực tế › DDV_F15_022 | Giỏ A và B cộng đúng hai mức giá riêng" classname="23130318_TranThiMinhThu\23130318_TranThiMinhThu_F15.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="F15 – Giá khuyến mãi trên UI thực tế › DDV_F15_023 | Tăng A từ một lên hai cập nhật tổng và tiết kiệm" classname="23130318_TranThiMinhThu\23130318_TranThiMinhThu_F15.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="F15 – Giá khuyến mãi trên UI thực tế › DDV_F15_024 | Giảm A từ hai về một khôi phục tổng" classname="23130318_TranThiMinhThu\23130318_TranThiMinhThu_F15.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="F15 – Giá khuyến mãi trên UI thực tế › DDV_F15_025 | Xóa sản phẩm giảm giá cuối cùng trả giỏ về rỗng" classname="23130318_TranThiMinhThu\23130318_TranThiMinhThu_F15.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="F15 – Giá khuyến mãi trên UI thực tế › DDV_F15_026 | Xóa rồi thêm lại A không nhân đôi số lượng hay ưu đãi" classname="23130318_TranThiMinhThu\23130318_TranThiMinhThu_F15.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="F15 – Giá khuyến mãi trên UI thực tế › DDV_F15_027 | Reload giỏ hai A giữ số lượng và tổng tiền" classname="23130318_TranThiMinhThu\23130318_TranThiMinhThu_F15.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="F15 – Giá khuyến mãi trên UI thực tế › DDV_F15_028 | Chuyển từ giỏ sang checkout không mất giá khuyến mãi" classname="23130318_TranThiMinhThu\23130318_TranThiMinhThu_F15.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="F15 – Giá khuyến mãi trên UI thực tế › DDV_F15_029 | C không nhận tiền tiết kiệm của sản phẩm khác" classname="23130318_TranThiMinhThu\23130318_TranThiMinhThu_F15.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="F15 – Giá khuyến mãi trên UI thực tế › DDV_F15_030 | Ảnh sản phẩm tải lỗi không che giá hoặc ngăn thêm giỏ" classname="23130318_TranThiMinhThu\23130318_TranThiMinhThu_F15.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+</testsuite>
+</testsuites>
