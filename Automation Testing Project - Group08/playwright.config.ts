@@ -20,9 +20,9 @@ export default defineConfig({
   ],
   use: {
     baseURL: 'https://didongviet.vn/',
-    trace: 'retain-on-failure',
-    screenshot: 'only-on-failure',
-    video: 'retain-on-failure',
+    trace: 'on',
+    screenshot: 'on',
+    video: 'on',
     actionTimeout: 15_000,
     navigationTimeout: 45_000,
   },
