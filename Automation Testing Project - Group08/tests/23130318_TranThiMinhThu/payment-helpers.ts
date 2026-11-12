@@ -1,16 +1,30 @@
 import { expect, type Locator, type Page } from '@playwright/test';
 
 export const BASE = 'https://didongviet.vn';
+export const BANK = 'Chuyển khoản ngân hàng';
 export const COD = 'Thanh toán khi nhận hàng';
 export const VNPAY = 'VNPay';
 export const PRODUCT = process.env.F14_PRODUCT_URL ?? `${BASE}/dien-thoai/samsung-galaxy-a07.html`;
 export const HIGH_PRODUCT = process.env.F14_HIGH_VALUE_PRODUCT_URL ?? `${BASE}/dien-thoai/iphone-18-pro-max.html`;
-export const METHODS = ['Chuyển khoản ngân hàng', COD, 'Apple Pay', 'Kim Ngân Pay', 'EVO TPBank', 'Payoo', 'OnePay', 'Zalopay', VNPAY, 'MoMo'];
+export const QUANTITY_PRODUCT = process.env.F14_QUANTITY_PRODUCT_URL ?? `${BASE}/dien-thoai/samsung-galaxy-a07-5g.html`;
+export const METHODS = [BANK, COD, 'Apple Pay', 'Kim Ngân Pay', 'EVO TPBank', 'Zalopay', VNPAY, 'MoMo'];
+
+export async function waitForHydration(control: Locator) {
+  // CTA có thể xuất hiện từ SSR trước khi handler được gắn. Đợi rồi click một lần.
+  await expect.poll(() => control.evaluate(
+    element => Object.keys(element).some(key => key.startsWith('__reactProps$'))
+  ), { timeout: 15_000 }).toBe(true);
+}
 
 export async function dismissCookies(page: Page) {
+  if ((await page.context().cookies(BASE)).some(cookie => cookie.name === 'ddv_consent')) return;
   const reject = page.getByRole('button', { name: 'Từ chối', exact: true });
-  await reject.waitFor({ state: 'visible', timeout: 2500 }).catch(() => {});
-  if (await reject.isVisible()) await reject.click();
+  await expect(reject).toBeVisible({ timeout: 15_000 });
+  await waitForHydration(reject);
+  await reject.click();
+  await expect(reject).toBeHidden();
+  await expect.poll(async () => (await page.context().cookies(BASE))
+    .some(cookie => cookie.name === 'ddv_consent')).toBe(true);
 }
 export async function openCheckout(page: Page, product = PRODUCT) {
   const url = new URL(product);
@@ -19,7 +33,9 @@ export async function openCheckout(page: Page, product = PRODUCT) {
   const response = await page.goto(url.href, { waitUntil: 'domcontentloaded' });
   expect(response?.status(), 'Không mở được sản phẩm test').toBeLessThan(400);
   await dismissCookies(page);
-  await page.getByRole('button', { name: /^MUA NGAY$/i }).first().click();
+  const buy = page.getByRole('button', { name: /^MUA NGAY$/i }).first();
+  await waitForHydration(buy);
+  await buy.click();
   await expect(page).toHaveURL(/\/checkout(?:[/?#]|$)/);
   await dismissCookies(page);
   await expect(page.locator('#payment-change-btn')).toBeVisible();
@@ -31,7 +47,11 @@ export function method(page: Page, name: string): Locator {
   return paymentDialog(page).locator('[role="radio"]').filter({ has: page.getByText(name, { exact: true }) });
 }
 export async function openMethods(page: Page) {
-  if (!(await paymentDialog(page).isVisible())) await page.locator('#payment-change-btn').click();
+  if (!(await paymentDialog(page).isVisible())) {
+    const change = page.locator('#payment-change-btn');
+    await waitForHydration(change);
+    await change.click();
+  }
   await expect(paymentDialog(page)).toBeVisible();
 }
 export async function closeMethods(page: Page) {
@@ -76,8 +96,12 @@ export async function total(page: Page) {
 }
 export async function orderSnapshot(page: Page) {
   const region = page.getByRole('region', { name: 'Sản phẩm trong đơn hàng', exact: true });
-  const products = await region.locator('a').filter({ hasText: /\S/ }).allTextContents();
-  const quantities = await region.getByText(/^Số lượng:\s*\d+$/).allTextContents();
+  const productLinks = region.locator('a').filter({ hasText: /\S/ });
+  const quantityLabels = region.getByText(/^Số lượng:\s*\d+$/);
+  await expect(productLinks.first()).toBeVisible();
+  await expect(quantityLabels.first()).toBeVisible();
+  const products = await productLinks.allTextContents();
+  const quantities = await quantityLabels.allTextContents();
   expect(products.length).toBeGreaterThan(0);
   expect(quantities.length).toBeGreaterThan(0);
   return { total: await total(page), products, quantities };
