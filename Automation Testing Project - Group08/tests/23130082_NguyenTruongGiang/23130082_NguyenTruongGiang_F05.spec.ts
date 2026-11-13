@@ -351,20 +351,20 @@ test.describe('ASM07 | F05 | D05 | 30 test cases from Assignment 6', () => {
   });
 
   /** Expected Output from ASM06 [DDV_F05_004]:
-   * 1. Tổng số lượng của SKU Titan Xanh đúng bằng 2 sau hai lần thêm, không nhân đôi quá mức.
+   * 1. Tổng số lượng của SKU Titan Đen đúng bằng 2 sau hai lần thêm, không nhân đôi quá mức.
    * 2. Giá và tổng tiền được cập nhật đúng theo số lượng/ưu đãi hiện hành.
    *
    * Test Case Procedure (Excel):
-   * 1. Mở trang Samsung 256GB, chọn Titan Xanh; nhấn biểu tượng xe đẩy một lần.
+   * 1. Mở trang Samsung 256GB, chọn Titan Đen; nhấn biểu tượng xe đẩy một lần.
    * 2. Quay lại trang sản phẩm nhưng vẫn giữ cùng phiên trình duyệt.
-   * 3. Chọn lại Titan Xanh và nhấn biểu tượng xe đẩy lần thứ hai.
-   * 4. Mở giỏ; kiểm tra tổng số lượng của đúng SKU Titan Xanh và tổng tiền, không tạo đơn hàng.
+   * 3. Chọn lại Titan Đen và nhấn biểu tượng xe đẩy lần thứ hai.
+   * 4. Mở giỏ; kiểm tra tổng số lượng của đúng SKU Titan Đen và tổng tiền, không tạo đơn hàng.
    */
-  test('DDV_F05_004 - Nhấn biểu tượng xe đẩy hai lần với cùng SKU Titan Xanh', async ({ page }) => {
+  test('DDV_F05_004 - Nhấn biểu tượng xe đẩy hai lần với cùng SKU Titan Đen', async ({ page }) => {
     let product!: ProductSnapshot;
-    await test.step('01 - Thêm Titan Xanh lần thứ nhất', async () => { product = await addProduct(page); await assertItem(page, product); });
+    await test.step('01 - Thêm Titan Đen lần thứ nhất', async () => { product = await addProduct(page, 'Titan Đen'); await assertItem(page, product); });
     await test.step('02 - Quay lại trang sản phẩm trong cùng phiên', async () => { await visit(page); });
-    await test.step('03 - Chọn lại Titan Xanh, click xe đẩy lần thứ hai', async () => { await selectColor(page, 'Titan Xanh'); await addSelected(page); });
+    await test.step('03 - Chọn lại Titan Đen, click xe đẩy lần thứ hai', async () => { await selectColor(page, 'Titan Đen'); await addSelected(page); });
     await test.step('04 - Giỏ có đúng một SKU x2, không nhân đôi quá mức', async () => {
       await openCart(page); await expect(cartRows(page)).toHaveCount(1);
       await assertItem(page, product, 2); await assertTotals(page, [{ product, count: 2 }]);
@@ -400,16 +400,16 @@ test.describe('ASM07 | F05 | D05 | 30 test cases from Assignment 6', () => {
    * 2. Thành tiền và tạm tính cập nhật theo chính sách giá/khuyến mãi hiển thị.
    *
    * Test Case Procedure (Excel):
-   * 1. Chuẩn bị giỏ bằng cách chọn Samsung S25 Ultra 256GB/Titan Xanh rồi nhấn biểu tượng xe đẩy một lần.
+   * 1. Chuẩn bị giỏ bằng cách chọn Samsung S25 Ultra 256GB/Titan Đen rồi nhấn biểu tượng xe đẩy một lần.
    * 2. Mở giỏ, xác nhận SKU có số lượng 1 và ghi đơn giá P.
-   * 3. Nhấn nút '+' ở dòng Titan Xanh đúng một lần, chờ hệ thống cập nhật.
+   * 3. Nhấn nút '+' ở dòng Titan Đen đúng một lần, chờ hệ thống cập nhật.
    * 4. Kiểm tra số lượng 2 và thành tiền sau thay đổi; ghi chú ưu đãi nếu có.
    */
   test('DDV_F05_006 - Tăng số lượng S25 Ultra từ 1 lên 2 trong giỏ', async ({ page }) => {
     let product!: ProductSnapshot;
-    await test.step('01 - Chuẩn bị giỏ Titan Xanh qua xe đẩy', async () => { product = await addProduct(page); });
+    await test.step('01 - Chuẩn bị giỏ Titan Đen qua xe đẩy', async () => { product = await addProduct(page, 'Titan Đen'); });
     await test.step('02 - Xác nhận SL 1 và đơn giá P', async () => { await assertItem(page, product); });
-    await test.step('03 - Click + đúng một lần, đợi SL 2', async () => { await changeQuantity(page, 'Titan Xanh', 2); });
+    await test.step('03 - Click + đúng một lần, đợi SL 2', async () => { await changeQuantity(page, 'Titan Đen', 2); });
     await test.step('04 - Đối chiếu SL và tổng 2 × P', async () => {
       await expect(cartRows(page)).toHaveCount(1); await assertItem(page, product, 2); await assertTotals(page, [{ product, count: 2 }]);
     });
@@ -420,16 +420,16 @@ test.describe('ASM07 | F05 | D05 | 30 test cases from Assignment 6', () => {
    * 2. Tổng tiền không còn tính chiếc thứ hai nếu không có ưu đãi phụ thuộc số lượng.
    *
    * Test Case Procedure (Excel):
-   * 1. Thêm Samsung S25 Ultra 256GB/Titan Xanh vào giỏ qua biểu tượng xe đẩy.
+   * 1. Thêm Samsung S25 Ultra 256GB/Titan Đen vào giỏ qua biểu tượng xe đẩy.
    * 2. Tại giỏ, dùng '+' (hoặc thêm tiếp cùng SKU) để chuẩn bị số lượng 2.
-   * 3. Nhấn nút '-' tại dòng Titan Xanh một lần.
+   * 3. Nhấn nút '-' tại dòng Titan Đen một lần.
    * 4. Đối chiếu số lượng còn 1 và thành tiền; bảo đảm không xóa hẳn SKU.
    */
   test('DDV_F05_007 - Giảm số lượng S25 Ultra từ 2 xuống 1', async ({ page }) => {
     let product!: ProductSnapshot;
-    await test.step('01 - Thêm Titan Xanh bằng xe đẩy', async () => { product = await addProduct(page); });
-    await test.step('02 - Dùng + chuẩn bị SL 2', async () => { await changeQuantity(page, 'Titan Xanh', 2); });
-    await test.step('03 - Click − một lần', async () => { await changeQuantity(page, 'Titan Xanh', 1); });
+    await test.step('01 - Thêm Titan Đen bằng xe đẩy', async () => { product = await addProduct(page, 'Titan Đen'); });
+    await test.step('02 - Dùng + chuẩn bị SL 2', async () => { await changeQuantity(page, 'Titan Đen', 2); });
+    await test.step('03 - Click − một lần', async () => { await changeQuantity(page, 'Titan Đen', 1); });
     await test.step('04 - Dòng máy còn x1 và chỉ tính tiền một máy', async () => {
       await assertItem(page, product); await assertTotals(page, [{ product, count: 1 }]);
     });
@@ -668,15 +668,15 @@ test.describe('ASM07 | F05 | D05 | 30 test cases from Assignment 6', () => {
    * 2. Mọi chênh lệch phải có dòng giảm/điều kiện giải thích rõ.
    *
    * Test Case Procedure (Excel):
-   * 1. Chọn Titan Xanh 256GB, ghi đơn giá P và thêm máy vào giỏ bằng biểu tượng xe đẩy.
+   * 1. Chọn Titan Đen 256GB, ghi đơn giá P và thêm máy vào giỏ bằng biểu tượng xe đẩy.
    * 2. Mở giỏ; tăng số lượng từ 1 lên 2 bằng nút '+'.
    * 3. Ghi số lượng, thành tiền của dòng và các khoản ưu đãi hiển thị.
    * 4. Đối chiếu công thức 2 × P trước ưu đãi áp dụng cho số lượng (nếu có).
    */
-  test('DDV_F05_017 - Đối chiếu thành tiền S25 Ultra Titan Xanh x2', async ({ page }) => {
+  test('DDV_F05_017 - Đối chiếu thành tiền S25 Ultra Titan Đen x2', async ({ page }) => {
     let product!: ProductSnapshot;
-    await test.step('01 - Ghi P và thêm Titan Xanh bằng xe đẩy', async () => { product = await addProduct(page); });
-    await test.step('02 - Tăng SL 1 → 2 bằng +', async () => { await changeQuantity(page, 'Titan Xanh', 2); });
+    await test.step('01 - Ghi P và thêm Titan Đen bằng xe đẩy', async () => { product = await addProduct(page, 'Titan Đen'); });
+    await test.step('02 - Tăng SL 1 → 2 bằng +', async () => { await changeQuantity(page, 'Titan Đen', 2); });
     await test.step('03 - Ghi số lượng, giá và ưu đãi đang hiển thị', async () => { await assertItem(page, product, 2); await note(page, await main(page).innerText()); });
     await test.step('04 - Đối chiếu 2 × P và tiền tiết kiệm theo giá gạch', async () => { await assertTotals(page, [{ product, count: 2 }]); });
   });
@@ -874,20 +874,20 @@ test.describe('ASM07 | F05 | D05 | 30 test cases from Assignment 6', () => {
    * 2. Không bị bỏ lượt hoặc nhân đôi số lượng ngoài ý muốn.
    *
    * Test Case Procedure (Excel):
-   * 1. Thêm Samsung S25 Ultra 256GB/Titan Xanh x1 bằng biểu tượng xe đẩy.
+   * 1. Thêm Samsung S25 Ultra 256GB/Titan Đen x1 bằng biểu tượng xe đẩy.
    * 2. Mở giỏ và ghi số lượng ban đầu 1.
    * 3. Nhấn nút '+' liên tiếp ba lần, chờ từng lần cập nhật.
    * 4. Kiểm tra số lượng 4 nếu tồn kho cho phép; nếu có giới hạn thì ghi mức chặn và phản hồi.
    */
   test('DDV_F05_026 - Nhấn tăng số lượng ba lần từ 1', async ({ page }) => {
     let product!: ProductSnapshot; let finalQuantity = 1; let limited = false;
-    await test.step('01 - Thêm Titan Xanh x1 bằng xe đẩy', async () => { product = await addProduct(page); });
+    await test.step('01 - Thêm Titan Đen x1 bằng xe đẩy', async () => { product = await addProduct(page, 'Titan Đen'); });
     await test.step('02 - Ghi nhận số lượng ban đầu 1', async () => { await assertItem(page, product); });
     await test.step('03 - Click + ba lần, chờ server từng lượt; ghi mức chặn nếu có', async () => {
       for (let click = 0; click < 3; click++) {
-        const plus = increase(cartRow(page, 'Titan Xanh'));
+        const plus = increase(cartRow(page, 'Titan Đen'));
         if (await plus.isDisabled()) { limited = true; break; }
-        const item = await clickQuantity(page, 'Titan Xanh', 1);
+        const item = await clickQuantity(page, 'Titan Đen', 1);
         expect(item.quantity).toBe(finalQuantity + 1);
         finalQuantity = item.quantity;
         if (item.isMaxQuantity) { limited = true; break; }
@@ -897,7 +897,7 @@ test.describe('ASM07 | F05 | D05 | 30 test cases from Assignment 6', () => {
     await test.step('04 - x4 nếu đủ hàng; nếu bị giới hạn phải khóa + và tính đúng số máy đã lưu', async () => {
       if (limited) {
         expect(finalQuantity).toBeGreaterThan(1); expect(finalQuantity).toBeLessThanOrEqual(4);
-        await expect(increase(cartRow(page, 'Titan Xanh'))).toBeDisabled();
+        await expect(increase(cartRow(page, 'Titan Đen'))).toBeDisabled();
       } else { expect(finalQuantity).toBe(4); }
       await expect(cartRows(page)).toHaveCount(1); await assertItem(page, product, finalQuantity);
       await assertTotals(page, [{ product, count: finalQuantity }]);
