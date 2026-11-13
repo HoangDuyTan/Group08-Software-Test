@@ -1,6 +1,6 @@
 import { test, expect, type Page } from '@playwright/test';
 import {
-  COD, VNPAY, METHODS, HIGH_PRODUCT, openCheckout, dismissCookies,
+  BANK, COD, VNPAY, METHODS, HIGH_PRODUCT, QUANTITY_PRODUCT, openCheckout, dismissCookies, waitForHydration,
   paymentDialog, method, openMethods, closeMethods, assertExclusive, selectMethod,
   total, summaryRow, money, orderSnapshot, assertNoPurchase, assertNoCardInputs,
   openDeliveryDraft, closeDeliveryDraft, addressDialog,
@@ -22,6 +22,7 @@ type F14Case = {
   steps: string[];
   expected: string[];
   highValue?: boolean;
+  quantityProduct?: boolean;
 };
 
 const cases: F14Case[] = [
@@ -40,24 +41,25 @@ const cases: F14Case[] = [
   },
   {
     "id": "DDV_F14_002",
-    "title": "Chọn OnePay tại checkout",
+    "title": "Chuyển khoản ngân hàng được chọn mặc định khi mở checkout",
     "group": "F14.1 – Lựa chọn phương thức",
     "steps": [
-      "Chọn OnePay và xác nhận phương thức."
+      "Đọc phương thức hiện hành ngay khi mở checkout; mở bộ chọn mà chưa xác nhận phương thức nào."
     ],
     "expected": [
-      "Thông tin thanh toán hiển thị OnePay; chưa điều hướng đến cổng hoặc tạo giao dịch."
+      "Chuyển khoản ngân hàng là phương thức mặc định và được chọn duy nhất; thông tin đơn không đổi khi mở rồi đóng bộ chọn."
     ]
   },
   {
     "id": "DDV_F14_003",
-    "title": "Chọn Payoo tại checkout",
+    "title": "Phương thức nháp MoMo chỉ được lưu sau khi xác nhận",
     "group": "F14.1 – Lựa chọn phương thức",
     "steps": [
-      "Chọn Payoo và xác nhận phương thức."
+      "Ghi phương thức mặc định Chuyển khoản ngân hàng; mở bộ chọn và chọn MoMo nhưng chưa xác nhận.",
+      "Đối chiếu radio nháp với phương thức đang lưu trên checkout, sau đó bấm Xác nhận."
     ],
     "expected": [
-      "Thông tin thanh toán hiển thị Payoo, chỉ một lựa chọn hiện hành."
+      "Trước xác nhận chỉ radio MoMo được chọn nhưng checkout vẫn lưu Chuyển khoản ngân hàng; sau xác nhận checkout và radio đều lưu MoMo, thông tin đơn không đổi."
     ]
   },
   {
@@ -110,14 +112,14 @@ const cases: F14Case[] = [
   },
   {
     "id": "DDV_F14_008",
-    "title": "Chuyển từ OnePay sang Payoo",
+    "title": "Chuyển từ Kim Ngân Pay sang EVO TPBank",
     "group": "F14.2 – Chuyển đổi phương thức",
     "steps": [
-      "Xác nhận OnePay, sau đó xác nhận Payoo.",
+      "Xác nhận Kim Ngân Pay, sau đó xác nhận EVO TPBank.",
       "Mở lại bộ chọn."
     ],
     "expected": [
-      "Payoo được chọn, OnePay bỏ chọn; không có hai lựa chọn đồng thời."
+      "EVO TPBank được chọn, Kim Ngân Pay bỏ chọn; không có hai lựa chọn đồng thời."
     ]
   },
   {
@@ -184,10 +186,10 @@ const cases: F14Case[] = [
     "title": "Hiển thị tên và logo các phương thức thanh toán",
     "group": "F14.3 – Thông tin phương thức",
     "steps": [
-      "Mở bộ chọn, đọc danh sách phương thức và logo tương ứng."
+      "Mở bộ chọn; đối chiếu đủ 8 phương thức đang hỗ trợ và logo tương ứng."
     ],
     "expected": [
-      "Mỗi phương thức có tên và ảnh logo có alt phù hợp; chỉ một radio được chọn."
+      "Có đúng 8 phương thức: Chuyển khoản ngân hàng, COD, Apple Pay, Kim Ngân Pay, EVO TPBank, Zalopay, VNPay, MoMo. Mỗi tên/logo xuất hiện một lần; chỉ một radio được chọn."
     ]
   },
   {
@@ -258,10 +260,10 @@ const cases: F14Case[] = [
     "steps": [
       "Mua ngay iPhone 18 Pro Max 256GB; ghi nhận tổng thực tế trên 40.000.000 đ.",
       "Mở bộ chọn, đọc hạn mức VNPay và kiểm tra radio bị khóa.",
-      "Chọn OnePay và xác nhận làm phương thức thay thế."
+      "Chọn Chuyển khoản ngân hàng và xác nhận làm phương thức thay thế."
     ],
     "expected": [
-      "Tổng giỏ vượt hạn mức VNPay 20.000.000 đ; VNPay bị khóa và không được chọn. OnePay vẫn khả dụng và được lưu. Không kiểm tra chính sách chặn COD từ 40 triệu trong case này."
+      "Tổng giỏ vượt hạn mức VNPay 20.000.000 đ; VNPay bị khóa và không được chọn. Chuyển khoản ngân hàng vẫn khả dụng và được lưu. Không kiểm tra chính sách chặn COD từ 40 triệu trong case này."
     ],
     "highValue": true
   },
@@ -278,13 +280,13 @@ const cases: F14Case[] = [
   },
   {
     "id": "DDV_F14_022",
-    "title": "Chọn OnePay không đổi tổng tiền checkout",
+    "title": "Chọn Kim Ngân Pay không đổi tổng tiền checkout",
     "group": "F14.5 – Số tiền và số lượng",
     "steps": [
-      "Ghi tổng tiền, xác nhận OnePay rồi đọc lại tổng tại checkout."
+      "Ghi tổng tiền, xác nhận Kim Ngân Pay rồi đọc lại tổng tại checkout."
     ],
     "expected": [
-      "Tổng tiền checkout trước và sau chọn OnePay bằng nhau; chưa kiểm tra số tiền tại cổng."
+      "Tổng tiền checkout trước và sau chọn Kim Ngân Pay bằng nhau; chưa kiểm tra số tiền tại cổng."
     ]
   },
   {
@@ -300,22 +302,23 @@ const cases: F14Case[] = [
   },
   {
     "id": "DDV_F14_024",
-    "title": "Tăng số lượng từ 1 lên 2 cập nhật tiền checkout",
+    "title": "Tăng Galaxy A07 5G từ 1 lên 2 cập nhật tiền checkout",
     "group": "F14.5 – Số tiền và số lượng",
     "steps": [
-      "Ghi tạm tính khi có 1 máy, quay lại giỏ hàng.",
+      "Dùng Galaxy A07 5G 128GB hỗ trợ số lượng 2; ghi tạm tính khi có 1 máy rồi quay lại giỏ hàng.",
       "Tăng số lượng từ 1 lên 2; bấm MUA NGAY để trở lại checkout."
     ],
     "expected": [
-      "Checkout hiển thị 2 máy; tạm tính bằng tạm tính của 1 máy nhân 2."
-    ]
+      "Checkout hiển thị đúng Galaxy A07 5G số lượng 2; tạm tính bằng tạm tính của 1 máy nhân 2."
+    ],
+    "quantityProduct": true
   },
   {
     "id": "DDV_F14_025",
     "title": "Tổng tiền khớp tạm tính và phí vận chuyển",
     "group": "F14.5 – Số tiền và số lượng",
     "steps": [
-      "Chọn OnePay; đọc tạm tính, phí vận chuyển và tổng tiền của giỏ mới không mã ưu đãi."
+      "Chọn Chuyển khoản ngân hàng; đọc tạm tính, phí vận chuyển và tổng tiền của giỏ mới không mã ưu đãi."
     ],
     "expected": [
       "Tổng tiền bằng tạm tính cộng phí vận chuyển; Miễn phí được tính là 0. Không có NaN, undefined hoặc Infinity."
@@ -338,7 +341,8 @@ const cases: F14Case[] = [
     "group": "F14.6 – Đóng mở và điều hướng",
     "steps": [
       "Chọn COD, ghi thông tin đơn và làm mới trang.",
-      "Nếu trang trở về giỏ, mở lại checkout bằng MUA NGAY; đối chiếu thông tin đơn và radio với phương thức đang hiển thị."
+      "Chờ sản phẩm và số lượng được khôi phục trên checkout hoặc giỏ sau khi ứng dụng chuyển trang phía client.",
+      "Nếu trang trở về giỏ trước hoặc trong lúc đối chiếu, mở lại checkout một lần bằng MUA NGAY; kiểm tra thông tin đơn và radio với phương thức đang hiển thị."
     ],
     "expected": [
       "Không tự đặt đơn hoặc thanh toán; sản phẩm, số lượng và tổng tiền giữ đúng. Phương thức được giữ hoặc reset nhưng phải khớp radio khi mở lại bộ chọn."
@@ -400,8 +404,28 @@ const actions: Record<string, (page: Page) => Promise<void>> = {
     await assertExclusive(page, COD);
     await assertNoCardInputs(page);
   },
-  DDV_F14_002: async page => { await selectMethod(page, 'OnePay'); await assertExclusive(page, 'OnePay'); },
-  DDV_F14_003: async page => { await selectMethod(page, 'Payoo'); await assertExclusive(page, 'Payoo'); },
+  DDV_F14_002: async page => {
+    const before = await orderSnapshot(page);
+    await expect(page.locator('#payment-change-btn')).toContainText(BANK);
+    await assertExclusive(page, BANK);
+    expect(await orderSnapshot(page)).toEqual(before);
+  },
+  DDV_F14_003: async page => {
+    const before = await orderSnapshot(page);
+    await expect(page.locator('#payment-change-btn')).toContainText(BANK);
+    await openMethods(page);
+    const draft = method(page, 'MoMo');
+    await expect(draft.locator('input[type="radio"]')).toBeEnabled();
+    await draft.click();
+    await expect(draft).toHaveAttribute('aria-checked', 'true');
+    await expect(paymentDialog(page).locator('[role="radio"][aria-checked="true"]')).toHaveCount(1);
+    await expect(page.locator('#payment-change-btn')).toContainText(BANK);
+    await paymentDialog(page).getByRole('button', { name: 'Xác nhận', exact: true }).click();
+    await expect(paymentDialog(page)).toBeHidden();
+    await expect(page.locator('#payment-change-btn')).toContainText('MoMo');
+    await assertExclusive(page, 'MoMo');
+    expect(await orderSnapshot(page)).toEqual(before);
+  },
   DDV_F14_004: async page => {
     expect(await total(page)).toBeLessThan(20_000_000);
     await selectMethod(page, VNPAY);
@@ -409,8 +433,8 @@ const actions: Record<string, (page: Page) => Promise<void>> = {
   },
   DDV_F14_005: async page => {
     await openMethods(page);
-    await expect(method(page, 'Chuyển khoản ngân hàng')).toContainText(/SePay/i);
-    await selectMethod(page, 'Chuyển khoản ngân hàng');
+    await expect(method(page, BANK)).toContainText(/SePay/i);
+    await selectMethod(page, BANK);
   },
   DDV_F14_006: async page => {
     await selectMethod(page, COD); await selectMethod(page, VNPAY);
@@ -421,8 +445,8 @@ const actions: Record<string, (page: Page) => Promise<void>> = {
     await assertExclusive(page, COD); await assertNoCardInputs(page);
   },
   DDV_F14_008: async page => {
-    await selectMethod(page, 'OnePay'); await selectMethod(page, 'Payoo');
-    await assertExclusive(page, 'Payoo');
+    await selectMethod(page, 'Kim Ngân Pay'); await selectMethod(page, 'EVO TPBank');
+    await assertExclusive(page, 'EVO TPBank');
   },
   DDV_F14_009: async page => {
     const before = await orderSnapshot(page);
@@ -455,6 +479,7 @@ const actions: Record<string, (page: Page) => Promise<void>> = {
   },
   DDV_F14_014: async page => {
     await openMethods(page);
+    await expect(paymentDialog(page).locator('[role="radio"]')).toHaveCount(METHODS.length);
     for (const name of METHODS) {
       const radio = method(page, name);
       await expect(radio).toHaveCount(1);
@@ -511,12 +536,14 @@ const actions: Record<string, (page: Page) => Promise<void>> = {
     expect(amount).toBeGreaterThan(limit);
     await expect(vnpay.locator('input[type="radio"]')).toBeDisabled();
     await expect(vnpay).toHaveAttribute('aria-checked', 'false');
-    await selectMethod(page, 'OnePay'); await assertExclusive(page, 'OnePay');
+    await selectMethod(page, BANK); await assertExclusive(page, BANK);
   },
   DDV_F14_021: async page => { await unchangedAmount(page, COD); },
-  DDV_F14_022: async page => { await unchangedAmount(page, 'OnePay'); },
+  DDV_F14_022: async page => { await unchangedAmount(page, 'Kim Ngân Pay'); },
   DDV_F14_023: async page => { await unchangedAmount(page, VNPAY); },
   DDV_F14_024: async page => {
+    const products = page.getByRole('region', { name: 'Sản phẩm trong đơn hàng', exact: true });
+    await expect(products).toContainText('Samsung Galaxy A07 5G 128GB');
     const before = money(await summaryRow(page, 'Tạm tính').innerText());
     await page.getByRole('link', { name: 'Giỏ hàng', exact: true }).click();
     await expect(page).toHaveURL(/\/cart(?:[/?#]|$)/);
@@ -527,11 +554,12 @@ const actions: Record<string, (page: Page) => Promise<void>> = {
     await increase.click(); await expect(quantity).toContainText('2');
     await page.getByRole('button', { name: /^MUA NGAY\s*\(\d+\)$/i }).filter({ visible: true }).first().click();
     await expect(page).toHaveURL(/\/checkout(?:[/?#]|$)/);
+    await expect(products).toContainText('Samsung Galaxy A07 5G 128GB');
     await expect(page.getByRole('region', { name: 'Sản phẩm trong đơn hàng', exact: true }).getByText(/^Số lượng:\s*2$/)).toBeVisible();
     expect(money(await summaryRow(page, 'Tạm tính').innerText())).toBe(before * 2);
   },
   DDV_F14_025: async page => {
-    await selectMethod(page, 'OnePay');
+    await selectMethod(page, BANK);
     const subtotal = money(await summaryRow(page, 'Tạm tính').innerText());
     const shippingText = await summaryRow(page, 'Phí vận chuyển').innerText();
     const shipping = /Miễn phí/i.test(shippingText) ? 0 : money(shippingText);
@@ -545,16 +573,44 @@ const actions: Record<string, (page: Page) => Promise<void>> = {
     await selectMethod(page, COD);
     const before = await orderSnapshot(page);
     await page.reload({ waitUntil: 'domcontentloaded' }); await dismissCookies(page);
-    await expect(page).toHaveURL(/\/(?:checkout|cart)(?:[/?#]|$)/);
-    if (new URL(page.url()).pathname === '/cart') {
+    // Reload có thể hiện checkout từ SSR rồi mới chuyển về cart phía client.
+    // Chờ một view có dữ liệu hoàn chỉnh, không quyết định theo URL tạm thời.
+    const cartHeading = page.getByRole('heading', { name: 'Giỏ hàng của bạn', exact: true });
+    const checkout = page.getByRole('region', { name: 'Sản phẩm trong đơn hàng', exact: true });
+    await expect.poll(async () => {
+      if (await cartHeading.isVisible()) return 'cart';
+      const hasProduct = await checkout.locator('a').filter({ hasText: /\S/ }).first().isVisible();
+      const hasQuantity = await checkout.getByText(/^Số lượng:\s*\d+$/).first().isVisible();
+      return hasProduct && hasQuantity ? 'checkout' : 'loading';
+    }).toMatch(/^(?:checkout|cart)$/);
+    let reopenedFromCart = false;
+    const reopenCart = async () => {
+      await expect(cartHeading).toBeVisible();
       await expect(page.getByText(/đặt hàng thành công|thanh toán thành công/i)).toHaveCount(0);
       for (const name of before.products) await expect(page.getByRole('link', { name, exact: true }).first()).toBeVisible();
-      await page.getByRole('button', { name: /^MUA NGAY\s*\(\d+\)$/i }).filter({ visible: true }).first().click();
+      const buy = page.getByRole('button', { name: /^MUA NGAY\s*\(\d+\)$/i }).filter({ visible: true }).first();
+      await waitForHydration(buy);
+      reopenedFromCart = true;
+      await buy.click();
+      await expect(page).toHaveURL(/\/checkout(?:[/?#]|$)/);
       await dismissCookies(page);
+    };
+    const verifyCheckout = async () => {
+      expect(await orderSnapshot(page)).toEqual(before);
+      const chosen = (await page.locator('#payment-change-btn').innerText()).replace(/\s*Thay đổi\s*$/, '').trim();
+      expect(METHODS).toContain(chosen);
+      await assertExclusive(page, chosen);
+    };
+    if (await cartHeading.isVisible()) await reopenCart();
+    try {
+      await verifyCheckout();
+    } catch (error) {
+      // Chỉ xử lý nhánh chuyển về cart đã được ghi nhận sau reload.
+      // Lỗi khác hoặc chuyển về cart lần nữa phải giữ nguyên Failed.
+      if (reopenedFromCart || new URL(page.url()).pathname !== '/cart') throw error;
+      await reopenCart();
+      await verifyCheckout();
     }
-    expect(await orderSnapshot(page)).toEqual(before);
-    const chosen = (await page.locator('#payment-change-btn').innerText()).replace(/\s*Thay đổi\s*$/, '').trim();
-    expect(METHODS).toContain(chosen); await assertExclusive(page, chosen);
   },
   DDV_F14_028: async page => {
     const before = await orderSnapshot(page);
@@ -581,7 +637,8 @@ if (cases.length !== 30 || new Set(cases.map(c => c.id)).size !== 30 || Object.k
 test.describe('F14 | Tran Thi Minh Thu | Checkout Chromium | 30 cases', () => {
   for (const scenario of cases) {
     test(`${scenario.id} - ${scenario.title}`, async ({ page }, testInfo) => {
-      await openCheckout(page, scenario.highValue ? HIGH_PRODUCT : undefined);
+      const product = scenario.highValue ? HIGH_PRODUCT : scenario.quantityProduct ? QUANTITY_PRODUCT : undefined;
+      await openCheckout(page, product);
       await test.step(scenario.title, () => actions[scenario.id](page));
       await assertNoPurchase(page);
       await testInfo.attach(`${scenario.id}.png`, { body: await page.screenshot(), contentType: 'image/png' });
