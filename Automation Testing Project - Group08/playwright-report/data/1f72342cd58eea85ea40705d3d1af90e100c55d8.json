@@ -1,0 +1,48 @@
+{
+  "id": "ASM09_DUC_F03_013",
+  "title": "Stored prices match 1 product cards",
+  "status": "PASS",
+  "startedAt": "2026-11-11T06:52:16.420Z",
+  "observations": [
+    {
+      "operation": "ADD",
+      "target": {
+        "name": "TRẢ GÓP 0% iPhone Duo 256GB Chính Hãng 64.990.000 đ Tặng ngay AirPods 4 chống ồn chủ động khi Thu Cũ Đổi Mới ngay hôm nay (xem chi tiết) Khu vực Hồ Ch",
+        "url": "https://didongviet.vn/dien-thoai/iphone-duo.html",
+        "slug": "iphone-duo",
+        "price": 64990000
+      },
+      "before": [],
+      "after": [
+        {
+          "productId": "50039204",
+          "slug": "iphone-duo",
+          "name": "iPhone Duo 256GB Chính Hãng",
+          "price": 64990000
+        }
+      ]
+    },
+    {
+      "added": [
+        {
+          "name": "TRẢ GÓP 0% iPhone Duo 256GB Chính Hãng 64.990.000 đ Tặng ngay AirPods 4 chống ồn chủ động khi Thu Cũ Đổi Mới ngay hôm nay (xem chi tiết) Khu vực Hồ Ch",
+          "url": "https://didongviet.vn/dien-thoai/iphone-duo.html",
+          "slug": "iphone-duo",
+          "price": 64990000
+        }
+      ],
+      "items": [
+        {
+          "productId": "50039204",
+          "slug": "iphone-duo",
+          "name": "iPhone Duo 256GB Chính Hãng",
+          "price": 64990000
+        }
+      ],
+      "invalid": []
+    }
+  ],
+  "technicalErrors": [],
+  "finishedAt": "2026-11-11T06:52:20.679Z",
+  "url": "https://didongviet.vn/dien-thoai.html"
+}

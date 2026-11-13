@@ -1,0 +1,103 @@
+{
+  "id": "ASM09_DUC_F03_029",
+  "title": "Add product after filtering price",
+  "status": "PASS",
+  "startedAt": "2026-11-11T06:55:05.354Z",
+  "observations": [
+    {
+      "check": "PRICE_RANGE",
+      "min": 5000000,
+      "max": 10000000,
+      "products": [
+        {
+          "name": "TRẢ GÓP 0% REDMI Note 17 128GB Chính Hãng 5.690.000 đ 6.990.000 đ -19% Giảm thêm 300.000đ khi KH mua kèm phụ kiện, TBCN Xiaomi Chính Hãng Tặng Gói Bảo",
+          "url": "https://didongviet.vn/dien-thoai/xiaomi-redmi-note-17-4gb-128gb.html",
+          "slug": "xiaomi-redmi-note-17-4gb-128gb",
+          "price": 5690000
+        },
+        {
+          "name": "Samsung Galaxy A17 5G 128GB Chính Hãng 6.690.000 đ 8.790.000 đ -24% Deal sốc khung giờ ngày 11.11: 8H-12H giảm thêm đến 200.000đ - 12h-22h: giảm thêm ",
+          "url": "https://didongviet.vn/dien-thoai/samsung-galaxy-a17-5g.html",
+          "slug": "samsung-galaxy-a17-5g",
+          "price": 6690000
+        },
+        {
+          "name": "TRẢ GÓP 0% REDMI Note 17 5G 128GB Chính Hãng 6.990.000 đ 8.999.000 đ -22% Giảm thêm 300.000đ khi KH mua kèm phụ kiện, TBCN Xiaomi Chính Hãng Tặng Gói ",
+          "url": "https://didongviet.vn/dien-thoai/xiaomi-redmi-note-17-5g-128gb.html",
+          "slug": "xiaomi-redmi-note-17-5g-128gb",
+          "price": 6990000
+        },
+        {
+          "name": "TRẢ GÓP 0% REDMI 17 128GB Chính Hãng 5.590.000 đ 7.490.000 đ -25% Giảm thêm 300.000đ khi KH mua kèm phụ kiện, TBCN Xiaomi Chính Hãng Thu cũ lên đời - ",
+          "url": "https://didongviet.vn/dien-thoai/xiaomi-redmi-17-4g.html",
+          "slug": "xiaomi-redmi-17-4g",
+          "price": 5590000
+        },
+        {
+          "name": "TRẢ GÓP 0% REDMI Note 17 Pro 5G 256GB Chính Hãng 8.790.000 đ 11.490.000 đ -23% Giảm thêm 300.000đ khi KH mua kèm phụ kiện, TBCN Xiaomi Chính Hãng Tặng",
+          "url": "https://didongviet.vn/dien-thoai/xiaomi-redmi-note-17-pro-5g-256gb.html",
+          "slug": "xiaomi-redmi-note-17-pro-5g-256gb",
+          "price": 8790000
+        },
+        {
+          "name": "OPPO A6 256GB Chính Hãng 9.890.000 đ 11.990.000 đ -18% Thành viên D.Member của Di Động Việt giảm thêm đến 500.000đ Thu cũ lên đời - Trợ giá lên tới 5.",
+          "url": "https://didongviet.vn/dien-thoai/oppo-a6-256gb.html",
+          "slug": "oppo-a6-256gb",
+          "price": 9890000
+        },
+        {
+          "name": "Samsung Galaxy A37 5G 128GB Chính Hãng 9.290.000 đ 10.790.000 đ -14% Deal sốc khung giờ ngày 11.11: 8H-12H giảm thêm đến 200.000đ - 12h-22h: giảm thêm",
+          "url": "https://didongviet.vn/dien-thoai/samsung-galaxy-a37.html",
+          "slug": "samsung-galaxy-a37",
+          "price": 9290000
+        },
+        {
+          "name": "TRẢ GÓP 0% Samsung Galaxy A27 5G 128GB Chính Hãng 7.450.000 đ 8.490.000 đ -12% Deal sốc khung giờ ngày 11.11: 8H-12H giảm thêm đến 200.000đ - 12h-22h:",
+          "url": "https://didongviet.vn/dien-thoai/samsung-galaxy-a27-5g.html",
+          "slug": "samsung-galaxy-a27-5g",
+          "price": 7450000
+        },
+        {
+          "name": "TRẢ GÓP 0% TECNO Camon 40 256GB Chính Hãng 5.290.000 đ 6.380.000 đ -17% Deal sốc khung giờ ngày 11.11: 8H-12H giảm thêm đến 200.000đ - 12h-22h: giảm t",
+          "url": "https://didongviet.vn/dien-thoai/tecno-camon-40-256gb.html",
+          "slug": "tecno-camon-40-256gb",
+          "price": 5290000
+        },
+        {
+          "name": "REDMI Note 15 Pro 256GB Chính Hãng 7.990.000 đ 10.090.000 đ -21% Giảm thêm 5% tối đa 200K cho Học Sinh Sinh Viên hoặc Tài Xế Công Nghệ D.Member giảm t",
+          "url": "https://didongviet.vn/dien-thoai/xiaomi-redmi-note-15-pro.html",
+          "slug": "xiaomi-redmi-note-15-pro",
+          "price": 7990000
+        },
+        {
+          "name": "TRẢ GÓP 0% MỚI VỀ Samsung Galaxy A18 128GB Chính Hãng 6.750.000 đ 7.190.000 đ -6% Trả Góp 0% - 0Đ trả trước qua Kredivo ( Giảm 5%, tối đa 200,000đ khi",
+          "url": "https://didongviet.vn/dien-thoai/samsung-galaxy-a18-lte.html",
+          "slug": "samsung-galaxy-a18-lte",
+          "price": 6750000
+        }
+      ],
+      "invalid": []
+    },
+    {
+      "operation": "ADD",
+      "target": {
+        "name": "TRẢ GÓP 0% REDMI Note 17 128GB Chính Hãng 5.690.000 đ 6.990.000 đ -19% Giảm thêm 300.000đ khi KH mua kèm phụ kiện, TBCN Xiaomi Chính Hãng Tặng Gói Bảo",
+        "url": "https://didongviet.vn/dien-thoai/xiaomi-redmi-note-17-4gb-128gb.html",
+        "slug": "xiaomi-redmi-note-17-4gb-128gb",
+        "price": 5690000
+      },
+      "before": [],
+      "after": [
+        {
+          "productId": "50038614",
+          "slug": "xiaomi-redmi-note-17-4gb-128gb",
+          "name": "REDMI Note 17 128GB Chính Hãng",
+          "price": 5690000
+        }
+      ]
+    }
+  ],
+  "technicalErrors": [],
+  "finishedAt": "2026-11-11T06:55:10.245Z",
+  "url": "https://didongviet.vn/dien-thoai.html?gia=5000000%2C10000000"
+}

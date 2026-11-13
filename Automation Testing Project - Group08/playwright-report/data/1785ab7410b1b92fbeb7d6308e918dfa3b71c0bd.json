@@ -1,0 +1,56 @@
+{
+  "id": "ASM09_DUC_F03_028",
+  "title": "Add product after price sorting",
+  "status": "PASS",
+  "startedAt": "2026-11-11T06:54:58.237Z",
+  "observations": [
+    {
+      "check": "PRICE_SORT",
+      "direction": "ASC",
+      "prices": [
+        400000,
+        400000,
+        3190000,
+        3490000,
+        3990000,
+        4290000,
+        4290000,
+        4590000,
+        4690000,
+        4990000,
+        5290000,
+        5590000,
+        5690000,
+        6690000,
+        6750000,
+        6990000,
+        7450000,
+        7990000,
+        8790000,
+        9290000
+      ],
+      "invalid": []
+    },
+    {
+      "operation": "ADD",
+      "target": {
+        "name": "TRẢ GÓP 0% MỚI VỀ Xiaomi 18 Pro 5G 512GB Chính Hãng Liên hệ Giảm 400,000đ trả góp chủ thẻ Visa Home Credit So sánh",
+        "url": "https://didongviet.vn/dien-thoai/xiaomi-18-pro-5g.html",
+        "slug": "xiaomi-18-pro-5g",
+        "price": 400000
+      },
+      "before": [],
+      "after": [
+        {
+          "productId": "50043077",
+          "slug": "xiaomi-18-pro-5g",
+          "name": "Xiaomi 18 Pro 5G 512GB Chính Hãng",
+          "price": 0
+        }
+      ]
+    }
+  ],
+  "technicalErrors": [],
+  "finishedAt": "2026-11-11T06:55:04.255Z",
+  "url": "https://didongviet.vn/dien-thoai.html?sort=price_asc"
+}

@@ -1,0 +1,3 @@
+﻿"Test ID","Title","Status","URL","Reason","Started At","Finished At"
+"ASM09_DUC_F03_027","Add product across catalog and search","SCRIPT_OR_ENV_ERROR","https://didongviet.vn/dien-thoai.html","AutomationFailure: Click could not be completed after handling overlays","2026-11-12T10:20:40.192Z","2026-11-12T10:21:14.457Z"
+"ASM09_DUC_F03_031","Search-added comparison product can be removed and stays removed","INCONCLUSIVE","https://didongviet.vn/search?q=Galaxy+A07","NotVerifiable: Samsung Galaxy A07 card not identified","2026-11-12T10:21:16.616Z","2026-11-12T10:21:20.955Z"
