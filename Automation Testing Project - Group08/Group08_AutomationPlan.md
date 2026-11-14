@@ -1,4 +1,4 @@
-# Group08 – Assignment 8: Kế hoạch tích hợp và chạy test
+# Group08: Kế hoạch tích hợp và chạy test
 
 **Website:** https://didongviet.vn/  
 **Tools:** TypeScript, Playwright, Chromium  
