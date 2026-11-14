@@ -4,7 +4,7 @@ import { test as base, expect, type Locator, type Page } from '@playwright/test'
  * Group08 | Nguyễn Văn Anh Hàn | 23130087 | F11 / D11 | 30 test cases.
  * Nguồn: Group08_23130087_NguyenVanAnhHan.xlsx, sheet F11 - Store Search.
  * Chạy từ thư mục Automation Testing Project - Group08:
- * npx playwright test tests/23130087_NguyenVanAnhHan/23130087_NguyenVanAnhHan_F11.spec.ts --project=chromium --headed --workers=1
+ * npx playwright test tests/23130087_NguyenVanAnhHan_TestScripts/23130087_NguyenVanAnhHan_F11.spec.ts --project=chromium --headed --workers=1
  *
  * Mỗi case có context mới; bước 01–02 mở trang và ghi S0/N0 độc lập.
  * Dữ liệu và DOM thật; không mock danh sách, geolocation hoặc Google Maps.

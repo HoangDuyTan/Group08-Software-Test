@@ -8,12 +8,12 @@
     "test:list": "playwright test --list",
     "test:report": "playwright show-report \"../Test Report - Group08/html-report\"",
     "report:summary": "node scripts/summarize-report.mjs",
-    "test:f07": "playwright test tests/23130291_HoangDuyTan/23130291_HoangDuyTan_F07.spec.ts --project=chromium --workers=1",
-    "test:f08": "playwright test tests/23130291_HoangDuyTan/23130291_HoangDuyTan_F08.spec.ts --project=chromium --workers=1",
-    "test:f09": "playwright test tests/23130291_HoangDuyTan/23130291_HoangDuyTan_F09.spec.ts --project=chromium --workers=1",
-    "test:f13": "playwright test tests/23130318_TranThiMinhThu/23130318_TranThiMinhThu_F13.spec.ts --project=chromium --workers=1",
-    "test:f14": "playwright test tests/23130318_TranThiMinhThu/23130318_TranThiMinhThu_F14.spec.ts --project=chromium --workers=1",
-    "test:f15": "playwright test tests/23130318_TranThiMinhThu/23130318_TranThiMinhThu_F15.spec.ts --project=chromium --workers=1"
+    "test:f07": "playwright test tests/23130291_HoangDuyTan_TestScripts/23130291_HoangDuyTan_F07.spec.ts --project=chromium --workers=1",
+    "test:f08": "playwright test tests/23130291_HoangDuyTan_TestScripts/23130291_HoangDuyTan_F08.spec.ts --project=chromium --workers=1",
+    "test:f09": "playwright test tests/23130291_HoangDuyTan_TestScripts/23130291_HoangDuyTan_F09.spec.ts --project=chromium --workers=1",
+    "test:f13": "playwright test tests/23130318_TranThiMinhThu_TestScripts/23130318_TranThiMinhThu_F13.spec.ts --project=chromium --workers=1",
+    "test:f14": "playwright test tests/23130318_TranThiMinhThu_TestScripts/23130318_TranThiMinhThu_F14.spec.ts --project=chromium --workers=1",
+    "test:f15": "playwright test tests/23130318_TranThiMinhThu_TestScripts/23130318_TranThiMinhThu_F15.spec.ts --project=chromium --workers=1"
   },
   "repository": {
     "type": "git",

@@ -9,7 +9,7 @@ import path from 'node:path';
  * CANDIDATE is not a confirmed production defect.
  *
  * Run with:
- * npx playwright test "tests/23130067_PhamMinhDuc/23130067_PhamMinhDuc_HUNT10.spec.ts" --headed --workers=1 --retries=0 --repeat-each=3 --reporter=line
+ * npx playwright test "tests/23130067_PhamMinhDuc_TestScripts/23130067_PhamMinhDuc_HUNT10.spec.ts" --headed --workers=1 --retries=0 --repeat-each=3 --reporter=line
  */
 const BASE = 'https://didongviet.vn';
 const CATALOG = BASE + '/dien-thoai.html';

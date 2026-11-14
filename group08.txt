@@ -1,0 +1,14 @@
+# GROUP08_ASM10_LINKS
+1. GitHub Repository URL: https://github.com/HoangDuyTan/Group08-Software-Test.git
+2. Google Sheets - Function Analysis, Test Scenarios and Test Cases URL: https://docs.google.com/spreadsheets/d/1BwBAX3J3XSvE-aWFkWhW7gbV0rr_FUE12WIoas1YP_o/edit?usp=drive_link
+3. Google Sheets - Task Assignment and Progress URL: https://docs.google.com/spreadsheets/d/1Du6GTpF8vUBkYzes03lDkbpww_CLN1Nep7LdmUb5VUI/edit?usp=sharing
+4. Google Sheets - Group08_Defects URL: https://docs.google.com/spreadsheets/d/17VeFD6110NPpneF5JzfU9Wwv2ukMvzr5ERXA5gat26E/edit?usp=drive_link
+5. Google Slides - Final Presentation URL: [CHUA_CAP_NHAT]
+6. Google Drive - Test Report and Evidence URL: [CHUA_CAP_NHAT]
+7. Website URL: https://didongviet.vn/
+8. Team members and GitHub usernames:
+- 23130067 - Pham Minh Duc - 23130067-pmduc
+- 23130082 - Nguyen Truong Giang - NguyenTruongGiang-23130082
+- 23130291 - Hoang Duy Tan - HoangDuyTan
+- 23130087 - Nguyen Van Anh Han - 23130087-AnhHan
+- 23130318 - Tran Thi Minh Thu - ThuTran3101

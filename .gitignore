@@ -1,4 +1,4 @@
-# Dependencies / local settings
+﻿# Dependencies / local settings
 **/node_modules/
 **/.idea/
 **/.env
@@ -10,3 +10,6 @@
 
 # Report HTML, JSON, XML and selected evidence are intentionally NOT ignored
 # because Assignment 8 requires them in the repository after the real run.
+
+# Local historical snapshots; never push raw copies to GitHub
+/_archive/

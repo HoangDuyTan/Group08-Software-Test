@@ -4,7 +4,7 @@ import { test as base, expect, type Locator, type Page } from '@playwright/test'
  * Group08 | Nguyễn Văn Anh Hàn | 23130087 | F12 / D12 | 30 case theo Excel.
  * Nguồn: Group08_23130087_NguyenVanAnhHan.xlsx, sheet F12 - Consultation.
  * Chạy từ thư mục Automation Testing Project - Group08:
- * npx playwright test tests/23130087_NguyenVanAnhHan/23130087_NguyenVanAnhHan_F12.spec.ts --project=chromium --headed --workers=1
+ * npx playwright test tests/23130087_NguyenVanAnhHan_TestScripts/23130087_NguyenVanAnhHan_F12.spec.ts --project=chromium --headed --workers=1
  *
  * 001–029: UI thật của form Đăng ký tư vấn B2B; context mới cho mỗi case.
  * serviceWorkers=block; route được cài trước goto và abort mọi request ghi.

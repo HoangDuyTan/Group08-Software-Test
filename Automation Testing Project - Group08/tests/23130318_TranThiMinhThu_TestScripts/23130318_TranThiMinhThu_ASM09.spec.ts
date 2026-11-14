@@ -16,7 +16,7 @@ import {
  * Dừng trước bước đặt đơn hoặc thanh toán cuối cùng.
  *
  * Chỉ chạy file này với một tiến trình kiểm thử, không tự chạy lại ca thất bại:
- * npx playwright test tests/23130318_TranThiMinhThu/23130318_TranThiMinhThu_ASM09.spec.ts --project=chromium --workers=1 --retries=0
+ * npx playwright test tests/23130318_TranThiMinhThu_TestScripts/23130318_TranThiMinhThu_ASM09.spec.ts --project=chromium --workers=1 --retries=0
  * Cấu hình mặc định trong playwright.config.ts lưu kết quả vào thư mục báo cáo nhóm.
  * Khi kiểm tra riêng, dùng --reporter=list --output=<thu-muc-tam> để lưu kết quả tạm.
  */
