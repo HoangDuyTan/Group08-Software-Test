@@ -1,0 +1,14 @@
+{
+  "id": "ASM09_DUC_F01_005",
+  "title": "Đổi nhanh từ khóa tìm kiếm",
+  "classification": "NO_DEFECT_OBSERVED",
+  "observations": [
+    {
+      "first": "Samsung",
+      "last": "iPhone",
+      "actual": "iPhone"
+    }
+  ],
+  "httpErrors": [],
+  "url": "https://didongviet.vn/"
+}

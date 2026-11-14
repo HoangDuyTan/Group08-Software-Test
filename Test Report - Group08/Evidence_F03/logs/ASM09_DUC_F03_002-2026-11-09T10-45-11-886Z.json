@@ -1,0 +1,35 @@
+{
+  "id": "ASM09_DUC_F03_002",
+  "title": "Thêm hai sản phẩm khác nhau vào so sánh",
+  "classification": "NO_DEFECT_OBSERVED",
+  "observations": [
+    {
+      "a": {
+        "name": "Trả góp 0%iPhone Duo 256GB Chính Hãng64.990.000 đKhu vực Hồ Chí Minh ưu tiên giao hàng nhanh trong 1HGiảm ngay 300K khi ",
+        "url": "https://didongviet.vn/dien-thoai/iphone-duo.html",
+        "price": 64990000,
+        "rawPrice": "64.990.000 đ"
+      },
+      "b": {
+        "name": "Trả góp 0%iPhone 18 Pro Max 256GB Chính Hãng41.690.000 đ41.990.000 đ-1%Khu vực Hồ Chí Minh ưu tiên giao hàng nhanh trong",
+        "url": "https://didongviet.vn/dien-thoai/iphone-18-pro-max.html",
+        "price": 41690000,
+        "rawPrice": "41.690.000 đ"
+      },
+      "afterA": {
+        "available": 21,
+        "selected": 0,
+        "panel": 0,
+        "storage": "ddv-compare={\"state\":{\"items\":[{\"productId\":\"50039204\",\"slug\":\"iphone-duo\",\"categoryKey\":\"3\",\"name\":\"iPhone Duo 256GB Chính Hãng\",\"image\":\"files/product/2026/8/10/50039204/iphone-duo-trang-didongviet.png\",\"price\":64990000,\"listedPrice\":null,\"hasVoucherPrice\":false},null,null],\"collapsed\":false},\"version\":0}"
+      },
+      "afterB": {
+        "available": 21,
+        "selected": 0,
+        "panel": 0,
+        "storage": "ddv-compare={\"state\":{\"items\":[{\"productId\":\"50039204\",\"slug\":\"iphone-duo\",\"categoryKey\":\"3\",\"name\":\"iPhone Duo 256GB Chính Hãng\",\"image\":\"files/product/2026/8/10/50039204/iphone-duo-trang-didongviet.png\",\"price\":64990000,\"listedPrice\":null,\"hasVoucherPrice\":false},{\"productId\":\"50039168\",\"slug\":\"iphone-18-pro-max\",\"categoryKey\":\"3\",\"name\":\"iPhone 18 Pro Max 256GB Chính Hãng\",\"image\":\"files/product/2026/8/10/50039168/iphone-18-series-do-burgundy-didongviet.png\",\"price\":41690000,\"listedPrice\":41990000,\"hasVoucherPrice\":false},null],\"collapsed\":false},\"version\":0}"
+      }
+    }
+  ],
+  "httpErrors": [],
+  "url": "https://didongviet.vn/dien-thoai.html"
+}

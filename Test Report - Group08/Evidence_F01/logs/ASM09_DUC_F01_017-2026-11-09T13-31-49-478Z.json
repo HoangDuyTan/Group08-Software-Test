@@ -1,0 +1,25 @@
+{
+  "id": "ASM09_DUC_F01_017",
+  "title": "Specific model with 5G",
+  "classification": "NO_DEFECT_OBSERVED",
+  "startedAt": "2026-11-09T13:31:47.303Z",
+  "observations": [
+    {
+      "keyword": "Galaxy A07 5G",
+      "enteredValue": "Galaxy A07 5G",
+      "before": "https://didongviet.vn/",
+      "after": "https://didongviet.vn/search?q=Galaxy%20A07%205G",
+      "loaded": true,
+      "bodyExcerpt": "Z Fold8 ưu đãi giá sốc\nCửa hàng\nMở cửa 8:00 - 21:30\nTra cứu đơn hàng\nDanh mục\n1800.6018\nGiỏ hàng\nĐăng nhập\nĐiện thoại\nTablet\nMacbook\nHệ sinh thái Apple\nMáy cũ\nGia dụng Bear\nĐồng hồ\nÂm thanh\nPhụ kiện\nThu cũ đổi mới\nTrang chủ\nTìm kiếm với từ khoá: Galaxy A07 5G\n\nTìm thấy 1 sản phẩm\n\nTất cả\nGalaxy A\nGalaxy Z\nGalaxy S\nGalaxy Watch\nGalaxy Watch 4\nNổi bật\nKhuyến mãi\nGiá tăng dần\nGiá giảm dần\n\nSamsung Galaxy A07 5G 128GB Chính Hãng\n\n4.990.000 đ\n\n5.090.000 đ\n-2%\nHSSV/TXCN giảm thêm đến 5% tối đa 500K\nTrả Góp 0% - 0Đ trả trước qua Kredivo ( Giảm 5%, tối đa 200,000đ khi trả góp 6, 9, 12 Tháng)\n\nGiảm 400,000đ trả góp chủ thẻ Visa Home Credit\n\n+1 ưu đãi khác\n4.9\nSo sánh\n\nVề chúng tôi\n\nGiới thiệu về công ty\nLiên hệ hợp tác kinh doanh (B2B)\nƯu đãi dành cho giáo dục\nDanh sách cửa hàng\nTuyển dụng mới nhất\nHướng dẫn mua hàng online\nHướng dẫn mua hàng trả góp\nHướng dẫn thanh toán VNPay\n\nChính sách\n\nChính sách bảo hành\nChính sách bán hàng\nChính sách bảo mật\nChính sách mua hàng trả góp\nChính sách hoàn thuế\nChính sách D-Member\nChính sách giao hàng\nTrung tâm bảo hành Apple tại Việt Nam\n\nTổng đài hỗ trợ\n\nM"
+    },
+    {
+      "keyword": "Galaxy A07 5G",
+      "searchResultCount": 1
+    }
+  ],
+  "technicalErrors": [],
+  "finishedAt": "2026-11-09T13:31:49.478Z",
+  "url": "https://didongviet.vn/search?q=Galaxy%20A07%205G",
+  "jsonPath": "E:\\Group08-Software-Test\\Test Report - Group08\\23130067_PhamMinhDuc_ASM09\\runs\\20261109-203046\\evidence\\ASM09_DUC_F01_017-2026-11-09T13-31-49-478Z.json",
+  "screenshotPath": "E:\\Group08-Software-Test\\Test Report - Group08\\23130067_PhamMinhDuc_ASM09\\runs\\20261109-203046\\evidence\\ASM09_DUC_F01_017-2026-11-09T13-31-49-478Z.png"
+}

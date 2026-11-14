@@ -1,0 +1,19 @@
+{
+  "id": "ASM09_DUC_F01_004",
+  "title": "Kiem tra HTML Injection",
+  "classification": "NO_DEFECT_OBSERVED",
+  "startedAt": "2026-11-09T12:29:43.324Z",
+  "observations": [
+    {
+      "payload": "<b id=\"asm09-duc-injection\">PROBE</b>",
+      "before": 0,
+      "after": 0,
+      "url": "https://didongviet.vn/search?q=%3Cb%20id%3D%22asm09-duc-injection%22%3EPROBE%3C%2Fb%3E"
+    }
+  ],
+  "technicalErrors": [],
+  "finishedAt": "2026-11-09T12:29:46.571Z",
+  "url": "https://didongviet.vn/search?q=%3Cb%20id%3D%22asm09-duc-injection%22%3EPROBE%3C%2Fb%3E",
+  "jsonPath": "E:\\Group08-Software-Test\\Test Report - Group08\\23130067_PhamMinhDuc_ASM09\\runs\\20261109-192921\\evidence\\ASM09_DUC_F01_004-2026-11-09T12-29-46-571Z.json",
+  "screenshotPath": "E:\\Group08-Software-Test\\Test Report - Group08\\23130067_PhamMinhDuc_ASM09\\runs\\20261109-192921\\evidence\\ASM09_DUC_F01_004-2026-11-09T12-29-46-571Z.png"
+}

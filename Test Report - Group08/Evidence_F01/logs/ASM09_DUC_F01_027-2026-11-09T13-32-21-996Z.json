@@ -1,0 +1,26 @@
+{
+  "id": "ASM09_DUC_F01_027",
+  "title": "128-character keyword",
+  "classification": "NO_DEFECT_OBSERVED",
+  "startedAt": "2026-11-09T13:32:19.650Z",
+  "observations": [
+    {
+      "keyword": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+      "enteredValue": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+      "before": "https://didongviet.vn/",
+      "after": "https://didongviet.vn/search?q=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+      "loaded": true,
+      "bodyExcerpt": "Z Fold8 ưu đãi giá sốc\nCửa hàng\nMở cửa 8:00 - 21:30\nTra cứu đơn hàng\nDanh mục\n1800.6018\nGiỏ hàng\nĐăng nhập\nĐiện thoại\nTablet\nMacbook\nHệ sinh thái Apple\nMáy cũ\nGia dụng Bear\nĐồng hồ\nÂm thanh\nPhụ kiện\nThu cũ đổi mới\nTrang chủ\nKhông tìm thấy kết quả\n\nKhông tìm thấy kết quả\n\nKết quả tìm kiếm\n\nRất tiếc, DiDongViet.vn Không tìm thấy kết quả nào phù hợp với từ khoá bạn tìm kiếm\n\nĐể tìm được kết quả chính xác hơn, bạn vui lòng:\n\nKiểm tra lỗi chính tả của từ khóa đã nhập\nThử lại bằng từ khóa khác\nThử lại bằng những từ khóa tổng quát hơn\nThử lại bằng những từ khóa ngắn gọn hơn\nQuay về trang chủ\n\nVề chúng tôi\n\nGiới thiệu về công ty\nLiên hệ hợp tác kinh doanh (B2B)\nƯu đãi dành cho giáo dục\nDanh sách cửa hàng\nTuyển dụng mới nhất\nHướng dẫn mua hàng online\nHướng dẫn mua hàng trả góp\nHướng dẫn thanh toán VNPay\n\nChính sách\n\nChính sách bảo hành\nChính sách bán hàng\nChính sách bảo mật\nChính sách mua hàng trả góp\nChính sách hoàn thuế\nChính sách D-Member\nChính sách giao hàng\nTrung tâm bảo hành Apple tại Việt Nam\n\nTổng đài hỗ trợ\n\nMua ngay\n1800.6018\n(07:30 – 21:30)\nBảo hành tại Di Động Việt\n1800.6729\n(08:0"
+    },
+    {
+      "inputLength": 128,
+      "finalUrl": "https://didongviet.vn/search?q=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+      "resultCount": null
+    }
+  ],
+  "technicalErrors": [],
+  "finishedAt": "2026-11-09T13:32:21.996Z",
+  "url": "https://didongviet.vn/search?q=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+  "jsonPath": "E:\\Group08-Software-Test\\Test Report - Group08\\23130067_PhamMinhDuc_ASM09\\runs\\20261109-203046\\evidence\\ASM09_DUC_F01_027-2026-11-09T13-32-21-996Z.json",
+  "screenshotPath": "E:\\Group08-Software-Test\\Test Report - Group08\\23130067_PhamMinhDuc_ASM09\\runs\\20261109-203046\\evidence\\ASM09_DUC_F01_027-2026-11-09T13-32-21-996Z.png"
+}

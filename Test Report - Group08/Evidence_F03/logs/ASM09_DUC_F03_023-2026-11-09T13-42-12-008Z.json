@@ -1,0 +1,128 @@
+{
+  "id": "ASM09_DUC_F03_023",
+  "title": "Add compare product after ASC sorting",
+  "classification": "NO_DEFECT_OBSERVED",
+  "startedAt": "2026-11-09T13:42:04.888Z",
+  "observations": [
+    {
+      "direction": "ASC",
+      "result": "SORT_ORDER_VALID",
+      "listChanged": true,
+      "products": [
+        {
+          "name": "REDMI A7 64GB Chính Hãng3.190.000 đ3.890.000 đ-18%Giảm 400,000đ trả góp chủ thẻ Visa Home Credit4.9So sánh",
+          "url": "https://didongviet.vn/dien-thoai/xiaomi-redmi-a7-64gb.html",
+          "price": 3190000,
+          "rawPrice": "3.190.000 đ"
+        },
+        {
+          "name": "Samsung Galaxy A07 128GB Chính Hãng3.490.000 đ4.190.000 đ-17%HSSV/TXCN giảm thêm đến 5% tối đa 500KTrả Góp 0% - 0Đ trả trước qua K",
+          "url": "https://didongviet.vn/dien-thoai/samsung-galaxy-a07.html",
+          "price": 3490000,
+          "rawPrice": "3.490.000 đ"
+        },
+        {
+          "name": "REDMI A7 Pro 128GB Chính Hãng3.690.000 đ4.490.000 đ-18%Thu cũ lên đời - Trợ giá tối đa 5.000.000đGiảm thêm đến 500.000đ cho Thành ",
+          "url": "https://didongviet.vn/dien-thoai/xiaomi-redmi-a7-pro.html",
+          "price": 3690000,
+          "rawPrice": "3.690.000 đ"
+        },
+        {
+          "name": "Trả góp 0%Samsung Galaxy A08 64GB Chính Hãng4.290.000 đ4.790.000 đ-10%Trả Góp 0% - 0Đ trả trước qua Kredivo ( Giảm 5%, tối đa 200,",
+          "url": "https://didongviet.vn/dien-thoai/samsung-galaxy-a08.html",
+          "price": 4290000,
+          "rawPrice": "4.290.000 đ"
+        },
+        {
+          "name": "OPPO A6c 64GB Chính Hãng4.290.000 đ4.690.000 đ-9%Giảm thêm 5% tối đa 200.000đ áp dụng khách hàng là D-MemberGiảm thêm 200.000đ khi",
+          "url": "https://didongviet.vn/dien-thoai/oppo-a6c-64gb.html",
+          "price": 4290000,
+          "rawPrice": "4.290.000 đ"
+        },
+        {
+          "name": "REDMI 15C 128GB Chính Hãng4.290.000 đThu cũ lên đời - Trợ giá tối đa 5.000.000đGiảm thêm đến 500.000đ cho Thành viên D.MemberGiảm ",
+          "url": "https://didongviet.vn/dien-thoai/xiaomi-redmi-15c.html",
+          "price": 4290000,
+          "rawPrice": "4.290.000 đ"
+        },
+        {
+          "name": "REDMI 17 5G 128GB Chính Hãng4.790.000 đ6.490.000 đ-26%Giảm thêm 300.000đ khi KH mua kèm phụ kiện, TBCN Xiaomi Chính HãngThu cũ lên",
+          "url": "https://didongviet.vn/dien-thoai/xiaomi-redmi-17-5g.html",
+          "price": 4790000,
+          "rawPrice": "4.790.000 đ"
+        },
+        {
+          "name": "Samsung Galaxy A07 5G 128GB Chính Hãng4.990.000 đ5.090.000 đ-2%HSSV/TXCN giảm thêm đến 5% tối đa 500KTrả Góp 0% - 0Đ trả trước qua",
+          "url": "https://didongviet.vn/dien-thoai/samsung-galaxy-a07-5g.html",
+          "price": 4990000,
+          "rawPrice": "4.990.000 đ"
+        },
+        {
+          "name": "OPPO A6c 128GB Chính Hãng5.290.000 đ5.690.000 đ-7%Giảm 400,000đ trả góp chủ thẻ Visa Home Credit5.0So sánh",
+          "url": "https://didongviet.vn/dien-thoai/oppo-a6c.html",
+          "price": 5290000,
+          "rawPrice": "5.290.000 đ"
+        },
+        {
+          "name": "Samsung Galaxy A17 128GB Chính Hãng5.390.000 đ6.190.000 đ-13%HSSV/TXCN giảm thêm đến 5% tối đa 500KTrả Góp 0% - 0Đ trả trước qua K",
+          "url": "https://didongviet.vn/dien-thoai/samsung-galaxy-a17-lte.html",
+          "price": 5390000,
+          "rawPrice": "5.390.000 đ"
+        },
+        {
+          "name": "Trả góp 0%REDMI 17 128GB Chính Hãng5.690.000 đ7.490.000 đ-24%Giảm 400,000đ trả góp chủ thẻ Visa Home Credit4.9So sánh",
+          "url": "https://didongviet.vn/dien-thoai/xiaomi-redmi-17-4g.html",
+          "price": 5690000,
+          "rawPrice": "5.690.000 đ"
+        },
+        {
+          "name": "Trả góp 0%REDMI Note 17 128GB Chính Hãng5.690.000 đ6.990.000 đ-19%Giảm thêm 300.000đ khi KH mua kèm phụ kiện, TBCN Xiaomi Chính Hã",
+          "url": "https://didongviet.vn/dien-thoai/xiaomi-redmi-note-17-4gb-128gb.html",
+          "price": 5690000,
+          "rawPrice": "5.690.000 đ"
+        },
+        {
+          "name": "Samsung Galaxy A17 5G 128GB Chính Hãng6.690.000 đ8.790.000 đ-24%HSSV/TXCN giảm thêm đến 5% tối đa 500KTrả Góp 0% - 0Đ trả trước qu",
+          "url": "https://didongviet.vn/dien-thoai/samsung-galaxy-a17-5g.html",
+          "price": 6690000,
+          "rawPrice": "6.690.000 đ"
+        },
+        {
+          "name": "Trả góp 0%Mới vềSamsung Galaxy A18 128GB Chính Hãng6.750.000 đ7.190.000 đ-6%Trả Góp 0% - 0Đ trả trước qua Kredivo ( Giảm 5%, tối đ",
+          "url": "https://didongviet.vn/dien-thoai/samsung-galaxy-a18-lte.html",
+          "price": 6750000,
+          "rawPrice": "6.750.000 đ"
+        },
+        {
+          "name": "Trả góp 0%REDMI Note 17 5G 128GB Chính Hãng7.090.000 đ8.999.000 đ-21%Giảm 400,000đ trả góp chủ thẻ Visa Home Credit5.0So sánh",
+          "url": "https://didongviet.vn/dien-thoai/xiaomi-redmi-note-17-5g-128gb.html",
+          "price": 7090000,
+          "rawPrice": "7.090.000 đ"
+        }
+      ]
+    },
+    {
+      "action": "ADD_COMPARE",
+      "product": {
+        "name": "Trả góp 0%Mới vềOPPO Find X10 256GB Chính HãngLiên hệGiảm 400,000đ trả góp chủ thẻ Visa Home CreditSo sánh",
+        "url": "https://didongviet.vn/dien-thoai/oppo-find-x10-256gb.html",
+        "price": null,
+        "rawPrice": null
+      },
+      "before": [],
+      "after": [
+        {
+          "productId": "50040002",
+          "slug": "oppo-find-x10-256gb",
+          "name": "OPPO Find X10 256GB Chính Hãng",
+          "price": 0
+        }
+      ]
+    }
+  ],
+  "technicalErrors": [],
+  "finishedAt": "2026-11-09T13:42:12.008Z",
+  "url": "https://didongviet.vn/dien-thoai.html?sort=price_asc",
+  "jsonPath": "E:\\Group08-Software-Test\\Test Report - Group08\\23130067_PhamMinhDuc_ASM09\\runs\\20261109-203046\\evidence\\ASM09_DUC_F03_023-2026-11-09T13-42-12-008Z.json",
+  "screenshotPath": "E:\\Group08-Software-Test\\Test Report - Group08\\23130067_PhamMinhDuc_ASM09\\runs\\20261109-203046\\evidence\\ASM09_DUC_F03_023-2026-11-09T13-42-12-008Z.png"
+}

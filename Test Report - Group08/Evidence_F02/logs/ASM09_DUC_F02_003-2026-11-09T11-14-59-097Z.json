@@ -1,0 +1,13 @@
+{
+  "id": "ASM09_DUC_F02_003",
+  "title": "Đổi sắp xếp tăng giảm tăng liên tục",
+  "classification": "SCRIPT_OR_ENV_ERROR",
+  "startedAt": "2026-11-09T11:14:43.142Z",
+  "observations": [],
+  "technicalErrors": [],
+  "reason": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByRole('button', { name: 'Giá tăng dần', exact: true }).first()\nExpected: visible\nTimeout: 15000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" getByRole('button', { name: 'Giá tăng dần', exact: true }).first() with timeout 15000ms\u001b[22m\n\u001b[2m  - waiting for getByRole('button', { name: 'Giá tăng dần', exact: true }).first()\u001b[22m\n",
+  "finishedAt": "2026-11-09T11:14:59.097Z",
+  "url": "https://didongviet.vn/dien-thoai.html",
+  "jsonPath": "E:\\Group08-Software-Test\\Test Report - Group08\\23130067_PhamMinhDuc_ASM09\\runs\\20261109-181133\\evidence\\ASM09_DUC_F02_003-2026-11-09T11-14-59-097Z.json",
+  "screenshotPath": "E:\\Group08-Software-Test\\Test Report - Group08\\23130067_PhamMinhDuc_ASM09\\runs\\20261109-181133\\evidence\\ASM09_DUC_F02_003-2026-11-09T11-14-59-097Z.png"
+}

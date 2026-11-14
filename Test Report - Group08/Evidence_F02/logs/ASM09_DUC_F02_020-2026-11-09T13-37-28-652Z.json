@@ -1,0 +1,83 @@
+{
+  "id": "ASM09_DUC_F02_020",
+  "title": "RAM 4GB filter",
+  "classification": "NO_DEFECT_OBSERVED",
+  "startedAt": "2026-11-09T13:37:24.690Z",
+  "observations": [
+    {
+      "facetName": "RAM",
+      "optionText": "4 GB",
+      "pressed": "true",
+      "changed": true,
+      "before": [
+        {
+          "name": "Trả góp 0%iPhone Duo 256GB Chính Hãng64.990.000 đKhu vực Hồ Chí Minh ưu tiên giao hàng nhanh trong 1HGiảm ngay 300K khi mua Apple ",
+          "url": "https://didongviet.vn/dien-thoai/iphone-duo.html",
+          "price": 64990000,
+          "rawPrice": "64.990.000 đ"
+        },
+        {
+          "name": "Trả góp 0%iPhone 18 Pro Max 256GB Chính Hãng41.690.000 đ41.990.000 đ-1%Khu vực Hồ Chí Minh ưu tiên giao hàng nhanh trong 1HTrợ giá",
+          "url": "https://didongviet.vn/dien-thoai/iphone-18-pro-max.html",
+          "price": 41690000,
+          "rawPrice": "41.690.000 đ"
+        },
+        {
+          "name": "Trả góp 0%iPhone 18 Pro 256GB Chính Hãng38.490.000 đ38.990.000 đ-1%Khu vực Hồ Chí Minh ưu tiên giao hàng nhanh trong 1HTrợ giá thê",
+          "url": "https://didongviet.vn/dien-thoai/iphone-18-pro.html",
+          "price": 38490000,
+          "rawPrice": "38.490.000 đ"
+        },
+        {
+          "name": "Trả góp 0%iPhone 17 Pro Max 256GB Chính Hãng34.190.000 đ37.990.000 đ-10%Khu vực Hồ Chí Minh ưu tiên giao hàng nhanh trong 1HTrợ gi",
+          "url": "https://didongviet.vn/dien-thoai/iphone-17-pro-max-256gb.html",
+          "price": 34190000,
+          "rawPrice": "34.190.000 đ"
+        },
+        {
+          "name": "Trả góp 0%iPhone 17 Pro Max 512GB Chính Hãng41.190.000 đ44.490.000 đ-7%Khu vực Hồ Chí Minh ưu tiên giao hàng nhanh trong 1HTrợ giá",
+          "url": "https://didongviet.vn/dien-thoai/iphone-17-pro-max-512gb.html",
+          "price": 41190000,
+          "rawPrice": "41.190.000 đ"
+        },
+        {
+          "name": "Trả góp 0%iPhone 17 Pro Max 2TB Chính Hãng59.990.000 đ63.990.000 đ-6%Giảm 2,2 triệu mở thẻ tín dụng (iPhone 18 trên 30 triệu)5.0So",
+          "url": "https://didongviet.vn/dien-thoai/iphone-17-pro-max-2tb.html",
+          "price": 59990000,
+          "rawPrice": "59.990.000 đ"
+        }
+      ],
+      "after": [
+        {
+          "name": "Samsung Galaxy A07 128GB Chính Hãng3.490.000 đ4.190.000 đ-17%HSSV/TXCN giảm thêm đến 5% tối đa 500KTrả Góp 0% - 0Đ trả trước qua K",
+          "url": "https://didongviet.vn/dien-thoai/samsung-galaxy-a07.html",
+          "price": 3490000,
+          "rawPrice": "3.490.000 đ"
+        },
+        {
+          "name": "Trả góp 0%iPhone 13 128GB Chính Hãng (VN/A)11.990.000 đ13.990.000 đ-14%Khu vực Hồ Chí Minh ưu tiên giao hàng nhanh trong 1HTrợ giá",
+          "url": "https://didongviet.vn/dien-thoai/iphone-13-128gb.html",
+          "price": 11990000,
+          "rawPrice": "11.990.000 đ"
+        },
+        {
+          "name": "REDMI 15C 128GB Chính Hãng4.290.000 đThu cũ lên đời - Trợ giá tối đa 5.000.000đGiảm thêm đến 500.000đ cho Thành viên D.MemberGiảm ",
+          "url": "https://didongviet.vn/dien-thoai/xiaomi-redmi-15c.html",
+          "price": 4290000,
+          "rawPrice": "4.290.000 đ"
+        },
+        {
+          "name": "Trả góp 0%Samsung Galaxy A08 64GB Chính Hãng4.290.000 đ4.790.000 đ-10%Trả Góp 0% - 0Đ trả trước qua Kredivo ( Giảm 5%, tối đa 200,",
+          "url": "https://didongviet.vn/dien-thoai/samsung-galaxy-a08.html",
+          "price": 4290000,
+          "rawPrice": "4.290.000 đ"
+        }
+      ]
+    }
+  ],
+  "technicalErrors": [],
+  "finishedAt": "2026-11-09T13:37:28.652Z",
+  "url": "https://didongviet.vn/dien-thoai.html?spec_ram=4_gb",
+  "jsonPath": "E:\\Group08-Software-Test\\Test Report - Group08\\23130067_PhamMinhDuc_ASM09\\runs\\20261109-203046\\evidence\\ASM09_DUC_F02_020-2026-11-09T13-37-28-652Z.json",
+  "screenshotPath": "E:\\Group08-Software-Test\\Test Report - Group08\\23130067_PhamMinhDuc_ASM09\\runs\\20261109-203046\\evidence\\ASM09_DUC_F02_020-2026-11-09T13-37-28-652Z.png"
+}

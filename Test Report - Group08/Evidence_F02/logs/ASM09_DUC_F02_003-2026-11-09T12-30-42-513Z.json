@@ -1,0 +1,337 @@
+{
+  "id": "ASM09_DUC_F02_003",
+  "title": "Doi sap xep tang giam tang",
+  "classification": "NO_DEFECT_OBSERVED",
+  "startedAt": "2026-11-09T12:30:24.544Z",
+  "observations": [
+    {
+      "direction": "ASC",
+      "result": "SORT_ORDER_VALID",
+      "attempt": 2,
+      "listChanged": true,
+      "products": [
+        {
+          "name": "REDMI A7 64GB Chính Hãng3.190.000 đ3.890.000 đ-18%Giảm 400,000đ trả góp chủ thẻ Visa Home Credit4.9So sánh",
+          "url": "https://didongviet.vn/dien-thoai/xiaomi-redmi-a7-64gb.html",
+          "price": 3190000,
+          "rawPrice": "3.190.000 đ"
+        },
+        {
+          "name": "Samsung Galaxy A07 128GB Chính Hãng3.490.000 đ4.190.000 đ-17%HSSV/TXCN giảm thêm đến 5% tối đa 500KTrả Góp 0% - 0Đ trả trước qua K",
+          "url": "https://didongviet.vn/dien-thoai/samsung-galaxy-a07.html",
+          "price": 3490000,
+          "rawPrice": "3.490.000 đ"
+        },
+        {
+          "name": "REDMI A7 Pro 128GB Chính Hãng3.690.000 đ4.490.000 đ-18%Thu cũ lên đời - Trợ giá tối đa 5.000.000đGiảm thêm đến 500.000đ cho Thành ",
+          "url": "https://didongviet.vn/dien-thoai/xiaomi-redmi-a7-pro.html",
+          "price": 3690000,
+          "rawPrice": "3.690.000 đ"
+        },
+        {
+          "name": "Trả góp 0%Samsung Galaxy A08 64GB Chính Hãng4.290.000 đ4.790.000 đ-10%Trả Góp 0% - 0Đ trả trước qua Kredivo ( Giảm 5%, tối đa 200,",
+          "url": "https://didongviet.vn/dien-thoai/samsung-galaxy-a08.html",
+          "price": 4290000,
+          "rawPrice": "4.290.000 đ"
+        },
+        {
+          "name": "OPPO A6c 64GB Chính Hãng4.290.000 đ4.690.000 đ-9%Giảm thêm 5% tối đa 200.000đ áp dụng khách hàng là D-MemberGiảm thêm 200.000đ khi",
+          "url": "https://didongviet.vn/dien-thoai/oppo-a6c-64gb.html",
+          "price": 4290000,
+          "rawPrice": "4.290.000 đ"
+        },
+        {
+          "name": "REDMI 15C 128GB Chính Hãng4.290.000 đThu cũ lên đời - Trợ giá tối đa 5.000.000đGiảm thêm đến 500.000đ cho Thành viên D.MemberGiảm ",
+          "url": "https://didongviet.vn/dien-thoai/xiaomi-redmi-15c.html",
+          "price": 4290000,
+          "rawPrice": "4.290.000 đ"
+        },
+        {
+          "name": "REDMI 17 5G 128GB Chính Hãng4.790.000 đ6.490.000 đ-26%Giảm thêm 300.000đ khi KH mua kèm phụ kiện, TBCN Xiaomi Chính HãngThu cũ lên",
+          "url": "https://didongviet.vn/dien-thoai/xiaomi-redmi-17-5g.html",
+          "price": 4790000,
+          "rawPrice": "4.790.000 đ"
+        },
+        {
+          "name": "Samsung Galaxy A07 5G 128GB Chính Hãng4.990.000 đ5.090.000 đ-2%HSSV/TXCN giảm thêm đến 5% tối đa 500KTrả Góp 0% - 0Đ trả trước qua",
+          "url": "https://didongviet.vn/dien-thoai/samsung-galaxy-a07-5g.html",
+          "price": 4990000,
+          "rawPrice": "4.990.000 đ"
+        },
+        {
+          "name": "OPPO A6c 128GB Chính Hãng5.290.000 đ5.690.000 đ-7%Giảm 400,000đ trả góp chủ thẻ Visa Home Credit5.0So sánh",
+          "url": "https://didongviet.vn/dien-thoai/oppo-a6c.html",
+          "price": 5290000,
+          "rawPrice": "5.290.000 đ"
+        },
+        {
+          "name": "Samsung Galaxy A17 128GB Chính Hãng5.390.000 đ6.190.000 đ-13%HSSV/TXCN giảm thêm đến 5% tối đa 500KTrả Góp 0% - 0Đ trả trước qua K",
+          "url": "https://didongviet.vn/dien-thoai/samsung-galaxy-a17-lte.html",
+          "price": 5390000,
+          "rawPrice": "5.390.000 đ"
+        },
+        {
+          "name": "Trả góp 0%REDMI 17 128GB Chính Hãng5.690.000 đ7.490.000 đ-24%Giảm 400,000đ trả góp chủ thẻ Visa Home Credit4.9So sánh",
+          "url": "https://didongviet.vn/dien-thoai/xiaomi-redmi-17-4g.html",
+          "price": 5690000,
+          "rawPrice": "5.690.000 đ"
+        },
+        {
+          "name": "Trả góp 0%REDMI Note 17 128GB Chính Hãng5.690.000 đ6.990.000 đ-19%Giảm thêm 300.000đ khi KH mua kèm phụ kiện, TBCN Xiaomi Chính Hã",
+          "url": "https://didongviet.vn/dien-thoai/xiaomi-redmi-note-17-4gb-128gb.html",
+          "price": 5690000,
+          "rawPrice": "5.690.000 đ"
+        },
+        {
+          "name": "Samsung Galaxy A17 5G 128GB Chính Hãng6.690.000 đ8.790.000 đ-24%HSSV/TXCN giảm thêm đến 5% tối đa 500KTrả Góp 0% - 0Đ trả trước qu",
+          "url": "https://didongviet.vn/dien-thoai/samsung-galaxy-a17-5g.html",
+          "price": 6690000,
+          "rawPrice": "6.690.000 đ"
+        },
+        {
+          "name": "Trả góp 0%Mới vềSamsung Galaxy A18 128GB Chính Hãng6.750.000 đ7.190.000 đ-6%Trả Góp 0% - 0Đ trả trước qua Kredivo ( Giảm 5%, tối đ",
+          "url": "https://didongviet.vn/dien-thoai/samsung-galaxy-a18-lte.html",
+          "price": 6750000,
+          "rawPrice": "6.750.000 đ"
+        },
+        {
+          "name": "Trả góp 0%REDMI Note 17 5G 128GB Chính Hãng7.090.000 đ8.999.000 đ-21%Giảm 400,000đ trả góp chủ thẻ Visa Home Credit5.0So sánh",
+          "url": "https://didongviet.vn/dien-thoai/xiaomi-redmi-note-17-5g-128gb.html",
+          "price": 7090000,
+          "rawPrice": "7.090.000 đ"
+        }
+      ]
+    },
+    {
+      "direction": "DESC",
+      "result": "SORT_ORDER_VALID",
+      "attempt": 2,
+      "listChanged": true,
+      "products": [
+        {
+          "name": "Trả góp 0%iPhone Duo 2TB Chính Hãng103.990.000 đKhu vực Hồ Chí Minh ưu tiên giao hàng nhanh trong 1HGiảm ngay 300K khi mua Apple W",
+          "url": "https://didongviet.vn/dien-thoai/iphone-duo-2tb.html",
+          "price": 103990000,
+          "rawPrice": "103.990.000 đ"
+        },
+        {
+          "name": "Trả góp 0%iPhone Duo 1TB Chính Hãng84.490.000 đKhu vực Hồ Chí Minh ưu tiên giao hàng nhanh trong 1HGiảm ngay 300K khi mua Apple Wa",
+          "url": "https://didongviet.vn/dien-thoai/iphone-duo-1tb.html",
+          "price": 84490000,
+          "rawPrice": "84.490.000 đ"
+        },
+        {
+          "name": "Trả góp 0%iPhone 18 Pro Max 2TB Chính Hãng80.990.000 đKhu vực Hồ Chí Minh ưu tiên giao hàng nhanh trong 1HTrợ giá thêm đến 3.5 tri",
+          "url": "https://didongviet.vn/dien-thoai/iphone-18-pro-max-2tb.html",
+          "price": 80990000,
+          "rawPrice": "80.990.000 đ"
+        },
+        {
+          "name": "Trả góp 0%iPhone 18 Pro 2TB Chính Hãng76.990.000 đ77.990.000 đ-1%Khu vực Hồ Chí Minh ưu tiên giao hàng nhanh trong 1HTrợ giá thêm ",
+          "url": "https://didongviet.vn/dien-thoai/iphone-18-pro-2tb.html",
+          "price": 76990000,
+          "rawPrice": "76.990.000 đ"
+        },
+        {
+          "name": "Trả góp 0%iPhone Duo 512GB Chính Hãng71.490.000 đKhu vực Hồ Chí Minh ưu tiên giao hàng nhanh trong 1HGiảm ngay 300K khi mua Apple ",
+          "url": "https://didongviet.vn/dien-thoai/iphone-duo-512gb.html",
+          "price": 71490000,
+          "rawPrice": "71.490.000 đ"
+        },
+        {
+          "name": "Trả góp 0%iPhone Duo 256GB Chính Hãng64.990.000 đKhu vực Hồ Chí Minh ưu tiên giao hàng nhanh trong 1HGiảm ngay 300K khi mua Apple ",
+          "url": "https://didongviet.vn/dien-thoai/iphone-duo.html",
+          "price": 64990000,
+          "rawPrice": "64.990.000 đ"
+        },
+        {
+          "name": "Trả góp 0%iPhone 18 Pro Max 1TB Chính Hãng60.990.000 đ61.490.000 đ-1%Khu vực Hồ Chí Minh ưu tiên giao hàng nhanh trong 1HTrợ giá t",
+          "url": "https://didongviet.vn/dien-thoai/iphone-18-pro-max-1tb.html",
+          "price": 60990000,
+          "rawPrice": "60.990.000 đ"
+        },
+        {
+          "name": "Trả góp 0%iPhone 17 Pro Max 2TB Chính Hãng59.990.000 đ63.990.000 đ-6%Giảm 2,2 triệu mở thẻ tín dụng (iPhone 18 trên 30 triệu)5.0So",
+          "url": "https://didongviet.vn/dien-thoai/iphone-17-pro-max-2tb.html",
+          "price": 59990000,
+          "rawPrice": "59.990.000 đ"
+        },
+        {
+          "name": "Trả góp 0%iPhone 18 Pro 1TB Chính Hãng57.990.000 đ58.490.000 đ-1%Khu vực Hồ Chí Minh ưu tiên giao hàng nhanh trong 1HTrợ giá thêm ",
+          "url": "https://didongviet.vn/dien-thoai/iphone-18-pro-1tb.html",
+          "price": 57990000,
+          "rawPrice": "57.990.000 đ"
+        },
+        {
+          "name": "Trả góp 0%Samsung Galaxy Z Fold8 Ultra 512GB Chính Hãng50.790.000 đ58.990.000 đ-14%Ưu đãi dùng thử gói Google AI Pro 6 tháng trị g",
+          "url": "https://didongviet.vn/dien-thoai/samsung-galaxy-z-fold8-ultra-512gb.html",
+          "price": 50790000,
+          "rawPrice": "50.790.000 đ"
+        },
+        {
+          "name": "Trả góp 0%Samsung Galaxy Z Fold8 Ultra 512GB Chính Hãng (BHĐT)49.990.000 đ58.990.000 đ-15%Thu cũ đổi mới trợ giá lên đến 5.000.000",
+          "url": "https://didongviet.vn/dien-thoai/samsung-galaxy-z-fold8-ultra-512gb-bhdt.html",
+          "price": 49990000,
+          "rawPrice": "49.990.000 đ"
+        },
+        {
+          "name": "Trả góp 0%iPhone 18 Pro Max 512GB Chính Hãng47.990.000 đ48.490.000 đ-1%Khu vực Hồ Chí Minh ưu tiên giao hàng nhanh trong 1HTrợ giá",
+          "url": "https://didongviet.vn/dien-thoai/iphone-18-pro-max-512gb.html",
+          "price": 47990000,
+          "rawPrice": "47.990.000 đ"
+        },
+        {
+          "name": "Trả góp 0%Samsung Galaxy Z Fold8 512GB Chính Hãng45.390.000 đ52.990.000 đ-14%Ưu đãi dùng thử gói Google AI Pro 6 tháng trị giá 3 T",
+          "url": "https://didongviet.vn/dien-thoai/samsung-galaxy-z-fold8-512gb.html",
+          "price": 45390000,
+          "rawPrice": "45.390.000 đ"
+        },
+        {
+          "name": "Trả góp 0%Samsung Galaxy Z Fold8 Ultra 256GB Chính Hãng45.390.000 đ52.990.000 đ-14%Ưu đãi dùng thử gói Google AI Pro 6 tháng trị g",
+          "url": "https://didongviet.vn/dien-thoai/samsung-galaxy-z-fold8-ultra.html",
+          "price": 45390000,
+          "rawPrice": "45.390.000 đ"
+        },
+        {
+          "name": "Trả góp 0%iPhone 18 Pro 512GB Chính Hãng44.990.000 đ45.490.000 đ-1%Khu vực Hồ Chí Minh ưu tiên giao hàng nhanh trong 1HTrợ giá thê",
+          "url": "https://didongviet.vn/dien-thoai/iphone-18-pro-512gb.html",
+          "price": 44990000,
+          "rawPrice": "44.990.000 đ"
+        },
+        {
+          "name": "Trả góp 0%Samsung Galaxy Z Fold8 Ultra 256GB Chính Hãng (BHĐT)44.490.000 đ52.990.000 đ-16%Thu cũ đổi mới trợ giá lên đến 5.000.000",
+          "url": "https://didongviet.vn/dien-thoai/samsung-galaxy-z-fold8-ultra-256gb-bhdt.html",
+          "price": 44490000,
+          "rawPrice": "44.490.000 đ"
+        },
+        {
+          "name": "Trả góp 0%Samsung Galaxy Z Fold8 512GB Chính Hãng (BHĐT)44.490.000 đ52.990.000 đ-16%Thu cũ đổi mới trợ giá lên đến 5.000.000 đ ( x",
+          "url": "https://didongviet.vn/dien-thoai/samsung-galaxy-z-fold8-512gb-bhdt.html",
+          "price": 44490000,
+          "rawPrice": "44.490.000 đ"
+        },
+        {
+          "name": "Trả góp 0%iPhone 17 Pro 1TB Chính Hãng43.990.000 đ47.990.000 đ-8%Khu vực Hồ Chí Minh ưu tiên giao hàng nhanh trong 1hTrợ giá thêm ",
+          "url": "https://didongviet.vn/dien-thoai/iphone-17-pro-1tb.html",
+          "price": 43990000,
+          "rawPrice": "43.990.000 đ"
+        },
+        {
+          "name": "Samsung Galaxy S26 Ultra 1TB Chính Hãng41.990.000 đ51.990.000 đ-19%HSSV/TXCN giảm thêm đến 5% tối đa 500KThu cũ đổi mới trợ giá lê",
+          "url": "https://didongviet.vn/dien-thoai/samsung-galaxy-s26-ultra-1tb.html",
+          "price": 41990000,
+          "rawPrice": "41.990.000 đ"
+        },
+        {
+          "name": "Trả góp 0%iPhone 18 Pro Max 256GB Chính Hãng41.690.000 đ41.990.000 đ-1%Khu vực Hồ Chí Minh ưu tiên giao hàng nhanh trong 1HTrợ giá",
+          "url": "https://didongviet.vn/dien-thoai/iphone-18-pro-max.html",
+          "price": 41690000,
+          "rawPrice": "41.690.000 đ"
+        }
+      ]
+    },
+    {
+      "direction": "ASC",
+      "result": "SORT_ORDER_VALID",
+      "attempt": 2,
+      "listChanged": true,
+      "products": [
+        {
+          "name": "REDMI A7 64GB Chính Hãng3.190.000 đ3.890.000 đ-18%Giảm 400,000đ trả góp chủ thẻ Visa Home Credit4.9So sánh",
+          "url": "https://didongviet.vn/dien-thoai/xiaomi-redmi-a7-64gb.html",
+          "price": 3190000,
+          "rawPrice": "3.190.000 đ"
+        },
+        {
+          "name": "Samsung Galaxy A07 128GB Chính Hãng3.490.000 đ4.190.000 đ-17%HSSV/TXCN giảm thêm đến 5% tối đa 500KTrả Góp 0% - 0Đ trả trước qua K",
+          "url": "https://didongviet.vn/dien-thoai/samsung-galaxy-a07.html",
+          "price": 3490000,
+          "rawPrice": "3.490.000 đ"
+        },
+        {
+          "name": "REDMI A7 Pro 128GB Chính Hãng3.690.000 đ4.490.000 đ-18%Thu cũ lên đời - Trợ giá tối đa 5.000.000đGiảm thêm đến 500.000đ cho Thành ",
+          "url": "https://didongviet.vn/dien-thoai/xiaomi-redmi-a7-pro.html",
+          "price": 3690000,
+          "rawPrice": "3.690.000 đ"
+        },
+        {
+          "name": "Trả góp 0%Samsung Galaxy A08 64GB Chính Hãng4.290.000 đ4.790.000 đ-10%Trả Góp 0% - 0Đ trả trước qua Kredivo ( Giảm 5%, tối đa 200,",
+          "url": "https://didongviet.vn/dien-thoai/samsung-galaxy-a08.html",
+          "price": 4290000,
+          "rawPrice": "4.290.000 đ"
+        },
+        {
+          "name": "OPPO A6c 64GB Chính Hãng4.290.000 đ4.690.000 đ-9%Giảm thêm 5% tối đa 200.000đ áp dụng khách hàng là D-MemberGiảm thêm 200.000đ khi",
+          "url": "https://didongviet.vn/dien-thoai/oppo-a6c-64gb.html",
+          "price": 4290000,
+          "rawPrice": "4.290.000 đ"
+        },
+        {
+          "name": "REDMI 15C 128GB Chính Hãng4.290.000 đThu cũ lên đời - Trợ giá tối đa 5.000.000đGiảm thêm đến 500.000đ cho Thành viên D.MemberGiảm ",
+          "url": "https://didongviet.vn/dien-thoai/xiaomi-redmi-15c.html",
+          "price": 4290000,
+          "rawPrice": "4.290.000 đ"
+        },
+        {
+          "name": "REDMI 17 5G 128GB Chính Hãng4.790.000 đ6.490.000 đ-26%Giảm thêm 300.000đ khi KH mua kèm phụ kiện, TBCN Xiaomi Chính HãngThu cũ lên",
+          "url": "https://didongviet.vn/dien-thoai/xiaomi-redmi-17-5g.html",
+          "price": 4790000,
+          "rawPrice": "4.790.000 đ"
+        },
+        {
+          "name": "Samsung Galaxy A07 5G 128GB Chính Hãng4.990.000 đ5.090.000 đ-2%HSSV/TXCN giảm thêm đến 5% tối đa 500KTrả Góp 0% - 0Đ trả trước qua",
+          "url": "https://didongviet.vn/dien-thoai/samsung-galaxy-a07-5g.html",
+          "price": 4990000,
+          "rawPrice": "4.990.000 đ"
+        },
+        {
+          "name": "OPPO A6c 128GB Chính Hãng5.290.000 đ5.690.000 đ-7%Giảm 400,000đ trả góp chủ thẻ Visa Home Credit5.0So sánh",
+          "url": "https://didongviet.vn/dien-thoai/oppo-a6c.html",
+          "price": 5290000,
+          "rawPrice": "5.290.000 đ"
+        },
+        {
+          "name": "Samsung Galaxy A17 128GB Chính Hãng5.390.000 đ6.190.000 đ-13%HSSV/TXCN giảm thêm đến 5% tối đa 500KTrả Góp 0% - 0Đ trả trước qua K",
+          "url": "https://didongviet.vn/dien-thoai/samsung-galaxy-a17-lte.html",
+          "price": 5390000,
+          "rawPrice": "5.390.000 đ"
+        },
+        {
+          "name": "Trả góp 0%REDMI 17 128GB Chính Hãng5.690.000 đ7.490.000 đ-24%Giảm 400,000đ trả góp chủ thẻ Visa Home Credit4.9So sánh",
+          "url": "https://didongviet.vn/dien-thoai/xiaomi-redmi-17-4g.html",
+          "price": 5690000,
+          "rawPrice": "5.690.000 đ"
+        },
+        {
+          "name": "Trả góp 0%REDMI Note 17 128GB Chính Hãng5.690.000 đ6.990.000 đ-19%Giảm thêm 300.000đ khi KH mua kèm phụ kiện, TBCN Xiaomi Chính Hã",
+          "url": "https://didongviet.vn/dien-thoai/xiaomi-redmi-note-17-4gb-128gb.html",
+          "price": 5690000,
+          "rawPrice": "5.690.000 đ"
+        },
+        {
+          "name": "Samsung Galaxy A17 5G 128GB Chính Hãng6.690.000 đ8.790.000 đ-24%HSSV/TXCN giảm thêm đến 5% tối đa 500KTrả Góp 0% - 0Đ trả trước qu",
+          "url": "https://didongviet.vn/dien-thoai/samsung-galaxy-a17-5g.html",
+          "price": 6690000,
+          "rawPrice": "6.690.000 đ"
+        },
+        {
+          "name": "Trả góp 0%Mới vềSamsung Galaxy A18 128GB Chính Hãng6.750.000 đ7.190.000 đ-6%Trả Góp 0% - 0Đ trả trước qua Kredivo ( Giảm 5%, tối đ",
+          "url": "https://didongviet.vn/dien-thoai/samsung-galaxy-a18-lte.html",
+          "price": 6750000,
+          "rawPrice": "6.750.000 đ"
+        },
+        {
+          "name": "Trả góp 0%REDMI Note 17 5G 128GB Chính Hãng7.090.000 đ8.999.000 đ-21%Giảm 400,000đ trả góp chủ thẻ Visa Home Credit5.0So sánh",
+          "url": "https://didongviet.vn/dien-thoai/xiaomi-redmi-note-17-5g-128gb.html",
+          "price": 7090000,
+          "rawPrice": "7.090.000 đ"
+        }
+      ]
+    }
+  ],
+  "technicalErrors": [],
+  "finishedAt": "2026-11-09T12:30:42.513Z",
+  "url": "https://didongviet.vn/dien-thoai.html?sort=price_asc",
+  "jsonPath": "E:\\Group08-Software-Test\\Test Report - Group08\\23130067_PhamMinhDuc_ASM09\\runs\\20261109-192921\\evidence\\ASM09_DUC_F02_003-2026-11-09T12-30-42-513Z.json",
+  "screenshotPath": "E:\\Group08-Software-Test\\Test Report - Group08\\23130067_PhamMinhDuc_ASM09\\runs\\20261109-192921\\evidence\\ASM09_DUC_F02_003-2026-11-09T12-30-42-513Z.png"
+}

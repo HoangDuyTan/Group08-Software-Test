@@ -1,0 +1,120 @@
+{
+  "id": "ASM09_DUC_F02_007",
+  "title": "Kiem tra bo loc bo nho 256GB",
+  "classification": "NO_DEFECT_OBSERVED",
+  "startedAt": "2026-11-09T12:36:56.383Z",
+  "observations": [
+    {
+      "facetName": "Bộ nhớ trong",
+      "optionText": "256 GB",
+      "changed": true,
+      "triggerText": "Bộ nhớ trong",
+      "ariaPressed": "true",
+      "before": [
+        {
+          "name": "Trả góp 0%iPhone Duo 256GB Chính Hãng64.990.000 đKhu vực Hồ Chí Minh ưu tiên giao hàng nhanh trong 1HGiảm ngay 300K khi mua Apple ",
+          "url": "https://didongviet.vn/dien-thoai/iphone-duo.html",
+          "price": 64990000,
+          "rawPrice": "64.990.000 đ"
+        },
+        {
+          "name": "Trả góp 0%iPhone 18 Pro Max 256GB Chính Hãng41.690.000 đ41.990.000 đ-1%Khu vực Hồ Chí Minh ưu tiên giao hàng nhanh trong 1HTrợ giá",
+          "url": "https://didongviet.vn/dien-thoai/iphone-18-pro-max.html",
+          "price": 41690000,
+          "rawPrice": "41.690.000 đ"
+        },
+        {
+          "name": "Trả góp 0%iPhone 18 Pro 256GB Chính Hãng38.490.000 đ38.990.000 đ-1%Khu vực Hồ Chí Minh ưu tiên giao hàng nhanh trong 1HTrợ giá thê",
+          "url": "https://didongviet.vn/dien-thoai/iphone-18-pro.html",
+          "price": 38490000,
+          "rawPrice": "38.490.000 đ"
+        },
+        {
+          "name": "Trả góp 0%iPhone 17 Pro Max 256GB Chính Hãng34.190.000 đ37.990.000 đ-10%Khu vực Hồ Chí Minh ưu tiên giao hàng nhanh trong 1HTrợ gi",
+          "url": "https://didongviet.vn/dien-thoai/iphone-17-pro-max-256gb.html",
+          "price": 34190000,
+          "rawPrice": "34.190.000 đ"
+        },
+        {
+          "name": "Trả góp 0%iPhone 17 Pro Max 512GB Chính Hãng41.190.000 đ44.490.000 đ-7%Khu vực Hồ Chí Minh ưu tiên giao hàng nhanh trong 1HTrợ giá",
+          "url": "https://didongviet.vn/dien-thoai/iphone-17-pro-max-512gb.html",
+          "price": 41190000,
+          "rawPrice": "41.190.000 đ"
+        },
+        {
+          "name": "Trả góp 0%iPhone 17 Pro Max 2TB Chính Hãng59.990.000 đ63.990.000 đ-6%Giảm 2,2 triệu mở thẻ tín dụng (iPhone 18 trên 30 triệu)5.0So",
+          "url": "https://didongviet.vn/dien-thoai/iphone-17-pro-max-2tb.html",
+          "price": 59990000,
+          "rawPrice": "59.990.000 đ"
+        },
+        {
+          "name": "Samsung Galaxy A07 128GB Chính Hãng3.490.000 đ4.190.000 đ-17%HSSV/TXCN giảm thêm đến 5% tối đa 500KTrả Góp 0% - 0Đ trả trước qua K",
+          "url": "https://didongviet.vn/dien-thoai/samsung-galaxy-a07.html",
+          "price": 3490000,
+          "rawPrice": "3.490.000 đ"
+        },
+        {
+          "name": "Trả góp 0%iPhone 14 256GB Chính Hãng (VN/A)16.990.000 đ27.990.000 đ-39%Giảm 2,2 triệu mở thẻ tín dụng (iPhone 18 trên 30 triệu)5.0",
+          "url": "https://didongviet.vn/dien-thoai/iphone-14-256gb.html",
+          "price": 16990000,
+          "rawPrice": "16.990.000 đ"
+        }
+      ],
+      "after": [
+        {
+          "name": "Trả góp 0%iPhone 17 Pro Max 256GB Chính Hãng34.190.000 đ37.990.000 đ-10%Khu vực Hồ Chí Minh ưu tiên giao hàng nhanh trong 1HTrợ gi",
+          "url": "https://didongviet.vn/dien-thoai/iphone-17-pro-max-256gb.html",
+          "price": 34190000,
+          "rawPrice": "34.190.000 đ"
+        },
+        {
+          "name": "Trả góp 0%iPhone 14 256GB Chính Hãng (VN/A)16.990.000 đ27.990.000 đ-39%Giảm 2,2 triệu mở thẻ tín dụng (iPhone 18 trên 30 triệu)5.0",
+          "url": "https://didongviet.vn/dien-thoai/iphone-14-256gb.html",
+          "price": 16990000,
+          "rawPrice": "16.990.000 đ"
+        },
+        {
+          "name": "Trả góp 0%iPhone 15 256GB Chính hãng (VN/A)23.690.000 đ26.990.000 đ-12%Khu vực Hồ Chí Minh ưu tiên giao hàng nhanh trong 1HTrợ giá",
+          "url": "https://didongviet.vn/dien-thoai/iphone-15-256gb.html",
+          "price": 23690000,
+          "rawPrice": "23.690.000 đ"
+        },
+        {
+          "name": "Trả góp 0%Xiaomi 14 5G 256GB Chính Hãng19.990.000 đGiảm 400,000đ trả góp chủ thẻ Visa Home CreditSo sánh",
+          "url": "https://didongviet.vn/dien-thoai/xiaomi-14.html",
+          "price": 19990000,
+          "rawPrice": "19.990.000 đ"
+        },
+        {
+          "name": "Trả góp 0%iPhone 16 256GB Chính Hãng (VN/A)27.490.000 đKhu vực Hồ Chí Minh ưu tiên giao hàng nhanh trong 1hTrợ giá thêm đến 3.5 tr",
+          "url": "https://didongviet.vn/dien-thoai/iphone-16-256gb.html",
+          "price": 27490000,
+          "rawPrice": "27.490.000 đ"
+        },
+        {
+          "name": "Trả góp 0%iPhone 16 Plus 256GB Chính hãng (VN/A)26.390.000 đ28.990.000 đ-9%Khu vực Hồ Chí Minh ưu tiên giao hàng nhanh trong 1hTrợ",
+          "url": "https://didongviet.vn/dien-thoai/iphone-16-plus-256gb.html",
+          "price": 26390000,
+          "rawPrice": "26.390.000 đ"
+        },
+        {
+          "name": "Trả góp 0%Samsung Galaxy S25 Ultra 256GB Chính Hãng24.990.000 đ33.380.000 đ-25%HSSV/TXCN giảm thêm đến 5% tối đa 500KThu cũ đổi mớ",
+          "url": "https://didongviet.vn/dien-thoai/samsung-galaxy-s25-ultra-5g-256gb.html",
+          "price": 24990000,
+          "rawPrice": "24.990.000 đ"
+        },
+        {
+          "name": "Samsung Galaxy Z Fold7 256GB Chính Hãng38.990.000 đ46.990.000 đ-17%HSSV/TXCN giảm thêm đến 5% tối đa 500KThu cũ đổi mới trợ giá lê",
+          "url": "https://didongviet.vn/dien-thoai/samsung-galaxy-z-fold7-5g.html",
+          "price": 38990000,
+          "rawPrice": "38.990.000 đ"
+        }
+      ]
+    }
+  ],
+  "technicalErrors": [],
+  "finishedAt": "2026-11-09T12:37:01.077Z",
+  "url": "https://didongviet.vn/dien-thoai.html?spec_bo_nho_trong=256_gb",
+  "jsonPath": "E:\\Group08-Software-Test\\Test Report - Group08\\23130067_PhamMinhDuc_ASM09\\runs\\20261109-192921\\evidence\\ASM09_DUC_F02_007-2026-11-09T12-37-01-077Z.json",
+  "screenshotPath": "E:\\Group08-Software-Test\\Test Report - Group08\\23130067_PhamMinhDuc_ASM09\\runs\\20261109-192921\\evidence\\ASM09_DUC_F02_007-2026-11-09T12-37-01-077Z.png"
+}

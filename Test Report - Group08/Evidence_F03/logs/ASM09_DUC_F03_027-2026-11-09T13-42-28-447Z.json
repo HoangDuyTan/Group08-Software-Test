@@ -1,0 +1,148 @@
+{
+  "id": "ASM09_DUC_F03_027",
+  "title": "Check names and slugs of three products",
+  "classification": "NO_DEFECT_OBSERVED",
+  "startedAt": "2026-11-09T13:42:26.261Z",
+  "observations": [
+    {
+      "action": "ADD_COMPARE",
+      "product": {
+        "name": "Trả góp 0%iPhone Duo 256GB Chính Hãng64.990.000 đKhu vực Hồ Chí Minh ưu tiên giao hàng nhanh trong 1HGiảm ngay 300K khi mua Apple ",
+        "url": "https://didongviet.vn/dien-thoai/iphone-duo.html",
+        "price": 64990000,
+        "rawPrice": "64.990.000 đ"
+      },
+      "before": [],
+      "after": [
+        {
+          "productId": "50039204",
+          "slug": "iphone-duo",
+          "name": "iPhone Duo 256GB Chính Hãng",
+          "price": 64990000
+        }
+      ]
+    },
+    {
+      "action": "ADD_COMPARE",
+      "product": {
+        "name": "Trả góp 0%iPhone 18 Pro Max 256GB Chính Hãng41.690.000 đ41.990.000 đ-1%Khu vực Hồ Chí Minh ưu tiên giao hàng nhanh trong 1HTrợ giá",
+        "url": "https://didongviet.vn/dien-thoai/iphone-18-pro-max.html",
+        "price": 41690000,
+        "rawPrice": "41.690.000 đ"
+      },
+      "before": [
+        {
+          "productId": "50039204",
+          "slug": "iphone-duo",
+          "name": "iPhone Duo 256GB Chính Hãng",
+          "price": 64990000
+        }
+      ],
+      "after": [
+        {
+          "productId": "50039204",
+          "slug": "iphone-duo",
+          "name": "iPhone Duo 256GB Chính Hãng",
+          "price": 64990000
+        },
+        {
+          "productId": "50039168",
+          "slug": "iphone-18-pro-max",
+          "name": "iPhone 18 Pro Max 256GB Chính Hãng",
+          "price": 41690000
+        }
+      ]
+    },
+    {
+      "action": "ADD_COMPARE",
+      "product": {
+        "name": "Trả góp 0%iPhone 18 Pro 256GB Chính Hãng38.490.000 đ38.990.000 đ-1%Khu vực Hồ Chí Minh ưu tiên giao hàng nhanh trong 1HTrợ giá thê",
+        "url": "https://didongviet.vn/dien-thoai/iphone-18-pro.html",
+        "price": 38490000,
+        "rawPrice": "38.490.000 đ"
+      },
+      "before": [
+        {
+          "productId": "50039204",
+          "slug": "iphone-duo",
+          "name": "iPhone Duo 256GB Chính Hãng",
+          "price": 64990000
+        },
+        {
+          "productId": "50039168",
+          "slug": "iphone-18-pro-max",
+          "name": "iPhone 18 Pro Max 256GB Chính Hãng",
+          "price": 41690000
+        }
+      ],
+      "after": [
+        {
+          "productId": "50039204",
+          "slug": "iphone-duo",
+          "name": "iPhone Duo 256GB Chính Hãng",
+          "price": 64990000
+        },
+        {
+          "productId": "50039168",
+          "slug": "iphone-18-pro-max",
+          "name": "iPhone 18 Pro Max 256GB Chính Hãng",
+          "price": 41690000
+        },
+        {
+          "productId": "50039132",
+          "slug": "iphone-18-pro",
+          "name": "iPhone 18 Pro 256GB Chính Hãng",
+          "price": 38490000
+        }
+      ]
+    },
+    {
+      "added": [
+        {
+          "name": "Trả góp 0%iPhone Duo 256GB Chính Hãng64.990.000 đKhu vực Hồ Chí Minh ưu tiên giao hàng nhanh trong 1HGiảm ngay 300K khi mua Apple ",
+          "url": "https://didongviet.vn/dien-thoai/iphone-duo.html",
+          "price": 64990000,
+          "rawPrice": "64.990.000 đ"
+        },
+        {
+          "name": "Trả góp 0%iPhone 18 Pro Max 256GB Chính Hãng41.690.000 đ41.990.000 đ-1%Khu vực Hồ Chí Minh ưu tiên giao hàng nhanh trong 1HTrợ giá",
+          "url": "https://didongviet.vn/dien-thoai/iphone-18-pro-max.html",
+          "price": 41690000,
+          "rawPrice": "41.690.000 đ"
+        },
+        {
+          "name": "Trả góp 0%iPhone 18 Pro 256GB Chính Hãng38.490.000 đ38.990.000 đ-1%Khu vực Hồ Chí Minh ưu tiên giao hàng nhanh trong 1HTrợ giá thê",
+          "url": "https://didongviet.vn/dien-thoai/iphone-18-pro.html",
+          "price": 38490000,
+          "rawPrice": "38.490.000 đ"
+        }
+      ],
+      "stored": [
+        {
+          "productId": "50039204",
+          "slug": "iphone-duo",
+          "name": "iPhone Duo 256GB Chính Hãng",
+          "price": 64990000
+        },
+        {
+          "productId": "50039168",
+          "slug": "iphone-18-pro-max",
+          "name": "iPhone 18 Pro Max 256GB Chính Hãng",
+          "price": 41690000
+        },
+        {
+          "productId": "50039132",
+          "slug": "iphone-18-pro",
+          "name": "iPhone 18 Pro 256GB Chính Hãng",
+          "price": 38490000
+        }
+      ],
+      "invalid": []
+    }
+  ],
+  "technicalErrors": [],
+  "finishedAt": "2026-11-09T13:42:28.447Z",
+  "url": "https://didongviet.vn/dien-thoai.html",
+  "jsonPath": "E:\\Group08-Software-Test\\Test Report - Group08\\23130067_PhamMinhDuc_ASM09\\runs\\20261109-203046\\evidence\\ASM09_DUC_F03_027-2026-11-09T13-42-28-447Z.json",
+  "screenshotPath": "E:\\Group08-Software-Test\\Test Report - Group08\\23130067_PhamMinhDuc_ASM09\\runs\\20261109-203046\\evidence\\ASM09_DUC_F03_027-2026-11-09T13-42-28-447Z.png"
+}

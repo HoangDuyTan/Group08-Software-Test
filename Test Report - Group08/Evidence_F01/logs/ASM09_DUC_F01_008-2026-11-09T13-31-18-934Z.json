@@ -1,0 +1,25 @@
+{
+  "id": "ASM09_DUC_F01_008",
+  "title": "Brand Xiaomi",
+  "classification": "NO_DEFECT_OBSERVED",
+  "startedAt": "2026-11-09T13:31:16.957Z",
+  "observations": [
+    {
+      "keyword": "Xiaomi",
+      "enteredValue": "Xiaomi",
+      "before": "https://didongviet.vn/",
+      "after": "https://didongviet.vn/search?q=Xiaomi",
+      "loaded": true,
+      "bodyExcerpt": "Z Fold8 ưu đãi giá sốc\nCửa hàng\nMở cửa 8:00 - 21:30\nTra cứu đơn hàng\nDanh mục\n1800.6018\nGiỏ hàng\nĐăng nhập\nĐiện thoại\nTablet\nMacbook\nHệ sinh thái Apple\nMáy cũ\nGia dụng Bear\nĐồng hồ\nÂm thanh\nPhụ kiện\nThu cũ đổi mới\nTrang chủ\nTìm kiếm với từ khoá: Xiaomi\n\nTìm thấy 28 sản phẩm\n\nTất cả\nXiaomi\nĐiện thoại Xiaomi\nXiaomi 17 Series\nXiaomi 17T Series\nXiaomi Watch\nNổi bật\nKhuyến mãi\nGiá tăng dần\nGiá giảm dần\n\nXiaomi 17T 512GB Chính Hãng\n\n15.590.000 đ\n\n20.990.000 đ\n-26%\n\nGiảm 400,000đ trả góp chủ thẻ Visa Home Credit\n\n5.0\nSo sánh\n\nXiaomi 17T Pro 512GB Chính Hãng\n\n20.490.000 đ\n\n24.990.000 đ\n-18%\nGiảm thêm 300.000đ khi KH mua kèm phụ kiện, TBCN Xiaomi Chính Hãng\nThu cũ lên đời - Trợ giá tối đa 5.000.000đ\n\nGiảm 400,000đ trả góp chủ thẻ Visa Home Credit\n\n+1 ưu đãi khác\n5.0\nSo sánh\n\nXiaomi 17 Ultra 512GB Chính Hãng\n\n32.690.000 đ\n\n39.990.000 đ\n-18%\nGiảm thêm 300.000đ khi KH mua kèm phụ kiện, TBCN Xiaomi Chính Hãng\nThu cũ lên đời - Trợ giá tối đa 5.000.000đ\n\nGiảm 400,000đ trả góp chủ thẻ Visa Home Credit\n\n+1 ưu đãi khác\n5.0\nSo sánh\nTRẢ GÓP 0%\n\nXiaomi 14 5G 256GB Chính Hãng\n\n19.990.000 đ\n\nGiảm 400,000đ "
+    },
+    {
+      "keyword": "Xiaomi",
+      "searchResultCount": 28
+    }
+  ],
+  "technicalErrors": [],
+  "finishedAt": "2026-11-09T13:31:18.934Z",
+  "url": "https://didongviet.vn/search?q=Xiaomi",
+  "jsonPath": "E:\\Group08-Software-Test\\Test Report - Group08\\23130067_PhamMinhDuc_ASM09\\runs\\20261109-203046\\evidence\\ASM09_DUC_F01_008-2026-11-09T13-31-18-934Z.json",
+  "screenshotPath": "E:\\Group08-Software-Test\\Test Report - Group08\\23130067_PhamMinhDuc_ASM09\\runs\\20261109-203046\\evidence\\ASM09_DUC_F01_008-2026-11-09T13-31-18-934Z.png"
+}
