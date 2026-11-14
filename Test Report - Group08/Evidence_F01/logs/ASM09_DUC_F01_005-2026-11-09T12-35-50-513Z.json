@@ -1,0 +1,18 @@
+{
+  "id": "ASM09_DUC_F01_005",
+  "title": "Doi tu khoa nhanh Samsung sang iPhone",
+  "classification": "NO_DEFECT_OBSERVED",
+  "startedAt": "2026-11-09T12:35:47.088Z",
+  "observations": [
+    {
+      "first": "Samsung",
+      "last": "iPhone",
+      "actual": "iPhone"
+    }
+  ],
+  "technicalErrors": [],
+  "finishedAt": "2026-11-09T12:35:50.512Z",
+  "url": "https://didongviet.vn/",
+  "jsonPath": "E:\\Group08-Software-Test\\Test Report - Group08\\23130067_PhamMinhDuc_ASM09\\runs\\20261109-192921\\evidence\\ASM09_DUC_F01_005-2026-11-09T12-35-50-513Z.json",
+  "screenshotPath": "E:\\Group08-Software-Test\\Test Report - Group08\\23130067_PhamMinhDuc_ASM09\\runs\\20261109-192921\\evidence\\ASM09_DUC_F01_005-2026-11-09T12-35-50-513Z.png"
+}

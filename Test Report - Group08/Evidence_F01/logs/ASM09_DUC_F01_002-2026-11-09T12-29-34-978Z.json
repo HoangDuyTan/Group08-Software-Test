@@ -1,0 +1,23 @@
+{
+  "id": "ASM09_DUC_F01_002",
+  "title": "Tim kiem Samsung",
+  "classification": "DEFECT_CANDIDATE",
+  "startedAt": "2026-11-09T12:29:31.128Z",
+  "observations": [
+    {
+      "keyword": "Samsung",
+      "before": "https://didongviet.vn/",
+      "after": "https://didongviet.vn/search?q=Samsung",
+      "bodyExcerpt": "Z Fold8 ưu đãi giá sốc\nCửa hàng\nMở cửa 8:00 - 21:30\nTra cứu đơn hàng\nDanh mục\n1800.6018\nGiỏ hàng\nĐăng nhập\nĐiện thoại\nTablet\nMacbook\nHệ sinh thái Apple\nMáy cũ\nGia dụng Bear\nĐồng hồ\nÂm thanh\nPhụ kiện\nThu cũ đổi mới\n\nVề chúng tôi\n\nGiới thiệu về công ty\nLiên hệ hợp tác kinh doanh (B2B)\nƯu đãi dành cho giáo dục\nDanh sách cửa hàng\nTuyển dụng mới nhất\nHướng dẫn mua hàng online\nHướng dẫn mua hàng trả góp\nHướng dẫn thanh toán VNPay\n\nChính sách\n\nChính sách bảo hành\nChính sách bán hàng\nChính sách bảo mật\nChính sách mua hàng trả góp\nChính sách hoàn thuế\nChính sách D-Member\nChính sách giao hàng\nTrung tâm bảo hành Apple tại Việt Nam\n\nTổng đài hỗ trợ\n\nMua ngay\n1800.6018\n(07:30 – 21:30)\nBảo hành tại Di Động Việt\n1800.6729\n(08:00 – 21:00)\nGóp ý\n1800.6306\n(08:00 – 21:30)\n\nPhương thức thanh toán\n\nKết nối với Di Động Việt\n\nĐối tác của Di Động Việt\n\nTải ứng dụng nhận nhiều ưu đãi\n\nCông Ty Cổ phần Công Nghệ Di Động Việt - 77 Trần Quang Khải, P. Tân Định, TP. Hồ Chí Minh. Mã số doanh nghiệp: 0312193244, nơi cấp: Sở Tài chính thành phố Hồ Chí Minh.\n\nMST: 0312193244. Đại diện theo pháp luật: Nguyễn Ngọc Đạt - Điện thoại: 1800.6018 (miễn phí) - Email: lienhe@didongviet.vn - Bản quyền thuộc về Di Động Việt.\n\n🍪\nCookie & trải nghiệm Di Động Việt\n\nCookie giúp website hoạt động ổn định và hỗ trợ trải nghiệm mua sắm thuận tiện hơn.\n\nDanh sách Cookie\n\nViệc từ chối một số loại cookie có thể ảnh hưởng đến hoạt"
+    },
+    {
+      "url": "https://didongviet.vn/search?q=Samsung"
+    }
+  ],
+  "technicalErrors": [],
+  "reason": "DefectCandidate: Ket qua khong hien thi Samsung",
+  "finishedAt": "2026-11-09T12:29:34.978Z",
+  "url": "https://didongviet.vn/search?q=Samsung",
+  "jsonPath": "E:\\Group08-Software-Test\\Test Report - Group08\\23130067_PhamMinhDuc_ASM09\\runs\\20261109-192921\\evidence\\ASM09_DUC_F01_002-2026-11-09T12-29-34-978Z.json",
+  "screenshotPath": "E:\\Group08-Software-Test\\Test Report - Group08\\23130067_PhamMinhDuc_ASM09\\runs\\20261109-192921\\evidence\\ASM09_DUC_F01_002-2026-11-09T12-29-34-978Z.png"
+}

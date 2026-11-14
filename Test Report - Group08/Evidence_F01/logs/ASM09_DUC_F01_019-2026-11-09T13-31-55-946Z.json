@@ -1,0 +1,25 @@
+{
+  "id": "ASM09_DUC_F01_019",
+  "title": "Storage keyword 256GB",
+  "classification": "NO_DEFECT_OBSERVED",
+  "startedAt": "2026-11-09T13:31:52.714Z",
+  "observations": [
+    {
+      "keyword": "256GB",
+      "enteredValue": "256GB",
+      "before": "https://didongviet.vn/",
+      "after": "https://didongviet.vn/search?q=256GB",
+      "loaded": true,
+      "bodyExcerpt": "Z Fold8 ưu đãi giá sốc\nCửa hàng\nMở cửa 8:00 - 21:30\nTra cứu đơn hàng\nDanh mục\n1800.6018\nGiỏ hàng\nĐăng nhập\nĐiện thoại\nTablet\nMacbook\nHệ sinh thái Apple\nMáy cũ\nGia dụng Bear\nĐồng hồ\nÂm thanh\nPhụ kiện\nThu cũ đổi mới\nTrang chủ\nTìm kiếm với từ khoá: 256GB\n\nTìm thấy 109 sản phẩm\n\nNổi bật\nKhuyến mãi\nGiá tăng dần\nGiá giảm dần\nTRẢ GÓP 0%\n\niPhone 17 256GB Chính Hãng\n\n27.890.000 đ\n\n28.990.000 đ\n-4%\nKhu vực Hồ Chí Minh ưu tiên giao hàng nhanh trong 1h\nTrợ giá thêm đến 3.5 triệu đồng khi Thu Cũ Đổi Mới\n\nGiảm 2,2 triệu mở thẻ tín dụng (iPhone 18 trên 30 triệu)\n\n+4 ưu đãi khác\n4.9\nSo sánh\nTRẢ GÓP 0%\n\niPhone 17 Pro Max 256GB Chính Hãng\n\n34.190.000 đ\n\n37.990.000 đ\n-10%\nKhu vực Hồ Chí Minh ưu tiên giao hàng nhanh trong 1H\nTrợ giá thêm đến 3.5 triệu đồng khi Thu Cũ Đổi Mới\n\nGiảm 2,2 triệu mở thẻ tín dụng (iPhone 18 trên 30 triệu)\n\n+4 ưu đãi khác\n4.9\nSo sánh\nTRẢ GÓP 0%\n\niPhone 17 Pro 256GB Chính Hãng\n\n31.690.000 đ\n\n34.990.000 đ\n-9%\nKhu vực Hồ Chí Minh ưu tiên giao hàng nhanh trong 1h\nTrợ giá thêm đến 3.5 triệu đồng khi Thu Cũ Đổi Mới\n\nGiảm 2,2 triệu mở thẻ tín dụng (iPhone 18 trên 30 triệu)\n\n+4 ưu đãi "
+    },
+    {
+      "keyword": "256GB",
+      "searchResultCount": 109
+    }
+  ],
+  "technicalErrors": [],
+  "finishedAt": "2026-11-09T13:31:55.947Z",
+  "url": "https://didongviet.vn/search?q=256GB",
+  "jsonPath": "E:\\Group08-Software-Test\\Test Report - Group08\\23130067_PhamMinhDuc_ASM09\\runs\\20261109-203046\\evidence\\ASM09_DUC_F01_019-2026-11-09T13-31-55-946Z.json",
+  "screenshotPath": "E:\\Group08-Software-Test\\Test Report - Group08\\23130067_PhamMinhDuc_ASM09\\runs\\20261109-203046\\evidence\\ASM09_DUC_F01_019-2026-11-09T13-31-55-946Z.png"
+}

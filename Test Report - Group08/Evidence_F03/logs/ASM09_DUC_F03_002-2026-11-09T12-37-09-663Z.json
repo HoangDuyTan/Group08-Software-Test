@@ -1,0 +1,78 @@
+{
+  "id": "ASM09_DUC_F03_002",
+  "title": "Them hai san pham khac nhau",
+  "classification": "NO_DEFECT_OBSERVED",
+  "startedAt": "2026-11-09T12:37:06.889Z",
+  "observations": [
+    {
+      "action": "ADD_COMPARE",
+      "product": {
+        "name": "Trả góp 0%iPhone Duo 256GB Chính Hãng64.990.000 đKhu vực Hồ Chí Minh ưu tiên giao hàng nhanh trong 1HGiảm ngay 300K khi mua Apple ",
+        "url": "https://didongviet.vn/dien-thoai/iphone-duo.html",
+        "price": 64990000,
+        "rawPrice": "64.990.000 đ"
+      },
+      "before": [],
+      "after": [
+        {
+          "productId": "50039204",
+          "slug": "iphone-duo",
+          "name": "iPhone Duo 256GB Chính Hãng",
+          "price": 64990000
+        }
+      ]
+    },
+    {
+      "action": "ADD_COMPARE",
+      "product": {
+        "name": "Trả góp 0%iPhone 18 Pro Max 256GB Chính Hãng41.690.000 đ41.990.000 đ-1%Khu vực Hồ Chí Minh ưu tiên giao hàng nhanh trong 1HTrợ giá",
+        "url": "https://didongviet.vn/dien-thoai/iphone-18-pro-max.html",
+        "price": 41690000,
+        "rawPrice": "41.690.000 đ"
+      },
+      "before": [
+        {
+          "productId": "50039204",
+          "slug": "iphone-duo",
+          "name": "iPhone Duo 256GB Chính Hãng",
+          "price": 64990000
+        }
+      ],
+      "after": [
+        {
+          "productId": "50039204",
+          "slug": "iphone-duo",
+          "name": "iPhone Duo 256GB Chính Hãng",
+          "price": 64990000
+        },
+        {
+          "productId": "50039168",
+          "slug": "iphone-18-pro-max",
+          "name": "iPhone 18 Pro Max 256GB Chính Hãng",
+          "price": 41690000
+        }
+      ]
+    },
+    {
+      "finalItems": [
+        {
+          "productId": "50039204",
+          "slug": "iphone-duo",
+          "name": "iPhone Duo 256GB Chính Hãng",
+          "price": 64990000
+        },
+        {
+          "productId": "50039168",
+          "slug": "iphone-18-pro-max",
+          "name": "iPhone 18 Pro Max 256GB Chính Hãng",
+          "price": 41690000
+        }
+      ]
+    }
+  ],
+  "technicalErrors": [],
+  "finishedAt": "2026-11-09T12:37:09.663Z",
+  "url": "https://didongviet.vn/dien-thoai.html",
+  "jsonPath": "E:\\Group08-Software-Test\\Test Report - Group08\\23130067_PhamMinhDuc_ASM09\\runs\\20261109-192921\\evidence\\ASM09_DUC_F03_002-2026-11-09T12-37-09-663Z.json",
+  "screenshotPath": "E:\\Group08-Software-Test\\Test Report - Group08\\23130067_PhamMinhDuc_ASM09\\runs\\20261109-192921\\evidence\\ASM09_DUC_F03_002-2026-11-09T12-37-09-663Z.png"
+}

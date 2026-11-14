@@ -1,0 +1,25 @@
+{
+  "id": "ASM09_DUC_F01_009",
+  "title": "Brand REDMI",
+  "classification": "NO_DEFECT_OBSERVED",
+  "startedAt": "2026-11-09T13:31:19.463Z",
+  "observations": [
+    {
+      "keyword": "REDMI",
+      "enteredValue": "REDMI",
+      "before": "https://didongviet.vn/",
+      "after": "https://didongviet.vn/search?q=REDMI",
+      "loaded": true,
+      "bodyExcerpt": "Z Fold8 ưu đãi giá sốc\nCửa hàng\nMở cửa 8:00 - 21:30\nTra cứu đơn hàng\nDanh mục\n1800.6018\nGiỏ hàng\nĐăng nhập\nĐiện thoại\nTablet\nMacbook\nHệ sinh thái Apple\nMáy cũ\nGia dụng Bear\nĐồng hồ\nÂm thanh\nPhụ kiện\nThu cũ đổi mới\nTrang chủ\nTìm kiếm với từ khoá: REDMI\n\nTìm thấy 17 sản phẩm\n\nTất cả\nREDMI A\nREDMI Note\nĐiện thoại REDMI\nREDMI Note 17 Series\nREDMI Note 15 Series\nNổi bật\nKhuyến mãi\nGiá tăng dần\nGiá giảm dần\nTRẢ GÓP 0%\n\nREDMI 17 128GB Chính Hãng\n\n5.690.000 đ\n\n7.490.000 đ\n-24%\n\nGiảm 400,000đ trả góp chủ thẻ Visa Home Credit\n\n4.9\nSo sánh\n\nREDMI A7 64GB Chính Hãng\n\n3.190.000 đ\n\n3.890.000 đ\n-18%\n\nGiảm 400,000đ trả góp chủ thẻ Visa Home Credit\n\n4.9\nSo sánh\n\nREDMI 15C 128GB Chính Hãng\n\n4.290.000 đ\n\nThu cũ lên đời - Trợ giá tối đa 5.000.000đ\nGiảm thêm đến 500.000đ cho Thành viên D.Member\n\nGiảm 400,000đ trả góp chủ thẻ Visa Home Credit\n\n4.9\nSo sánh\nTRẢ GÓP 0%\n\nREDMI Note 17 128GB Chính Hãng\n\n5.690.000 đ\n\n6.990.000 đ\n-19%\nGiảm thêm 300.000đ khi KH mua kèm phụ kiện, TBCN Xiaomi Chính Hãng\nTặng Gói Bảo Hành MAX cho Note 17 series: 2 năm BH chính hãng + 2 năm BH rơi vỡ + 5 năm thay pin\n\nGiảm 400,000đ t"
+    },
+    {
+      "keyword": "REDMI",
+      "searchResultCount": 17
+    }
+  ],
+  "technicalErrors": [],
+  "finishedAt": "2026-11-09T13:31:21.787Z",
+  "url": "https://didongviet.vn/search?q=REDMI",
+  "jsonPath": "E:\\Group08-Software-Test\\Test Report - Group08\\23130067_PhamMinhDuc_ASM09\\runs\\20261109-203046\\evidence\\ASM09_DUC_F01_009-2026-11-09T13-31-21-787Z.json",
+  "screenshotPath": "E:\\Group08-Software-Test\\Test Report - Group08\\23130067_PhamMinhDuc_ASM09\\runs\\20261109-203046\\evidence\\ASM09_DUC_F01_009-2026-11-09T13-31-21-787Z.png"
+}

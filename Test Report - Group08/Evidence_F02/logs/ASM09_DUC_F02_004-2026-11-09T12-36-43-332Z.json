@@ -1,0 +1,100 @@
+{
+  "id": "ASM09_DUC_F02_004",
+  "title": "Loc gia tu 5 den 10 trieu",
+  "classification": "NO_DEFECT_OBSERVED",
+  "startedAt": "2026-11-09T12:36:35.731Z",
+  "observations": [
+    {
+      "filter": {
+        "low": 5000000,
+        "high": 10000000,
+        "confirmed": [
+          5000000,
+          10000000
+        ]
+      },
+      "applicationMode": "AUTO_APPLY",
+      "listChanged": true,
+      "products": [
+        {
+          "name": "Samsung Galaxy A17 5G 128GB Chính Hãng6.690.000 đ8.790.000 đ-24%HSSV/TXCN giảm thêm đến 5% tối đa 500KTrả Góp 0% - 0Đ trả trước qu",
+          "url": "https://didongviet.vn/dien-thoai/samsung-galaxy-a17-5g.html",
+          "price": 6690000,
+          "rawPrice": "6.690.000 đ"
+        },
+        {
+          "name": "Samsung Galaxy A17 128GB Chính Hãng5.390.000 đ6.190.000 đ-13%HSSV/TXCN giảm thêm đến 5% tối đa 500KTrả Góp 0% - 0Đ trả trước qua K",
+          "url": "https://didongviet.vn/dien-thoai/samsung-galaxy-a17-lte.html",
+          "price": 5390000,
+          "rawPrice": "5.390.000 đ"
+        },
+        {
+          "name": "REDMI Note 15 Pro 256GB Chính Hãng7.990.000 đ10.090.000 đ-21%Giảm thêm 5% tối đa 200K cho Học Sinh Sinh Viên hoặc Tài Xế Công Nghệ",
+          "url": "https://didongviet.vn/dien-thoai/xiaomi-redmi-note-15-pro.html",
+          "price": 7990000,
+          "rawPrice": "7.990.000 đ"
+        },
+        {
+          "name": "Samsung Galaxy A37 5G 128GB Chính Hãng9.290.000 đ10.790.000 đ-14%HSSV/TXCN giảm thêm đến 5% tối đa 500KTrả Góp 0% - 0Đ trả trước q",
+          "url": "https://didongviet.vn/dien-thoai/samsung-galaxy-a37.html",
+          "price": 9290000,
+          "rawPrice": "9.290.000 đ"
+        },
+        {
+          "name": "Trả góp 0%Mới vềSamsung Galaxy A18 128GB Chính Hãng6.750.000 đ7.190.000 đ-6%Trả Góp 0% - 0Đ trả trước qua Kredivo ( Giảm 5%, tối đ",
+          "url": "https://didongviet.vn/dien-thoai/samsung-galaxy-a18-lte.html",
+          "price": 6750000,
+          "rawPrice": "6.750.000 đ"
+        },
+        {
+          "name": "OPPO A6 256GB Chính Hãng9.890.000 đ11.990.000 đ-18%Giảm 400,000đ trả góp chủ thẻ Visa Home CreditSo sánh",
+          "url": "https://didongviet.vn/dien-thoai/oppo-a6-256gb.html",
+          "price": 9890000,
+          "rawPrice": "9.890.000 đ"
+        },
+        {
+          "name": "Trả góp 0%REDMI Note 17 Pro 5G 256GB Chính Hãng8.990.000 đ11.490.000 đ-22%Giảm thêm 300.000đ khi KH mua kèm phụ kiện, TBCN Xiaomi ",
+          "url": "https://didongviet.vn/dien-thoai/xiaomi-redmi-note-17-pro-5g-256gb.html",
+          "price": 8990000,
+          "rawPrice": "8.990.000 đ"
+        },
+        {
+          "name": "Trả góp 0%REDMI Note 17 5G 128GB Chính Hãng7.090.000 đ8.999.000 đ-21%Giảm 400,000đ trả góp chủ thẻ Visa Home Credit5.0So sánh",
+          "url": "https://didongviet.vn/dien-thoai/xiaomi-redmi-note-17-5g-128gb.html",
+          "price": 7090000,
+          "rawPrice": "7.090.000 đ"
+        },
+        {
+          "name": "Trả góp 0%REDMI Note 17 128GB Chính Hãng5.690.000 đ6.990.000 đ-19%Giảm thêm 300.000đ khi KH mua kèm phụ kiện, TBCN Xiaomi Chính Hã",
+          "url": "https://didongviet.vn/dien-thoai/xiaomi-redmi-note-17-4gb-128gb.html",
+          "price": 5690000,
+          "rawPrice": "5.690.000 đ"
+        },
+        {
+          "name": "Trả góp 0%REDMI 17 128GB Chính Hãng5.690.000 đ7.490.000 đ-24%Giảm 400,000đ trả góp chủ thẻ Visa Home Credit4.9So sánh",
+          "url": "https://didongviet.vn/dien-thoai/xiaomi-redmi-17-4g.html",
+          "price": 5690000,
+          "rawPrice": "5.690.000 đ"
+        },
+        {
+          "name": "Trả góp 0%Samsung Galaxy A27 5G 128GB Chính Hãng7.450.000 đ8.490.000 đ-12%HSSV/TXCN giảm thêm đến 5% tối đa 500KTrả Góp 0% - 0Đ tr",
+          "url": "https://didongviet.vn/dien-thoai/samsung-galaxy-a27-5g.html",
+          "price": 7450000,
+          "rawPrice": "7.450.000 đ"
+        },
+        {
+          "name": "OPPO A6c 128GB Chính Hãng5.290.000 đ5.690.000 đ-7%Giảm 400,000đ trả góp chủ thẻ Visa Home Credit5.0So sánh",
+          "url": "https://didongviet.vn/dien-thoai/oppo-a6c.html",
+          "price": 5290000,
+          "rawPrice": "5.290.000 đ"
+        }
+      ],
+      "invalid": []
+    }
+  ],
+  "technicalErrors": [],
+  "finishedAt": "2026-11-09T12:36:43.332Z",
+  "url": "https://didongviet.vn/dien-thoai.html?gia=5000000,10000000",
+  "jsonPath": "E:\\Group08-Software-Test\\Test Report - Group08\\23130067_PhamMinhDuc_ASM09\\runs\\20261109-192921\\evidence\\ASM09_DUC_F02_004-2026-11-09T12-36-43-332Z.json",
+  "screenshotPath": "E:\\Group08-Software-Test\\Test Report - Group08\\23130067_PhamMinhDuc_ASM09\\runs\\20261109-192921\\evidence\\ASM09_DUC_F02_004-2026-11-09T12-36-43-332Z.png"
+}

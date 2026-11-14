@@ -1,0 +1,44 @@
+{
+  "id": "ASM09_DUC_F03_029",
+  "title": "Reload selected item then remove it",
+  "classification": "NO_DEFECT_OBSERVED",
+  "startedAt": "2026-11-09T13:42:32.843Z",
+  "observations": [
+    {
+      "action": "ADD_COMPARE",
+      "product": {
+        "name": "Trả góp 0%iPhone Duo 256GB Chính Hãng64.990.000 đKhu vực Hồ Chí Minh ưu tiên giao hàng nhanh trong 1HGiảm ngay 300K khi mua Apple ",
+        "url": "https://didongviet.vn/dien-thoai/iphone-duo.html",
+        "price": 64990000,
+        "rawPrice": "64.990.000 đ"
+      },
+      "before": [],
+      "after": [
+        {
+          "productId": "50039204",
+          "slug": "iphone-duo",
+          "name": "iPhone Duo 256GB Chính Hãng",
+          "price": 64990000
+        }
+      ]
+    },
+    {
+      "action": "REMOVE_COMPARE",
+      "url": "https://didongviet.vn/dien-thoai/iphone-duo.html",
+      "before": [
+        {
+          "productId": "50039204",
+          "slug": "iphone-duo",
+          "name": "iPhone Duo 256GB Chính Hãng",
+          "price": 64990000
+        }
+      ],
+      "after": []
+    }
+  ],
+  "technicalErrors": [],
+  "finishedAt": "2026-11-09T13:42:35.515Z",
+  "url": "https://didongviet.vn/dien-thoai.html",
+  "jsonPath": "E:\\Group08-Software-Test\\Test Report - Group08\\23130067_PhamMinhDuc_ASM09\\runs\\20261109-203046\\evidence\\ASM09_DUC_F03_029-2026-11-09T13-42-35-515Z.json",
+  "screenshotPath": "E:\\Group08-Software-Test\\Test Report - Group08\\23130067_PhamMinhDuc_ASM09\\runs\\20261109-203046\\evidence\\ASM09_DUC_F03_029-2026-11-09T13-42-35-515Z.png"
+}

@@ -1,0 +1,20 @@
+{
+  "id": "ASM09_DUC_F02_030",
+  "title": "Nonnumeric input in price filter",
+  "classification": "NO_DEFECT_OBSERVED",
+  "startedAt": "2026-11-09T13:38:28.147Z",
+  "observations": [
+    {
+      "attemptedInput": "abc",
+      "normalizedValues": [
+        1000000,
+        100000000
+      ]
+    }
+  ],
+  "technicalErrors": [],
+  "finishedAt": "2026-11-09T13:38:31.259Z",
+  "url": "https://didongviet.vn/dien-thoai.html",
+  "jsonPath": "E:\\Group08-Software-Test\\Test Report - Group08\\23130067_PhamMinhDuc_ASM09\\runs\\20261109-203046\\evidence\\ASM09_DUC_F02_030-2026-11-09T13-38-31-259Z.json",
+  "screenshotPath": "E:\\Group08-Software-Test\\Test Report - Group08\\23130067_PhamMinhDuc_ASM09\\runs\\20261109-203046\\evidence\\ASM09_DUC_F02_030-2026-11-09T13-38-31-259Z.png"
+}

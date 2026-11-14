@@ -1,0 +1,25 @@
+{
+  "id": "ASM09_DUC_F01_018",
+  "title": "Long product name",
+  "classification": "NO_DEFECT_OBSERVED",
+  "startedAt": "2026-11-09T13:31:49.920Z",
+  "observations": [
+    {
+      "keyword": "iPhone 17 Pro Max",
+      "enteredValue": "iPhone 17 Pro Max",
+      "before": "https://didongviet.vn/",
+      "after": "https://didongviet.vn/search?q=iPhone%2017%20Pro%20Max",
+      "loaded": true,
+      "bodyExcerpt": "Z Fold8 ưu đãi giá sốc\nCửa hàng\nMở cửa 8:00 - 21:30\nTra cứu đơn hàng\nDanh mục\n1800.6018\nGiỏ hàng\nĐăng nhập\nĐiện thoại\nTablet\nMacbook\nHệ sinh thái Apple\nMáy cũ\nGia dụng Bear\nĐồng hồ\nÂm thanh\nPhụ kiện\nThu cũ đổi mới\nTrang chủ\nTìm kiếm với từ khoá: iPhone 17 Pro Max\n\nTìm thấy 64 sản phẩm\n\nTất cả\niPhone 17 Pro Max Cũ\niPhone 17 Series\nỐp lưng iPhone 12 Pro Max\nCường lực iPhone 12 Pro Max\niPhone 17 Pro Cũ\nNổi bật\nKhuyến mãi\nGiá tăng dần\nGiá giảm dần\nTRẢ GÓP 0%\n\niPhone 17 Pro Max 256GB Chính Hãng\n\n34.190.000 đ\n\n37.990.000 đ\n-10%\nKhu vực Hồ Chí Minh ưu tiên giao hàng nhanh trong 1H\nTrợ giá thêm đến 3.5 triệu đồng khi Thu Cũ Đổi Mới\n\nGiảm 2,2 triệu mở thẻ tín dụng (iPhone 18 trên 30 triệu)\n\n+4 ưu đãi khác\n4.9\nSo sánh\nTRẢ GÓP 0%\n\niPhone 17 Pro Max 512GB Chính Hãng\n\n41.190.000 đ\n\n44.490.000 đ\n-7%\nKhu vực Hồ Chí Minh ưu tiên giao hàng nhanh trong 1H\nTrợ giá thêm đến 3.5 triệu đồng khi tham gia Thu Cũ Đổi Mới\n\nGiảm 2,2 triệu mở thẻ tín dụng (iPhone 18 trên 30 triệu)\n\n+4 ưu đãi khác\n5.0\nSo sánh\nTRẢ GÓP 0%\n\niPhone 17 Pro Max 2TB Chính Hãng\n\n59.990.000 đ\n\n63.990.000 đ\n-6%\n\nGiảm 2,2 triệu mở thẻ tín "
+    },
+    {
+      "keyword": "iPhone 17 Pro Max",
+      "searchResultCount": 64
+    }
+  ],
+  "technicalErrors": [],
+  "finishedAt": "2026-11-09T13:31:52.146Z",
+  "url": "https://didongviet.vn/search?q=iPhone%2017%20Pro%20Max",
+  "jsonPath": "E:\\Group08-Software-Test\\Test Report - Group08\\23130067_PhamMinhDuc_ASM09\\runs\\20261109-203046\\evidence\\ASM09_DUC_F01_018-2026-11-09T13-31-52-146Z.json",
+  "screenshotPath": "E:\\Group08-Software-Test\\Test Report - Group08\\23130067_PhamMinhDuc_ASM09\\runs\\20261109-203046\\evidence\\ASM09_DUC_F01_018-2026-11-09T13-31-52-146Z.png"
+}

@@ -1,0 +1,25 @@
+{
+  "id": "ASM09_DUC_F01_011",
+  "title": "iPhone 14 products",
+  "classification": "NO_DEFECT_OBSERVED",
+  "startedAt": "2026-11-09T13:31:26.853Z",
+  "observations": [
+    {
+      "keyword": "iPhone 14",
+      "enteredValue": "iPhone 14",
+      "before": "https://didongviet.vn/",
+      "after": "https://didongviet.vn/search?q=iPhone%2014",
+      "loaded": true,
+      "bodyExcerpt": "Z Fold8 ưu đãi giá sốc\nCửa hàng\nMở cửa 8:00 - 21:30\nTra cứu đơn hàng\nDanh mục\n1800.6018\nGiỏ hàng\nĐăng nhập\nĐiện thoại\nTablet\nMacbook\nHệ sinh thái Apple\nMáy cũ\nGia dụng Bear\nĐồng hồ\nÂm thanh\nPhụ kiện\nThu cũ đổi mới\nTrang chủ\nTìm kiếm với từ khoá: iPhone 14\n\nTìm thấy 41 sản phẩm\n\nTất cả\niPhone 14 Series\niPhone 14 Series\niPhone 14 Series\nZAGG iPhone 14 Series\nHorizone iPhone 14 Series\nNổi bật\nKhuyến mãi\nGiá tăng dần\nGiá giảm dần\n\niPhone 14 128GB Chính hãng (VN/A)\n\n13.890.000 đ\n\n15.990.000 đ\n-13%\n\nGiảm 2,2 triệu mở thẻ tín dụng (iPhone 18 trên 30 triệu)\n\n4.9\nSo sánh\nTRẢ GÓP 0%\n\niPhone 14 256GB Chính Hãng (VN/A)\n\n16.990.000 đ\n\n27.990.000 đ\n-39%\n\nGiảm 2,2 triệu mở thẻ tín dụng (iPhone 18 trên 30 triệu)\n\n5.0\nSo sánh\n\nỐp lưng iPhone 14 Pro Horizone\n\n170.000 đ\n\n180.000 đ\n-6%\n\nGiảm 400,000đ trả góp chủ thẻ Visa Home Credit\n\n4.9\nSo sánh\n\nDán cường lực camera iPhone 14 Horizone\n\n170.000 đ\n\n250.000 đ\n-32%\n\nGiảm 400,000đ trả góp chủ thẻ Visa Home Credit\n\n4.9\nSo sánh\n\nỐp lưng iPhone 14 Pro Max Mipow Soft\n\n150.000 đ\n\n250.000 đ\n-40%\n\nGiảm 400,000đ trả góp chủ thẻ Visa Home Credit\n\n5.0\nSo sánh\n\nỐp lưn"
+    },
+    {
+      "keyword": "iPhone 14",
+      "searchResultCount": 41
+    }
+  ],
+  "technicalErrors": [],
+  "finishedAt": "2026-11-09T13:31:29.149Z",
+  "url": "https://didongviet.vn/search?q=iPhone%2014",
+  "jsonPath": "E:\\Group08-Software-Test\\Test Report - Group08\\23130067_PhamMinhDuc_ASM09\\runs\\20261109-203046\\evidence\\ASM09_DUC_F01_011-2026-11-09T13-31-29-149Z.json",
+  "screenshotPath": "E:\\Group08-Software-Test\\Test Report - Group08\\23130067_PhamMinhDuc_ASM09\\runs\\20261109-203046\\evidence\\ASM09_DUC_F01_011-2026-11-09T13-31-29-149Z.png"
+}
