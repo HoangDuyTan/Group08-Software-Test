@@ -13,3 +13,6 @@
 
 # Local historical snapshots; never push raw copies to GitHub
 /_archive/
+
+# Personal demo notes stay local.
+/Test Report - Group08/23130318_TranThiMinhThu_ASM09/HUONG_DAN_DEMO_05-12-2026.txt

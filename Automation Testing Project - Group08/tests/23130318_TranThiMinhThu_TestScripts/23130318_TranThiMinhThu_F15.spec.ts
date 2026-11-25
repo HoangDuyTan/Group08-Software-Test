@@ -1,4 +1,5 @@
-import { test, expect, type Locator, type Page } from '@playwright/test';
+import { test as base, expect, type Locator, type Page } from '@playwright/test';
+import { createResultReporting, type ResultReportingFixture } from './result-reporting';
 
 /** F15: 30 case giá khuyến mãi trên UI hiện tại, đồng bộ Excel cá nhân.
  * Chưa có fixture Flash Sale đang chạy: không coi giảm giá thường là Flash Sale,
@@ -8,8 +9,13 @@ import { test, expect, type Locator, type Page } from '@playwright/test';
 const BASE = 'https://didongviet.vn';
 const PRODUCTS = {
   A: { path: '/dien-thoai/samsung-galaxy-a07-5g.html', name: 'Samsung Galaxy A07 5G 128GB Chính Hãng' },
-  B: { path: '/dien-thoai/iphone-15-128gb.html', name: 'iPhone 15 128GB Chính hãng (VN/A)' },
-  C: { path: '/dien-thoai/iphone-16-128gb.html', name: 'iPhone 16 128GB Chính Hãng (VN/A)' },
+  B: { path: '/dien-thoai/iphone-15-128gb.html', name: 'iPhone 15 128GB Chính Hãng (VN/A)' },
+  C: { path: '/dien-thoai/iphone-duo.html', name: 'iPhone Duo 256GB Chính Hãng' },
+  D: { path: '/dien-thoai/iphone-18-pro-max.html', name: 'iPhone 18 Pro Max 256GB Chính Hãng' },
+};
+const LARGER_VARIANT = {
+  path: '/dien-thoai/iphone-18-pro-max-512gb.html',
+  name: 'iPhone 18 Pro Max 512GB Chính Hãng',
 };
 type Product = keyof typeof PRODUCTS;
 type Prices = { sale: number; original?: number; percent?: number };
@@ -27,13 +33,13 @@ const cases: F15Case[] = [
   {"id":"DDV_F15_009","title":"Ưu đãi HSSV/TXCN giữ điều kiện và mức tối đa","group":"F15.2 – Thông tin và điều kiện ưu đãi","steps":["Đọc ưu đãi HSSV/TXCN trong danh sách khuyến mãi A."],"expected":["Công bố đúng đối tượng, giảm thêm đến 5% và tối đa 500K; không coi là giá bán vô điều kiện."]},
   {"id":"DDV_F15_010","title":"Ưu đãi Kredivo có điều kiện kỳ hạn và liên kết chi tiết","group":"F15.2 – Thông tin và điều kiện ưu đãi","steps":["Đọc dòng Kredivo và href Xem chi tiết trong mục Khuyến mãi A."],"expected":["Có giảm 5%, tối đa 200,000đ, kỳ hạn 6/9/12 tháng; liên kết HTTPS đúng website, không mở giao dịch."]},
   {"id":"DDV_F15_011","title":"Mở và thu gọn ưu đãi thanh toán không đổi giá bán","group":"F15.2 – Thông tin và điều kiện ưu đãi","steps":["Ghi giá A; mở Xem thêm ưu đãi thanh toán rồi Thu gọn."],"expected":["Nút đổi trạng thái đúng; giá bán/giá gạch không đổi sau cả hai thao tác."]},
-  {"id":"DDV_F15_012","title":"Mở và thu gọn danh sách khuyến mãi sản phẩm","group":"F15.2 – Thông tin và điều kiện ưu đãi","product":"C","steps":["Ghi số dòng ưu đãi C; bấm Xem thêm rồi Thu gọn trong mục Khuyến mãi."],"expected":["Số dòng tăng khi mở và trở lại ban đầu khi thu gọn; giá C giữ nguyên."]},
+  {"id":"DDV_F15_012","title":"Mở và thu gọn danh sách khuyến mãi sản phẩm","group":"F15.2 – Thông tin và điều kiện ưu đãi","product":"D","steps":["Ghi số dòng ưu đãi của iPhone 18 Pro Max 256GB; bấm Xem thêm rồi Thu gọn trong mục Khuyến mãi."],"expected":["Số dòng tăng khi mở và trở lại ban đầu khi thu gọn; giá giữ nguyên."]},
   {"id":"DDV_F15_013","title":"Chọn màu Tím của A dùng đúng giá trên ô màu","group":"F15.3 – Màu và phiên bản","steps":["Ghi giá ô màu Tím; chọn Tím."],"expected":["Chỉ Tím có aria-pressed=true; giá chính bằng giá đã công bố trên ô Tím."]},
   {"id":"DDV_F15_014","title":"Đổi B sang Hồng cập nhật giá theo màu","group":"F15.3 – Màu và phiên bản","product":"B","steps":["Ghi giá Đen và giá ô Hồng; chọn Hồng."],"expected":["Hồng được chọn duy nhất; giá chính khớp ô Hồng và khác giá Đen của fixture."]},
   {"id":"DDV_F15_015","title":"Đổi màu B rồi quay lại khôi phục giá ban đầu","group":"F15.3 – Màu và phiên bản","product":"B","steps":["Ghi giá Đen; chọn Hồng rồi chọn lại Đen."],"expected":["Giá chính cuối bằng giá Đen đầu; chỉ Đen được chọn."]},
-  {"id":"DDV_F15_016","title":"Đổi A07 5G sang bản 4G không giữ nhầm giá","group":"F15.3 – Màu và phiên bản","steps":["Ghi giá A07 5G; bấm phiên bản 128GB liên kết sang A07 4G."],"expected":["Đúng URL/tên A07 4G; giá mới dương, thấp hơn bản 5G trong fixture."]},
+  {"id":"DDV_F15_016","title":"Đổi iPhone 18 Pro Max từ 256GB sang 512GB cập nhật giá","group":"F15.3 – Màu và phiên bản","product":"D","steps":["Đọc giá bản 256GB; chọn liên kết dung lượng 512GB."],"expected":["Đúng URL/tên bản 512GB; giá bán cao hơn giá bản 256GB."]},
   {"id":"DDV_F15_017","title":"Phiên bản 256GB không khả dụng không có liên kết mua","group":"F15.3 – Màu và phiên bản","steps":["Kiểm tra ô phiên bản 256GB đang bị khóa trên A."],"expected":["Ô có aria-disabled=true; không phải link hoặc button; không giả lập click để bỏ qua trạng thái khóa."]},
-  {"id":"DDV_F15_018","title":"Đổi phiên bản 5G sang 4G rồi quay lại","group":"F15.3 – Màu và phiên bản","steps":["Ghi giá A; chuyển 128GB 4G, sau đó chọn liên kết 5G 128GB."],"expected":["Quay về đúng A07 5G; giá bán và giá gạch khôi phục như đầu."]},
+  {"id":"DDV_F15_018","title":"Đổi dung lượng iPhone 18 Pro Max rồi quay lại","group":"F15.3 – Màu và phiên bản","product":"D","steps":["Ghi giá bản 256GB; chọn 512GB rồi chọn lại 256GB."],"expected":["Quay về đúng bản 256GB; giá bán và giá gạch khôi phục như đầu."]},
   {"id":"DDV_F15_019","title":"Reload chi tiết giữ giá mặc định và mức giảm","group":"F15.4 – Điều hướng và tải trang","steps":["Đọc giá A ở màu mặc định; tải lại trang."],"expected":["Cùng sản phẩm/màu mặc định, giá bán/giá gạch/phần trăm không đổi trong phiên kiểm tra."]},
   {"id":"DDV_F15_020","title":"Back từ chi tiết B về trang chủ giữ giá card","group":"F15.4 – Điều hướng và tải trang","product":"B","steps":["Ghi giá card B; mở chi tiết; dùng Back về trang chủ."],"expected":["Đúng trang chủ; card B có giá bán/giá gạch/phần trăm như trước khi điều hướng."]},
   {"id":"DDV_F15_021","title":"Giỏ một A dùng giá bán và tiền tiết kiệm đúng","group":"F15.5 – Giá trong giỏ và checkout","steps":["Ghi hai mức giá A; thêm một A vào giỏ qua UI."],"expected":["Đúng sản phẩm, số lượng 1, đơn giá/giá gạch khớp chi tiết; tổng bằng giá bán, tiết kiệm bằng giá gạch trừ giá bán."]},
@@ -47,6 +53,13 @@ const cases: F15Case[] = [
   {"id":"DDV_F15_029","title":"C không nhận tiền tiết kiệm của sản phẩm khác","group":"F15.5 – Giá trong giỏ và checkout","product":"C","steps":["Mở C không có giá gạch; thêm một C vào context mới."],"expected":["Đơn giá và tổng đúng C; không có giá gạch hoặc dòng Tiết kiệm trong giỏ."]},
   {"id":"DDV_F15_030","title":"Ảnh sản phẩm tải lỗi không che giá hoặc ngăn thêm giỏ","group":"F15.4 – Điều hướng và tải trang","steps":["Chặn riêng request ảnh sản phẩm; mở A, đọc giá và thêm vào giỏ qua UI."],"expected":["Có request ảnh bị chặn thật; giá bán/giá gạch vẫn đọc được; giỏ nhận đúng một A và giá. API nghiệp vụ không bị thay thế."]}
 ];
+
+const reporting = createResultReporting('F15', cases);
+const test = base.extend<ResultReportingFixture>({
+  _finalEvidence: [reporting.resultFixture, { auto: true }],
+  context: reporting.contextFixture,
+  page: reporting.pageFixture,
+});
 
 function money(text: string) {
   const match = text.match(/\d{1,3}(?:[.,]\d{3})+\s*[đ₫]/);
@@ -158,7 +171,7 @@ async function removeProduct(page: Page, product: Product) {
 }
 
 test.use({ video: 'off', trace: process.env.F15_TRACE === '1' ? 'retain-on-failure' : 'off' });
-test.describe('F15 – Giá khuyến mãi trên UI thực tế', () => {
+test.describe('ASM08 | F15 | D15 | 30 scenarios', () => {
   test.describe.configure({ mode: 'parallel', timeout: 60000 });
   test.beforeEach(async ({ context }) => {
     await context.route('**/*', route => {
@@ -167,176 +180,179 @@ test.describe('F15 – Giá khuyến mãi trên UI thực tế', () => {
       return tracker ? route.abort() : route.continue();
     });
   });
-  for (const c of cases) test(`${c.id} | ${c.title}`, async ({ page }, testInfo) => {
+  for (const c of cases) test(`${c.id} - ${c.title}`, async ({ page }, testInfo) => {
     testInfo.annotations.push({ type: 'scope', description: 'Giá khuyến mãi hiện tại; không xác minh lịch/quota Flash Sale.' });
-    const n = Number(c.id.slice(-3)), p = c.product ?? 'A';
-    if ([1, 2, 3, 7, 20].includes(n)) {
-      await home(page);
-      const currentCard = card(page, p);
-      const prices = await readPrices(currentCard, true);
-      if (n === 7) {
-        await expect(currentCard).toContainText(PRODUCTS[p].name);
-        await expect(currentCard).not.toContainText(/flash\s*sale|kết thúc sau|còn\s*\d+\s*suất|đã bán\s*\d+/i);
+    await test.step(c.title, async () => {
+      const n = Number(c.id.slice(-3)), p = c.product ?? 'A';
+      if ([1, 2, 3, 7, 20].includes(n)) {
+        await home(page);
+        const currentCard = card(page, p);
+        const prices = await readPrices(currentCard, true);
+        if (n === 7) {
+          await expect(currentCard).toContainText(PRODUCTS[p].name);
+          await expect(currentCard).not.toContainText(/flash\s*sale|kết thúc sau|còn\s*\d+\s*suất|đã bán\s*\d+/i);
+          return;
+        }
+        await currentCard.click();
+        await expect(page).toHaveURL(BASE + PRODUCTS[p].path);
+        await ready(page);
+        await expect(page.getByRole('heading', { level: 1, name: PRODUCTS[p].name, exact: true })).toBeVisible();
+        expect(await readPrices(priceBox(page))).toEqual(prices);
+        if (n === 3) {
+          expect(prices.original).toBeUndefined();
+          expect(prices.percent).toBeUndefined();
+        } else expect(prices.original).toBeGreaterThan(prices.sale);
+        if (n === 20) {
+          await page.goBack({ waitUntil: 'domcontentloaded' });
+          await expect(page).toHaveURL(BASE + '/');
+          expect(await readPrices(card(page, p), true)).toEqual(prices);
+        }
         return;
       }
-      await currentCard.click();
-      await expect(page).toHaveURL(BASE + PRODUCTS[p].path);
-      await ready(page);
-      await expect(page.getByRole('heading', { level: 1, name: PRODUCTS[p].name, exact: true })).toBeVisible();
-      expect(await readPrices(priceBox(page))).toEqual(prices);
-      if (n === 3) {
-        expect(prices.original).toBeUndefined();
-        expect(prices.percent).toBeUndefined();
-      } else expect(prices.original).toBeGreaterThan(prices.sale);
-      if (n === 20) {
-        await page.goBack({ waitUntil: 'domcontentloaded' });
-        await expect(page).toHaveURL(BASE + '/');
-        expect(await readPrices(card(page, p), true)).toEqual(prices);
-      }
-      return;
-    }
-    let blockedImages = 0;
-    if (n === 30) await page.route('**/*', route => {
-      const request = route.request(), url = new URL(request.url());
-      if (request.resourceType() === 'image' && url.pathname.includes('/products/')) {
-        blockedImages++;
-        return route.abort('failed');
-      }
-      return route.fallback();
-    });
-    const prices = await productPage(page, p);
-    const saving = (prices.original ?? prices.sale) - prices.sale;
-    switch (n) {
-      case 4:
-        expect(prices.original).toBeGreaterThan(prices.sale);
-        await expect(priceBox(page)).toContainText(/đ/);
-        break;
-      case 5: case 6:
-        expect(prices.original).toBeGreaterThan(prices.sale);
-        expect(prices.percent).toBe(Math.round((prices.original! - prices.sale) / prices.original! * 100));
-        expect(prices.percent).toBeGreaterThan(0);
-        expect(prices.percent).toBeLessThan(100);
-        break;
-      case 8:
-        await expect(promotion(page).getByText('Giá và khuyến mãi có thể kết thúc sớm hơn dự kiến', { exact: true })).toBeVisible();
-        break;
-      case 9:
-        await expect(promotion(page).locator('li').filter({ hasText: 'HSSV/TXCN' })).toContainText(/giảm thêm đến 5% tối đa 500K/);
-        break;
-      case 10: {
-        const line = promotion(page).locator('li').filter({ hasText: /Kredivo/ });
-        await expect(line).toContainText(/Giảm 5%, tối đa 200,000đ.*6, 9, 12 Tháng/);
-        await expect(line.getByRole('link', { name: /Xem chi tiết/ })).toHaveAttribute('href', /^https:\/\/didongviet\.vn\/dchannel\/tra-gop-kredivo-di-dong-viet\/?$/);
-        break;
-      }
-      case 11:
-        await page.getByRole('button', { name: /^Xem thêm \d+ ưu đãi thanh toán$/ }).click();
-        await expect(page.getByRole('button', { name: /^Thu gọn.*thanh toán/ })).toBeVisible();
-        expect(await readPrices(priceBox(page))).toEqual(prices);
-        await page.getByRole('button', { name: /^Thu gọn.*thanh toán/ }).click();
-        await expect(page.getByRole('button', { name: /^Xem thêm \d+ ưu đãi thanh toán$/ })).toBeVisible();
-        expect(await readPrices(priceBox(page))).toEqual(prices);
-        break;
-      case 12: {
-        const box = promotion(page), extra = box.locator(':scope > div.grid > ol');
-        // Nội dung thu gọn vẫn có trong DOM, bị inert và grid 0fr che lại.
-        // :visible chỉ xét bounding box riêng nên không phát hiện phần bị cắt.
-        const accessibleCount = () => box.locator('ol > li').evaluateAll(
-          elements => elements.filter(element => !element.closest('[inert]')).length
-        );
-        const initial = await accessibleCount();
-        await expect.poll(() => extra.evaluate(element => element.clientHeight)).toBe(0);
-        await box.getByRole('button', { name: /^Xem thêm \d+ ưu đãi$/ }).click();
-        await expect(box.getByRole('button', { name: 'Thu gọn', exact: true })).toHaveAttribute('aria-expanded', 'true');
-        await expect.poll(accessibleCount).toBeGreaterThan(initial);
-        await expect.poll(() => extra.evaluate(element => element.clientHeight)).toBeGreaterThan(0);
-        await box.getByRole('button', { name: 'Thu gọn', exact: true }).click();
-        await expect(box.getByRole('button', { name: /^Xem thêm \d+ ưu đãi$/ })).toHaveAttribute('aria-expanded', 'false');
-        await expect.poll(accessibleCount).toBe(initial);
-        await expect.poll(() => extra.evaluate(element => element.clientHeight)).toBe(0);
-        expect(await readPrices(priceBox(page))).toEqual(prices);
-        break;
-      }
-      case 13: await chooseColor(page, 'Tím'); break;
-      case 14: expect(await chooseColor(page, 'Hồng')).not.toBe(prices.sale); break;
-      case 15:
-        await chooseColor(page, 'Hồng');
-        expect(await chooseColor(page, 'Đen')).toBe(prices.sale);
-        break;
-      case 16: case 18:
-        await page.getByRole('link', { name: '128GB', exact: true }).click();
-        await expect(page).toHaveURL(BASE + '/dien-thoai/samsung-galaxy-a07.html');
-        await ready(page);
-        await expect(page.getByRole('heading', { level: 1, name: 'Samsung Galaxy A07 128GB Chính Hãng', exact: true })).toBeVisible();
-        expect((await readPrices(priceBox(page))).sale).toBeLessThan(prices.sale);
-        if (n === 18) {
-          await page.getByRole('link', { name: '5G 128GB', exact: true }).click();
-          await expect(page).toHaveURL(BASE + PRODUCTS.A.path);
-          expect(await readPrices(priceBox(page))).toEqual(prices);
+      let blockedImages = 0;
+      if (n === 30) await page.route('**/*', route => {
+        const request = route.request(), url = new URL(request.url());
+        if (request.resourceType() === 'image' && url.pathname.includes('/products/')) {
+          blockedImages++;
+          return route.abort('failed');
         }
-        break;
-      case 17: {
-        const disabled = page.locator('main [aria-disabled="true"]').filter({ hasText: /^256GB$/ });
-        await expect(disabled).toBeVisible();
-        await expect(disabled).not.toHaveJSProperty('tagName', 'A');
-        await expect(disabled).not.toHaveJSProperty('tagName', 'BUTTON');
-        await expect(disabled.locator('a, button')).toHaveCount(0);
-        break;
-      }
-      case 19:
-        await page.reload({ waitUntil: 'domcontentloaded' });
-        await ready(page);
-        expect(await readPrices(priceBox(page))).toEqual(prices);
-        break;
-      default: {
-        await addToCart(page, p);
-        await assertCart(page, p, prices);
-        await assertTotals(page, prices.sale, saving);
-        if (n === 22) {
-          const second = await productPage(page, 'B');
-          await addToCart(page, 'B');
-          await assertCart(page, 'A', prices);
-          await assertCart(page, 'B', second);
-          await expect(page.getByRole('button', { name: 'Xóa sản phẩm', exact: true })).toHaveCount(2);
-          await assertTotals(page, prices.sale + second.sale, saving + second.original! - second.sale);
-        } else if ([23, 24, 27].includes(n)) {
-          const item = cartItem(page, 'A');
-          await item.getByRole('button', { name: 'Tăng số lượng', exact: true }).click();
-          await assertCart(page, 'A', prices, 2);
-          await assertTotals(page, prices.sale * 2, saving * 2);
-          if (n === 24) {
-            await item.getByRole('button', { name: 'Giảm số lượng', exact: true }).click();
+        return route.fallback();
+      });
+      const prices = await productPage(page, p);
+      const saving = (prices.original ?? prices.sale) - prices.sale;
+      switch (n) {
+        case 4:
+          expect(prices.original).toBeGreaterThan(prices.sale);
+          await expect(priceBox(page)).toContainText(/đ/);
+          break;
+        case 5: case 6:
+          expect(prices.original).toBeGreaterThan(prices.sale);
+          expect(prices.percent).toBe(Math.round((prices.original! - prices.sale) / prices.original! * 100));
+          expect(prices.percent).toBeGreaterThan(0);
+          expect(prices.percent).toBeLessThan(100);
+          break;
+        case 8:
+          await expect(promotion(page).getByText('Giá và khuyến mãi có thể kết thúc sớm hơn dự kiến', { exact: true })).toBeVisible();
+          break;
+        case 9:
+          await expect(promotion(page).locator('li').filter({ hasText: 'HSSV/TXCN' })).toContainText(/giảm thêm đến 5% tối đa 500K/);
+          break;
+        case 10: {
+          const line = promotion(page).locator('li').filter({ hasText: /Kredivo/ });
+          await expect(line).toContainText(/Giảm 5%, tối đa 200,000đ.*6, 9, 12 Tháng/);
+          await expect(line.getByRole('link', { name: /Xem chi tiết/ })).toHaveAttribute('href', /^https:\/\/didongviet\.vn\/dchannel\/tra-gop-kredivo-di-dong-viet\/?$/);
+          break;
+        }
+        case 11:
+          await page.getByRole('button', { name: /^Xem thêm \d+ ưu đãi thanh toán$/ }).click();
+          await expect(page.getByRole('button', { name: /^Thu gọn.*thanh toán/ })).toBeVisible();
+          expect(await readPrices(priceBox(page))).toEqual(prices);
+          await page.getByRole('button', { name: /^Thu gọn.*thanh toán/ }).click();
+          await expect(page.getByRole('button', { name: /^Xem thêm \d+ ưu đãi thanh toán$/ })).toBeVisible();
+          expect(await readPrices(priceBox(page))).toEqual(prices);
+          break;
+        case 12: {
+          const box = promotion(page), extra = box.locator(':scope > div.grid > ol');
+          // Nội dung thu gọn vẫn có trong DOM, bị inert và grid 0fr che lại.
+          // :visible chỉ xét bounding box riêng nên không phát hiện phần bị cắt.
+          const accessibleCount = () => box.locator('ol > li').evaluateAll(
+            elements => elements.filter(element => !element.closest('[inert]')).length
+          );
+          const initial = await accessibleCount();
+          await expect.poll(() => extra.evaluate(element => element.clientHeight)).toBe(0);
+          await box.getByRole('button', { name: /^Xem thêm \d+ ưu đãi$/ }).click();
+          await expect(box.getByRole('button', { name: 'Thu gọn', exact: true })).toHaveAttribute('aria-expanded', 'true');
+          await expect.poll(accessibleCount).toBeGreaterThan(initial);
+          await expect.poll(() => extra.evaluate(element => element.clientHeight)).toBeGreaterThan(0);
+          await box.getByRole('button', { name: 'Thu gọn', exact: true }).click();
+          await expect(box.getByRole('button', { name: /^Xem thêm \d+ ưu đãi$/ })).toHaveAttribute('aria-expanded', 'false');
+          await expect.poll(accessibleCount).toBe(initial);
+          await expect.poll(() => extra.evaluate(element => element.clientHeight)).toBe(0);
+          expect(await readPrices(priceBox(page))).toEqual(prices);
+          break;
+        }
+        case 13: await chooseColor(page, 'Tím'); break;
+        case 14: expect(await chooseColor(page, 'Hồng')).not.toBe(prices.sale); break;
+        case 15:
+          await chooseColor(page, 'Hồng');
+          expect(await chooseColor(page, 'Đen')).toBe(prices.sale);
+          break;
+        case 16: case 18:
+          await page.getByRole('link', { name: '512GB', exact: true }).click();
+          await expect(page).toHaveURL(BASE + LARGER_VARIANT.path);
+          await ready(page);
+          await expect(page.getByRole('heading', { level: 1, name: LARGER_VARIANT.name, exact: true })).toBeVisible();
+          expect((await readPrices(priceBox(page))).sale).toBeGreaterThan(prices.sale);
+          if (n === 18) {
+            await page.getByRole('link', { name: '256GB', exact: true }).click();
+            await expect(page).toHaveURL(BASE + PRODUCTS.D.path);
+            await expect(page.getByRole('heading', { level: 1, name: PRODUCTS.D.name, exact: true })).toBeVisible();
+            expect(await readPrices(priceBox(page))).toEqual(prices);
+          }
+          break;
+        case 17: {
+          const disabled = page.locator('main [aria-disabled="true"]').filter({ hasText: /^256GB$/ });
+          await expect(disabled).toBeVisible();
+          await expect(disabled).not.toHaveJSProperty('tagName', 'A');
+          await expect(disabled).not.toHaveJSProperty('tagName', 'BUTTON');
+          await expect(disabled.locator('a, button')).toHaveCount(0);
+          break;
+        }
+        case 19:
+          await page.reload({ waitUntil: 'domcontentloaded' });
+          await ready(page);
+          expect(await readPrices(priceBox(page))).toEqual(prices);
+          break;
+        default: {
+          await addToCart(page, p);
+          await assertCart(page, p, prices);
+          await assertTotals(page, prices.sale, saving);
+          if (n === 22) {
+            const second = await productPage(page, 'B');
+            await addToCart(page, 'B');
             await assertCart(page, 'A', prices);
-            await assertTotals(page, prices.sale, saving);
-          } else if (n === 27) {
-            await page.reload({ waitUntil: 'domcontentloaded' });
+            await assertCart(page, 'B', second);
+            await expect(page.getByRole('button', { name: 'Xóa sản phẩm', exact: true })).toHaveCount(2);
+            await assertTotals(page, prices.sale + second.sale, saving + second.original! - second.sale);
+          } else if ([23, 24, 27].includes(n)) {
+            const item = cartItem(page, 'A');
+            await item.getByRole('button', { name: 'Tăng số lượng', exact: true }).click();
             await assertCart(page, 'A', prices, 2);
             await assertTotals(page, prices.sale * 2, saving * 2);
-          }
-        } else if ([25, 26].includes(n)) {
-          await removeProduct(page, 'A');
-          if (n === 25) {
-            await expect(page.locator('main')).toContainText(/giỏ hàng.*trống/i);
-            await expect(page.getByRole('button', { name: /^MUA NGAY \(/ })).toHaveCount(0);
-          } else {
-            expect(await productPage(page, 'A')).toEqual(prices);
-            await addToCart(page, 'A');
-            await assertCart(page, 'A', prices);
-            await expect(page.getByRole('button', { name: 'Xóa sản phẩm', exact: true })).toHaveCount(1);
-            await assertTotals(page, prices.sale, saving);
-          }
-        } else if (n === 28) {
-          await page.getByRole('button', { name: 'MUA NGAY (1)', exact: true }).click();
-          await expect(page).toHaveURL(/\/checkout(?:[/?#]|$)/);
-          const order = page.getByRole('region', { name: 'Sản phẩm trong đơn hàng', exact: true });
-          await expect(order.getByRole('link', { name: PRODUCTS.A.name, exact: true }).filter({ hasText: PRODUCTS.A.name })).toBeVisible();
-          await expect(order.getByText('Số lượng: 1', { exact: true })).toBeVisible();
-          await expect.poll(async () => money(await order.locator('span.text-primary-500').first().innerText())).toBe(prices.sale);
-          const subtotal = page.getByRole('region', { name: 'Thông tin đơn hàng', exact: true }).getByText('Tạm tính', { exact: true }).locator('xpath=..');
-          await expect.poll(async () => money(await subtotal.innerText())).toBe(prices.sale);
-          await expect(page.getByRole('button', { name: /^ĐẶT HÀNG/ })).toBeVisible();
-        } else if (n === 30) expect(blockedImages).toBeGreaterThan(0);
+            if (n === 24) {
+              await item.getByRole('button', { name: 'Giảm số lượng', exact: true }).click();
+              await assertCart(page, 'A', prices);
+              await assertTotals(page, prices.sale, saving);
+            } else if (n === 27) {
+              await page.reload({ waitUntil: 'domcontentloaded' });
+              await assertCart(page, 'A', prices, 2);
+              await assertTotals(page, prices.sale * 2, saving * 2);
+            }
+          } else if ([25, 26].includes(n)) {
+            await removeProduct(page, 'A');
+            if (n === 25) {
+              await expect(page.locator('main')).toContainText(/giỏ hàng.*trống/i);
+              await expect(page.getByRole('button', { name: /^MUA NGAY \(/ })).toHaveCount(0);
+            } else {
+              expect(await productPage(page, 'A')).toEqual(prices);
+              await addToCart(page, 'A');
+              await assertCart(page, 'A', prices);
+              await expect(page.getByRole('button', { name: 'Xóa sản phẩm', exact: true })).toHaveCount(1);
+              await assertTotals(page, prices.sale, saving);
+            }
+          } else if (n === 28) {
+            await page.getByRole('button', { name: 'MUA NGAY (1)', exact: true }).click();
+            await expect(page).toHaveURL(/\/checkout(?:[/?#]|$)/);
+            const order = page.getByRole('region', { name: 'Sản phẩm trong đơn hàng', exact: true });
+            await expect(order.getByRole('link', { name: PRODUCTS.A.name, exact: true }).filter({ hasText: PRODUCTS.A.name })).toBeVisible();
+            await expect(order.getByText('Số lượng: 1', { exact: true })).toBeVisible();
+            await expect.poll(async () => money(await order.locator('span.text-primary-500').first().innerText())).toBe(prices.sale);
+            const subtotal = page.getByRole('region', { name: 'Thông tin đơn hàng', exact: true }).getByText('Tạm tính', { exact: true }).locator('xpath=..');
+            await expect.poll(async () => money(await subtotal.innerText())).toBe(prices.sale);
+            await expect(page.getByRole('button', { name: /^ĐẶT HÀNG/ })).toBeVisible();
+          } else if (n === 30) expect(blockedImages).toBeGreaterThan(0);
+        }
       }
-    }
+    });
   });
 });

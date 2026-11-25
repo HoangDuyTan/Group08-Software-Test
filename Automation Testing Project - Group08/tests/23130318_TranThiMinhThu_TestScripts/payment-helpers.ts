@@ -4,10 +4,10 @@ export const BASE = 'https://didongviet.vn';
 export const BANK = 'Chuyển khoản ngân hàng';
 export const COD = 'Thanh toán khi nhận hàng';
 export const VNPAY = 'VNPay';
-export const PRODUCT = process.env.F14_PRODUCT_URL ?? `${BASE}/dien-thoai/samsung-galaxy-a07.html`;
+export const PRODUCT = process.env.F14_PRODUCT_URL ?? `${BASE}/dien-thoai/samsung-galaxy-a07-5g.html`;
 export const HIGH_PRODUCT = process.env.F14_HIGH_VALUE_PRODUCT_URL ?? `${BASE}/dien-thoai/iphone-18-pro-max.html`;
 export const QUANTITY_PRODUCT = process.env.F14_QUANTITY_PRODUCT_URL ?? `${BASE}/dien-thoai/samsung-galaxy-a07-5g.html`;
-export const METHODS = [BANK, COD, 'Apple Pay', 'Kim Ngân Pay', 'EVO TPBank', 'Zalopay', VNPAY, 'MoMo'];
+export const METHODS = [BANK, COD, 'Apple Pay', 'Kim Ngân Pay', 'Payoo', 'OnePay', 'Zalopay', VNPAY, 'MoMo'];
 
 export async function waitForHydration(control: Locator) {
   // CTA có thể xuất hiện từ SSR trước khi handler được gắn. Đợi rồi click một lần.
@@ -34,6 +34,7 @@ export async function openCheckout(page: Page, product = PRODUCT) {
   expect(response?.status(), 'Không mở được sản phẩm test').toBeLessThan(400);
   await dismissCookies(page);
   const buy = page.getByRole('button', { name: /^MUA NGAY$/i }).first();
+  await expect(buy, 'Sản phẩm test cần còn hàng để mở checkout').toBeEnabled({ timeout: 8_000 });
   await waitForHydration(buy);
   await buy.click();
   await expect(page).toHaveURL(/\/checkout(?:[/?#]|$)/);

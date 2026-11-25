@@ -1,4 +1,5 @@
 import { test as base, expect, type BrowserContext, type Page, type Locator } from '@playwright/test';
+import { createResultReporting, type ResultReportingFixture } from './result-reporting';
 
 /** F13 – 30 case UI thực tế. Dữ liệu nằm trong spec; đồng bộ Excel cá nhân.
  * Mỗi case có context và seed giỏ riêng, lấy qua UI thật.
@@ -8,8 +9,9 @@ import { test as base, expect, type BrowserContext, type Page, type Locator } fr
  */
 const BASE = 'https://didongviet.vn';
 const PRODUCTS = {
-  A: { url: `${BASE}/dien-thoai/iphone-16-128gb.html`, name: 'iPhone 16 128GB' },
-  B: { url: `${BASE}/dien-thoai/samsung-galaxy-a07.html`, name: 'Samsung Galaxy A07 128GB' },
+  A: { url: `${BASE}/dien-thoai/samsung-galaxy-a07-5g.html`, name: 'Samsung Galaxy A07 5G 128GB' },
+  B: { url: `${BASE}/dien-thoai/samsung-galaxy-a08.html`, name: 'Samsung Galaxy A08 64GB' },
+  C: { url: `${BASE}/dien-thoai/iphone-15-128gb.html`, name: 'iPhone 15 128GB' },
 };
 const COMPANY = 'Trả góp qua công ty tài chính';
 const CREDIT = 'Trả góp qua thẻ tín dụng';
@@ -23,7 +25,7 @@ type F13Case = { id: string; title: string; group: string; steps: string[]; expe
 const cases: F13Case[] = [
   {"id":"DDV_F13_001","title":"Mở trả góp công ty tài chính từ trang sản phẩm","group":"F13.1 – Hình thức trả góp","mode":"product","steps":["Mở Trả góp 0%, chọn Trả góp qua công ty tài chính."],"expected":["Đến installment?method=OFFLINE, đúng sản phẩm; bảng tính công ty tài chính có giá và tiền góp hợp lệ."]},
   {"id":"DDV_F13_002","title":"Mở trả góp thẻ tín dụng từ trang sản phẩm","group":"F13.1 – Hình thức trả góp","mode":"product","steps":["Mở Trả góp 0%, chọn Trả góp qua thẻ tín dụng."],"expected":["Đến installment?method=ONLINE; có các bước ngân hàng, loại thẻ, gói trả góp; không hiển thị bộ chọn trả trước của công ty tài chính."]},
-  {"id":"DDV_F13_003","title":"Đổi trả trước cập nhật khoản góp hàng tháng","group":"F13.1 – Hình thức trả góp","steps":["Ghi tiền góp; đổi trả trước từ mức mặc định sang 50%."],"expected":["Nhãn và bảng ghi 50%; tiền góp thay đổi, vẫn là số dương."]},
+  {"id":"DDV_F13_003","title":"Đổi trả trước cập nhật khoản góp hàng tháng","group":"F13.1 – Hình thức trả góp","product":"C","steps":["Mở trả góp công ty tài chính cho iPhone 15 128GB. Ghi tiền góp rồi đổi trả trước từ mức mặc định sang 50%."],"expected":["Nhãn và bảng ghi 50%; tiền góp thay đổi, vẫn là số dương."]},
   {"id":"DDV_F13_004","title":"Đọc gói ưu đãi không lãi suất và các khoản công bố","group":"F13.1 – Hình thức trả góp","steps":["Đọc gói ưu đãi nổi bật, giá, trả trước, kỳ hạn, góp hàng tháng và thông tin lãi/phí."],"expected":["Gói hiển thị Không lãi suất, số kỳ và tiền hợp lệ; không suy luận mọi phí đều bằng 0."]},
   {"id":"DDV_F13_005","title":"Chuyển công ty tài chính – thẻ tín dụng – công ty tài chính","group":"F13.1 – Hình thức trả góp","steps":["Dùng Thay đổi trên trang installment để chọn thẻ rồi quay lại công ty tài chính."],"expected":["URL và nội dung đổi đúng hình thức; giá và sản phẩm giữ nguyên, không cần tải lại trang sản phẩm."]},
   {"id":"DDV_F13_006","title":"Chọn kỳ hạn ngắn nhất đang hỗ trợ","group":"F13.2 – Kỳ hạn","steps":["Đọc danh sách kỳ hạn; chọn giá trị nhỏ nhất."],"expected":["Trigger hiển thị kỳ hạn nhỏ nhất; bảng tính vẫn hợp lệ."]},
@@ -32,7 +34,7 @@ const cases: F13Case[] = [
   {"id":"DDV_F13_009","title":"Đổi kỳ hạn ngắn sang dài giữ mức trả trước","group":"F13.2 – Kỳ hạn","steps":["Chọn min rồi max, ghi khoản góp và trả trước."],"expected":["Tiền góp thay đổi theo kỳ hạn; phần trăm trả trước không đổi."]},
   {"id":"DDV_F13_010","title":"Đổi kỳ hạn rồi quay về khôi phục khoản góp","group":"F13.2 – Kỳ hạn","steps":["Chọn max → min → max."],"expected":["Khoản góp ở max cuối bằng max đầu khi giá/đối tác/trả trước không đổi."]},
   {"id":"DDV_F13_011","title":"Chọn mức trả trước nhỏ nhất","group":"F13.3 – Trả trước","steps":["Đọc danh sách và chọn mức trả trước nhỏ nhất."],"expected":["Trigger và bảng khớp mức nhỏ nhất; tiền trả trước khớp giá nhân tỷ lệ."]},
-  {"id":"DDV_F13_012","title":"Chọn mức trả trước ở giữa","group":"F13.3 – Trả trước","steps":["Chọn mức trả trước nằm giữa min/max."],"expected":["Trigger và bảng cùng tỷ lệ đã chọn; kỳ hạn không đổi."]},
+  {"id":"DDV_F13_012","title":"Chọn mức trả trước ở giữa","group":"F13.3 – Trả trước","product":"C","steps":["Mở trả góp công ty tài chính cho iPhone 15 128GB. Chọn mức trả trước nằm giữa min/max."],"expected":["Trigger và bảng cùng tỷ lệ đã chọn; kỳ hạn không đổi."]},
   {"id":"DDV_F13_013","title":"Chọn mức trả trước lớn nhất","group":"F13.3 – Trả trước","steps":["Đọc danh sách và chọn mức trả trước lớn nhất."],"expected":["Tỷ lệ được lưu đúng; trả trước nhỏ hơn giá máy, khoản góp dương."]},
   {"id":"DDV_F13_014","title":"Đổi trả trước rồi quay về khôi phục khoản góp","group":"F13.3 – Trả trước","steps":["Chọn min → max → min và đối chiếu khoản góp."],"expected":["Tiền góp ở min cuối khớp min đầu; kỳ hạn giữ nguyên."]},
   {"id":"DDV_F13_015","title":"Trả trước chỉ chọn từ các mức cố định hợp lệ","group":"F13.3 – Trả trước","steps":["Mở dropdown trả trước, đọc các tỷ lệ và kiểm tra loại điều khiển."],"expected":["Các tỷ lệ duy nhất, tăng dần, từ 0 đến dưới 100%; điều khiển không có ô nhập tiền tự do. Không giả lập nhập ngoài phạm vi."]},
@@ -40,17 +42,17 @@ const cases: F13Case[] = [
   {"id":"DDV_F13_017","title":"Đổi Home Credit – HD Saison – Home Credit","group":"F13.4 – Đối tác và cổng trả góp","steps":["Lần lượt chọn Home Credit, HD Saison và Home Credit."],"expected":["Mỗi lần chỉ một công ty được chọn, logo bảng tính đổi theo công ty; giá sản phẩm không đổi."]},
   {"id":"DDV_F13_018","title":"Chọn OnePay trong trả góp thẻ","group":"F13.4 – Đối tác và cổng trả góp","mode":"credit","steps":["Chọn logo OnePay (Trả góp)."],"expected":["OnePay được đánh dấu duy nhất trong danh sách cổng; vẫn ở hình thức thẻ, không chuyển đến cổng giao dịch."]},
   {"id":"DDV_F13_019","title":"Đổi cổng Kim Ngân sang Payoo trong trả góp thẻ","group":"F13.4 – Đối tác và cổng trả góp","mode":"credit","steps":["Chọn Kim Ngân (Trả góp), sau đó Payoo (Trả góp)."],"expected":["Chỉ cổng cuối Payoo được chọn; không nhập ngân hàng/thẻ hoặc gửi hồ sơ."]},
-  {"id":"DDV_F13_020","title":"Đổi công ty giữ cấu hình kỳ hạn trả trước được hỗ trợ","group":"F13.4 – Đối tác và cổng trả góp","steps":["Chọn kỳ hạn lớn nhất ở Home Credit rồi chuyển AEON Finance.","Đọc kỳ hạn và tỷ lệ trả trước của AEON."],"expected":["Kỳ hạn và trả trước hiện hành nằm trong danh sách AEON hỗ trợ; bảng tính dùng đúng AEON. Không giả định một cặp SKU/đối tác bị cấm khi chưa có dữ liệu."]},
+  {"id":"DDV_F13_020","title":"Đổi công ty giữ cấu hình kỳ hạn trả trước được hỗ trợ","group":"F13.4 – Đối tác và cổng trả góp","product":"C","steps":["Trên iPhone 15 128GB, chọn kỳ hạn lớn nhất ở Home Credit rồi chuyển AEON Finance.","Đọc kỳ hạn và tỷ lệ trả trước của AEON."],"expected":["Kỳ hạn và trả trước hiện hành nằm trong danh sách AEON hỗ trợ; bảng tính dùng đúng AEON. Không giả định một cặp SKU/đối tác bị cấm khi chưa có dữ liệu."]},
   {"id":"DDV_F13_021","title":"Đối chiếu tiền trả trước và khoản còn tài trợ","group":"F13.5 – Số tiền tham khảo","steps":["Chọn trả trước 30%; đọc giá, tiền trả trước và Gốc + Lãi của Home Credit."],"expected":["Tiền trả trước bằng giá × 30% (sai số tối đa 1đ); khoản Gốc + Lãi trong fixture bằng giá trừ trả trước."]},
   {"id":"DDV_F13_022","title":"Đối chiếu tổng tiền và chênh lệch với khoản góp","group":"F13.5 – Số tiền tham khảo","steps":["Chọn Home Credit kỳ hạn 12 tháng; đọc các dòng trong bảng tính."],"expected":["Tổng tiền khớp trả trước + tiền góp/tháng × số tháng trong sai số làm tròn tối đa bằng số tháng; chênh lệch bằng tổng tiền trừ giá máy."]},
-  {"id":"DDV_F13_023","title":"Bảng trả góp đúng sản phẩm Galaxy A07","group":"F13.5 – Số tiền tham khảo","product":"B","steps":["Mở trả góp công ty tài chính cho Galaxy A07."],"expected":["Tên máy, giá và bảng tính khớp Galaxy A07 đã chọn; không dùng giá của iPhone."]},
-  {"id":"DDV_F13_024","title":"Đổi sản phẩm sang mức giá cao hơn","group":"F13.5 – Số tiền tham khảo","product":"B","steps":["Từ Galaxy A07, mở iPhone 16 128GB và chọn trả góp."],"expected":["Tên và giá chuyển sang iPhone; giá tính góp mới lớn hơn giá Galaxy A07."]},
-  {"id":"DDV_F13_025","title":"Đổi sản phẩm sang mức giá thấp hơn","group":"F13.5 – Số tiền tham khảo","steps":["Từ iPhone 16, mở Galaxy A07 và chọn trả góp."],"expected":["Tên và giá chuyển sang Galaxy A07; giá tính góp mới thấp hơn giá iPhone."]},
+  {"id":"DDV_F13_023","title":"Bảng trả góp đúng sản phẩm Galaxy A08","group":"F13.5 – Số tiền tham khảo","product":"B","steps":["Mở trả góp công ty tài chính cho Galaxy A08 64GB."],"expected":["Tên máy, giá và bảng tính khớp Galaxy A08 đã chọn."]},
+  {"id":"DDV_F13_024","title":"Đổi sản phẩm sang mức giá cao hơn","group":"F13.5 – Số tiền tham khảo","product":"B","steps":["Từ Galaxy A08, mở Galaxy A07 5G 128GB và chọn trả góp."],"expected":["Tên và giá chuyển sang Galaxy A07 5G; giá tính góp mới lớn hơn giá Galaxy A08."]},
+  {"id":"DDV_F13_025","title":"Đổi sản phẩm sang mức giá thấp hơn","group":"F13.5 – Số tiền tham khảo","steps":["Từ Galaxy A07 5G, mở Galaxy A08 64GB và chọn trả góp."],"expected":["Tên và giá chuyển sang Galaxy A08; giá tính góp mới thấp hơn giá Galaxy A07 5G."]},
   {"id":"DDV_F13_026","title":"Đóng rồi mở lại bộ chọn trả góp không tải lại sản phẩm","group":"F13.6 – Đóng mở và điều hướng","mode":"product","steps":["Mở bộ chọn, đóng bằng X, rồi mở lại trên cùng trang."],"expected":["Bộ chọn đóng/mở đúng; chỉ một dialog, URL sản phẩm không đổi."]},
   {"id":"DDV_F13_027","title":"Chọn kỳ hạn sau khi đổi HD Saison","group":"F13.6 – Đóng mở và điều hướng","steps":["Chọn HD Saison, đọc và chọn kỳ hạn dài nhất của công ty này."],"expected":["HD Saison được chọn; kỳ hạn hiện hành đúng giá trị đã chọn và bảng tính không rỗng/NaN."]},
-  {"id":"DDV_F13_028","title":"Back về đúng sản phẩm sau khi mở trả góp","group":"F13.6 – Đóng mở và điều hướng","mode":"product","steps":["Từ sản phẩm mở trả góp tài chính, sau đó dùng Back."],"expected":["Trở về đúng URL iPhone 16 128GB; nút Trả góp 0% còn hiển thị; không tạo đơn."]},
+  {"id":"DDV_F13_028","title":"Back về đúng sản phẩm sau khi mở trả góp","group":"F13.6 – Đóng mở và điều hướng","mode":"product","steps":["Từ sản phẩm mở trả góp tài chính, sau đó dùng Back."],"expected":["Trở về đúng URL Galaxy A07 5G 128GB; nút Trả góp 0% còn hiển thị; không tạo đơn."]},
   {"id":"DDV_F13_029","title":"Refresh trả góp giữ đúng sản phẩm và bảng tính hợp lệ","group":"F13.6 – Đóng mở và điều hướng","steps":["Ghi tên/giá máy; đổi kỳ hạn rồi reload trang installment."],"expected":["Sau reload vẫn đúng sản phẩm và giá; lựa chọn được giữ hoặc reset phải thuộc danh sách hiện hành, bảng tính hợp lệ."]},
-  {"id":"DDV_F13_030","title":"Đổi model không giữ giá và cấu hình cũ không hợp lệ","group":"F13.6 – Đóng mở và điều hướng","steps":["Ở iPhone chọn kỳ hạn dài nhất và trả trước lớn nhất; mở Galaxy A07 và chọn trả góp."],"expected":["Bảng dùng tên/giá Galaxy A07; kỳ hạn/trả trước hiện hành hợp lệ cho máy mới, không giữ giá iPhone."]}
+  {"id":"DDV_F13_030","title":"Đổi model không giữ giá và cấu hình cũ không hợp lệ","group":"F13.6 – Đóng mở và điều hướng","product":"C","steps":["Ở iPhone 15 128GB chọn kỳ hạn dài nhất và trả trước lớn nhất; mở Galaxy A07 5G rồi chọn trả góp."],"expected":["Bảng dùng tên/giá Galaxy A07 5G; kỳ hạn/trả trước hiện hành hợp lệ cho máy mới."]}
 ];
 
 function chooser(page: Page) { return page.getByRole('dialog', { name: 'Chọn hình thức trả góp', exact: true }); }
@@ -89,6 +91,7 @@ async function functionalResources(context: BrowserContext) {
 }
 async function openChooser(page: Page) {
   const button = page.getByRole('button', { name: /^Trả góp 0%$/i }).first();
+  await expect(button, 'Sản phẩm test cần còn hàng và hỗ trợ trả góp').toBeEnabled({ timeout: 8_000 });
   // SSR có thể hiện nút trước khi React hydrate. Chỉ thử lại hành động MỞ dialog,
   // không force-click và không retry bất kỳ thao tác xác nhận nào.
   await expect(async () => {
@@ -111,21 +114,31 @@ async function fromProduct(page: Page, product: Product, mode: 'company' | 'cred
   await openChooser(page); await chooseMode(page, mode);
 }
 
-const test = base.extend<{ product: Product; mode: Mode; seed: Seed }>({
-  product: ['A', { option: true }],
-  mode: ['company', { option: true }],
-  seed: async ({ browser, product }, use) => {
+const reporting = createResultReporting('F13', cases);
+const preparedTest = base.extend<ResultReportingFixture & { product: Product; mode: Mode; seed: Seed }>({
+  _finalEvidence: [reporting.resultFixture, { auto: true }],
+  product: async ({}, use, info) => {
+    await use(cases.find(item => info.title.startsWith(`${item.id} - `))?.product ?? 'A');
+  },
+  mode: async ({}, use, info) => {
+    await use(cases.find(item => info.title.startsWith(`${item.id} - `))?.mode ?? 'company');
+  },
+  seed: async ({ browser, product, _finalEvidence }, use, info) => {
     const context = await browser.newContext({ viewport: { width: 1440, height: 1000 } });
     let seed: Seed;
+    let page: Page | undefined;
     try {
       await functionalResources(context);
-      const page = await context.newPage();
+      page = await context.newPage();
       await fromProduct(page, product);
       const state = await context.storageState();
       // Chỉ chuyển trạng thái sang context của CHÍNH ca này, không cache theo worker.
       state.cookies = state.cookies.filter(cookie => ['guest_id', 'ddv_gr', 'ddv_consent'].includes(cookie.name));
       for (const origin of state.origins) origin.localStorage = origin.localStorage.filter(item => ['ddv-cart', 'ddv-checkout'].includes(item.name));
       seed = { state, price: amount(await row(page, 'Giá mua trả góp').innerText()), product };
+    } catch (error) {
+      if (page) await reporting.capturePage(page, info);
+      throw error;
     } finally { await context.close(); }
     await use(seed);
   },
@@ -138,6 +151,11 @@ const test = base.extend<{ product: Product; mode: Mode; seed: Seed }>({
     if (mode === 'credit') await expect(page.getByText('Chọn ngân hàng trả góp', { exact: true })).toBeVisible();
     await use(page);
   },
+});
+
+const test = preparedTest.extend({
+  context: reporting.contextFixture,
+  page: reporting.pageFixture,
 });
 test.use({ viewport: { width: 1440, height: 1000 }, video: 'off', trace: process.env.F13_TRACE === '1' ? 'retain-on-failure' : 'off' });
 test.describe.configure({ mode: 'parallel', timeout: 60_000 });
@@ -152,10 +170,10 @@ async function dropdown(page: Page, label: 'Số tháng' | 'Trả trước') {
   await expect(popup).toBeVisible();
   return popup;
 }
-async function options(page: Page, label: 'Số tháng' | 'Trả trước') {
+async function options(page: Page, label: 'Số tháng' | 'Trả trước', minimum = 2) {
   const popup = await dropdown(page, label);
   const values = (await popup.getByRole('button').allTextContents()).map(text => Number(text.match(/\d+/)?.[0]));
-  expect(values.length).toBeGreaterThan(1);
+  expect(values.length).toBeGreaterThanOrEqual(minimum);
   expect(values.every(Number.isFinite)).toBe(true);
   expect(new Set(values).size).toBe(values.length);
   expect(values).toEqual([...values].sort((a, b) => a - b));
@@ -239,7 +257,16 @@ const actions: Record<string, (page: Page, seed: Seed) => Promise<void>> = {
   DDV_F13_017: async (page, seed) => { for (const name of ['Home Credit', 'HD Saison', 'Home Credit']) { await selectPartner(page, name); expect((await summary(page)).price).toBe(seed.price); } },
   DDV_F13_018: async page => { await selectGateway(page, 'OnePay (Trả góp)'); await expect(page.locator('main').getByText(CREDIT, { exact: true })).toBeVisible(); },
   DDV_F13_019: async page => { await selectGateway(page, 'Kim Ngân (Trả góp)'); await selectGateway(page, 'Payoo (Trả góp)'); },
-  DDV_F13_020: async page => { const v = await options(page, 'Số tháng'); await select(page, 'Số tháng', v.at(-1)!); await selectPartner(page, 'AEON Finance'); const ts = await options(page, 'Số tháng'), ds = await options(page, 'Trả trước'); const s = await summary(page); expect(ts).toContain(s.months); expect(ds).toContain(s.percent); },
+  DDV_F13_020: async page => {
+    const terms = await options(page, 'Số tháng');
+    await select(page, 'Số tháng', terms.at(-1)!);
+    await selectPartner(page, 'AEON Finance');
+    const availableTerms = await options(page, 'Số tháng', 1);
+    const availableDownPayments = await options(page, 'Trả trước', 1);
+    const quote = await summary(page);
+    expect(availableTerms).toContain(quote.months);
+    expect(availableDownPayments).toContain(quote.percent);
+  },
   DDV_F13_021: async page => { await select(page, 'Trả trước', 30); const s = await summary(page); expect(s.percent).toBe(30); expect(amount(await row(page, 'Gốc + Lãi').innerText())).toBe(s.price - s.down); },
   DDV_F13_022: async page => { await select(page, 'Số tháng', 12); const s = await summary(page); expect(Math.abs(s.total - (s.down + s.monthly * s.months))).toBeLessThanOrEqual(s.months); expect(Math.abs(s.difference - (s.total - s.price))).toBeLessThanOrEqual(1); },
   DDV_F13_023: async (page, seed) => { await productIs(page, 'B'); expect((await summary(page)).price).toBe(seed.price); },
@@ -249,14 +276,27 @@ const actions: Record<string, (page: Page, seed: Seed) => Promise<void>> = {
   DDV_F13_027: async page => { await selectPartner(page, 'HD Saison'); const v = await options(page, 'Số tháng'); await select(page, 'Số tháng', v.at(-1)!); expect((await summary(page)).months).toBe(v.at(-1)); },
   DDV_F13_028: async page => { await openChooser(page); await chooseMode(page, 'company'); await page.goBack({ waitUntil: 'domcontentloaded' }); await expect(page).toHaveURL(PRODUCTS.A.url); await expect(page.getByRole('button', { name: /^Trả góp 0%$/i }).first()).toBeVisible(); },
   DDV_F13_029: async (page, seed) => { const v = await options(page, 'Số tháng'); await select(page, 'Số tháng', v.at(-1)!); await page.reload({ waitUntil: 'domcontentloaded' }); await productIs(page, 'A'); const ts = await options(page, 'Số tháng'), ds = await options(page, 'Trả trước'); const s = await summary(page); expect(s.price).toBe(seed.price); expect(ts).toContain(s.months); expect(ds).toContain(s.percent); },
-  DDV_F13_030: async page => { const ts = await options(page, 'Số tháng'), ds = await options(page, 'Trả trước'); await select(page, 'Số tháng', ts.at(-1)!); await select(page, 'Trả trước', ds.at(-1)!); const before = await summary(page); await fromProduct(page, 'B'); await productIs(page, 'B'); const tsB = await options(page, 'Số tháng'), dsB = await options(page, 'Trả trước'); const s = await summary(page); expect(s.price).not.toBe(before.price); expect(tsB).toContain(s.months); expect(dsB).toContain(s.percent); },
+  DDV_F13_030: async page => {
+    const terms = await options(page, 'Số tháng');
+    await select(page, 'Số tháng', terms.at(-1)!);
+    const downPayments = await options(page, 'Trả trước');
+    await select(page, 'Trả trước', downPayments.at(-1)!);
+    const before = await summary(page);
+    await fromProduct(page, 'A');
+    await productIs(page, 'A');
+    const availableTerms = await options(page, 'Số tháng', 1);
+    const availableDownPayments = await options(page, 'Trả trước', 1);
+    const quote = await summary(page);
+    expect(quote.price).toBeLessThan(before.price);
+    expect(availableTerms).toContain(quote.months);
+    expect(availableDownPayments).toContain(quote.percent);
+  },
 };
 
 if (cases.length !== 30 || new Set(cases.map(c => c.id)).size !== 30 || Object.keys(actions).length !== 30) throw new Error('F13 cần đúng 30 case và 30 hàm kiểm thử.');
-for (const scenario of cases) {
-  test.describe(scenario.id, () => {
-    test.use({ product: scenario.product ?? 'A', mode: scenario.mode ?? 'company' });
-    test(`${scenario.id} - ${scenario.title}`, async ({ page, seed }, testInfo) => {
+test.describe('ASM08 | F13 | D13 | 30 scenarios', () => {
+  for (const scenario of cases) {
+    test(`${scenario.id} - ${scenario.title}`, async ({ page, seed }) => {
       await test.step(scenario.title, () => actions[scenario.id](page, seed));
       await expect(page.getByText(/đặt hàng thành công|đăng ký thành công|hồ sơ thành công/i)).toHaveCount(0);
       expect(page.context().pages()).toHaveLength(1);
@@ -264,7 +304,6 @@ for (const scenario of cases) {
         await expect(page).toHaveURL(/\/installment\?method=(?:OFFLINE|ONLINE)/);
         await expect(page.getByRole('button', { name: /^XÁC NHẬN TRẢ GÓP$/i })).toBeVisible();
       }
-      await testInfo.attach('observation.txt', { body: `${scenario.id}: ${scenario.title}\n${page.url()}\nKhông bấm xác nhận trả góp hoặc gửi hồ sơ.`, contentType: 'text/plain; charset=utf-8' });
     });
-  });
-}
+  }
+});

@@ -7,7 +7,8 @@ import {
 /**
  * Bài tập 9 – Trần Thị Minh Thư – 23130318.
  * 10 ca kiểm thử hồi quy tương ứng với DDV-THU-01…10 trong báo cáo cá nhân.
- * Viết theo ảnh chụp, nhật ký API và bản ghi thao tác ngày 12/11/2026.
+ * Bảy lỗi giữ minh chứng ngày 12/11; thay 07/08/10 bằng lỗi độc lập ngày 25/11/2026.
+ * Kịch bản mở rộng liên kết tới testcase ASM08 qua annotation; mã ca chạy là DDV-THU-xx.
  * Các phép kiểm tra mô tả hành vi đúng: lỗi còn tồn tại sẽ làm ca kiểm thử thất bại.
  * Hết thời gian chờ, sản phẩm hết hàng hoặc API đổi cấu trúc là lỗi chuẩn bị kiểm thử;
  * các trường hợp này chưa đủ để kết luận website có lỗi chức năng.
@@ -23,6 +24,11 @@ import {
 
 const ASM_BASE = 'https://didongviet.vn';
 const asmBlockedWrites = new WeakMap<BrowserContext, string[]>();
+const relatedTestcases: Record<string, string> = {
+  '01': 'DDV_F13_021', '02': 'DDV_F13_018', '03': 'DDV_F13_019', '04': 'DDV_F13_018',
+  '05': 'DDV_F14_026', '06': 'DDV_F14_019', '07': 'DDV_F14_029', '08': 'DDV_F15_028',
+  '09': 'DDV_F15_023', '10': 'DDV_F13_018',
+};
 
 test.use({ viewport: { width: 1440, height: 1000 }, serviceWorkers: 'block' });
 test.describe.configure({ mode: 'default', timeout: 120_000, retries: 0 });
@@ -75,7 +81,14 @@ async function asmAttach(page: Page, name: string, data?: unknown): Promise<void
   });
 }
 
-test.beforeEach(async ({ context }) => { await asmGuard(context); });
+test.beforeEach(async ({ context }, info) => {
+  await asmGuard(context);
+  const number = info.title.match(/\[DDV-THU-(\d{2})\]/)?.[1];
+  if (number) info.annotations.push(
+    { type: 'defect', description: `DDV-THU-${number}` },
+    { type: 'related-testcase', description: `${relatedTestcases[number]} (mở rộng)` },
+  );
+});
 test.afterEach(async ({ page, context }, info) => {
   await context.setOffline(false);
   if (info.status !== info.expectedStatus && !page.isClosed()) {
@@ -87,7 +100,7 @@ test.afterEach(async ({ page, context }, info) => {
 
 // F13: viết theo minh chứng thực tế ngày 12/11/2026 trong ZIP bài nộp.
 // Số tiền kỳ vọng lấy từ phản hồi hiện tại; không cố định theo giá trong ảnh cũ.
-const f13Product = 'https://didongviet.vn/dien-thoai/iphone-16-128gb.html';
+const f13Product = process.env.ASM09_INSTALLMENT_PRODUCT_URL ?? `${ASM_BASE}/dien-thoai/samsung-galaxy-a07-5g.html`;
 
 function f13Logo(page: Page, name: string) {
     return page.locator('main button').filter({ has: page.getByRole('img', { name, exact: true }) });
@@ -428,8 +441,6 @@ test('[DDV-THU-06] F14 – COD tuân theo chính sách đơn từ 40 triệu', a
 // F15: chỉ thao tác giỏ và xem trang thanh toán; không nhấn ĐẶT HÀNG/ĐẶT MUA TRẢ GÓP.
 const f15Base = 'https://didongviet.vn';
 const f15A07 = `${f15Base}/dien-thoai/samsung-galaxy-a07-5g.html`;
-const f15Iphone = `${f15Base}/dien-thoai/iphone-15-128gb.html`;
-const f15Airpods = `${f15Base}/thiet-bi-am-thanh/airpods-pro-3`;
 
 function f15CartRows(page: Page): Locator {
   return page.locator('main div.rounded-xl').filter({
@@ -466,11 +477,6 @@ async function f15OpenCart(page: Page): Promise<void> {
   await expect(page).toHaveURL(/\/cart(?:[/?#]|$)/);
   await f15CartReady(page);
 }
-async function f15Color(page: Page, name: string): Promise<void> {
-  const button = page.getByRole('button').filter({ has: page.locator(`span[title="${name}"]`) });
-  await asmClick(button);
-  await expect(button).toHaveAttribute('aria-pressed', 'true');
-}
 async function f15Totals(page: Page): Promise<{ total: number; saving: number }> {
   // Thanh tổng tiền cố định có cùng cấu trúc ở giỏ và trang thanh toán; chọn bản đang hiển thị.
   const cta = page.getByRole('button', { name: /^(?:MUA NGAY|ĐẶT HÀNG)\s*\(\d+\)$/i })
@@ -492,117 +498,92 @@ async function f15Snapshot(page: Page): Promise<Record<string, unknown>> {
     notices: await page.locator('[role="alert"], [role="status"]').allTextContents(),
   };
 }
-async function f15WaitPreview(page: Page): Promise<void> {
-  // Không kết luận theo URL /checkout xuất hiện thoáng qua: lỗi 08 quay lại giỏ sau khoảng 100–280ms.
-  await page.waitForFunction(() => {
-    const main = document.querySelector('main');
-    if (!main) return false;
-    if (location.pathname === '/checkout') {
-      const region = main.querySelector('[aria-label="Sản phẩm trong đơn hàng"]');
-      return !!region && /Số lượng:\s*\d+/.test(region.textContent ?? '');
-    }
-    if (location.pathname === '/cart') {
-      return Array.from(main.querySelectorAll('button')).some(e => /^MUA NGAY\s*\(0\)$/i.test(e.textContent?.trim() ?? '')) ||
-        Array.from(document.querySelectorAll('[role="alert"]')).some(e =>
-          /(?:giỏ hàng|số lượng).*(?:thay đổi|cập nhật|xung đột)/i.test(e.textContent ?? ''));
-    }
-    return false;
-  }, undefined, { timeout: 15_000 }).catch(() => undefined);
-}
 
-test('[DDV-THU-07] F15 – Trang thanh toán phải đối chiếu số lượng và giá sau thay đổi ở thẻ khác', async ({ page, context }) => {
-  test.setTimeout(120_000);
+test('[DDV-THU-07] [DDV_F14_029 mở rộng] F14 – Bộ chọn thanh toán giữ focus trong panel', async ({ page }) => {
   await asmOpenProduct(page, f15A07);
   await f15Add(page);
   await f15OpenCart(page);
-  await expect(f15Quantity(f15CartRows(page).first())).toHaveText('1');
-  const initial = await f15Totals(page);
-  const second = await context.newPage();
-  try {
-    await second.goto(`${f15Base}/cart`, { waitUntil: 'domcontentloaded' });
-    await f15CartReady(second);
-    await expect(f15Quantity(f15CartRows(second).first())).toHaveText('1');
-    await page.bringToFront();
-    const increase = f15CartRows(page).first().getByRole('button', { name: 'Tăng số lượng', exact: true });
-    await expect(increase, 'Dữ liệu kiểm thử phải cho phép tăng số lượng từ 1 lên 2').toBeEnabled();
-    await f15Mutation(page, '/api/fe/carts/items/quantity', 'PUT', () => asmClick(increase));
-    await expect(f15Quantity(f15CartRows(page).first())).toHaveText('2');
-    await asmAttach(page, 'DDV-THU-07-tab-A-updated', { initial, state: await f15Snapshot(page), totals: await f15Totals(page) });
-    await second.bringToFront();
-    await asmAttach(second, 'DDV-THU-07-tab-B-before-checkout', await f15Snapshot(second));
-    await asmClick(f15CartBuy(second));
-    await f15WaitPreview(second);
-    const preview = await f15Snapshot(second);
-    const checkout = new URL(second.url()).pathname === '/checkout';
-    const quantities = checkout ? await f15CheckoutOrder(second).getByText(/^Số lượng:\s*\d+$/).allTextContents() : [];
-    const checkoutTotal = checkout ? asmMoney(await second.getByRole('region', { name: 'Thông tin đơn hàng', exact: true })
-      .getByText('Tạm tính', { exact: true }).locator('xpath=..').innerText()) : null;
-    const conflicts = await second.locator('[role="alert"]:visible').allTextContents();
-    const conflictHandled = !checkout && conflicts.some(text =>
-      /(?:giỏ hàng|số lượng).*(?:thay đổi|cập nhật|xung đột)|(?:thay đổi|cập nhật).*(?:giỏ hàng|số lượng)/i.test(text));
-    await asmAttach(second, 'DDV-THU-07-checkout-or-conflict', { preview, quantities, checkoutTotal, conflicts });
-    await page.reload({ waitUntil: 'domcontentloaded' });
-    await f15CartReady(page);
-    const persistedQuantity = Number(await f15Quantity(f15CartRows(page).first()).innerText());
-    await asmAttach(page, 'DDV-THU-07-persisted-cart', { persistedQuantity, state: await f15Snapshot(page) });
-    expect(persistedQuantity, 'Đối chứng máy chủ phải giữ cập nhật thành công của thẻ A').toBe(2);
-    const synchronized = checkout && quantities.length === 1 && /Số lượng:\s*2$/.test(quantities[0]) && checkoutTotal === initial.total * 2;
-    expect(synchronized || conflictHandled, 'Trang thanh toán phải dùng giỏ mới nhất hoặc cảnh báo xung đột rõ ràng').toBeTruthy();
-  } finally {
-    await second.close();
+  await asmClick(f15CartBuy(page));
+  await expect(page).toHaveURL(/\/checkout(?:[/?#]|$)/);
+  await expect(page.locator('#payment-change-btn')).toContainText('Chuyển khoản ngân hàng');
+  await asmClick(page.locator('#payment-change-btn'));
+  const dialog = paymentDialog(page);
+  await expect(dialog).toBeVisible();
+  const focusRecords: { step: string; tag: string | null; id: string | null; text: string; inside: boolean }[] = [];
+  async function record(step: string) {
+    focusRecords.push(await dialog.evaluate((element, label) => ({
+      step: label,
+      tag: document.activeElement?.tagName ?? null,
+      id: document.activeElement?.id ?? null,
+      text: document.activeElement?.textContent?.trim() ?? '',
+      inside: element.contains(document.activeElement),
+    }), step));
   }
+  await record('opened');
+  for (let index = 1; index <= 5; index++) {
+    await page.keyboard.press('Tab');
+    await record(`Tab ${index}`);
+  }
+  await asmAttach(page, 'DDV-THU-07-focus-before-escape', { focusRecords });
+  // Chỉ di chuyển focus; không kích hoạt bất kỳ nút nào phía sau panel.
+  await page.keyboard.press('Escape');
+  // Escape có hiệu ứng đóng; không dùng isVisible tức thời để kết luận không đóng.
+  await expect(dialog).toBeHidden();
+  await asmAttach(page, 'DDV-THU-07-after-escape', { focusRecords, dialogClosed: true });
+  expect.soft(focusRecords[0].inside, 'Mở panel thanh toán phải chuyển focus vào panel').toBe(true);
+  expect.soft(focusRecords.every(record => record.inside), 'Tab không được đi tới nội dung nền khi panel đang mở').toBe(true);
+  await expect(page.locator('#payment-change-btn'), 'Đóng panel cần trả focus về nút mở').toBeFocused();
 });
 
-test('[DDV-THU-08] F15 – Đổi sang màu đã có vẫn mở thanh toán được sản phẩm đã chọn', async ({ page }) => {
-  test.setTimeout(120_000);
-  await asmOpenProduct(page, f15Iphone);
-  await f15Color(page, 'Hồng');
-  await f15Add(page);
-  await f15Color(page, 'Đen');
-  await f15Add(page);
-  await f15OpenCart(page);
-  await expect(f15CartRows(page)).toHaveCount(2);
-  await asmClick(page.getByRole('button', { name: 'Đen', exact: true }));
-  await f15Mutation(page, '/api/fe/carts/items/variant', 'PUT', () =>
-    asmClick(page.getByRole('button', { name: /^Hồng\s+\d/ }).filter({ visible: true }).first()));
-  await expect(page.getByRole('button', { name: 'Đen', exact: true })).toHaveCount(0);
-  await expect.poll(() => f15CartRows(page).count()).toBeGreaterThan(0);
-  await asmAttach(page, 'DDV-THU-08-after-color-change', await f15Snapshot(page));
-  const count = await f15CartRows(page).count();
-  if (count === 2) {
-    // Chọn riêng dòng phía dưới bằng nhãn điều khiển thay vì ép thao tác trên ô chọn ẩn.
-    const firstCheckbox = f15CartRows(page).first().locator('input[type="checkbox"]').first();
-    if (await firstCheckbox.isChecked()) await asmClick(firstCheckbox.locator('xpath=..'));
-    const secondCheckbox = f15CartRows(page).nth(1).locator('input[type="checkbox"]').first();
-    if (!(await secondCheckbox.isChecked())) await asmClick(secondCheckbox.locator('xpath=..'));
-  } else {
-    // Sau khi ứng dụng sửa bằng cách gộp SKU, giỏ có thể chỉ còn một dòng số lượng 2.
-    expect(count, 'Chỉ có một SKU Hồng sau khi gộp').toBe(1);
-    const row = f15CartRows(page).first();
-    if (Number(await f15Quantity(row).innerText()) === 2) {
-      await f15Mutation(page, '/api/fe/carts/items/quantity', 'PUT', () =>
-        asmClick(row.getByRole('button', { name: 'Giảm số lượng', exact: true })));
+test('[DDV-THU-08] [DDV_F15_028 mở rộng] F15 – Quà tặng đã công bố được thể hiện trong giỏ và checkout', async ({ page }) => {
+  const product = `${ASM_BASE}/dien-thoai/samsung-galaxy-a08.html`;
+  const publishedGift = 'Tặng bộ sạc Samsung 25W kèm cáp Type-C to Type-C';
+  await asmOpenProduct(page, product);
+  const offer = page.getByText(publishedGift, { exact: true });
+  await expect(offer, 'SETUP: sản phẩm cần đang công bố đúng quà tặng được kiểm tra').toBeVisible();
+  const offerRow = await offer.locator('xpath=ancestor::li[1]').innerText();
+  await asmAttach(page, 'DDV-THU-08-published-gift', { product, offerRow });
+  const giftResponses: unknown[] = [];
+  const pending: Promise<void>[] = [];
+  const listener = (response: Response) => {
+    if (new URL(response.url()).pathname === '/api/fe/carts/gifts') {
+      pending.push((async () => {
+        giftResponses.push({ url: response.url(), status: response.status(), body: await response.json() });
+      })().catch(() => undefined));
     }
-    const checkbox = row.locator('input[type="checkbox"]').first();
-    if (!(await checkbox.isChecked())) await asmClick(checkbox.locator('xpath=..'));
+  };
+  page.on('response', listener);
+  try {
+    await f15Add(page);
+    await f15OpenCart(page);
+    const giftButton = page.getByRole('button', { name: 'Xem quà tặng', exact: true });
+    const cartCount = await giftButton.innerText();
+    await asmClick(giftButton);
+    let drawer = page.getByRole('dialog');
+    await expect(drawer).toBeVisible();
+    await expect(drawer).toContainText('Quà tặng');
+    const cartGiftText = await drawer.innerText();
+    await asmAttach(page, 'DDV-THU-08-cart-gifts', { publishedGift, offerRow, cartCount, cartGiftText });
+    await page.keyboard.press('Escape');
+    await expect(drawer).toBeHidden();
+    await asmClick(f15CartBuy(page));
+    await expect(page).toHaveURL(/\/checkout(?:[/?#]|$)/);
+    await expect(f15CheckoutOrder(page)).toContainText('Samsung Galaxy A08 64GB');
+    const checkoutCount = await giftButton.innerText();
+    await asmClick(giftButton);
+    drawer = page.getByRole('dialog');
+    await expect(drawer).toBeVisible();
+    const checkoutGiftText = await drawer.innerText();
+    await Promise.all(pending);
+    await asmAttach(page, 'DDV-THU-08-checkout-gifts', {
+      product, publishedGift, offerRow, cartCount, cartGiftText, checkoutCount, checkoutGiftText, giftResponses,
+    });
+    // Chỉ đối chiếu thông tin ưu đãi, không suy luận về quà trong lần giao hàng thực tế.
+    expect.soft(cartGiftText, 'Giỏ cần thể hiện bộ sạc đã được công bố cho sản phẩm').toMatch(/Samsung.*25W|25W.*Type.C/i);
+    expect(checkoutGiftText, 'Checkout cần giữ thông tin quà tặng đã công bố').toMatch(/Samsung.*25W|25W.*Type.C/i);
+  } finally {
+    page.off('response', listener);
   }
-  await expect(f15CartBuy(page)).toHaveText(/^MUA NGAY\s*\(1\)$/i);
-  const chosen = await f15Totals(page);
-  const navigation: string[] = [];
-  page.on('framenavigated', frame => { if (frame === page.mainFrame()) navigation.push(frame.url()); });
-  await asmAttach(page, 'DDV-THU-08-one-selected-before-checkout', { chosen, state: await f15Snapshot(page) });
-  await asmClick(f15CartBuy(page));
-  await f15WaitPreview(page);
-  const state = await f15Snapshot(page);
-  await asmAttach(page, 'DDV-THU-08-after-checkout-navigation', { chosen, navigation, state });
-  await expect(page, 'Lựa chọn hợp lệ không được bị xóa và trả về giỏ').toHaveURL(/\/checkout(?:[/?#]|$)/);
-  const order = f15CheckoutOrder(page);
-  await expect(order).toContainText('iPhone 15 128GB');
-  await expect(order).toContainText('Hồng');
-  await expect(order.getByText(/^Số lượng:\s*1$/)).toHaveCount(1);
-  const subtotal = asmMoney(await page.getByRole('region', { name: 'Thông tin đơn hàng', exact: true })
-    .getByText('Tạm tính', { exact: true }).locator('xpath=..').innerText());
-  expect(subtotal).toBe(chosen.total);
 });
 
 test('[DDV-THU-09] F15 – Cập nhật số lượng thất bại phải có hoàn tác, phản hồi hoặc lưu lại sau nối mạng', async ({ page, context }) => {
@@ -674,43 +655,45 @@ test('[DDV-THU-09] F15 – Cập nhật số lượng thất bại phải có ho
   }
 });
 
-test('[DDV-THU-10] F15 – Tiền tiết kiệm của bảo hành giảm giá phải giữ nguyên khi sang trang thanh toán', async ({ page }) => {
-  test.setTimeout(120_000);
-  await asmOpenProduct(page, f15Airpods);
-  await f15Add(page);
-  await f15OpenCart(page);
-  const before = await f15Totals(page);
-  await asmAttach(page, 'DDV-THU-10-no-warranty', { before, state: await f15Snapshot(page) });
-  await asmClick(page.getByRole('button', { name: /^Chọn gói$/ }).filter({ visible: true }).first());
-  const dialog = page.getByRole('dialog').filter({ hasText: 'Chọn dịch vụ gói bảo hành' });
-  await dialog.waitFor();
-  const offer = dialog.getByRole('button', { name: /HƯ LỖI 6T.*AIRPODS.*3-6 TRIỆU/i });
-  await expect(offer, 'Sản phẩm AirPods kiểm thử phải có gói bảo hành đang giảm giá thật').toBeVisible();
-  const offerText = await offer.innerText();
-  const amounts = Array.from(offerText.matchAll(/\d{1,3}(?:[.,]\d{3})+\s*[đ₫]/g), match => asmMoney(match[0]));
-  await asmAttach(page, 'DDV-THU-10-warranty-offer', { offerText, amounts, before });
-  expect(amounts.length, 'Gói bảo hành phải công bố cả giá giảm và giá gốc').toBeGreaterThanOrEqual(2);
-  const [sale, original] = amounts;
-  expect(original, 'Không tạo mức giảm giả nếu ưu đãi đã hết hạn').toBeGreaterThan(sale);
-  await asmClick(offer);
-  await asmClick(dialog.getByRole('button', { name: 'Xác nhận', exact: true }));
-  await dialog.waitFor({ state: 'hidden' });
-  await expect(page.locator('main')).toContainText('Đã chọn gói bảo hành mở rộng');
-  await expect.poll(async () => (await f15Totals(page)).total).toBe(before.total + sale);
-  // Giá gốc và mức giảm bảo hành tải về sau khi giao diện cập nhật tổng tiền tạm thời.
-  // Chờ phản hồi chi tiết giỏ thật cập nhật đủ số tiền tiết kiệm.
-  await expect.poll(async () => (await f15Totals(page)).saving,
-    { message: 'Đối chứng giỏ phải tải xong mức giảm giá bảo hành' }).toBe(before.saving + original - sale);
-  const cart = await f15Totals(page);
-  await asmAttach(page, 'DDV-THU-10-cart-with-warranty', { before, sale, original, cart, state: await f15Snapshot(page) });
-  expect(cart.saving, 'Đối chứng giỏ phải cộng giảm giá bảo hành').toBe(before.saving + original - sale);
-  await asmClick(f15CartBuy(page));
-  await f15WaitPreview(page);
-  await expect(f15CheckoutOrder(page)).toContainText('HƯ LỖI 6T');
-  const checkout = await f15Totals(page);
-  await asmAttach(page, 'DDV-THU-10-checkout-with-warranty', {
-    before, sale, original, cart, checkout, savingDifference: cart.saving - checkout.saving, state: await f15Snapshot(page),
-  });
-  expect(checkout.total, 'Cùng sản phẩm, số lượng và bảo hành phải giữ tổng tiền').toBe(cart.total);
-  expect(checkout.saving, 'Trang thanh toán phải bao gồm cả phần giảm giá bảo hành đã tính trong giỏ').toBe(cart.saving);
+test('[DDV-THU-10] [DDV_F13_018 mở rộng] F13 – Lỗi mạng báo giá không được kết luận thẻ không có gói phù hợp', async ({ page, context }) => {
+  await f13Open(page, 'credit');
+  const calculator = '/api/fe/installment/19/loan-calculator';
+  const banks = page.waitForResponse(response => new URL(response.url()).pathname === '/api/fe/installment/19/banks' && response.ok());
+  await asmClick(f13Logo(page, 'OnePay (Trả góp)'));
+  await banks;
+  await asmClick(f13Logo(page, 'Sacombank'));
+  const noPlan = page.getByText('Không có gói trả góp phù hợp cho thẻ này.', { exact: true });
+  const notices: string[] = [];
+  const collectNotices = () => page.locator('[role="alert"], [role="status"], [data-sonner-toast]').allTextContents();
+  let failedMessage = false;
+  try {
+    const failure = page.waitForEvent('requestfailed', { predicate: request => new URL(request.url()).pathname === calculator });
+    await context.setOffline(true);
+    await asmClick(f13Logo(page, 'Visa'));
+    const request = await failure;
+    await expect(page.getByRole('button', { name: /^XÁC NHẬN TRẢ GÓP$/i })).toBeDisabled();
+    // Chờ trạng thái tải kết thúc; thông báo lỗi có thể được sửa thành thông báo mạng.
+    await page.waitForTimeout(1500);
+    failedMessage = await noPlan.isVisible();
+    notices.push(...await collectNotices());
+    const input = request.postDataJSON() as Record<string, unknown>;
+    const requestFailure = request.failure();
+    await asmAttach(page, 'DDV-THU-10-offline-quote', { input, requestFailure, failedMessage, notices, main: await page.locator('main').innerText() });
+    expect(requestFailure?.errorText, 'SETUP: phải quan sát được lỗi mạng thật').toMatch(/INTERNET_DISCONNECTED|OFFLINE/i);
+    await context.setOffline(false);
+    const control = await context.request.post(`${ASM_BASE}${calculator}`, { data: input });
+    const controlBody = await control.json();
+    expect(control.ok(), 'SETUP: cùng báo giá khi có mạng phải thành công').toBe(true);
+    expect(Array.isArray(controlBody.data), 'SETUP: cần dữ liệu các gói thật từ OnePay').toBe(true);
+    expect(controlBody.data.length, 'SETUP: thẻ được kiểm tra phải thực sự có gói trả góp').toBeGreaterThan(0);
+    const recovery = page.waitForResponse(response => new URL(response.url()).pathname === calculator && response.ok());
+    await asmClick(f13Logo(page, 'Visa'));
+    const recovered = await recovery;
+    await expect(f13Table(page)).toBeVisible();
+    await asmAttach(page, 'DDV-THU-10-identical-online-control', { input, control: { status: control.status(), body: controlBody }, recovered: await recovered.json(), failedMessage, notices });
+    // Cùng loại thẻ bấm lại khôi phục được: đây là lỗi thông báo sai, không phải lỗi không retry.
+    expect(failedMessage, 'Lỗi kết nối chưa cho phép kết luận thẻ không có gói trả góp phù hợp').toBe(false);
+  } finally {
+    await context.setOffline(false);
+  }
 });

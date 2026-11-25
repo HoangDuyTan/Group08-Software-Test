@@ -1,4 +1,5 @@
-import { test, expect, type Page } from '@playwright/test';
+import { test as base, expect, type Page } from '@playwright/test';
+import { createResultReporting, type ResultReportingFixture } from './result-reporting';
 import {
   BANK, COD, VNPAY, METHODS, HIGH_PRODUCT, QUANTITY_PRODUCT, openCheckout, dismissCookies, waitForHydration,
   paymentDialog, method, openMethods, closeMethods, assertExclusive, selectMethod,
@@ -12,8 +13,6 @@ import {
  * Phạm vi được đổi theo yêu cầu: chọn phương thức trên Chromium, chưa chuyển cổng.
  * Không sandbox, dữ liệu khách hàng, thẻ/OTP, xác nhận người nhận hay ĐẶT HÀNG.
  */
-test.use({ viewport: { width: 1440, height: 900 } });
-test.describe.configure({ timeout: 120_000 });
 
 type F14Case = {
   id: string;
@@ -67,7 +66,7 @@ const cases: F14Case[] = [
     "title": "Chọn VNPay cho giỏ dưới hạn mức",
     "group": "F14.1 – Lựa chọn phương thức",
     "steps": [
-      "Kiểm tra tổng giỏ dưới 20.000.000 đ.",
+      "Kiểm tra giỏ một Galaxy A07 5G có tổng dưới 30.000.000 đ.",
       "Chọn VNPay và xác nhận; mở lại bộ chọn."
     ],
     "expected": [
@@ -112,14 +111,14 @@ const cases: F14Case[] = [
   },
   {
     "id": "DDV_F14_008",
-    "title": "Chuyển từ Kim Ngân Pay sang EVO TPBank",
+    "title": "Chuyển từ Kim Ngân Pay sang Payoo",
     "group": "F14.2 – Chuyển đổi phương thức",
     "steps": [
-      "Xác nhận Kim Ngân Pay, sau đó xác nhận EVO TPBank.",
+      "Xác nhận Kim Ngân Pay, sau đó xác nhận Payoo.",
       "Mở lại bộ chọn."
     ],
     "expected": [
-      "EVO TPBank được chọn, Kim Ngân Pay bỏ chọn; không có hai lựa chọn đồng thời."
+      "Payoo được chọn, Kim Ngân Pay bỏ chọn; không có hai lựa chọn đồng thời."
     ]
   },
   {
@@ -171,14 +170,14 @@ const cases: F14Case[] = [
   },
   {
     "id": "DDV_F14_013",
-    "title": "Chọn EVO TPBank tại checkout",
+    "title": "Chọn OnePay tại checkout",
     "group": "F14.3 – Thông tin phương thức",
     "steps": [
-      "Đọc mô tả EVO TPBank.",
-      "Chọn EVO TPBank và xác nhận."
+      "Đọc mô tả OnePay.",
+      "Chọn OnePay và xác nhận."
     ],
     "expected": [
-      "Nhãn/mô tả nhận diện EVO TPBank; checkout lưu đúng phương thức này."
+      "OnePay có mô tả thanh toán qua ngân hàng. Checkout lưu đúng phương thức này."
     ]
   },
   {
@@ -186,10 +185,10 @@ const cases: F14Case[] = [
     "title": "Hiển thị tên và logo các phương thức thanh toán",
     "group": "F14.3 – Thông tin phương thức",
     "steps": [
-      "Mở bộ chọn; đối chiếu đủ 8 phương thức đang hỗ trợ và logo tương ứng."
+      "Mở bộ chọn và đối chiếu đủ 9 phương thức đang hỗ trợ cùng logo tương ứng."
     ],
     "expected": [
-      "Có đúng 8 phương thức: Chuyển khoản ngân hàng, COD, Apple Pay, Kim Ngân Pay, EVO TPBank, Zalopay, VNPay, MoMo. Mỗi tên/logo xuất hiện một lần; chỉ một radio được chọn."
+      "Có đúng 9 phương thức: Chuyển khoản ngân hàng, COD, Apple Pay, Kim Ngân Pay, Payoo, OnePay, Zalopay, VNPay, MoMo. Mỗi tên/logo xuất hiện một lần và chỉ một radio được chọn."
     ]
   },
   {
@@ -263,7 +262,7 @@ const cases: F14Case[] = [
       "Chọn Chuyển khoản ngân hàng và xác nhận làm phương thức thay thế."
     ],
     "expected": [
-      "Tổng giỏ vượt hạn mức VNPay 20.000.000 đ; VNPay bị khóa và không được chọn. Chuyển khoản ngân hàng vẫn khả dụng và được lưu. Không kiểm tra chính sách chặn COD từ 40 triệu trong case này."
+      "Tổng giỏ vượt hạn mức VNPay đang hiển thị; VNPay bị khóa và không được chọn. Chuyển khoản ngân hàng vẫn khả dụng và được lưu. Không kiểm tra chính sách chặn COD từ 40 triệu trong case này."
     ],
     "highValue": true
   },
@@ -386,6 +385,15 @@ const cases: F14Case[] = [
   }
 ];
 
+const reporting = createResultReporting('F14', cases);
+const test = base.extend<ResultReportingFixture>({
+  _finalEvidence: [reporting.resultFixture, { auto: true }],
+  context: reporting.contextFixture,
+  page: reporting.pageFixture,
+});
+test.use({ viewport: { width: 1440, height: 900 } });
+test.describe.configure({ timeout: 120_000 });
+
 async function unchangedAmount(page: Page, name: string) {
   const before = await total(page);
   await selectMethod(page, name);
@@ -427,7 +435,8 @@ const actions: Record<string, (page: Page) => Promise<void>> = {
     expect(await orderSnapshot(page)).toEqual(before);
   },
   DDV_F14_004: async page => {
-    expect(await total(page)).toBeLessThan(20_000_000);
+    // Hạn mức quan sát trên checkout ngày 25/11/2026. Case 020 đọc nhãn hiện hành.
+    expect(await total(page)).toBeLessThan(30_000_000);
     await selectMethod(page, VNPAY);
     await assertExclusive(page, VNPAY);
   },
@@ -445,8 +454,8 @@ const actions: Record<string, (page: Page) => Promise<void>> = {
     await assertExclusive(page, COD); await assertNoCardInputs(page);
   },
   DDV_F14_008: async page => {
-    await selectMethod(page, 'Kim Ngân Pay'); await selectMethod(page, 'EVO TPBank');
-    await assertExclusive(page, 'EVO TPBank');
+    await selectMethod(page, 'Kim Ngân Pay'); await selectMethod(page, 'Payoo');
+    await assertExclusive(page, 'Payoo');
   },
   DDV_F14_009: async page => {
     const before = await orderSnapshot(page);
@@ -474,8 +483,8 @@ const actions: Record<string, (page: Page) => Promise<void>> = {
   },
   DDV_F14_013: async page => {
     await openMethods(page);
-    await expect(method(page, 'EVO TPBank')).toContainText(/Cổng EVO TPBank/i);
-    await selectMethod(page, 'EVO TPBank');
+    await expect(method(page, 'OnePay')).toContainText(/Thanh toán Online.*Ngân hàng/i);
+    await selectMethod(page, 'OnePay'); await assertExclusive(page, 'OnePay');
   },
   DDV_F14_014: async page => {
     await openMethods(page);
@@ -531,8 +540,10 @@ const actions: Record<string, (page: Page) => Promise<void>> = {
     expect(amount, 'Fixture giá trị cao phải đạt từ 40 triệu').toBeGreaterThanOrEqual(40_000_000);
     await openMethods(page);
     const vnpay = method(page, VNPAY);
-    const limit = money(await vnpay.innerText());
-    expect(limit).toBe(20_000_000);
+    const limitLabel = vnpay.getByText(/^Giao dịch tối đa\s+[đ₫]?\s*[\d.,]+\s*[đ₫]?$/i);
+    await expect(limitLabel).toBeVisible();
+    const limit = money(await limitLabel.innerText());
+    expect(limit).toBeGreaterThan(0);
     expect(amount).toBeGreaterThan(limit);
     await expect(vnpay.locator('input[type="radio"]')).toBeDisabled();
     await expect(vnpay).toHaveAttribute('aria-checked', 'false');
@@ -634,18 +645,13 @@ const actions: Record<string, (page: Page) => Promise<void>> = {
 if (cases.length !== 30 || new Set(cases.map(c => c.id)).size !== 30 || Object.keys(actions).length !== 30) {
   throw new Error('F14 phải có đúng 30 case duy nhất và 30 hàm kiểm thử.');
 }
-test.describe('F14 | Tran Thi Minh Thu | Checkout Chromium | 30 cases', () => {
+test.describe('ASM08 | F14 | D14 | 30 scenarios', () => {
   for (const scenario of cases) {
-    test(`${scenario.id} - ${scenario.title}`, async ({ page }, testInfo) => {
+    test(`${scenario.id} - ${scenario.title}`, async ({ page }) => {
       const product = scenario.highValue ? HIGH_PRODUCT : scenario.quantityProduct ? QUANTITY_PRODUCT : undefined;
       await openCheckout(page, product);
       await test.step(scenario.title, () => actions[scenario.id](page));
       await assertNoPurchase(page);
-      await testInfo.attach(`${scenario.id}.png`, { body: await page.screenshot(), contentType: 'image/png' });
-      await testInfo.attach(`${scenario.id}.json`, {
-        body: JSON.stringify({ id: scenario.id, title: scenario.title, ...(await orderSnapshot(page)), selected: await page.locator('#payment-change-btn').innerText(), scope: 'checkout; no order/payment submitted' }, null, 2),
-        contentType: 'application/json',
-      });
     });
   }
 });
